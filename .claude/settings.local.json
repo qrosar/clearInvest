@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm exec:*)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(list\\(d.keys\\(\\)\\)\\)\")",
+      "Bash(node -e \"const d=require\\(''./messages/fr.json''\\); console.log\\(Object.keys\\(d\\)\\)\")",
+      "Bash(node -e \"require\\(''./messages/fr.json''\\)\")",
+      "Bash(node -e \"require\\(''./messages/fr.json''\\); console.log\\(''valid''\\)\")",
+      "Bash(node -e \"require\\(''./messages/fr.json''\\); console.log\\(''json valid''\\)\")",
+      "Bash(find c:/Users/Gebruiker/Documents/be-invest/app/[locale] -name \"page.tsx\")",
+      "Bash(grep -n '^  \"\"comprProduits\"\"\\\\|^  \"\"disclaimer\"\"' c:/Users/Gebruiker/Documents/be-invest/messages/en.json)",
+      "Bash(grep -n '^  \"\"comprProduits\"\"\\\\|^  \"\"disclaimer\"\"' c:/Users/Gebruiker/Documents/be-invest/messages/nl.json)",
+      "Bash(pnpm tsc:*)",
+      "Bash(node -e \"JSON.parse\\(require\\(''fs''\\).readFileSync\\(''messages/en.json'',''utf8''\\)\\); console.log\\(''en.json: valid JSON''\\)\")",
+      "Bash(node -e \"JSON.parse\\(require\\(''fs''\\).readFileSync\\(''messages/nl.json'',''utf8''\\)\\); console.log\\(''nl.json: valid JSON''\\)\")",
+      "Bash(node -e \":*)"
+    ]
+  }
+}
