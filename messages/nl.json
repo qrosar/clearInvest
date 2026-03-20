@@ -570,11 +570,12 @@
     "f2_p2": "Voor de grote meerderheid van beleggers met een standaard aandelen-ETF-portefeuille zijn alleen de beurstaks en eventueel de meerwaardebelasting van toepassing.",
     "s4_q": "Waarom geen vastgoed in plaats van ETF's?",
     "s4_p1": "Vastgoed is geen slechte strategie — het is een andere strategie, die veel meer vereist dan alleen geld.",
-    "s4_p2": "Zonder bankhefboom levert Belgisch vastgoed historisch gezien 6% tot 8% per jaar op — vergelijkbaar met een wereldwijde ETF. Het echte voordeel is de hefboom: een bank leent u voor stenen, niet voor ETF's. Met een eigen inbreng van 50.000 € op een pand van 250.000 €, kan uw rendement op de initiële inleg oplopen tot 15% à 20%.",
-    "s4_p3": "Maar deze hefboom heeft een prijs: 15% instapkosten (registratierechten + notaris), totale illiquiditeit, en een actief beheer dat meer weg heeft van een tweede baan dan van een passieve belegging.",
-    "s4_p4": "ETF's verslaan vastgoed met hefboom niet in termen van absoluut rendement. Ze winnen op eenvoud, liquiditeit, wereldwijde diversificatie, en het feit dat ze niets van uw tijd vragen.",
-    "s4_p5": "Beide kunnen naast elkaar bestaan in een evenwichtige vermogensstrategie.",
-    "s4_link": "→ Volledige analyse: Vastgoed vs ETF"
+    "s4_p2": "**Wat is een hefboom?** Dit is het gebruik van bankgeld om uw investeringscapaciteit te vergroten. Een bank leent u voor stenen, niet voor ETF's.",
+    "s4_p3": "Zonder hefboom levert Belgisch vastgoed historisch gezien 6% tot 8% per jaar op — vergelijkbaar met een wereldwijde ETF. Met een hefboom (bijv. 50k€ eigen inbreng voor een pand van 250k€) kon uw rendement op de initiële inleg in het tijdperk van lage rentes oplopen tot 15% à 20%.",
+    "s4_p4": "Maar deze hefboom is alleen voordelig als het rendement van het pand hoger is dan de rentevoet van het krediet. Met de stijgende rente kan dit effect neutraal worden of zelfs waarde vernietigen als de kosten van de lening het netto rendement overstijgen.",
+    "s4_p5": "Daarbovenop komen 15% instapkosten, totale illiquiditeit en een actief beheer dat lijkt op een tweede baan. ETF's winnen op eenvoud, liquiditeit en tijd.",
+    "s4_link": "→ Volledige analyse: Vastgoed vs ETF",
+    "s4_p6": "Beide kunnen naast elkaar bestaan in een evenwichtige vermogensstrategie."
   },
   "premierAchat": {
     "hero_tag": "Praktische gids",

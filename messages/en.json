@@ -570,11 +570,12 @@
     "f2_p2": "For the vast majority of investors with a standard equity ETF portfolio, only the TOB and possibly the CGT apply.",
     "s4_q": "Why not real estate instead of ETFs?",
     "s4_p1": "Real estate is not a bad strategy — it's a different strategy, which requires much more than just money.",
-    "s4_p2": "Without bank leverage, Belgian real estate has historically delivered 6% to 8% per year — comparable to a global ETF. Its real advantage is leverage: a bank will lend you for bricks, not for ETFs. With a €50,000 down payment on a €250,000 property, your return on initial investment can reach 15% to 20%.",
-    "s4_p3": "But this leverage has a price: 15% entry costs (registration duties + notary), total illiquidity, and active management that looks more like a second job than a passive investment.",
-    "s4_p4": "ETFs don't beat leveraged real estate in terms of absolute return. They win on simplicity, liquidity, global diversification, and the fact that they demand nothing of your time.",
-    "s4_p5": "Both can coexist in a balanced wealth strategy.",
-    "s4_link": "→ Full analysis: Real Estate vs ETF"
+    "s4_p2": "**What is leverage?** It's the act of using the bank's money to increase your investment capacity. A bank will lend you for bricks, not for ETFs.",
+    "s4_p3": "Without leverage, Belgian real estate has historically delivered 6% to 8% per year — comparable to a global ETF. With leverage (e.g., €50k down payment for a €250k property), your return on initial investment could reach 15% to 20% during the era of low rates.",
+    "s4_p4": "But this leverage is only beneficial if the property's yield is higher than the mortgage rate. With the rise in rates, this effect can become neutral or even destroy value if the cost of borrowing exceeds the net yield.",
+    "s4_p5": "Add to this 15% entry costs, total illiquidity, and active management that feels like a second job. ETFs win on simplicity, liquidity, and time.",
+    "s4_link": "→ Full analysis: Real Estate vs ETF",
+    "s4_p6": "Both can coexist in a balanced wealth strategy."
   },
   "premierAchat": {
     "hero_tag": "Practical guide",

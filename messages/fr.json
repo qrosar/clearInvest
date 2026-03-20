@@ -570,11 +570,12 @@
     "f2_p2": "Pour la grande majorité des investisseurs avec un portefeuille ETF actions standard, seules la TOB et éventuellement la CGT s'appliquent.",
     "s4_q": "Pourquoi pas l'immobilier plutôt que les ETF ?",
     "s4_p1": "L'immobilier n'est pas une mauvaise stratégie — c'est une stratégie différente, qui demande bien plus que de l'argent.",
-    "s4_p2": "Sans levier bancaire, l'immobilier belge délivre historiquement 6% à 8% par an — comparable à un ETF mondial. Son vrai avantage est le levier : une banque vous prête pour de la brique, pas pour des ETF. Avec un apport de 50 000 € sur un bien de 250 000 €, votre rendement sur mise initiale peut atteindre 15% à 20%.",
-    "s4_p3": "Mais ce levier a un prix : 15% de frais à l'entrée (droits d'enregistrement + notaire), une illiquidité totale, et une gestion active qui ressemble davantage à un deuxième job qu'à un investissement passif.",
-    "s4_p4": "Les ETF ne battent pas l'immobilier à levier en termes de rendement absolu. Ils gagnent sur la simplicité, la liquidité, la diversification mondiale, et le fait de ne rien exiger de votre temps.",
-    "s4_p5": "Les deux peuvent coexister dans une stratégie patrimoniale équilibrée.",
-    "s4_link": "→ Analyse complète : Immobilier vs ETF"
+    "s4_p2": "**Qu'est-ce que le levier ?** C'est le fait d'utiliser l'argent de la banque pour augmenter votre capacité d'investissement. Une banque vous prête pour de la brique, pas pour des ETF.",
+    "s4_p3": "Sans levier, l'immobilier belge délivre historiquement 6% à 8% par an — comparable à un ETF mondial. Avec levier (ex: apport de 50k€ pour un bien de 250k€), votre rendement sur mise initiale pouvait atteindre 15% à 20% à l'époque des taux bas.",
+    "s4_p4": "Mais ce levier n'est avantageux que si le rendement du bien est supérieur au taux du crédit. Avec la remontée des taux, cet effet peut devenir neutre, voire détruire de la valeur si le coût de l'emprunt dépasse le rendement net.",
+    "s4_p5": "À cela s'ajoutent 15% de frais d'entrée, une illiquidité totale et une gestion active qui ressemble à un deuxième job. Les ETF gagnent sur la simplicité, la liquidité et le temps.",
+    "s4_link": "→ Analyse complète : Immobilier vs ETF",
+    "s4_p6": "Les deux peuvent coexister dans une stratégie patrimoniale équilibrée."
   },
   "premierAchat": {
     "hero_tag": "Guide pratique",
