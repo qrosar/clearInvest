@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
+import { Analytics } from "@vercel/analytics/react";
 import '../globals.css';
 
 const playfair = Playfair_Display({
@@ -51,6 +52,7 @@ export default async function LocaleLayout({
           <Nav />
           {children}
           <Footer />
+          <Analytics />
         </NextIntlClientProvider>
       </body>
     </html>
