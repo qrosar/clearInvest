@@ -283,7 +283,7 @@ export function computeGrowth(
     pensionTax: Math.round(pensionAmt),
     taxBenefit: Math.round(taxBenefitAcc),
     pensionSidePotFinal: Math.round(pensionSidePot),
-    total: Math.max(0, grossCosts - Math.round(taxBenefitAcc)),
+    total: grossCosts,
   };
 
   return {

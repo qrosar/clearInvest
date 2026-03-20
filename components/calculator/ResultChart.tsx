@@ -34,21 +34,25 @@ interface CustomTooltipProps {
 
 function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
   const t = useTranslations('calculator');
+  const td = useTranslations();
   if (!active || !payload?.length) return null;
   return (
     <div className="rounded-lg border border-[var(--warm-tan)]/50 bg-[var(--warm-white)] p-3 shadow-lg text-xs">
       <p className="mb-2 font-semibold text-[var(--charcoal)]">
         {t('chart_after_years', { count: Number(label) })}
       </p>
-      {payload.map((entry, i) => (
-        <div key={entry.dataKey ?? i} className="flex items-center gap-2 py-0.5">
-          <span className="h-2 w-2 rounded-full flex-shrink-0" style={{ backgroundColor: entry.color }} />
-          <span className="text-[var(--charcoal)]/60 truncate">{entry.name}</span>
-          <span className="ml-auto font-semibold text-[var(--charcoal)]">
-            {formatEuro(entry.value ?? 0)}
-          </span>
-        </div>
-      ))}
+      {payload.map((entry, i) => {
+        const translatedName = entry.name?.startsWith('data.') ? td(entry.name as any) : entry.name;
+        return (
+          <div key={entry.dataKey ?? i} className="flex items-center gap-2 py-0.5">
+            <span className="h-2 w-2 rounded-full flex-shrink-0" style={{ backgroundColor: entry.color }} />
+            <span className="text-[var(--charcoal)]/60 truncate">{translatedName}</span>
+            <span className="ml-auto font-semibold text-[var(--charcoal)]">
+              {formatEuro(entry.value ?? 0)}
+            </span>
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -60,6 +64,7 @@ function yFormatter(value: number): string {
 }
 
 export default function ResultChart({ data, products }: Props) {
+  const td = useTranslations();
   if (!data.length || !products.length) return null;
 
   return (
@@ -83,9 +88,10 @@ export default function ResultChart({ data, products }: Props) {
         />
         <Tooltip content={<CustomTooltip />} />
         <Legend
-          formatter={(value: string) => (
-            <span style={{ fontSize: 11, color: '#2c2c2c', opacity: 0.6 }}>{value}</span>
-          )}
+          formatter={(value: string) => {
+            const translatedValue = value.startsWith('data.') ? td(value as any) : value;
+            return <span style={{ fontSize: 11, color: '#2c2c2c', opacity: 0.6 }}>{translatedValue}</span>;
+          }}
         />
         {products.map(product => (
           <Line

@@ -117,8 +117,8 @@ function ResultCard({
   const isBranche21 = !!(product.taxConfig?.branche21WithholdingTax);
   const isBranche21Exempt = isBranche21 && years >= (product.taxConfig?.branche21MinYears ?? 8);
 
-  const name = product.name.startsWith('data.') ? td(product.name as any) : product.name;
-  const provider = product.provider?.startsWith('data.') ? td(product.provider as any) : product.provider;
+  const name = product.name;
+  const provider = product.provider;
 
   return (
     <div className="flex min-w-0 flex-col rounded-xl border border-[var(--warm-tan)]/40 bg-[var(--warm-white)] p-5">
@@ -248,13 +248,28 @@ function ResultCard({
               label={isBranche21 ? t('tax_detail_entry_fee_assureur') : (isPensionOnCard || isActiveFund) ? t('tax_detail_entry_fee_fund') : t('tax_detail_entry_fee')}
               amount={bd.entryFees}
             />}
-            {bd.pensionTax > 0 && <BreakdownRow label={t('tax_detail_pension')} amount={bd.pensionTax} />}
+            
+            {/* Pension exit tax (8%) */}
+            {bd.pensionTax > 0 && (
+              <div className="flex items-baseline justify-between gap-3">
+                <span className="whitespace-nowrap text-[var(--charcoal)]/45">{t('tax_detail_pension')}</span>
+                <span className="text-right text-[#dc2626]">−{formatEuro(bd.pensionTax)}</span>
+              </div>
+            )}
 
-            {/* Pension savings tax benefit — shown as negative (green) */}
+            {/* Pension savings tax relief (benefit) */}
             {hasBenefit && (
               <div className="flex items-baseline justify-between gap-3">
-                <span className="whitespace-nowrap text-[var(--forest)]/70">{t('tax_detail_pension_benefit')}</span>
-                <span className="text-right font-medium text-[var(--forest)]">−{formatEuro(bd.taxBenefit)}</span>
+                <div className="flex items-center gap-1.5 whitespace-nowrap text-[var(--forest)]/70">
+                  <span>{t('tax_detail_pension_benefit')}</span>
+                  <CgtTooltip text={td('p_pension_relief_tooltip' as any)} />
+                </div>
+                <div className="text-right">
+                  <span className="font-medium text-[var(--forest)]">+{formatEuro(bd.taxBenefit)}</span>
+                  <p className="text-[9px] text-[var(--forest)]/50 leading-none mt-0.5">
+                    {t('tax_detail_pension_benefit_note', { years })}
+                  </p>
+                </div>
               </div>
             )}
 
