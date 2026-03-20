@@ -1,6 +1,31 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: Promise<{ locale: string }> 
+}) {
+  const { locale } = await params;
+  const titles = { 
+    fr: 'Fiscalité des ETF en Belgique 2026 — TOB, Reynders, CGT', 
+    nl: 'Belasting op ETF\'s in België 2026 — TOB, Reynders, CGT', 
+    en: 'ETF Taxation in Belgium 2026 — TOB, Reynders, CGT' 
+  }
+  const descriptions = { 
+    fr: 'TOB, précompte mobilier, taxe Reynders et taxe sur les plus-values : tout savoir sur la fiscalité belge.', 
+    nl: 'TOB, roerende voorheffing, Reynders-taks en meerwaardebelasting: alles over de Belgische fiscaliteit.', 
+    en: 'TOB, withholding tax, Reynders tax and capital gains tax: everything you need to know about Belgian taxation.' 
+  }
+  return {
+    title: titles[locale as keyof typeof titles] ?? titles.fr,
+    description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
+    alternates: {
+      canonical: `https://clearinvest.be/${locale}/comprendre/fiscalite`,
+    },
+  }
+}
+
 // ── Editorial primitives ───────────────────────────────────────────────────────
 
 function SectionHeading({ children }: { children: React.ReactNode }) {

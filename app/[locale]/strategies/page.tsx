@@ -1,6 +1,31 @@
 import { getTranslations } from 'next-intl/server';
 import StrategiesPage from '@/components/strategies/StrategiesPage';
 
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: Promise<{ locale: string }> 
+}) {
+  const { locale } = await params;
+  const titles = { 
+    fr: 'Stratégies ETF pour investisseurs belges — IMIE, IWDA, CSPX', 
+    nl: 'ETF-strategieën voor Belgische beleggers — IMIE, IWDA, CSPX', 
+    en: 'ETF Strategies for Belgian Investors — IMIE, IWDA, CSPX' 
+  }
+  const descriptions = { 
+    fr: 'Découvrez les meilleures stratégies passives adaptées à la fiscalité belge.', 
+    nl: 'Ontdek de beste passieve strategieën aangepast aan de Belgische fiscaliteit.', 
+    en: 'Discover the best passive strategies adapted to Belgian taxation.' 
+  }
+  return {
+    title: titles[locale as keyof typeof titles] ?? titles.fr,
+    description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
+    alternates: {
+      canonical: `https://clearinvest.be/${locale}/strategies`,
+    },
+  }
+}
+
 export default async function StrategiesRoute() {
   const t = await getTranslations('strategiesPage');
 

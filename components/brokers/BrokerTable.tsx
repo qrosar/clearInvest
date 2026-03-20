@@ -78,7 +78,7 @@ function protectionShort(broker: Broker): string {
 // Explicit display order, grouped by tier
 const DISPLAY_ORDER = [
   'medirect', 'saxo',                                        // recommended
-  'bolero', 'degiro', 'rebel', 'keytrade', 'trade-republic', // situational
+  'bolero', 'degiro', 'rebel', 'keytrade', 'trade_republic', // situational
   'ing', 'ibkr',                                             // not_recommended
 ];
 
@@ -309,7 +309,7 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
 
                         <td className={`${TD} text-center`}>
                           {broker.automation.savingsPlan ? (
-                            broker.id === 'trade-republic' ? (
+                            broker.id === 'trade_republic' ? (
                               <YesStar href="#fn-tr-savings" />
                             ) : (
                               <Yes />

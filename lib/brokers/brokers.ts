@@ -75,9 +75,9 @@ export const BROKERS: Broker[] = [
     tier: 'recommended',
     regulatedIn: 'regulated_be',
     fees: {
-      fixedFeePerTrade: 'data.brokers.saxo.fees.fixed',
+      fixedFeePerTrade: '€2,00',
       percentFeePerTrade: '—',
-      fxFee: 'data.brokers.saxo.fees.fx',
+      fxFee: '0,25%',
       custodyFee: 'fees_none',
       savingsPlanFee: 'saxo_fee_savings',
     },
@@ -92,18 +92,18 @@ export const BROKERS: Broker[] = [
     cons: ['saxo_con_0', 'saxo_con_1'],
     idealFor: 'saxo_ideal',
     feeStory: [
-      { label: 'saxo_fs0_label', value: 'saxo_fs0_value', note: 'saxo_fs0_note' },
-      { label: 'saxo_fs1_label', value: 'saxo_fs1_value' },
+      { label: 'saxo_fs0_label', value: '0,08% (min €2)', note: 'saxo_fs0_note' },
+      { label: 'saxo_fs1_label', value: '0,25%' },
     ],
   },
   {
     id: 'bolero',
     name: 'Bolero',
     tagline: 'bolero_tagline',
-    tier: 'recommended',
+    tier: 'situational',
     regulatedIn: 'regulated_be',
     fees: {
-      fixedFeePerTrade: 'data.brokers.bolero.fees.fixed',
+      fixedFeePerTrade: '€2,50',
       percentFeePerTrade: '—',
       fxFee: 'fees_none',
       custodyFee: 'fees_none',
@@ -120,8 +120,8 @@ export const BROKERS: Broker[] = [
     cons: ['bolero_con_0', 'bolero_con_1'],
     idealFor: 'bolero_ideal',
     feeStory: [
-      { label: 'bolero_fs0_label', value: 'data.brokers.bolero.fees.fixed_alt', note: 'bolero_fs0_note' },
-      { label: 'bolero_fs1_label', value: 'data.brokers.bolero.fees.fixed_min' },
+      { label: 'bolero_fs0_label', value: '€2,50 – €5,00', note: 'bolero_fs0_note' },
+      { label: 'bolero_fs1_label', value: '€7,50 minimum' },
       { label: 'bolero_fs2_label', value: 'bolero_fs2_value' },
     ],
   },
@@ -132,9 +132,9 @@ export const BROKERS: Broker[] = [
     tier: 'situational',
     regulatedIn: 'regulated_eu',
     fees: {
-      fixedFeePerTrade: 'data.brokers.degiro.fees.fixed',
+      fixedFeePerTrade: '€1,00',
       percentFeePerTrade: '—',
-      fxFee: 'data.brokers.degiro.fees.fx',
+      fxFee: '0,25% + €0,50',
       custodyFee: 'fees_none',
       savingsPlanFee: 'fees_not_available',
     },
@@ -150,8 +150,8 @@ export const BROKERS: Broker[] = [
     idealFor: 'degiro_ideal',
     warningNote: 'degiro_warning',
     feeStory: [
-      { label: 'degiro_fs0_label', value: 'data.brokers.degiro.fees.fixed_alt' },
-      { label: 'degiro_fs1_label', value: 'data.brokers.degiro.fees.variable' },
+      { label: 'degiro_fs0_label', value: '€1,00 par achat' },
+      { label: 'degiro_fs1_label', value: '€3,00 + 0,02%' },
       { label: 'degiro_fs2_label', value: 'fees_declare_manual' },
     ],
     guideLink: { text: 'guide_foreign_account', href: '/ressources/declarer-compte-etranger' },
@@ -163,9 +163,9 @@ export const BROKERS: Broker[] = [
     tier: 'situational',
     regulatedIn: 'regulated_be',
     fees: {
-      fixedFeePerTrade: 'data.brokers.rebel.fees.fixed',
+      fixedFeePerTrade: '€1,00',
       percentFeePerTrade: '—',
-      fxFee: 'data.brokers.rebel.fees.fx',
+      fxFee: '1,00%',
       custodyFee: 'fees_none',
       savingsPlanFee: 'fees_not_available',
     },
@@ -180,8 +180,8 @@ export const BROKERS: Broker[] = [
     cons: ['rebel_con_0', 'rebel_con_1', 'rebel_con_2'],
     idealFor: 'rebel_ideal',
     feeStory: [
-      { label: 'rebel_fs0_label', value: 'data.brokers.rebel.fees.fixed' },
-      { label: 'rebel_fs1_label', value: 'data.brokers.rebel.fees.fixed_alt' },
+      { label: 'rebel_fs0_label', value: '€3,00 – €6,00' },
+      { label: 'rebel_fs1_label', value: '1,00% (élevé)' },
     ],
   },
   {
@@ -191,7 +191,7 @@ export const BROKERS: Broker[] = [
     tier: 'situational',
     regulatedIn: 'regulated_be',
     fees: {
-      fixedFeePerTrade: 'data.brokers.keytrade.fees.fixed',
+      fixedFeePerTrade: '€2,45',
       percentFeePerTrade: '—',
       fxFee: 'fees_none',
       custodyFee: 'fees_none',
@@ -208,8 +208,8 @@ export const BROKERS: Broker[] = [
     cons: ['keytrade_con_0', 'keytrade_con_1'],
     idealFor: 'keytrade_ideal',
     feeStory: [
-      { label: 'keytrade_fs0_label', value: 'data.brokers.keytrade.fees.fixed' },
-      { label: 'keytrade_fs1_label', value: 'data.brokers.keytrade.fees.fixed_alt' },
+      { label: 'keytrade_fs0_label', value: '€2,45' },
+      { label: 'keytrade_fs1_label', value: '€5,95' },
     ],
   },
   {
@@ -219,7 +219,7 @@ export const BROKERS: Broker[] = [
     tier: 'not_recommended',
     regulatedIn: 'regulated_eu',
     fees: {
-      fixedFeePerTrade: 'data.brokers.degiro.fees.fixed',
+      fixedFeePerTrade: '€1,00',
       percentFeePerTrade: '—',
       fxFee: 'fees_none',
       custodyFee: 'fees_none',
@@ -238,7 +238,7 @@ export const BROKERS: Broker[] = [
     warningNote: 'trade_republic_warning',
     feeStory: [
       { label: 'trade_republic_fs0_label', value: 'fees_free' },
-      { label: 'trade_republic_fs1_label', value: 'data.brokers.degiro.fees.fixed' },
+      { label: 'trade_republic_fs1_label', value: '€1,00' },
       { label: 'trade_republic_fs2_label', value: 'fees_declare_manual' },
     ],
     guideLink: { text: 'guide_foreign_account', href: '/ressources/declarer-compte-etranger' },
@@ -250,10 +250,10 @@ export const BROKERS: Broker[] = [
     tier: 'not_recommended',
     regulatedIn: 'regulated_be',
     fees: {
-      fixedFeePerTrade: 'data.brokers.ing.fees.fixed',
-      percentFeePerTrade: 'data.brokers.ing.fees.percent',
-      fxFee: 'data.brokers.ing.fees.fx',
-      custodyFee: 'data.brokers.ing.fees.custody',
+      fixedFeePerTrade: '€1,00',
+      percentFeePerTrade: '0,35%',
+      fxFee: '1,00%',
+      custodyFee: '0,0242%/mois',
       savingsPlanFee: 'ing_fee_savings',
     },
     automation: {
@@ -268,8 +268,8 @@ export const BROKERS: Broker[] = [
     idealFor: 'ing_ideal',
     warningNote: 'ing_warning',
     feeStory: [
-      { label: 'ing_fs0_label', value: 'data.brokers.ing.fees.percent' },
-      { label: 'ing_fs1_label', value: 'data.brokers.ing.fees.custody', note: 'ing_fs1_note' },
+      { label: 'ing_fs0_label', value: '0,35%' },
+      { label: 'ing_fs1_label', value: '0,0242%/mois', note: 'ing_fs1_note' },
     ],
   },
   {
@@ -279,8 +279,8 @@ export const BROKERS: Broker[] = [
     tier: 'not_recommended',
     regulatedIn: 'regulated_eu',
     fees: {
-      fixedFeePerTrade: 'data.brokers.ibkr.fees.fixed_min',
-      percentFeePerTrade: 'data.brokers.ibkr.fees.percent',
+      fixedFeePerTrade: '~€1,25',
+      percentFeePerTrade: '0,05%',
       fxFee: 'ibkr_fee_fx',
       custodyFee: 'fees_none',
       savingsPlanFee: 'fees_not_available',
@@ -302,8 +302,8 @@ export const BROKERS: Broker[] = [
     idealFor: 'ibkr_ideal',
     warningNote: 'ibkr_warning',
     feeStory: [
-      { label: 'ibkr_fs0_label', value: 'data.brokers.ibkr.fees.fixed_min' },
-      { label: 'ibkr_fs1_label', value: 'data.brokers.ibkr.fees.percent' },
+      { label: 'ibkr_fs0_label', value: '~€1,25' },
+      { label: 'ibkr_fs1_label', value: '0,05%' },
       { label: 'ibkr_fs2_label', value: 'fees_declare_manual' },
     ],
     guideLink: { text: 'guide_foreign_account', href: '/ressources/declarer-compte-etranger' },

@@ -1,6 +1,31 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: Promise<{ locale: string }> 
+}) {
+  const { locale } = await params;
+  const titles = { 
+    fr: 'Déclarer son compte broker étranger en Belgique — Guide 2026', 
+    nl: 'Buitenlandse brokerrekening aangeven in België — Gids 2026', 
+    en: 'Declaring a Foreign Broker Account in Belgium — 2026 Guide' 
+  }
+  const descriptions = { 
+    fr: 'Comment déclarer votre compte DEGIRO, Trade Republic ou IBKR à la BNB et sur votre déclaration fiscale.', 
+    nl: 'Hoe geeft u uw DEGIRO-, Trade Republic- of IBKR-rekening aan bij de NBB en op uw belastingaangifte.', 
+    en: 'How to declare your DEGIRO, Trade Republic or IBKR account to the NBB and on your tax return.' 
+  }
+  return {
+    title: titles[locale as keyof typeof titles] ?? titles.fr,
+    description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
+    alternates: {
+      canonical: `https://clearinvest.be/${locale}/ressources/declarer-compte-etranger`,
+    },
+  }
+}
+
 // ── Sub-components ─────────────────────────────────────────────────────────────
 
 function TipBox({ label, children }: { label: string; children: React.ReactNode }) {

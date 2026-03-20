@@ -3,6 +3,31 @@ import Hero from '@/components/home/Hero';
 import ToolsGrid from '@/components/home/ToolsGrid';
 import StrategiesPreview from '@/components/home/StrategiesPreview';
 
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: Promise<{ locale: string }> 
+}) {
+  const { locale } = await params;
+  const titles = { 
+    fr: 'Investir en ETF en Belgique — Guides et calculateur', 
+    nl: 'Beleggen in ETF\'s in België — Gidsen en rekenmachine', 
+    en: 'ETF Investing in Belgium — Guides and Calculator' 
+  }
+  const descriptions = { 
+    fr: 'Comparez ETFs et produits bancaires, découvrez les meilleures stratégies et brokers pour investir en Belgique.', 
+    nl: 'Vergelijk ETF\'s en bankproducten, ontdek de beste strategieën en brokers om in België te beleggen.', 
+    en: 'Compare ETFs and banking products, discover the best strategies and brokers for investing in Belgium.' 
+  }
+  return {
+    title: titles[locale as keyof typeof titles] ?? titles.fr,
+    description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
+    alternates: {
+      canonical: `https://clearinvest.be/${locale}`,
+    },
+  }
+}
+
 export default async function HomePage() {
   const t = await getTranslations('home');
   const trustItems = [t('trust_1'), t('trust_2'), t('trust_3')];

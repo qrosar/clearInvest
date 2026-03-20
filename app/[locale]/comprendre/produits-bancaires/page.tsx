@@ -1,6 +1,31 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: Promise<{ locale: string }> 
+}) {
+  const { locale } = await params;
+  const titles = { 
+    fr: 'Les produits bancaires belges expliqués — Épargne, Branche 21, Pension', 
+    nl: 'Belgische bankproducten uitgelegd — Sparen, Tak 21, Pensioen', 
+    en: 'Belgian Banking Products Explained — Savings, Branch 21, Pension' 
+  }
+  const descriptions = { 
+    fr: 'Comptes épargne, bons de caisse, branche 21 et épargne-pension : comment ils fonctionnent réellement.', 
+    nl: 'Spaarrekeningen, kasbons, tak 21 en pensioensparen: hoe ze echt werken.', 
+    en: 'Savings accounts, savings bonds, branch 21 and pension savings: how they really work.' 
+  }
+  return {
+    title: titles[locale as keyof typeof titles] ?? titles.fr,
+    description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
+    alternates: {
+      canonical: `https://clearinvest.be/${locale}/comprendre/produits-bancaires`,
+    },
+  }
+}
+
 // ── Editorial primitives ───────────────────────────────────────────────────────
 
 function SectionHeading({ children }: { children: React.ReactNode }) {

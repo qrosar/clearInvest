@@ -1,6 +1,25 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: Promise<{ locale: string }> 
+}) {
+  const { locale } = await params;
+  const titles = { 
+    fr: 'Mentions Légales — ClearInvest', 
+    nl: 'Juridische informatie — ClearInvest', 
+    en: 'Legal Mentions — ClearInvest' 
+  }
+  return {
+    title: titles[locale as keyof typeof titles] ?? titles.fr,
+    alternates: {
+      canonical: `https://clearinvest.be/${locale}/mentions-legales`,
+    },
+  }
+}
+
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="mb-10">

@@ -1,6 +1,31 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: Promise<{ locale: string }> 
+}) {
+  const { locale } = await params;
+  const titles = { 
+    fr: 'Comprendre l\'investissement en ETF — Guides pour Belges', 
+    nl: 'ETF-beleggen begrijpen — Gidsen voor Belgen', 
+    en: 'Understanding ETF Investing — Guides for Belgian Investors' 
+  }
+  const descriptions = { 
+    fr: 'Trois guides clairs pour prendre les bonnes décisions d\'investissement en Belgique, sans jargon.', 
+    nl: 'Drie heldere gidsen om de juiste beleggingsbeslissingen te nemen in België, zonder jargon.', 
+    en: 'Three clear guides to make the right investment decisions in Belgium, without jargon.' 
+  }
+  return {
+    title: titles[locale as keyof typeof titles] ?? titles.fr,
+    description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
+    alternates: {
+      canonical: `https://clearinvest.be/${locale}/comprendre`,
+    },
+  }
+}
+
 const CARD_HREFS = [
   { href: '/comprendre/etf',              icon: '📈', tagClass: 'bg-amber-100 text-amber-700',                          titleKey: 'card1_title', descKey: 'card1_desc', tagKey: 'card1_tag' },
   { href: '/comprendre/produits-bancaires', icon: '🏦', tagClass: 'bg-[var(--warm-tan)]/40 text-[var(--charcoal)]/60', titleKey: 'card2_title', descKey: 'card2_desc', tagKey: 'card2_tag' },

@@ -1,6 +1,31 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: Promise<{ locale: string }> 
+}) {
+  const { locale } = await params;
+  const titles = { 
+    fr: 'Comment passer son premier ordre d\'achat d\'ETF en Belgique', 
+    nl: 'Hoe plaats je je eerste ETF-kooporder in België', 
+    en: 'How to Place Your First ETF Buy Order in Belgium' 
+  }
+  const descriptions = { 
+    fr: 'Guide pas à pas pour passer votre premier ordre de bourse : ISIN, type d\'ordre et vérifications.', 
+    nl: 'Stapsgewijze gids voor het plaatsen van uw eerste beursorder: ISIN, ordertype en controles.', 
+    en: 'Step-by-step guide to placing your first stock market order: ISIN, order type and checks.' 
+  }
+  return {
+    title: titles[locale as keyof typeof titles] ?? titles.fr,
+    description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
+    alternates: {
+      canonical: `https://clearinvest.be/${locale}/ressources/premier-achat`,
+    },
+  }
+}
+
 // ── Sub-components ─────────────────────────────────────────────────────────────
 
 function TipBox({ label, children }: { label: string; children: React.ReactNode }) {

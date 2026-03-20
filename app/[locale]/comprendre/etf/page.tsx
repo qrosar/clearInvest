@@ -1,6 +1,31 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: Promise<{ locale: string }> 
+}) {
+  const { locale } = await params;
+  const titles = { 
+    fr: 'Pourquoi investir en ETF ? La réponse honnête', 
+    nl: 'Waarom beleggen in ETF\'s? Het eerlijke antwoord', 
+    en: 'Why Invest in ETFs? The Honest Answer' 
+  }
+  const descriptions = { 
+    fr: 'Découvrez les avantages structurels des ETF par rapport aux fonds bancaires : frais, diversification et performance.', 
+    nl: 'Ontdek de structurele voordelen van ETF\'s ten opzichte van bankfondsen: kosten, diversificatie en prestaties.', 
+    en: 'Discover the structural advantages of ETFs compared to banking funds: fees, diversification and performance.' 
+  }
+  return {
+    title: titles[locale as keyof typeof titles] ?? titles.fr,
+    description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
+    alternates: {
+      canonical: `https://clearinvest.be/${locale}/comprendre/etf`,
+    },
+  }
+}
+
 // ── Reusable editorial primitives ─────────────────────────────────────────────
 
 function SectionHeading({ children }: { children: React.ReactNode }) {

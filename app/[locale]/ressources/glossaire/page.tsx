@@ -1,6 +1,31 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: Promise<{ locale: string }> 
+}) {
+  const { locale } = await params;
+  const titles = { 
+    fr: 'Glossaire de l\'investissement — Termes ETF expliqués', 
+    nl: 'Beleggingswoordenlijst — ETF-termen uitgelegd', 
+    en: 'Investment Glossary — ETF Terms Explained' 
+  }
+  const descriptions = { 
+    fr: 'Retrouvez la définition des termes techniques de l\'investissement passif et des ETF.', 
+    nl: 'Vind de definitie van de technische termen van passief beleggen en ETF\'s.', 
+    en: 'Find the definition of technical terms for passive investing and ETFs.' 
+  }
+  return {
+    title: titles[locale as keyof typeof titles] ?? titles.fr,
+    description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
+    alternates: {
+      canonical: `https://clearinvest.be/${locale}/ressources/glossaire`,
+    },
+  }
+}
+
 // ── Types ──────────────────────────────────────────────────────────────────────
 
 interface Term {

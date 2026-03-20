@@ -20,14 +20,55 @@ const dmSans = DM_Sans({
   display: 'swap',
 });
 
-export const metadata: Metadata = {
-  title: 'ClearInvest — Investir simplement en Belgique',
-  description:
-    'ClearInvest vous aide à comprendre l\'investissement en ETF en Belgique — calculateur, stratégies, comparatif brokers. Gratuit et indépendant.',
-  openGraph: {
-    siteName: 'ClearInvest',
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  
+  const titles = {
+    fr: 'ClearInvest — Investir simplement en Belgique',
+    nl: 'ClearInvest — Eenvoudig beleggen in België',
+    en: 'ClearInvest — Simple ETF Investing in Belgium',
+  }
+  
+  const descriptions = {
+    fr: 'Guides, calculateur et comparatifs pour investir en ETF en Belgique. Indépendant, gratuit, sans jargon.',
+    nl: 'Gidsen, rekenmachine en vergelijkingen voor ETF-beleggen in België. Onafhankelijk, gratis, zonder jargon.',
+    en: 'Guides, calculator and comparisons for ETF investing in Belgium. Independent, free, no jargon.',
+  }
+  
+  return {
+    metadataBase: new URL('https://clearinvest.be'),
+    title: {
+      default: titles[locale as keyof typeof titles] ?? titles.fr,
+      template: '%s | ClearInvest',
+    },
+    description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
+    alternates: {
+      canonical: `https://clearinvest.be/${locale}`,
+      languages: {
+        'fr-BE': 'https://clearinvest.be/fr',
+        'nl-BE': 'https://clearinvest.be/nl',
+        'en': 'https://clearinvest.be/en',
+      },
+    },
+    openGraph: {
+      siteName: 'ClearInvest',
+      locale: locale,
+      type: 'website',
+      url: `https://clearinvest.be/${locale}`,
+      title: titles[locale as keyof typeof titles] ?? titles.fr,
+      description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: titles[locale as keyof typeof titles] ?? titles.fr,
+      description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+  }
+}
 
 export default async function LocaleLayout({
   children,

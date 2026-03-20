@@ -1,6 +1,31 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: Promise<{ locale: string }> 
+}) {
+  const { locale } = await params;
+  const titles = { 
+    fr: 'À propos de ClearInvest — Mission et indépendance', 
+    nl: 'Over ClearInvest — Missie en onafhankelijkheid', 
+    en: 'About ClearInvest — Mission and Independence' 
+  }
+  const descriptions = { 
+    fr: 'Découvrez qui est derrière ClearInvest et pourquoi nous prônons l\'investissement passif indépendant.', 
+    nl: 'Ontdek wie er achter ClearInvest zit en waarom we pleiten voor onafhankelijk passief beleggen.', 
+    en: 'Discover who is behind ClearInvest and why we advocate for independent passive investing.' 
+  }
+  return {
+    title: titles[locale as keyof typeof titles] ?? titles.fr,
+    description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
+    alternates: {
+      canonical: `https://clearinvest.be/${locale}/a-propos`,
+    },
+  }
+}
+
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="mb-10">

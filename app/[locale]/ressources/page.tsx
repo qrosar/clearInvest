@@ -1,6 +1,31 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: Promise<{ locale: string }> 
+}) {
+  const { locale } = await params;
+  const titles = { 
+    fr: 'Ressources pour investisseurs belges — Guides pratiques', 
+    nl: 'Bronnen voor Belgische beleggers — Praktische gidsen', 
+    en: 'Resources for Belgian Investors — Practical Guides' 
+  }
+  const descriptions = { 
+    fr: 'Tout ce dont vous avez besoin pour passer à l\'action : premier achat, déclaration fiscale et glossaire.', 
+    nl: 'Alles wat u nodig heeft om in actie te komen: eerste aankoop, belastingaangifte en woordenlijst.', 
+    en: 'Everything you need to take action: first purchase, tax declaration and glossary.' 
+  }
+  return {
+    title: titles[locale as keyof typeof titles] ?? titles.fr,
+    description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
+    alternates: {
+      canonical: `https://clearinvest.be/${locale}/ressources`,
+    },
+  }
+}
+
 export default async function RessourcesPage() {
   const t = await getTranslations('ressourcesPage');
 
