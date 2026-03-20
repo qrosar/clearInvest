@@ -28,63 +28,61 @@ export async function generateMetadata({
 
 // ── Sub-components ─────────────────────────────────────────────────────────────
 
-function ComparisonCard() {
-  return async function ComparisonCardContent() {
-    const t = await getTranslations('immobilierVsEtf');
-    const items = [
-      { label: 'yield', icon: '📈' },
-      { label: 'liq', icon: '💧' },
-      { label: 'div', icon: '🌐' },
-      { label: 'levier', icon: '⚖️' },
-      { label: 'mgmt', icon: '⏳' },
-      { label: 'min', icon: '💰' },
-    ];
+async function ComparisonCard() {
+  const t = await getTranslations('immobilierVsEtf');
+  const items = [
+    { label: 'yield', icon: '📈' },
+    { label: 'liq', icon: '💧' },
+    { label: 'div', icon: '🌐' },
+    { label: 'levier', icon: '⚖️' },
+    { label: 'mgmt', icon: '⏳' },
+    { label: 'min', icon: '💰' },
+  ];
 
-    return (
-      <div className="my-10 overflow-hidden rounded-2xl border border-[var(--warm-tan)]/50 bg-[var(--warm-white)] shadow-sm">
-        <div className="grid grid-cols-2 divide-x divide-[var(--warm-tan)]/30">
-          {/* Immobilier */}
-          <div className="p-5 sm:p-6">
-            <h3 className="mb-6 text-center font-heading text-lg font-bold text-[var(--charcoal)]">
-              {t('comp_left_title')}
-            </h3>
-            <div className="space-y-5">
-              {items.map(item => (
-                <div key={item.label}>
-                  <p className="mb-1 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[var(--charcoal)]/35">
-                    <span>{item.icon}</span>
-                    {/* We reuse labels from right if they are the same category, or just use keys */}
-                  </p>
-                  <p className="text-sm font-medium text-[var(--charcoal)]">
-                    {t(`comp_left_${item.label}` as any)}
-                  </p>
-                </div>
-              ))}
-            </div>
+  return (
+    <div className="my-10 overflow-hidden rounded-2xl border border-[var(--warm-tan)]/50 bg-[var(--warm-white)] shadow-sm">
+      <div className="grid grid-cols-2 divide-x divide-[var(--warm-tan)]/30">
+        {/* Immobilier */}
+        <div className="p-5 sm:p-6">
+          <h3 className="mb-6 text-center font-heading text-lg font-bold text-[var(--charcoal)]">
+            {t('comp_left_title')}
+          </h3>
+          <div className="space-y-5">
+            {items.map(item => (
+              <div key={item.label}>
+                <p className="mb-1 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[var(--charcoal)]/35">
+                  <span>{item.icon}</span>
+                  {/* We reuse labels from right if they are the same category, or just use keys */}
+                </p>
+                <p className="text-sm font-medium text-[var(--charcoal)]">
+                  {t(`comp_left_${item.label}` as any)}
+                </p>
+              </div>
+            ))}
           </div>
+        </div>
 
-          {/* ETF */}
-          <div className="bg-[var(--forest)]/5 p-5 sm:p-6">
-            <h3 className="mb-6 text-center font-heading text-lg font-bold text-[var(--forest)]">
-              {t('comp_right_title')}
-            </h3>
-            <div className="space-y-5">
-              {items.map(item => (
-                <div key={item.label}>
-                  <p className="mb-1 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[var(--forest)]/40">
-                    <span>{item.icon}</span>
-                  </p>
-                  <p className="text-sm font-medium text-[var(--charcoal)]">
-                    {t(`comp_right_${item.label}` as any)}
-                  </p>
-                </div>
-              ))}
-            </div>
+        {/* ETF */}
+        <div className="bg-[var(--forest)]/5 p-5 sm:p-6">
+          <h3 className="mb-6 text-center font-heading text-lg font-bold text-[var(--forest)]">
+            {t('comp_right_title')}
+          </h3>
+          <div className="space-y-5">
+            {items.map(item => (
+              <div key={item.label}>
+                <p className="mb-1 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[var(--forest)]/40">
+                  <span>{item.icon}</span>
+                </p>
+                <p className="text-sm font-medium text-[var(--charcoal)]">
+                  {t(`comp_right_${item.label}` as any)}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-    );
-  };
+    </div>
+  );
 }
 
 function WarningBox({ children }: { children: React.ReactNode }) {
@@ -115,7 +113,6 @@ function SubHeading({ children }: { children: React.ReactNode }) {
 
 export default async function ImmobilierVsEtfPage() {
   const t = await getTranslations('immobilierVsEtf');
-  const CompCard = await ComparisonCard()({});
 
   return (
     <>
@@ -148,7 +145,7 @@ export default async function ImmobilierVsEtfPage() {
             <p className="mt-4">{t('s1_p2')}</p>
             <p className="mt-4">{t('s1_p3')}</p>
 
-            {CompCard}
+            <ComparisonCard />
 
             <SectionHeading>{t('s2_title')}</SectionHeading>
             <p>{t('s2_p1')}</p>
