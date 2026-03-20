@@ -10,6 +10,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
+import { useTranslations } from 'next-intl';
 import type { Product } from '@/lib/calculator/products';
 import { formatEuro } from '@/lib/calculator/compute';
 
@@ -32,11 +33,12 @@ interface CustomTooltipProps {
 }
 
 function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
+  const t = useTranslations('calculator');
   if (!active || !payload?.length) return null;
   return (
     <div className="rounded-lg border border-[var(--warm-tan)]/50 bg-[var(--warm-white)] p-3 shadow-lg text-xs">
       <p className="mb-2 font-semibold text-[var(--charcoal)]">
-        Après {label} {Number(label) === 1 ? 'an' : 'ans'}
+        {t('chart_after_years', { count: Number(label) })}
       </p>
       {payload.map((entry, i) => (
         <div key={entry.dataKey ?? i} className="flex items-center gap-2 py-0.5">

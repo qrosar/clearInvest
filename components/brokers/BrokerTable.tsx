@@ -62,14 +62,16 @@ function Tip({ text, children }: { text: string; children: React.ReactNode }) {
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
-/** "Cash : garanti jusqu'à €100.000 (fonds de garantie belge)…" → "€100.000 🇧🇪" */
-function protectionShort(full: string): string {
-  const amount = full.match(/€[\d.]+/)?.[0] ?? '';
-  if (full.includes('belge')) return `${amount} 🇧🇪`;
-  if (full.includes('Pays-Bas')) return `${amount} 🇳🇱`;
-  if (full.includes('Allemagne')) return `${amount} 🇩🇪`;
-  if (full.includes('Irlande')) return `${amount} 🇮🇪`;
-  return amount;
+const COUNTRY_FLAG: Record<string, string> = {
+  BE: '🇧🇪',
+  NL: '🇳🇱',
+  DE: '🇩🇪',
+  IE: '🇮🇪',
+};
+
+function protectionShort(broker: Broker): string {
+  const flag = COUNTRY_FLAG[broker.protectionCountry] ?? broker.protectionCountry;
+  return `${broker.protectionAmount} ${flag}`;
 }
 
 // Explicit display order, grouped by tier
@@ -297,14 +299,14 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
 
                         <td className={`${TD} text-center`}>
                           <FeeCell
-                            value={broker.fees.fixedFeePerTrade}
-                            note={noteOnFixed ? broker.fees.note : undefined}
+                            value={broker.fees.fixedFeePerTrade === 'fees_free' ? t('fees_free') : broker.fees.fixedFeePerTrade}
+                            note={noteOnFixed && broker.fees.note ? t(broker.fees.note as any) : undefined}
                           />
                         </td>
                         <td className={`${TD} text-center`}>
                           <FeeCell
                             value={broker.fees.percentFeePerTrade}
-                            note={noteOnPercent ? broker.fees.note : undefined}
+                            note={noteOnPercent && broker.fees.note ? t(broker.fees.note as any) : undefined}
                           />
                         </td>
 
@@ -329,9 +331,9 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
                         </td>
 
                         <td className={`${TD} text-center`}>
-                          <Tip text={broker.investorProtection}>
+                          <Tip text={t(broker.investorProtection as any)}>
                             <span className="whitespace-nowrap font-medium text-[var(--charcoal)] underline decoration-dotted decoration-[var(--charcoal)]/30 underline-offset-2">
-                              {protectionShort(broker.investorProtection)}
+                              {protectionShort(broker)}
                             </span>
                           </Tip>
                         </td>

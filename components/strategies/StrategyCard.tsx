@@ -17,11 +17,17 @@ function Badge({ children, className }: { children: React.ReactNode; className: 
 
 export default function StrategyCard({ strategy }: Props) {
   const t = useTranslations('strategyCard');
+  const ts = useTranslations('strategies');
+  const td = useTranslations();
 
   const weightedTer = strategy.etfs.reduce(
     (sum, e) => sum + (e.ter * e.allocation) / 100,
     0
   );
+
+  const name = strategy.name.startsWith('data.') ? td(strategy.name as any) : ts(strategy.name as any);
+  const tagline = strategy.tagline.startsWith('data.') ? td(strategy.tagline as any) : ts(strategy.tagline as any);
+  const description = strategy.description.startsWith('data.') ? td(strategy.description as any) : ts(strategy.description as any);
 
   return (
     <div className="group flex flex-col overflow-hidden rounded-2xl border border-[var(--warm-tan)]/40 bg-[var(--warm-white)] shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-xl">
@@ -36,10 +42,10 @@ export default function StrategyCard({ strategy }: Props) {
               href={`/strategies/${strategy.id}`}
               className="hover:text-[var(--forest)] transition-colors"
             >
-              {strategy.name}
+              {name}
             </Link>
           </h3>
-          <p className="mt-0.5 text-sm text-[var(--charcoal)]/55">{strategy.tagline}</p>
+          <p className="mt-0.5 text-sm text-[var(--charcoal)]/55">{tagline}</p>
 
           {/* Badges row */}
           <div className="mt-3 flex flex-wrap gap-1.5">
@@ -67,7 +73,7 @@ export default function StrategyCard({ strategy }: Props) {
 
         {/* Description */}
         <p className="mb-5 text-xs leading-relaxed text-[var(--charcoal)]/65">
-          {strategy.description}
+          {description}
         </p>
 
         {/* ETF allocations */}
@@ -127,7 +133,7 @@ export default function StrategyCard({ strategy }: Props) {
           </div>
           {strategy.historicalReturnNote && (
             <p className="mt-1 text-[10px] italic leading-relaxed text-[var(--charcoal)]/40">
-              {strategy.historicalReturnNote}
+              {strategy.historicalReturnNote.startsWith('data.') ? td(strategy.historicalReturnNote as any) : ts(strategy.historicalReturnNote as any)}
             </p>
           )}
         </div>
@@ -136,7 +142,8 @@ export default function StrategyCard({ strategy }: Props) {
         {strategy.warnings && strategy.warnings.length > 0 && (
           <div className="mb-4 space-y-2">
             {strategy.warnings.map((w, i) => {
-              const isAlert = w.startsWith('⚠️');
+              const translated = w.startsWith('data.') ? td(w as any) : ts(w as any);
+              const isAlert = translated.startsWith('⚠️');
               return (
                 <div
                   key={i}
@@ -146,7 +153,7 @@ export default function StrategyCard({ strategy }: Props) {
                       : 'bg-slate-50 text-slate-600'
                   }`}
                 >
-                  {w}
+                  {translated}
                 </div>
               );
             })}

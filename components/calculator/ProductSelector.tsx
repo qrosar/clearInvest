@@ -140,6 +140,7 @@ export default function ProductSelector({
   allProducts, selectedIds, rates, monthlyContribution, onSelect, onDeselect, onRateChange, onAddCustom,
 }: Props) {
   const t = useTranslations('calculator');
+  const td = useTranslations();
   const [selectedCategory, setSelectedCategory] = useState<CategoryKey | null>(null);
   const [showCustomForm, setShowCustomForm] = useState(false);
 
@@ -176,6 +177,7 @@ export default function ProductSelector({
             const product = allProducts.find(p => p.id === id);
             if (!product) return null;
             const rate = rates[id] ?? product.defaultRate ?? 0;
+            const name = product.name.startsWith('data.') ? td(product.name as any) : product.name;
             return (
               <div
                 key={id}
@@ -183,7 +185,7 @@ export default function ProductSelector({
                   bg-[var(--warm-cream)] py-1 pl-2.5 pr-1.5 text-xs"
               >
                 <span className="h-2 w-2 flex-shrink-0 rounded-full" style={{ backgroundColor: product.color }} />
-                <span className="font-medium text-[var(--charcoal)]">{product.name}</span>
+                <span className="font-medium text-[var(--charcoal)]">{name}</span>
                 {product.isCustom && (
                   <span className="rounded bg-[#f5d49a] px-1 py-0.5 text-[9px] font-bold uppercase text-[#5a3e00]">
                     {t('badge_custom')}
@@ -195,7 +197,7 @@ export default function ProductSelector({
                   </span>
                 )}
                 {product.contributionCapNote && (
-                  <ChipNoteTooltip text={product.contributionCapNote} />
+                  <ChipNoteTooltip text={t(product.contributionCapNote as any)} />
                 )}
                 {product.rateEditable && (
                   <div className="flex items-center gap-0.5" onClick={e => e.stopPropagation()}>
@@ -299,6 +301,8 @@ export default function ProductSelector({
                   ) : (
                     categoryProducts.map(product => {
                       const isSelected = selectedIds.includes(product.id);
+                      const name = product.name.startsWith('data.') ? td(product.name as any) : product.name;
+                      const provider = product.provider?.startsWith('data.') ? td(product.provider as any) : product.provider;
                       return (
                         <button
                           key={product.id}
@@ -317,11 +321,11 @@ export default function ProductSelector({
                           />
                           <div className="min-w-0 flex-1">
                             <p className="truncate text-sm font-medium text-[var(--charcoal)]">
-                              {product.name}
+                              {name}
                             </p>
-                            {product.provider && (
+                            {provider && (
                               <p className="truncate text-[11px] text-[var(--charcoal)]/45">
-                                {product.provider}
+                                {provider}
                               </p>
                             )}
                           </div>

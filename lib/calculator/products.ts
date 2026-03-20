@@ -25,7 +25,7 @@ export interface TaxConfig {
 
 export interface Product {
   id: string;
-  name: string;
+  name: string;                        // i18n key (data.products.[id].name)
   category: 'bank' | 'etf';
   subcategory: Subcategory;
   provider?: string;
@@ -36,13 +36,13 @@ export interface Product {
   bondAllocation?: number;          // fraction of portfolio in bonds (0–1); drives Reynders vs CGT split
   rateEditable: boolean;
   color: string;
-  description: string;
+  description: string;                 // i18n key (data.products.[id].description)
   taxConfig?: TaxConfig;
   /** Hard legal cap on monthly contribution (show warning if exceeded) */
   monthlyContributionCap?: number;
-  /** Informational note about contribution limits, shown as tooltip on chip */
+  /** Informational note about contribution limits, shown as tooltip on chip (i18n key) */
   contributionCapNote?: string;
-  /** Product-specific warning shown on the result card (e.g. underperformance note) */
+  /** Product-specific warning shown on the result card (e.g. underperformance note) (i18n key) */
   warningNote?: string;
   /** Gross benchmark return before TER (display only — not used in compute.ts) */
   grossBaseline?: number;
@@ -85,7 +85,7 @@ const BANK_PRODUCTS: Product[] = [
   // ── Comptes épargne ────────────────────────────────────────────────────────
   {
     id: 'savings-belfius-flow',
-    name: 'Compte Épargne Belfius (Flow)',
+    name: 'data.products.savings-belfius-flow.name',
     category: 'bank',
     subcategory: 'bank-common',
     provider: 'Belfius',
@@ -94,13 +94,12 @@ const BANK_PRODUCTS: Product[] = [
     loyaltyRate: 0.0150,
     rateEditable: true,
     color: '#7a5ab8',
-    description:
-      "Taux de base 1,30% + prime de fidélité 1,50%. Prime acquise après 12 mois consécutifs sans retrait. Premiers €1.020 d'intérêts/an exonérés du précompte de 30%.",
+    description: 'data.products.savings-belfius-flow.description',
     taxConfig: { interestTax: 0.30, interestExemption: 1020 },
   },
   {
     id: 'savings-argenta',
-    name: 'Compte Épargne Argenta (Groeirekening)',
+    name: 'data.products.savings-argenta.name',
     category: 'bank',
     subcategory: 'bank-common',
     provider: 'Argenta',
@@ -109,13 +108,12 @@ const BANK_PRODUCTS: Product[] = [
     loyaltyRate: 0.0150,
     rateEditable: true,
     color: '#5a8c4a',
-    description:
-      "Taux de base 1,10% + prime de fidélité 1,50%. Premiers €1.020 d'intérêts/an exonérés du précompte de 30%.",
+    description: 'data.products.savings-argenta.description',
     taxConfig: { interestTax: 0.30, interestExemption: 1020 },
   },
   {
     id: 'savings-ing-tempo',
-    name: 'Compte Épargne ING (Tempo Sparen)',
+    name: 'data.products.savings-ing-tempo.name',
     category: 'bank',
     subcategory: 'bank-common',
     provider: 'ING',
@@ -124,15 +122,14 @@ const BANK_PRODUCTS: Product[] = [
     loyaltyRate: 0.0150,
     rateEditable: true,
     color: '#c87c3a',
-    description:
-      "Taux de base 0,75% + prime de fidélité 1,50%. Versements limités à €500/mois. Premiers €1.020 d'intérêts/an exonérés du précompte de 30%.",
+    description: 'data.products.savings-ing-tempo.description',
     taxConfig: { interestTax: 0.30, interestExemption: 1020 },
     monthlyContributionCap: 500,
-    contributionCapNote: "Le versement mensuel sur ce compte est plafonné à €500/mois.",
+    contributionCapNote: "p_savings_ing_tempo_cap_note",
   },
   {
     id: 'savings-kbc',
-    name: 'Compte Épargne KBC (Start2Save)',
+    name: 'data.products.savings-kbc.name',
     category: 'bank',
     subcategory: 'bank-common',
     provider: 'KBC',
@@ -141,13 +138,12 @@ const BANK_PRODUCTS: Product[] = [
     loyaltyRate: 0.0150,
     rateEditable: true,
     color: '#1a5fa8',
-    description:
-      "Taux de base 0,75% + prime de fidélité 1,50%. Premiers €1.020 d'intérêts/an exonérés du précompte de 30%.",
+    description: 'data.products.savings-kbc.description',
     taxConfig: { interestTax: 0.30, interestExemption: 1020 },
   },
   {
     id: 'savings-vdk',
-    name: 'Compte Épargne vdk banque (Compte Rythme)',
+    name: 'data.products.savings-vdk.name',
     category: 'bank',
     subcategory: 'bank-common',
     provider: 'vdk banque',
@@ -156,15 +152,14 @@ const BANK_PRODUCTS: Product[] = [
     loyaltyRate: 0.0150,
     rateEditable: true,
     color: '#2a8a7a',
-    description:
-      "Taux de base 1,35% + prime de fidélité 1,50%. Parmi les meilleurs taux du marché. Versements limités à €500/mois. Premiers €1.020 d'intérêts/an exonérés du précompte de 30%.",
+    description: 'data.products.savings-vdk.description',
     taxConfig: { interestTax: 0.30, interestExemption: 1020 },
     monthlyContributionCap: 500,
-    contributionCapNote: "Versements limités à €500/mois. Capital déposé au-delà non pris en compte.",
+    contributionCapNote: "p_savings_vdk_cap_note",
   },
   {
     id: 'savings-crelan',
-    name: 'Compte Épargne Crelan (GoSave)',
+    name: 'data.products.savings-crelan.name',
     category: 'bank',
     subcategory: 'bank-common',
     provider: 'Crelan',
@@ -173,13 +168,12 @@ const BANK_PRODUCTS: Product[] = [
     loyaltyRate: 0.0150,
     rateEditable: true,
     color: '#c04a28',
-    description:
-      "Taux de base 0,50% + prime de fidélité 1,50%. Premiers €1.020 d'intérêts/an exonérés du précompte de 30%.",
+    description: 'data.products.savings-crelan.description',
     taxConfig: { interestTax: 0.30, interestExemption: 1020 },
   },
   {
     id: 'savings-keytrade',
-    name: 'Compte Épargne Keytrade (High Fidelity)',
+    name: 'data.products.savings-keytrade.name',
     category: 'bank',
     subcategory: 'bank-common',
     provider: 'Keytrade',
@@ -188,13 +182,12 @@ const BANK_PRODUCTS: Product[] = [
     loyaltyRate: 0.0130,
     rateEditable: true,
     color: '#2a6a9a',
-    description:
-      "Taux de base 0,30% + prime de fidélité 1,30%. Banque en ligne. Premiers €1.020 d'intérêts/an exonérés du précompte de 30%.",
+    description: 'data.products.savings-keytrade.description',
     taxConfig: { interestTax: 0.30, interestExemption: 1020 },
   },
   {
     id: 'savings-medirect',
-    name: 'Compte Épargne MeDirect (Fidelity Épargne)',
+    name: 'data.products.savings-medirect.name',
     category: 'bank',
     subcategory: 'bank-common',
     provider: 'MeDirect',
@@ -203,118 +196,107 @@ const BANK_PRODUCTS: Product[] = [
     loyaltyRate: 0.0140,
     rateEditable: true,
     color: '#4a7a5a',
-    description:
-      "Taux de base 0,20% + prime de fidélité 1,40%. Banque en ligne. Premiers €1.020 d'intérêts/an exonérés du précompte de 30%.",
+    description: 'data.products.savings-medirect.description',
     taxConfig: { interestTax: 0.30, interestExemption: 1020 },
   },
 
   // ── Bons de caisse / Comptes à terme ──────────────────────────────────────
-  // defaultRate is the GROSS rate. compute.ts applies interestTax: 0.30 annually.
-  // No €1,020 exemption on term deposits.
   {
     id: 'bon-caisse-kbc-1yr',
-    name: 'Bon de Caisse KBC (1 an)',
+    name: 'data.products.bon-caisse-kbc-1yr.name',
     category: 'bank',
     subcategory: 'bank-common',
     provider: 'KBC',
     defaultRate: 0.0294,
     rateEditable: true,
     color: '#2d7dd2',
-    description:
-      "Taux brut 2,94% — précompte de 30% déduit automatiquement à la source. Min €1.000. Capital bloqué 1 an.",
+    description: 'data.products.bon-caisse-kbc-1yr.description',
     taxConfig: { interestTax: 0.30, interestExemption: 0, tob: 0, entryFee: 0 },
   },
   {
     id: 'bon-caisse-kbc-3yr',
-    name: 'Bon de Caisse KBC (3 ans)',
+    name: 'data.products.bon-caisse-kbc-3yr.name',
     category: 'bank',
     subcategory: 'bank-common',
     provider: 'KBC',
     defaultRate: 0.0364,
     rateEditable: true,
     color: '#1d5ca2',
-    description:
-      "Taux brut 3,64% — précompte de 30% déduit automatiquement. Capital bloqué 3 ans. Retrait anticipé : pénalités importantes.",
+    description: 'data.products.bon-caisse-kbc-3yr.description',
     taxConfig: { interestTax: 0.30, interestExemption: 0, tob: 0, entryFee: 0 },
   },
   {
     id: 'bon-caisse-kbc-5yr',
-    name: 'Bon de Caisse KBC (5 ans)',
+    name: 'data.products.bon-caisse-kbc-5yr.name',
     category: 'bank',
     subcategory: 'bank-common',
     provider: 'KBC',
     defaultRate: 0.0374,
     rateEditable: true,
     color: '#0d4c82',
-    description:
-      "Taux brut 3,74% — précompte de 30% déduit automatiquement. Capital bloqué 5 ans.",
+    description: 'data.products.bon-caisse-kbc-5yr.description',
     taxConfig: { interestTax: 0.30, interestExemption: 0, tob: 0, entryFee: 0 },
   },
   {
     id: 'bon-caisse-argenta-1yr',
-    name: 'Bon de Caisse Argenta (1 an)',
+    name: 'data.products.bon-caisse-argenta-1yr.name',
     category: 'bank',
     subcategory: 'bank-common',
     provider: 'Argenta',
     defaultRate: 0.0210,
     rateEditable: true,
     color: '#5fa832',
-    description:
-      "Taux brut 2,10% — précompte de 30% déduit automatiquement. Min €250.",
+    description: 'data.products.bon-caisse-argenta-1yr.description',
     taxConfig: { interestTax: 0.30, interestExemption: 0, tob: 0, entryFee: 0 },
   },
   {
     id: 'bon-caisse-argenta-5yr',
-    name: 'Bon de Caisse Argenta (5 ans)',
+    name: 'data.products.bon-caisse-argenta-5yr.name',
     category: 'bank',
     subcategory: 'bank-common',
     provider: 'Argenta',
     defaultRate: 0.0245,
     rateEditable: true,
     color: '#3d8810',
-    description:
-      "Taux brut 2,45% — précompte de 30% déduit automatiquement.",
+    description: 'data.products.bon-caisse-argenta-5yr.description',
     taxConfig: { interestTax: 0.30, interestExemption: 0, tob: 0, entryFee: 0 },
   },
   {
     id: 'bon-caisse-ing-1yr',
-    name: 'Bon de Caisse ING (1 an)',
+    name: 'data.products.bon-caisse-ing-1yr.name',
     category: 'bank',
     subcategory: 'bank-common',
     provider: 'ING',
     defaultRate: 0.0220,
     rateEditable: true,
     color: '#d4700a',
-    description:
-      "Taux brut 2,20% — précompte de 30% déduit automatiquement. Durées de 2–3 ans disponibles sur demande en agence.",
+    description: 'data.products.bon-caisse-ing-1yr.description',
     taxConfig: { interestTax: 0.30, interestExemption: 0, tob: 0, entryFee: 0 },
   },
   {
     id: 'bon-caisse-beobank-1yr',
-    name: 'Compte à Terme Beobank (1 an)',
+    name: 'data.products.bon-caisse-beobank-1yr.name',
     category: 'bank',
     subcategory: 'bank-common',
     provider: 'Beobank',
     defaultRate: 0.0310,
     rateEditable: true,
     color: '#7a4a8a',
-    description:
-      "Taux brut 3,10% — précompte de 30% déduit automatiquement. Capital bloqué 1 an.",
+    description: 'data.products.bon-caisse-beobank-1yr.description',
     taxConfig: { interestTax: 0.30, interestExemption: 0, tob: 0, entryFee: 0 },
   },
 
   // ── Branche 21 ────────────────────────────────────────────────────────────
   {
     id: 'branche21',
-    name: 'Assurance-vie Branche 21 (AG Insurance)',
+    name: 'data.products.branche21.name',
     category: 'bank',
     subcategory: 'bank-common',
     provider: 'AG Insurance',
     defaultRate: 0.031,
     rateEditable: true,
     color: '#e8a94a',
-    description:
-      "Taux garanti 1,75% + participation bénéficiaire. Rendement total 2025 : ~3,10% (non garanti). Taxe sur prime 2% + frais d'entrée ~3%. Précompte de 30% sur rendement fictif (4,75%/an) si rachat avant 8 ans ; exonéré après 8 ans.",
+    description: 'data.products.branche21.description',
     taxConfig: {
       premiumTax: 0.02,
       entryFee: 0.03,
@@ -326,20 +308,18 @@ const BANK_PRODUCTS: Product[] = [
       capitalGainsTax: 0.10,
       capitalGainsExemption: 10000,
     },
-    contributionCapNote:
-      "La déductibilité fiscale est limitée à €2.450/an. Au-delà, les versements restent possibles mais sans avantage fiscal supplémentaire.",
+    contributionCapNote: "p_branche21_cap_note",
   },
   {
     id: 'branche21-ethias-9yr',
-    name: 'Assurance-vie Branche 21 Ethias (9 ans)',
+    name: 'data.products.branche21-ethias-9yr.name',
     category: 'bank',
     subcategory: 'bank-specific',
     provider: 'Ethias',
     defaultRate: 0.029,
     rateEditable: true,
     color: '#c86820',
-    description:
-      "Taux garanti 2,90% pour toute la durée du contrat. 0% frais d'entrée — aucuns frais de gestion. Taxe sur prime 2%. Exonéré du précompte après 8 ans.",
+    description: 'data.products.branche21-ethias-9yr.description',
     taxConfig: {
       premiumTax: 0.02,
       entryFee: 0,
@@ -354,15 +334,14 @@ const BANK_PRODUCTS: Product[] = [
   },
   {
     id: 'branche21-ethias-3yr',
-    name: 'Assurance-vie Branche 21 Ethias (3 ans)',
+    name: 'data.products.branche21-ethias-3yr.name',
     category: 'bank',
     subcategory: 'bank-specific',
     provider: 'Ethias',
     defaultRate: 0.023,
     rateEditable: true,
     color: '#b05818',
-    description:
-      "Taux garanti 2,30% pour la durée de 3 ans. 0% frais d'entrée. Taxe sur prime 2%. Ce contrat de 3 ans ne peut jamais atteindre l'exonération des 8 ans — le précompte fictif de 30% s'applique toujours à l'échéance.",
+    description: 'data.products.branche21-ethias-3yr.description',
     taxConfig: {
       premiumTax: 0.02,
       entryFee: 0,
@@ -377,15 +356,14 @@ const BANK_PRODUCTS: Product[] = [
   },
   {
     id: 'bnp-future-invest-bon',
-    name: 'Future Invest Bon',
+    name: 'data.products.bnp-future-invest-bon.name',
     category: 'bank',
     subcategory: 'bank-specific',
     provider: 'BNP Paribas Fortis',
     defaultRate: 0.0310,
     rateEditable: true,
     color: '#1a4a8a',
-    description:
-      "Taux double : 3,00% la 1ère année, 2,60% les 7 années suivantes (blended ~2,64%). Rendement global 2025 : ~3,10% (participation bénéficiaire incluse). Distribué par BNP Paribas Fortis, sous-jacent assuré par AG Insurance. Durée fixe de 8 ans et 1 mois. Taxe sur prime 2%, frais d'entrée ~2%.",
+    description: 'data.products.bnp-future-invest-bon.description',
     taxConfig: {
       premiumTax: 0.02,
       entryFee: 0.02,
@@ -400,15 +378,14 @@ const BANK_PRODUCTS: Product[] = [
   },
   {
     id: 'beobank-invest-21',
-    name: 'Invest 21',
+    name: 'data.products.beobank-invest-21.name',
     category: 'bank',
     subcategory: 'bank-specific',
     provider: 'Beobank',
     defaultRate: 0.0250,
     rateEditable: true,
     color: '#4a3a7a',
-    description:
-      "Taux garanti 2,50%. Frais d'entrée jusqu'à 2,50% (parfois réduits à 1,00% lors de campagnes promotionnelles). Capital garanti à l'échéance hors frais et taxes. Taxe sur prime 2%. Exonéré du précompte après 8 ans.",
+    description: 'data.products.beobank-invest-21.description',
     taxConfig: {
       premiumTax: 0.02,
       entryFee: 0.025,
@@ -423,10 +400,9 @@ const BANK_PRODUCTS: Product[] = [
   },
 
   // ── Fonds épargne-pension ─────────────────────────────────────────────────
-  // Rates net of TER, gross of entry fee. Gross baseline 6.75% (dynamic 75/25 benchmark).
   {
     id: 'pension-kbc-pricos',
-    name: 'Épargne-pension KBC (Pricos)',
+    name: 'data.products.pension-kbc-pricos.name',
     category: 'bank',
     subcategory: 'bank-specific',
     provider: 'KBC',
@@ -435,16 +411,14 @@ const BANK_PRODUCTS: Product[] = [
     ter: 0.0141,
     rateEditable: true,
     color: '#4a6eb8',
-    description:
-      "Rendement annualisé sur 10 ans : ~5,34% (net de TER 1,41%). Fonds à dominante actions. Frais d'entrée 2%. Avantage fiscal de 30% sur versements jusqu'à €1.050/an.",
+    description: 'data.products.pension-kbc-pricos.description',
     taxConfig: { pensionTax: 0.08, upfrontTaxRelief: 0.30, upfrontTaxReliefCap: 1050, entryFee: 0.02, annualFee: 0.0141 },
     monthlyContributionCap: 112.5,
-    contributionCapNote:
-      "L'épargne-pension est limitée à €1.050/an. Avantage fiscal de 30% sur les versements (max €315/an de réduction d'impôt).",
+    contributionCapNote: "p_pension_cap_note",
   },
   {
     id: 'pension-belfius-equities',
-    name: 'Épargne-pension Belfius (High Equities, Candriam)',
+    name: 'data.products.pension-belfius-equities.name',
     category: 'bank',
     subcategory: 'bank-specific',
     provider: 'Belfius',
@@ -453,16 +427,14 @@ const BANK_PRODUCTS: Product[] = [
     ter: 0.0149,
     rateEditable: true,
     color: '#6a4a7e',
-    description:
-      "Rendement annualisé sur 10 ans : ~5,26% (net de TER 1,49%). Fonds à dominante actions. Frais d'entrée 3%. Avantage fiscal de 30% sur versements jusqu'à €1.050/an.",
+    description: 'data.products.pension-belfius-equities.description',
     taxConfig: { pensionTax: 0.08, upfrontTaxRelief: 0.30, upfrontTaxReliefCap: 1050, entryFee: 0.03, annualFee: 0.0149 },
     monthlyContributionCap: 112.5,
-    contributionCapNote:
-      "L'épargne-pension est limitée à €1.050/an. Avantage fiscal de 30% sur les versements (max €315/an de réduction d'impôt).",
+    contributionCapNote: "p_pension_cap_note",
   },
   {
     id: 'pension-bnp-growth',
-    name: 'Épargne-pension BNP Paribas (B Pension Sust. Growth)',
+    name: 'data.products.pension-bnp-growth.name',
     category: 'bank',
     subcategory: 'bank-specific',
     provider: 'BNP Paribas',
@@ -471,16 +443,14 @@ const BANK_PRODUCTS: Product[] = [
     ter: 0.0125,
     rateEditable: true,
     color: '#3a5a9e',
-    description:
-      "Rendement annualisé sur 10 ans : ~5,50% (net de TER 1,25%). Frais d'entrée 3%. Avantage fiscal de 30% sur versements jusqu'à €1.050/an.",
+    description: 'data.products.pension-bnp-growth.description',
     taxConfig: { pensionTax: 0.08, upfrontTaxRelief: 0.30, upfrontTaxReliefCap: 1050, entryFee: 0.03, annualFee: 0.0125 },
     monthlyContributionCap: 112.5,
-    contributionCapNote:
-      "L'épargne-pension est limitée à €1.050/an. Avantage fiscal de 30% sur les versements (max €315/an de réduction d'impôt).",
+    contributionCapNote: "p_pension_cap_note",
   },
   {
     id: 'pension-ing-star',
-    name: 'Épargne-pension ING (Star Fund)',
+    name: 'data.products.pension-ing-star.name',
     category: 'bank',
     subcategory: 'bank-specific',
     provider: 'ING',
@@ -490,16 +460,14 @@ const BANK_PRODUCTS: Product[] = [
     bondAllocation: 0.4,
     rateEditable: true,
     color: '#9e3a2a',
-    description:
-      "Rendement annualisé sur 10 ans : ~4,72% (net de TER 1,28%). Fonds mixte (~40% obligations). Frais d'entrée 3%. Avantage fiscal de 30% sur versements jusqu'à €1.050/an.",
+    description: 'data.products.pension-ing-star.description',
     taxConfig: { pensionTax: 0.08, upfrontTaxRelief: 0.30, upfrontTaxReliefCap: 1050, entryFee: 0.03, annualFee: 0.0128 },
     monthlyContributionCap: 112.5,
-    contributionCapNote:
-      "L'épargne-pension est limitée à €1.050/an. Avantage fiscal de 30% sur les versements (max €315/an de réduction d'impôt).",
+    contributionCapNote: "p_pension_cap_note",
   },
   {
     id: 'pension-argenta',
-    name: 'Épargne-pension Argenta (Pension Fund)',
+    name: 'data.products.pension-argenta.name',
     category: 'bank',
     subcategory: 'bank-specific',
     provider: 'Argenta',
@@ -508,16 +476,14 @@ const BANK_PRODUCTS: Product[] = [
     ter: 0.0144,
     rateEditable: true,
     color: '#3a7a4a',
-    description:
-      "Rendement annualisé sur 10 ans : ~5,31% (net de TER 1,44%). Fonds à dominante actions. Aucuns frais d'entrée. Avantage fiscal de 30% sur versements jusqu'à €1.050/an.",
+    description: 'data.products.pension-argenta.description',
     taxConfig: { pensionTax: 0.08, upfrontTaxRelief: 0.30, upfrontTaxReliefCap: 1050, entryFee: 0.00, annualFee: 0.0144 },
     monthlyContributionCap: 112.5,
-    contributionCapNote:
-      "L'épargne-pension est limitée à €1.050/an. Avantage fiscal de 30% sur les versements (max €315/an de réduction d'impôt).",
+    contributionCapNote: "p_pension_cap_note",
   },
   {
     id: 'pension-vdk',
-    name: 'Épargne-pension vdk banque (Pension Fund)',
+    name: 'data.products.pension-vdk.name',
     category: 'bank',
     subcategory: 'bank-specific',
     provider: 'vdk banque',
@@ -526,16 +492,14 @@ const BANK_PRODUCTS: Product[] = [
     ter: 0.0150,
     rateEditable: true,
     color: '#2a6a7a',
-    description:
-      "Rendement annualisé sur 10 ans : ~5,25% (net de TER 1,50%). Fonds à dominante actions, orienté ESG. Frais d'entrée 2%. Avantage fiscal de 30% sur versements jusqu'à €1.050/an.",
+    description: 'data.products.pension-vdk.description',
     taxConfig: { pensionTax: 0.08, upfrontTaxRelief: 0.30, upfrontTaxReliefCap: 1050, entryFee: 0.02, annualFee: 0.0150 },
     monthlyContributionCap: 112.5,
-    contributionCapNote:
-      "L'épargne-pension est limitée à €1.050/an. Avantage fiscal de 30% sur les versements (max €315/an de réduction d'impôt).",
+    contributionCapNote: "p_pension_cap_note",
   },
   {
     id: 'pension-crelan',
-    name: 'Épargne-pension Crelan (Pension Fund Sust. Growth)',
+    name: 'data.products.pension-crelan.name',
     category: 'bank',
     subcategory: 'bank-specific',
     provider: 'Crelan',
@@ -544,19 +508,16 @@ const BANK_PRODUCTS: Product[] = [
     ter: 0.0150,
     rateEditable: true,
     color: '#9a4a28',
-    description:
-      "Rendement annualisé sur 10 ans : ~5,25% (net de TER 1,50%). Fonds à dominante actions avec critères durables. Frais d'entrée 3%. Avantage fiscal de 30% sur versements jusqu'à €1.050/an.",
+    description: 'data.products.pension-crelan.description',
     taxConfig: { pensionTax: 0.08, upfrontTaxRelief: 0.30, upfrontTaxReliefCap: 1050, entryFee: 0.03, annualFee: 0.0150 },
     monthlyContributionCap: 112.5,
-    contributionCapNote:
-      "L'épargne-pension est limitée à €1.050/an. Avantage fiscal de 30% sur les versements (max €315/an de réduction d'impôt).",
+    contributionCapNote: "p_pension_cap_note",
   },
 
   // ── Fonds actifs ──────────────────────────────────────────────────────────
-  // Rates net of TER, gross of entry fee.
   {
     id: 'fonds-bnp-equity-world',
-    name: 'Fonds BNP Comfort Sust. Equity World',
+    name: 'data.products.fonds-bnp-equity-world.name',
     category: 'bank',
     subcategory: 'active-fund',
     provider: 'BNP Paribas',
@@ -566,9 +527,8 @@ const BANK_PRODUCTS: Product[] = [
     bondAllocation: 0,
     rateEditable: true,
     color: '#2a4a7a',
-    description:
-      "Rendement annualisé sur 10 ans (2016–2025), net de TER 1,50%. Le fonds a sous-performé son indice de référence sur la majorité des années. Frais d'entrée 3%.",
-    warningNote: "Ce fonds a sous-performé son indice de référence sur 9 des 10 dernières années.",
+    description: 'data.products.fonds-bnp-equity-world.description',
+    warningNote: "p_fonds_bnp_warning",
     taxConfig: {
       capitalGainsTax: 0.10,
       capitalGainsExemption: 10000,
@@ -579,7 +539,7 @@ const BANK_PRODUCTS: Product[] = [
   },
   {
     id: 'fonds-belfius-equity-world',
-    name: 'Fonds Belfius Managed Portfolio Equity World',
+    name: 'data.products.fonds-belfius-equity-world.name',
     category: 'bank',
     subcategory: 'active-fund',
     provider: 'Belfius',
@@ -589,8 +549,7 @@ const BANK_PRODUCTS: Product[] = [
     bondAllocation: 0,
     rateEditable: true,
     color: '#6a2a5a',
-    description:
-      "Rendement annualisé ~6,51% (net de TER 1,49%). Frais d'entrée 3%, TER 1,49%.",
+    description: 'data.products.fonds-belfius-equity-world.description',
     taxConfig: {
       capitalGainsTax: 0.10,
       capitalGainsExemption: 10000,
@@ -601,7 +560,7 @@ const BANK_PRODUCTS: Product[] = [
   },
   {
     id: 'fonds-axa-belgium-equity',
-    name: 'Fonds AXA B Fund Equity Belgium',
+    name: 'data.products.fonds-axa-belgium-equity.name',
     category: 'bank',
     subcategory: 'active-fund',
     provider: 'AXA',
@@ -611,8 +570,7 @@ const BANK_PRODUCTS: Product[] = [
     bondAllocation: 0,
     rateEditable: true,
     color: '#5a3a8a',
-    description:
-      "Rendement annualisé ~6,53% (net de TER 1,47%). Exposition uniquement aux actions belges — risque de concentration géographique élevé. Drawdown de -26% en 2022. Frais d'entrée 3%.",
+    description: 'data.products.fonds-axa-belgium-equity.description',
     taxConfig: {
       capitalGainsTax: 0.10,
       capitalGainsExemption: 10000,
@@ -623,7 +581,7 @@ const BANK_PRODUCTS: Product[] = [
   },
   {
     id: 'fonds-nagelmackers-growth',
-    name: 'Fonds Nagelmackers MultiFund Growth',
+    name: 'data.products.fonds-nagelmackers-growth.name',
     category: 'bank',
     subcategory: 'active-fund',
     provider: 'Nagelmackers',
@@ -633,8 +591,7 @@ const BANK_PRODUCTS: Product[] = [
     bondAllocation: 0.25,
     rateEditable: true,
     color: '#7a6a5a',
-    description:
-      "Rendement annualisé estimé ~4,65% (net de TER 2,10%/an). TER parmi les plus élevés du marché. Fonds mixte (~25% obligations, ~75% actions). Frais d'entrée 2,5%.",
+    description: 'data.products.fonds-nagelmackers-growth.description',
     taxConfig: {
       capitalGainsTax: 0.10,
       capitalGainsExemption: 10000,
@@ -646,7 +603,7 @@ const BANK_PRODUCTS: Product[] = [
   },
   {
     id: 'fonds-ing-star-active',
-    name: 'Fonds ING (Star Fund)',
+    name: 'data.products.fonds-ing-star-active.name',
     category: 'bank',
     subcategory: 'active-fund',
     provider: 'ING',
@@ -656,8 +613,7 @@ const BANK_PRODUCTS: Product[] = [
     bondAllocation: 0.40,
     rateEditable: true,
     color: '#9e4a2a',
-    description:
-      "Rendement annualisé ~4,72% (net de TER 1,28%). Fonds mixte (~40% obligations, ~60% actions). Frais d'entrée 3%.",
+    description: 'data.products.fonds-ing-star-active.description',
     taxConfig: {
       capitalGainsTax: 0.10,
       capitalGainsExemption: 10000,
@@ -669,7 +625,7 @@ const BANK_PRODUCTS: Product[] = [
   },
   {
     id: 'fonds-beobank-equities',
-    name: 'Fonds Beobank Full Equities Strategy Fund B',
+    name: 'data.products.fonds-beobank-equities.name',
     category: 'bank',
     subcategory: 'active-fund',
     provider: 'Beobank',
@@ -679,8 +635,7 @@ const BANK_PRODUCTS: Product[] = [
     bondAllocation: 0,
     rateEditable: true,
     color: '#6a3a7a',
-    description:
-      "Rendement annualisé ~5,80% (net de TER 2,20%). Fonds 100% actions mondiales. TER élevé. Frais d'entrée 2,5%.",
+    description: 'data.products.fonds-beobank-equities.description',
     taxConfig: {
       capitalGainsTax: 0.10,
       capitalGainsExemption: 10000,

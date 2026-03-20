@@ -1,49 +1,54 @@
-import Link from 'next/link';
+'use client';
 
-const tools = [
-  {
-    href: '/calculator',
-    title: 'Calculateur de rendement',
-    description: 'Comparez votre épargne bancaire avec un ETF sur 10, 20 ou 30 ans.',
-    accent: 'bg-amber/10 text-amber',
-    icon: '📈',
-  },
-  {
-    href: '/brokers',
-    title: 'Comparateur de brokers',
-    description: 'Frais, fiscalité, interface — trouvez le broker adapté à votre profil.',
-    accent: 'bg-forest/10 text-forest',
-    icon: '🏦',
-  },
-  {
-    href: '/strategies',
-    title: 'Stratégies ETF',
-    description: 'Trois portefeuilles simples adaptés à différents objectifs et horizons.',
-    accent: 'bg-sage/10 text-sage',
-    icon: '🎯',
-  },
-  {
-    href: '/guides',
-    title: 'Guides pratiques',
-    description: 'Fiscalité belge des ETFs, ouvrir un compte, comprendre les frais.',
-    accent: 'bg-warm-tan/30 text-charcoal',
-    icon: '📖',
-  },
-];
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 
 export default function ToolsGrid() {
+  const t = useTranslations('tools');
+
+  const tools = [
+    {
+      href: '/calculateur',
+      title: t('calc_title'),
+      description: t('calc_desc_short'),
+      accent: 'bg-amber/10 text-amber',
+      icon: '📈',
+    },
+    {
+      href: '/brokers',
+      title: t('brokers_title'),
+      description: t('brokers_desc_short'),
+      accent: 'bg-forest/10 text-forest',
+      icon: '🏦',
+    },
+    {
+      href: '/strategies',
+      title: t('strategies_title'),
+      description: t('strategies_desc_short'),
+      accent: 'bg-sage/10 text-sage',
+      icon: '🎯',
+    },
+    {
+      href: '/ressources',
+      title: t('guides_title'),
+      description: t('guides_desc_short'),
+      accent: 'bg-warm-tan/30 text-charcoal',
+      icon: '📖',
+    },
+  ];
+
   return (
     <section className="bg-warm-cream px-6 py-24">
       <div className="mx-auto max-w-5xl">
         <h2 className="text-center text-3xl font-heading font-semibold text-forest md:text-4xl">
-          Tous les outils, au même endroit
+          {t('grid_heading')}
         </h2>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2">
           {tools.map((tool) => (
             <Link
               key={tool.href}
-              href={tool.href}
+              href={tool.href as any}
               className="group rounded-2xl bg-warm-white p-8 shadow-sm transition-shadow hover:shadow-md"
             >
               <span className={`inline-flex h-12 w-12 items-center justify-center rounded-xl text-2xl ${tool.accent}`}>

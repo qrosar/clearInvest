@@ -136,7 +136,7 @@ export default function BrokerCard({ broker }: Props) {
               </span>
             )}
           </div>
-          <p className="mt-0.5 text-sm text-[var(--charcoal)]/60">{broker.tagline}</p>
+          <p className="mt-0.5 text-sm text-[var(--charcoal)]/60">{t(broker.tagline as any)}</p>
         </div>
         <div className="shrink-0">
           {broker.regulatedInBelgium ? (
@@ -166,10 +166,10 @@ export default function BrokerCard({ broker }: Props) {
                   : 'text-[var(--charcoal)]';
             return (
               <div key={i} className="flex items-center justify-between gap-2">
-                <span className="text-sm text-[var(--charcoal)]/60">{item.label}</span>
+                <span className="text-sm text-[var(--charcoal)]/60">{t(item.label as any)}</span>
                 <span className={`flex items-center text-sm ${valueClass}`}>
-                  <span className="font-mono">{item.value}</span>
-                  {item.note && <InfoTip text={item.note} />}
+                  <span className="font-mono">{t(item.value as any)}</span>
+                  {item.note && <InfoTip text={t(item.note as any)} />}
                 </span>
               </div>
             );
@@ -195,7 +195,7 @@ export default function BrokerCard({ broker }: Props) {
             {prosToShow.map((pro, i) => (
               <li key={i} className="flex gap-2 text-sm text-[var(--charcoal)]">
                 <span className="mt-0.5 shrink-0 text-[var(--forest)]">●</span>
-                {pro}
+                {t(pro as any)}
               </li>
             ))}
           </ul>
@@ -208,7 +208,7 @@ export default function BrokerCard({ broker }: Props) {
             {consToShow.map((con, i) => (
               <li key={i} className="flex gap-2 text-sm text-[var(--charcoal)]">
                 <span className="mt-0.5 shrink-0 text-red-400">●</span>
-                {con}
+                {t(con as any)}
               </li>
             ))}
           </ul>
@@ -228,7 +228,7 @@ export default function BrokerCard({ broker }: Props) {
       {broker.etfAvailabilityNote && (
         <div className="flex gap-2 rounded-xl border border-[var(--warm-tan)]/40 bg-[var(--warm-cream)] px-3 py-2.5 text-xs text-[var(--charcoal)]/60">
           <span className="shrink-0">ℹ️</span>
-          <span>{broker.etfAvailabilityNote}</span>
+          <span>{t(broker.etfAvailabilityNote as any)}</span>
         </div>
       )}
 
@@ -237,20 +237,20 @@ export default function BrokerCard({ broker }: Props) {
         <span className="mr-1 text-[11px] font-semibold uppercase not-italic tracking-wide text-[var(--charcoal)]/40">
           {t('ideal_for')}
         </span>
-        <span className="italic">{broker.idealFor}</span>
+        <span className="italic">{t(broker.idealFor as any)}</span>
       </p>
 
       {/* Warning note */}
       {broker.warningNote && (
         <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-          <p>{broker.warningNote}</p>
+          <p>{t(broker.warningNote as any)}</p>
           {broker.guideLink && (
             <p className="mt-2">
               <Link
                 href={broker.guideLink.href}
                 className="font-semibold underline underline-offset-2 hover:text-amber-900"
               >
-                → {broker.guideLink.text}
+                → {t(broker.guideLink.text as any)}
               </Link>
             </p>
           )}

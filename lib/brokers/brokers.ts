@@ -3,481 +3,304 @@ export type Profile = 'debutant' | 'dca' | 'avance';
 export type Tier = 'recommended' | 'situational' | 'not_recommended';
 
 export type FeeItem = {
-  label: string;
-  value: string;
-  highlight?: 'good' | 'bad' | 'neutral';
-  note?: string;
+  label: string; // i18n key
+  value: string; // i18n key or literal
+  note?: string; // i18n key
 };
 
 export type Broker = {
   id: string;
   name: string;
-  tagline: string;
+  tagline: string; // i18n key
+  recommendedBadge?: RecommendedBadge;
   tier: Tier;
-  regulatedInBelgium: boolean;
-  investorProtection: string;
-  recommendedBadge?: RecommendedBadge | null;
-  profiles: Profile[];
-  /** Narrative fee breakdown shown on the card */
-  feeStory: FeeItem[];
+  regulatedIn: string; // i18n key
   fees: {
-    fixedFeePerTrade: string;
-    percentFeePerTrade: string;
-    savingsPlan?: string;
-    custodyFee?: string;
-    fxFee?: string;
-    inactivityFee?: string;
-    note?: string;
+    fixedFeePerTrade: string; // i18n key or literal
+    percentFeePerTrade: string; // i18n key or literal
+    fxFee: string; // i18n key or literal
+    custodyFee: string; // i18n key or literal
+    savingsPlanFee: string; // i18n key or literal
   };
-  tax: {
-    tobAutomated: boolean;
-    dividendTaxAutomated: boolean;
-    cgt2026Automated: boolean;
-    cgt2026Level: 'high' | 'low';
-    nbbDeclarationRequired: boolean;
-  };
-  features: {
+  automation: {
     savingsPlan: boolean;
-    savingsPlanDetails?: string;
-    itsmeSupport: boolean;
-    languages: string[];
-    accountTypes: string[];
-    mobileApp: boolean;
+    tobAuto: boolean;
+    cgtAuto: boolean; // i18n key
   };
-  pros: string[];
-  cons: string[];
-  idealFor: string;
-  warningNote?: string;
+  protection: string; // i18n key
+  protectionAmount: string; // literal amount or i18n key
+  pros: string[]; // array of i18n keys
+  cons: string[]; // array of i18n keys
+  idealFor: string; // i18n key
+  warningNote?: string; // i18n key
+  feeStory: FeeItem[];
   guideLink?: { text: string; href: string };
-  etfAvailabilityNote?: string;
 };
 
 export const BROKERS: Broker[] = [
   {
     id: 'medirect',
     name: 'MeDirect',
-    tagline: "0% commission — parmi les options les moins chères en Belgique pour l'investissement passif en ETF",
-    tier: 'recommended',
-    regulatedInBelgium: true,
-    investorProtection: "Cash : garanti jusqu'à €100.000 (fonds de garantie belge). ETF : actifs ségrégués du bilan du broker — restitués en cas de faillite.",
+    tagline: 'medirect_tagline',
     recommendedBadge: 'meilleur_cout',
-    profiles: ['debutant', 'dca'],
-    feeStory: [
-      { label: 'Achat/vente ETF', value: 'Gratuit', highlight: 'good' },
-    ],
+    tier: 'recommended',
+    regulatedIn: 'regulated_be',
     fees: {
-      fixedFeePerTrade: 'Gratuit',
+      fixedFeePerTrade: 'fees_free',
       percentFeePerTrade: '—',
-      savingsPlan: "Manuel (pas de plan automatique)",
-      custodyFee: 'Aucun',
-      fxFee: 'Inclus dans le taux de change',
+      fxFee: 'medirect_fee_fx',
+      custodyFee: 'fees_none',
+      savingsPlanFee: 'fees_not_available',
     },
-    tax: {
-      tobAutomated: true,
-      dividendTaxAutomated: true,
-      cgt2026Automated: false,
-      cgt2026Level: 'high',
-      nbbDeclarationRequired: false,
-    },
-    features: {
+    automation: {
       savingsPlan: false,
-      itsmeSupport: true,
-      languages: ['NL', 'FR', 'EN'],
-      accountTypes: ['standard', 'joint'],
-      mobileApp: true,
+      tobAuto: true,
+      cgtAuto: 'cgt_auto',
     },
-    pros: [
-      "0% commission sur les ETFs — aucun frais à chaque achat",
-      "Toutes les taxes belges gérées automatiquement (TOB, précompte, CGT 2026)",
+    protection: 'protection_be_100',
+    protectionAmount: '€100.000',
+    pros: ['medirect_pro_0', 'common_taxes_auto'],
+    cons: ['medirect_con_0', 'medirect_con_1'],
+    idealFor: 'medirect_ideal',
+    warningNote: 'medirect_etf_note',
+    feeStory: [
+      { label: 'medirect_fs0_label', value: 'fees_free' },
     ],
-    cons: [
-      "Pas de plan d'épargne automatique — ordres manuels uniquement",
-      "Sélection d'ETFs limitée — certains ETFs de niche peuvent être absents",
-    ],
-    idealFor: "L'investisseur discipliné qui place manuellement chaque mois et veut le coût le plus bas possible.",
-    etfAvailabilityNote: "Couvre les principaux ETFs recommandés (IMIE, IWDA, CSPX, EMIM, IEUR). Disponibilité des ETFs de niche (ICHN, XMAW, etc.) à vérifier directement sur la plateforme.",
   },
   {
     id: 'saxo',
-    name: 'Saxo Bank Belgium',
-    tagline: "La meilleure automatisation pour l'investisseur DCA",
-    tier: 'recommended',
-    regulatedInBelgium: true,
-    investorProtection: "Cash : garanti jusqu'à €100.000 (fonds de garantie belge). ETF : actifs ségrégués du bilan du broker — restitués en cas de faillite.",
+    name: 'Saxo Bank',
+    tagline: 'saxo_tagline',
     recommendedBadge: 'meilleur_automation',
-    profiles: ['dca', 'avance'],
-    feeStory: [
-      { label: 'AutoInvest (plan automatique)', value: '€2/mois', highlight: 'good', note: "Couvre autant d'ETFs que souhaité en un seul forfait mensuel" },
-      { label: 'Achat manuel ETF', value: '0,08% (min €2)', highlight: 'neutral' },
-    ],
+    tier: 'recommended',
+    regulatedIn: 'regulated_be',
     fees: {
-      fixedFeePerTrade: '€2,00',
+      fixedFeePerTrade: 'data.brokers.saxo.fees.fixed',
       percentFeePerTrade: '—',
-      note: 'Tarif AutoInvest flat/mois. Hors AutoInvest: min €2,00 + 0,08%.',
-      savingsPlan: 'AutoInvest — €2/mois flat',
-      custodyFee: 'Aucun',
-      fxFee: '0,25%',
+      fxFee: 'data.brokers.saxo.fees.fx',
+      custodyFee: 'fees_none',
+      savingsPlanFee: 'saxo_fee_savings',
     },
-    tax: {
-      tobAutomated: true,
-      dividendTaxAutomated: true,
-      cgt2026Automated: false,
-      cgt2026Level: 'high',
-      nbbDeclarationRequired: false,
-    },
-    features: {
+    automation: {
       savingsPlan: true,
-      savingsPlanDetails: "AutoInvest — €2/mois pour autant d'ETFs que souhaité",
-      itsmeSupport: true,
-      languages: ['NL', 'FR', 'EN'],
-      accountTypes: ['standard', 'joint', 'corporate'],
-      mobileApp: true,
+      tobAuto: true,
+      cgtAuto: 'cgt_auto',
     },
-    pros: [
-      "AutoInvest — €2/mois pour autant d'ETFs que souhaité, sans frais par ordre",
-      "Toutes les taxes belges gérées automatiquement (TOB, précompte, CGT 2026)",
+    protection: 'protection_be_100',
+    protectionAmount: '€100.000',
+    pros: ['saxo_pro_0', 'common_taxes_auto'],
+    cons: ['saxo_con_0', 'saxo_con_1'],
+    idealFor: 'saxo_ideal',
+    feeStory: [
+      { label: 'saxo_fs0_label', value: 'saxo_fs0_value', note: 'saxo_fs0_note' },
+      { label: 'saxo_fs1_label', value: 'saxo_fs1_value' },
     ],
-    cons: [
-      "Pas de compte mineur",
-      "Plateforme premium — peut sembler complexe pour les débutants",
-    ],
-    idealFor: "L'investisseur DCA qui veut tout automatiser sans se soucier de la fiscalité.",
   },
   {
     id: 'bolero',
     name: 'Bolero',
-    tagline: 'La solution KBC — intégrée et entièrement belge',
-    tier: 'situational',
-    regulatedInBelgium: true,
-    investorProtection: "Cash : garanti jusqu'à €100.000 (fonds de garantie belge). ETF : actifs ségrégués du bilan du broker — restitués en cas de faillite.",
-    recommendedBadge: null,
-    profiles: ['debutant', 'dca'],
-    feeStory: [
-      { label: 'ETF Playlist', value: '€2,50 – €5,00', highlight: 'neutral', note: '€2,50 pour ordres ≤€250, €5,00 pour ≤€1.000' },
-      { label: 'ETF hors Playlist', value: '€7,50 minimum', highlight: 'bad' },
-      { label: 'Invest & Repeat (plan auto)', value: 'Même tarif Playlist', highlight: 'neutral' },
-    ],
+    tagline: 'bolero_tagline',
+    tier: 'recommended',
+    regulatedIn: 'regulated_be',
     fees: {
-      fixedFeePerTrade: '€2,50',
+      fixedFeePerTrade: 'data.brokers.bolero.fees.fixed',
       percentFeePerTrade: '—',
-      note: 'Tarif ETF Playlist. Hors Playlist: €7,50 minimum.',
-      savingsPlan: 'Invest & Repeat (ordres périodiques)',
-      custodyFee: 'Aucun',
-      fxFee: 'N/A',
+      fxFee: 'fees_none',
+      custodyFee: 'fees_none',
+      savingsPlanFee: 'bolero_fee_savings',
     },
-    tax: {
-      tobAutomated: true,
-      dividendTaxAutomated: true,
-      cgt2026Automated: false,
-      cgt2026Level: 'high',
-      nbbDeclarationRequired: false,
-    },
-    features: {
+    automation: {
       savingsPlan: true,
-      savingsPlanDetails: 'Invest & Repeat (ordres périodiques)',
-      itsmeSupport: true,
-      languages: ['NL', 'FR'],
-      accountTypes: ['standard', 'joint', 'minor', 'corporate'],
-      mobileApp: true,
+      tobAuto: true,
+      cgtAuto: 'cgt_auto',
     },
-    pros: [
-      "Invest & Repeat — plans d'épargne automatiques sur les ETFs de la Playlist",
-      "Toutes les taxes belges gérées automatiquement (TOB, précompte, CGT 2026)",
-      "Comptes mineurs et entreprise disponibles",
+    protection: 'protection_be_100',
+    protectionAmount: '€100.000',
+    pros: ['bolero_pro_0', 'common_taxes_auto', 'bolero_pro_2'],
+    cons: ['bolero_con_0', 'bolero_con_1'],
+    idealFor: 'bolero_ideal',
+    feeStory: [
+      { label: 'bolero_fs0_label', value: 'data.brokers.bolero.fees.fixed_alt', note: 'bolero_fs0_note' },
+      { label: 'bolero_fs1_label', value: 'data.brokers.bolero.fees.fixed_min' },
+      { label: 'bolero_fs2_label', value: 'bolero_fs2_value' },
     ],
-    cons: [
-      "Frais élevés hors Playlist (€7,50 minimum)",
-      "Intégration optimale avec un compte KBC/CBC",
-    ],
-    idealFor: "Les clients KBC qui veulent une solution intégrée et automatisée avec support local.",
   },
   {
     id: 'degiro',
     name: 'DEGIRO',
-    tagline: 'Frais ultra-bas, mais gestion fiscale partielle',
+    tagline: 'degiro_tagline',
     tier: 'situational',
-    regulatedInBelgium: false,
-    investorProtection: "Cash : garanti jusqu'à €20.000 (Pays-Bas). ETF : actifs ségrégués — restitués en cas de faillite.",
-    recommendedBadge: null,
-    profiles: ['avance'],
-    feeStory: [
-      { label: 'ETF sélection core (Tradegate)', value: '€1,00 par achat', highlight: 'good' },
-      { label: 'ETF hors core', value: '€3,00 + 0,02%', highlight: 'neutral' },
-      { label: '⚠️ Précompte & CGT 2026', value: 'À déclarer manuellement', highlight: 'bad' },
-    ],
+    regulatedIn: 'regulated_eu',
     fees: {
-      fixedFeePerTrade: '€1,00',
+      fixedFeePerTrade: 'data.brokers.degiro.fees.fixed',
       percentFeePerTrade: '—',
-      note: 'Sélection core uniquement. Hors core: €3,00 + 0,02%.',
-      savingsPlan: 'Non disponible',
-      custodyFee: 'Aucun',
-      fxFee: '0,25% + €0,50',
+      fxFee: 'data.brokers.degiro.fees.fx',
+      custodyFee: 'fees_none',
+      savingsPlanFee: 'fees_not_available',
     },
-    tax: {
-      tobAutomated: true,
-      dividendTaxAutomated: false,
-      cgt2026Automated: false,
-      cgt2026Level: 'low',
-      nbbDeclarationRequired: true,
-    },
-    features: {
+    automation: {
       savingsPlan: false,
-      itsmeSupport: false,
-      languages: ['NL', 'FR'],
-      accountTypes: ['standard', 'joint'],
-      mobileApp: true,
+      tobAuto: true,
+      cgtAuto: 'cgt_manual',
     },
-    pros: [
-      "Frais ultra-bas — €1 pour les ETFs core sur Tradegate",
-      "TOB automatisée malgré broker étranger",
+    protection: 'protection_nl_20',
+    protectionAmount: '€20.000',
+    pros: ['degiro_pro_0', 'degiro_pro_1'],
+    cons: ['degiro_con_0', 'degiro_con_1', 'degiro_con_3'],
+    idealFor: 'degiro_ideal',
+    warningNote: 'degiro_warning',
+    feeStory: [
+      { label: 'degiro_fs0_label', value: 'data.brokers.degiro.fees.fixed_alt' },
+      { label: 'degiro_fs1_label', value: 'data.brokers.degiro.fees.variable' },
+      { label: 'degiro_fs2_label', value: 'fees_declare_manual' },
     ],
-    cons: [
-      "Précompte mobilier et CGT 2026 à déclarer manuellement",
-      "Pas de plan d'épargne automatique",
-      "Déclaration NBB requise — compte étranger à déclarer au fisc belge",
-      "Frais de connectivité €2,50/an par bourse utilisée",
-    ],
-    idealFor: "L'investisseur averti qui accepte la charge administrative pour minimiser les coûts.",
-    warningNote: "La TOB est automatisée, mais le précompte mobilier sur dividendes et la taxe sur plus-values 2026 sont à déclarer manuellement.",
-    guideLink: { text: "Guide : déclarer son compte étranger", href: "/ressources/declarer-compte-etranger" },
+    guideLink: { text: 'guide_foreign_account', href: '/ressources/declarer-compte-etranger' },
   },
   {
     id: 'rebel',
-    name: 'Re=Bel (Belfius)',
-    tagline: 'La solution Belfius — €1 pour les 18–24 ans',
+    name: 'Re=Bel',
+    tagline: 'rebel_tagline',
     tier: 'situational',
-    regulatedInBelgium: true,
-    investorProtection: "Cash : garanti jusqu'à €100.000 (fonds de garantie belge). ETF : actifs ségrégués du bilan du broker — restitués en cas de faillite.",
-    recommendedBadge: null,
-    profiles: ['debutant'],
-    feeStory: [
-      { label: 'Achat ETF (18–24 ans)', value: '€1,00 fixe', highlight: 'good' },
-      { label: 'Achat ETF (25 ans et +)', value: '€3,00 – €6,00', highlight: 'neutral' },
-    ],
+    regulatedIn: 'regulated_be',
     fees: {
-      fixedFeePerTrade: '€3,00',
+      fixedFeePerTrade: 'data.brokers.rebel.fees.fixed',
       percentFeePerTrade: '—',
-      savingsPlan: 'Non disponible',
-      custodyFee: 'Aucun',
-      fxFee: '1,00% (élevé)',
+      fxFee: 'data.brokers.rebel.fees.fx',
+      custodyFee: 'fees_none',
+      savingsPlanFee: 'fees_not_available',
     },
-    tax: {
-      tobAutomated: true,
-      dividendTaxAutomated: true,
-      cgt2026Automated: false,
-      cgt2026Level: 'high',
-      nbbDeclarationRequired: false,
-    },
-    features: {
+    automation: {
       savingsPlan: false,
-      itsmeSupport: true,
-      languages: ['NL', 'FR'],
-      accountTypes: ['standard', 'joint'],
-      mobileApp: true,
+      tobAuto: true,
+      cgtAuto: 'cgt_auto',
     },
-    pros: [
-      "€1 flat pour les investisseurs de 18 à 24 ans — tarif unique sur le marché",
-      "Toutes les taxes belges gérées automatiquement (TOB, précompte, CGT 2026)",
+    protection: 'protection_be_100',
+    protectionAmount: '€100.000',
+    pros: ['rebel_pro_0', 'common_taxes_auto'],
+    cons: ['rebel_con_0', 'rebel_con_1', 'rebel_con_2'],
+    idealFor: 'rebel_ideal',
+    feeStory: [
+      { label: 'rebel_fs0_label', value: 'data.brokers.rebel.fees.fixed' },
+      { label: 'rebel_fs1_label', value: 'data.brokers.rebel.fees.fixed_alt' },
     ],
-    cons: [
-      "Pas de plan d'épargne automatique",
-      "Tarif moins attractif après 25 ans (€3–€6 selon montant)",
-      "Nécessite un compte courant Belfius",
-    ],
-    idealFor: "Les clients Belfius, et particulièrement les jeunes investisseurs (18–24 ans) bénéficiant du tarif €1.",
   },
   {
     id: 'keytrade',
     name: 'Keytrade Bank',
-    tagline: 'La banque belge classique — fiable mais parmi les plus chères',
+    tagline: 'keytrade_tagline',
     tier: 'situational',
-    regulatedInBelgium: true,
-    investorProtection: "Cash : garanti jusqu'à €100.000 (fonds de garantie belge). ETF : actifs ségrégués du bilan du broker — restitués en cas de faillite.",
-    recommendedBadge: null,
-    profiles: ['debutant'],
-    feeStory: [
-      { label: 'Achat ETF (≤€250)', value: '€2,45', highlight: 'neutral' },
-      { label: 'Achat ETF (≤€2.500)', value: '€5,95', highlight: 'bad' },
-    ],
+    regulatedIn: 'regulated_be',
     fees: {
-      fixedFeePerTrade: '€2,45',
+      fixedFeePerTrade: 'data.brokers.keytrade.fees.fixed',
       percentFeePerTrade: '—',
-      note: "Pour ordres jusqu'à €250. De €250 à €2.500: €5,95.",
-      savingsPlan: 'Keyplan (fonds uniquement, pas ETFs individuels)',
-      custodyFee: 'Aucun',
-      fxFee: 'N/A',
+      fxFee: 'fees_none',
+      custodyFee: 'fees_none',
+      savingsPlanFee: 'keytrade_fee_savings',
     },
-    tax: {
-      tobAutomated: true,
-      dividendTaxAutomated: true,
-      cgt2026Automated: false,
-      cgt2026Level: 'high',
-      nbbDeclarationRequired: false,
-    },
-    features: {
+    automation: {
       savingsPlan: false,
-      itsmeSupport: false,
-      languages: ['NL', 'FR', 'EN'],
-      accountTypes: ['standard', 'joint', 'minor', 'corporate'],
-      mobileApp: true,
+      tobAuto: true,
+      cgtAuto: 'cgt_auto',
     },
-    pros: [
-      "Toutes les taxes belges gérées automatiquement (TOB, précompte, CGT 2026)",
-      "Comptes mineurs et entreprise disponibles",
+    protection: 'protection_be_100',
+    protectionAmount: '€100.000',
+    pros: ['keytrade_pro_1', 'common_taxes_auto'],
+    cons: ['keytrade_con_0', 'keytrade_con_1'],
+    idealFor: 'keytrade_ideal',
+    feeStory: [
+      { label: 'keytrade_fs0_label', value: 'data.brokers.keytrade.fees.fixed' },
+      { label: 'keytrade_fs1_label', value: 'data.brokers.keytrade.fees.fixed_alt' },
     ],
-    cons: [
-      "Frais de transaction parmi les plus élevés (jusqu'à €5,95 par ordre)",
-      "Pas de plan d'épargne pour ETFs — Keyplan limité aux fonds",
-    ],
-    idealFor: "Les investisseurs cherchant une banque belge fiable avec comptes mineurs, acceptant des frais légèrement plus élevés.",
   },
   {
-    id: 'trade-republic',
+    id: 'trade_republic',
     name: 'Trade Republic',
-    tagline: "Plans d'épargne à €0, mais fiscalité 100% manuelle",
-    tier: 'situational',
-    regulatedInBelgium: false,
-    investorProtection: "Cash : garanti jusqu'à €100.000 (Allemagne). ETF : actifs ségrégués — restitués en cas de faillite.",
-    recommendedBadge: null,
-    profiles: ['avance'],
-    feeStory: [
-      { label: "Plan d'épargne automatique", value: 'Gratuit', highlight: 'good' },
-      { label: 'Achat manuel', value: '€1,00 fixe', highlight: 'good' },
-      { label: '⚠️ TOB, précompte, CGT 2026', value: 'Entièrement en manuel', highlight: 'bad' },
-    ],
+    tagline: 'trade_republic_tagline',
+    tier: 'not_recommended',
+    regulatedIn: 'regulated_eu',
     fees: {
-      fixedFeePerTrade: 'Gratuit',
+      fixedFeePerTrade: 'data.brokers.degiro.fees.fixed',
       percentFeePerTrade: '—',
-      note: "Plan d'épargne uniquement. Achat manuel: €1,00 fixe.",
-      savingsPlan: "Plans d'épargne automatiques — €0 commission",
-      custodyFee: 'Aucun',
-      fxFee: 'N/A',
+      fxFee: 'fees_none',
+      custodyFee: 'fees_none',
+      savingsPlanFee: 'trade_republic_fee_savings',
     },
-    tax: {
-      tobAutomated: false,
-      dividendTaxAutomated: false,
-      cgt2026Automated: false,
-      cgt2026Level: 'low',
-      nbbDeclarationRequired: true,
-    },
-    features: {
+    automation: {
       savingsPlan: true,
-      savingsPlanDetails: "Plans d'épargne automatiques à €0",
-      itsmeSupport: false,
-      languages: ['NL', 'FR', 'EN'],
-      accountTypes: ['standard', 'enfant'],
-      mobileApp: true,
+      tobAuto: false,
+      cgtAuto: 'cgt_manual',
     },
-    pros: [
-      "Plans d'épargne automatiques entièrement gratuits",
-      "2% d'intérêts sur les liquidités (jusqu'à €50.000)",
-      "Compte enfant disponible",
+    protection: 'protection_de_100',
+    protectionAmount: '€100.000',
+    pros: ['trade_republic_pro_0', 'trade_republic_pro_1', 'trade_republic_pro_2'],
+    cons: ['trade_republic_con_0', 'trade_republic_con_1', 'trade_republic_con_2'],
+    idealFor: 'trade_republic_ideal',
+    warningNote: 'trade_republic_warning',
+    feeStory: [
+      { label: 'trade_republic_fs0_label', value: 'fees_free' },
+      { label: 'trade_republic_fs1_label', value: 'data.brokers.degiro.fees.fixed' },
+      { label: 'trade_republic_fs2_label', value: 'fees_declare_manual' },
     ],
-    cons: [
-      "⚠️ TOB à déclarer au plus tard à la fin du 2e mois suivant la transaction — risque d'amende",
-      "Précompte mobilier et CGT 2026 à déclarer manuellement",
-      "Les intérêts sur liquidités (2% jusqu'à €50.000) sont versés bruts — à déclarer manuellement dans votre déclaration fiscale annuelle",
-      "Déclaration NBB requise — compte étranger à déclarer au fisc belge",
-    ],
-    idealFor: "Uniquement pour investisseurs rigoureusement organisés qui gèrent eux-mêmes toute leur fiscalité belge.",
-    warningNote: "⚠️ La TOB doit être payée manuellement au Trésor belge au plus tard à la fin du 2e mois suivant chaque transaction. La CGT 2026, le précompte mobilier et les intérêts sur liquidités sont également à déclarer manuellement. Des amendes s'appliquent en cas de non-déclaration.",
-    guideLink: { text: "Guide : déclarer son compte étranger", href: "/ressources/declarer-compte-etranger" },
+    guideLink: { text: 'guide_foreign_account', href: '/ressources/declarer-compte-etranger' },
   },
   {
     id: 'ing',
-    name: 'ING Self Invest',
-    tagline: 'La solution ING — intégrée mais attention aux frais de garde',
+    name: 'ING Belgique',
+    tagline: 'ing_tagline',
     tier: 'not_recommended',
-    regulatedInBelgium: true,
-    investorProtection: "Cash : garanti jusqu'à €100.000 (fonds de garantie belge). ETF : actifs ségrégués du bilan du broker — restitués en cas de faillite.",
-    recommendedBadge: null,
-    profiles: ['debutant'],
-    feeStory: [
-      { label: 'Achat ETF', value: '0,35% (min €1)', highlight: 'neutral' },
-      { label: '⚠️ Frais de garde', value: '0,0242%/mois (~0,29%/an)', highlight: 'bad', note: '€290/an pour €100.000 investis — rare parmi les brokers comparés ici' },
-    ],
+    regulatedIn: 'regulated_be',
     fees: {
-      fixedFeePerTrade: '€1,00',
-      percentFeePerTrade: '0,35%',
-      note: 'Frais de garde 0,29%/an en plus sur la valeur totale du portefeuille.',
-      savingsPlan: 'ING Easy Invest (fonds uniquement, pas ETFs)',
-      custodyFee: '0,0242%/mois (~0,29%/an — soit €290/an pour €100.000 investis)',
-      fxFee: '1,00% (élevé)',
+      fixedFeePerTrade: 'data.brokers.ing.fees.fixed',
+      percentFeePerTrade: 'data.brokers.ing.fees.percent',
+      fxFee: 'data.brokers.ing.fees.fx',
+      custodyFee: 'data.brokers.ing.fees.custody',
+      savingsPlanFee: 'ing_fee_savings',
     },
-    tax: {
-      tobAutomated: true,
-      dividendTaxAutomated: true,
-      cgt2026Automated: false,
-      cgt2026Level: 'high',
-      nbbDeclarationRequired: false,
-    },
-    features: {
+    automation: {
       savingsPlan: false,
-      itsmeSupport: true,
-      languages: ['NL', 'FR', 'EN'],
-      accountTypes: ['standard', 'joint', 'minor'],
-      mobileApp: true,
+      tobAuto: true,
+      cgtAuto: 'cgt_auto',
     },
-    pros: [
-      "Toutes les taxes belges gérées automatiquement (TOB, précompte, CGT 2026)",
-      "Compte mineur disponible",
-      "Intégré à l'application ING — gestion depuis l'environnement bancaire",
+    protection: 'protection_be_100',
+    protectionAmount: '€100.000',
+    pros: ['ing_pro_1', 'ing_pro_2'],
+    cons: ['ing_con_0', 'ing_con_1', 'ing_con_2'],
+    idealFor: 'ing_ideal',
+    warningNote: 'ing_warning',
+    feeStory: [
+      { label: 'ing_fs0_label', value: 'data.brokers.ing.fees.percent' },
+      { label: 'ing_fs1_label', value: 'data.brokers.ing.fees.custody', note: 'ing_fs1_note' },
     ],
-    cons: [
-      "⚠️ Frais de garde de 0,29%/an — rare parmi les brokers comparés ici",
-      "Pas de plan d'épargne ETF automatique",
-      "Frais de transaction élevés (0,35% par ordre)",
-    ],
-    idealFor: "Les clients ING cherchant une solution intégrée, mais attention aux frais de garde sur les gros portefeuilles.",
-    warningNote: "Les frais de garde représentent €290/an sur un portefeuille de €100.000 — rare parmi les brokers comparés ici, à prendre en compte sur le long terme.",
   },
   {
     id: 'ibkr',
     name: 'Interactive Brokers',
-    tagline: 'La plateforme des professionnels — puissante mais complexe',
+    tagline: 'ibkr_tagline',
     tier: 'not_recommended',
-    regulatedInBelgium: false,
-    investorProtection: "Cash : garanti jusqu'à €20.000 (Irlande). ETF : actifs ségrégués — restitués en cas de faillite.",
-    recommendedBadge: null,
-    profiles: ['avance'],
-    feeStory: [
-      { label: 'Achat ETF (Tiered)', value: '0,05% (min ~€1,25)', highlight: 'neutral' },
-      { label: '⚠️ Fiscalité belge', value: 'Entièrement en manuel', highlight: 'bad' },
-    ],
+    regulatedIn: 'regulated_eu',
     fees: {
-      fixedFeePerTrade: '—',
-      percentFeePerTrade: '0,05%',
-      note: 'Minimum ~€1,25 par ordre (tarif Tiered).',
-      savingsPlan: 'Non disponible',
-      custodyFee: 'Aucun',
-      fxFee: 'Quasi nul (taux spot)',
+      fixedFeePerTrade: 'data.brokers.ibkr.fees.fixed_min',
+      percentFeePerTrade: 'data.brokers.ibkr.fees.percent',
+      fxFee: 'ibkr_fee_fx',
+      custodyFee: 'fees_none',
+      savingsPlanFee: 'fees_not_available',
     },
-    tax: {
-      tobAutomated: false,
-      dividendTaxAutomated: false,
-      cgt2026Automated: false,
-      cgt2026Level: 'low',
-      nbbDeclarationRequired: true,
-    },
-    features: {
+    automation: {
       savingsPlan: false,
-      itsmeSupport: false,
-      languages: ['FR', 'EN'],
-      accountTypes: ['standard', 'joint', 'corporate', 'family'],
-      mobileApp: true,
+      tobAuto: false,
+      cgtAuto: 'cgt_manual',
     },
-    pros: [
-      "Accès mondial — marchés US, obligations, options, et plus",
-      "Frais de transaction parmi les plus bas pour grandes sommes (0,05%)",
-    ],
+    protection: 'protection_ie_20',
+    protectionAmount: '€20.000',
+    pros: ['ibkr_pro_0', 'ibkr_pro_1'],
     cons: [
-      "Aucune taxe belge automatisée — TOB, précompte et CGT 2026 entièrement en manuel",
-      "Pas de plan d'épargne automatique",
-      "Déclaration NBB requise — compte étranger à déclarer au fisc belge",
-      "Interface professionnelle complexe — pas pour débutants",
+      'ibkr_con_0',
+      'ibkr_con_1',
+      'common_nbb_required',
+      'ibkr_con_3',
     ],
-    idealFor: "Investisseurs avancés avec portefeuilles complexes ou besoins multi-devises, prêts à gérer leur fiscalité belge eux-mêmes.",
-    warningNote: "⚠️ Aucune taxe belge n'est automatisée. Réservé aux investisseurs expérimentés capables de gérer leur fiscalité belge de façon autonome.",
-    guideLink: { text: "Guide : déclarer son compte étranger", href: "/ressources/declarer-compte-etranger" },
+    idealFor: 'ibkr_ideal',
+    warningNote: 'ibkr_warning',
+    guideLink: { text: 'guide_foreign_account', href: '/ressources/declarer-compte-etranger' },
   },
 ];

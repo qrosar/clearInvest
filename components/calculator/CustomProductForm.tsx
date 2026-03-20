@@ -14,13 +14,13 @@ const SWATCHES = [
 type FormMode = 'simple' | 'advanced';
 type CustomCat = 'etf' | 'savings' | 'bonds' | 'branche21' | 'pension' | 'active';
 
-const CAT_DEFS: { key: CustomCat; icon: string; label: string }[] = [
-  { key: 'etf',       icon: '📈', label: 'ETF / Stratégie indicielle' },
-  { key: 'savings',   icon: '🏦', label: 'Compte épargne' },
-  { key: 'bonds',     icon: '📄', label: 'Bon de caisse / Compte à terme' },
-  { key: 'branche21', icon: '🛡️', label: 'Branche 21' },
-  { key: 'pension',   icon: '🏛️', label: 'Épargne-pension' },
-  { key: 'active',    icon: '📊', label: 'Fonds actif' },
+const CAT_DEFS: { key: CustomCat; icon: string; labelKey: string }[] = [
+  { key: 'etf',       icon: '📈', labelKey: 'custom_cat_etf' },
+  { key: 'savings',   icon: '🏦', labelKey: 'custom_cat_savings' },
+  { key: 'bonds',     icon: '📄', labelKey: 'custom_cat_bonds' },
+  { key: 'branche21', icon: '🛡️', labelKey: 'custom_cat_branche21' },
+  { key: 'pension',   icon: '🏛️', labelKey: 'custom_cat_pension' },
+  { key: 'active',    icon: '📊', labelKey: 'custom_cat_active' },
 ];
 
 // ── Form state ────────────────────────────────────────────────────────────────
@@ -151,10 +151,10 @@ function sectionsForCat(cat: CustomCat | null): string[] {
   return s;
 }
 
-function rateLabel(cat: CustomCat | null): string {
-  if (cat === 'savings')                 return 'Taux global (base + fidélité) *';
-  if (cat === 'bonds' || cat === 'branche21') return 'Taux brut garanti *';
-  return 'Rendement annuel estimé *';
+function rateLabelKey(cat: CustomCat | null): string {
+  if (cat === 'savings')                      return 'custom_rate_savings';
+  if (cat === 'bonds' || cat === 'branche21') return 'custom_rate_bonds';
+  return 'custom_rate_est';
 }
 
 function buildProduct(form: FormState, mode: FormMode): Product {
@@ -222,7 +222,7 @@ function buildProduct(form: FormState, mode: FormMode): Product {
     defaultRate: rate,
     rateEditable: true,
     color: form.color,
-    description: 'Produit personnalisé.',
+    description: '',
     taxConfig,
     bondAllocation,
   };
@@ -317,7 +317,9 @@ export default function CustomProductForm({
 
   function handleSubmit() {
     if (!isValid) return;
-    onSubmit(buildProduct(form, formMode));
+    const product = buildProduct(form, formMode);
+    product.description = t('custom_desc');
+    onSubmit(product);
   }
 
   return (
@@ -326,7 +328,7 @@ export default function CustomProductForm({
       {/* Header: title + mode toggle */}
       <div className="mb-1 flex items-center justify-between gap-3">
         <div className="flex items-center gap-2">
-          <p className="text-sm font-semibold text-[var(--charcoal)]">Créer un produit personnalisé</p>
+          <p className="text-sm font-semibold text-[var(--charcoal)]">{t('custom_create_title')}</p>
           <span className="rounded-full bg-amber-100 px-1.5 py-0.5 text-[10px] font-semibold uppercase leading-none text-amber-700">
             Beta
           </span>
@@ -343,23 +345,23 @@ export default function CustomProductForm({
                   : 'text-[var(--charcoal)]/55 hover:text-[var(--charcoal)]'
               }`}
             >
-              {m === 'simple' ? 'Simple' : 'Avancé'}
+              {m === 'simple' ? t('custom_mode_simple') : t('custom_mode_advanced')}
             </button>
           ))}
         </div>
       </div>
       <p className="mb-4 text-[10px] leading-snug text-[var(--charcoal)]/40">
-        Les calculs des produits personnalisés sont expérimentaux et peuvent ne pas refléter fidèlement tous les cas fiscaux. À utiliser à titre indicatif.
+        {t('custom_disclaimer')}
       </p>
 
       {/* Nom */}
       <div className="mb-4">
-        <Field label="Nom du produit *">
+        <Field label={`${t('custom_name')} *`}>
           <input
             type="text"
             value={form.name}
             onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-            placeholder="Ex : ETF S&P 500"
+            placeholder={t('custom_name_placeholder')}
             className="w-full rounded-lg border border-[var(--warm-tan)] bg-[var(--warm-white)]
               px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[var(--forest)]"
           />
@@ -368,9 +370,9 @@ export default function CustomProductForm({
 
       {/* Catégorie */}
       <div className="mb-4">
-        <p className="mb-2 text-xs font-medium text-[var(--charcoal)]/55">Catégorie *</p>
+        <p className="mb-2 text-xs font-medium text-[var(--charcoal)]/55">{t('custom_category')} *</p>
         <div className="grid grid-cols-3 gap-1.5">
-          {CAT_DEFS.map(({ key, icon, label }) => (
+          {CAT_DEFS.map(({ key, icon, labelKey }) => (
             <button
               key={key}
               type="button"
@@ -383,7 +385,7 @@ export default function CustomProductForm({
                 }`}
             >
               <span className="flex-shrink-0">{icon}</span>
-              <span className="leading-tight">{label}</span>
+              <span className="leading-tight">{t(labelKey as any)}</span>
             </button>
           ))}
         </div>
@@ -393,25 +395,25 @@ export default function CustomProductForm({
       <div className="mb-4 space-y-3">
         {/* Rate + TER on the same row when TER is visible */}
         <div className={showAnnualFee ? 'grid grid-cols-2 gap-3 items-start' : undefined}>
-          <Field label={rateLabel(cat)}>
+          <Field label={t(rateLabelKey(cat) as any)}>
             <NumInput
               value={form.rate}
               onChange={v => setForm(f => ({ ...f, rate: v }))}
               max="30"
             />
             {rateError && (
-              <p className="mt-0.5 text-[10px] text-red-500">Le rendement doit être supérieur à 0%</p>
+              <p className="mt-0.5 text-[10px] text-red-500">{t('custom_rate_error')}</p>
             )}
           </Field>
           {showAnnualFee && (
-            <Field label="Frais annuels / TER (%)">
+            <Field label={t('custom_annual_fee_label')}>
               <NumInput value={form.annualFee} onChange={v => setForm(f => ({ ...f, annualFee: v }))} step="0.01" max="5" />
             </Field>
           )}
         </div>
         {/* Entry fee on its own row */}
         {showEntryFee && (
-          <Field label="Frais d'entrée (%)">
+          <Field label={t('custom_entry_fee_pct')}>
             <NumInput value={form.entryFee} onChange={v => setForm(f => ({ ...f, entryFee: v }))} max="10" />
           </Field>
         )}
@@ -423,18 +425,18 @@ export default function CustomProductForm({
           {/* Savings rates */}
           {cat === 'savings' && (
             <Section
-              id="savings-rates" title="Taux"
+              id="savings-rates" title={t('custom_sec_taux')}
               open={openSections.includes('savings-rates')} onToggle={toggleSection}
             >
               <div className="grid grid-cols-2 gap-3">
-                <Field label="Taux de base (%)">
+                <Field label={t('custom_base_rate')}>
                   <NumInput value={form.baseRate} onChange={handleBaseRate} step="0.01" />
                 </Field>
-                <Field label="Prime de fidélité (%)">
+                <Field label={t('custom_loyalty_rate')}>
                   <NumInput value={form.loyaltyRate} onChange={handleLoyaltyRate} step="0.01" />
                 </Field>
               </div>
-              <Field label="Plafond mensuel (€)" hint="Laisser vide si aucun plafond">
+              <Field label={t('custom_monthly_cap')} hint={t('custom_monthly_cap_hint')}>
                 <NumInput value={form.monthlyCap} onChange={v => setForm(f => ({ ...f, monthlyCap: v }))} suffix="€" />
               </Field>
             </Section>
@@ -443,22 +445,22 @@ export default function CustomProductForm({
           {/* Branche 21 rates */}
           {cat === 'branche21' && (
             <Section
-              id="branche21-rates" title="Rendement"
+              id="branche21-rates" title={t('custom_sec_rendement')}
               open={openSections.includes('branche21-rates')} onToggle={toggleSection}
             >
               <div className="grid grid-cols-2 gap-3">
-                <Field label="Taux garanti (%)">
+                <Field label={t('custom_guaranteed_rate')}>
                   <NumInput value={form.guaranteedRate} onChange={handleGuaranteedRate} step="0.01" />
                 </Field>
-                <Field label="Participation bénéficiaire (%)" hint="Non garantie — simulation uniquement">
+                <Field label={t('custom_profit_share')} hint={t('custom_profit_share_hint')}>
                   <NumInput value={form.profitShare} onChange={handleProfitShare} step="0.01" />
                 </Field>
               </div>
               <div className="grid grid-cols-2 gap-3">
-                <Field label="Taxe sur prime (%)">
+                <Field label={t('custom_premium_tax')}>
                   <NumInput value={form.premiumTax} onChange={v => setForm(f => ({ ...f, premiumTax: v }))} step="0.01" />
                 </Field>
-                <Field label="Durée min. exonération (ans)" hint="Rachat avant → précompte 30% appliqué">
+                <Field label={t('custom_min_years')} hint={t('custom_min_years_hint')}>
                   <NumInput value={form.minYears} onChange={v => setForm(f => ({ ...f, minYears: v }))} suffix="ans" step="1" />
                 </Field>
               </div>
@@ -468,13 +470,13 @@ export default function CustomProductForm({
           {/* Bonds fiscal */}
           {cat === 'bonds' && (
             <Section
-              id="bonds-fiscal" title="Fiscalité"
+              id="bonds-fiscal" title={t('custom_sec_fiscalite')}
               open={openSections.includes('bonds-fiscal')} onToggle={toggleSection}
             >
               <label className="flex cursor-default select-none items-center gap-2">
                 <input type="checkbox" checked readOnly className="rounded accent-[var(--forest)]" />
                 <span className="text-xs text-[var(--charcoal)]/70">
-                  Taux saisi en brut (précompte 30% sera déduit)
+                  {t('custom_bonds_precompte')}
                 </span>
               </label>
             </Section>
@@ -483,17 +485,17 @@ export default function CustomProductForm({
           {/* Pension */}
           {cat === 'pension' && (
             <Section
-              id="pension-fiscal" title="Épargne-pension"
+              id="pension-fiscal" title={t('custom_sec_pension')}
               open={openSections.includes('pension-fiscal')} onToggle={toggleSection}
             >
               <div className="grid grid-cols-3 gap-3">
-                <Field label="Réduction d'impôt (%)">
+                <Field label={t('custom_tax_relief')}>
                   <NumInput value={form.taxRelief} onChange={v => setForm(f => ({ ...f, taxRelief: v }))} max="50" />
                 </Field>
-                <Field label="Taxe anticipative (%)">
+                <Field label={t('custom_pension_tax_label')}>
                   <NumInput value={form.pensionTax} onChange={v => setForm(f => ({ ...f, pensionTax: v }))} max="30" />
                 </Field>
-                <Field label="Plafond annuel (€)">
+                <Field label={t('custom_annual_cap')}>
                   <NumInput value={form.annualCap} onChange={v => setForm(f => ({ ...f, annualCap: v }))} suffix="€" />
                 </Field>
               </div>
@@ -503,18 +505,18 @@ export default function CustomProductForm({
           {/* Performance (ETF + active) */}
           {(cat === 'etf' || cat === 'active') && (
             <Section
-              id="performance" title="Performance"
+              id="performance" title={t('custom_sec_performance')}
               open={openSections.includes('performance')} onToggle={toggleSection}
             >
               <div className="grid grid-cols-2 gap-3">
-                <Field label="Allocation obligataire (%)" hint="Pour le calcul de la taxe Reynders">
+                <Field label={t('custom_bond_alloc')} hint={t('custom_bond_alloc_hint')}>
                   <NumInput value={form.bondAllocation} onChange={v => setForm(f => ({ ...f, bondAllocation: v }))} max="100" />
                 </Field>
-                <Field label="Rendement brut de réf. (%)" hint="Optionnel — affiché à titre informatif">
+                <Field label={t('custom_gross_baseline')} hint={t('custom_gross_baseline_hint')}>
                   <NumInput value={form.grossBaseline} onChange={v => setForm(f => ({ ...f, grossBaseline: v }))} max="30" />
                 </Field>
               </div>
-              <Field label="TOB (%)" hint="0,12% pour la plupart des ETF et fonds ; 1,32% pour fonds domiciliés en Belgique">
+              <Field label={t('custom_tob_label')} hint={t('custom_tob_hint')}>
                 <NumInput value={form.tob} onChange={v => setForm(f => ({ ...f, tob: v }))} step="0.01" max="5" />
               </Field>
             </Section>
@@ -522,20 +524,20 @@ export default function CustomProductForm({
 
           {/* Général (always shown in advanced) */}
           <Section
-            id="general" title="Général"
+            id="general" title={t('custom_sec_general')}
             open={openSections.includes('general')} onToggle={toggleSection}
           >
-            <Field label="Fournisseur / Banque" hint="Affiché sur la carte résultat">
+            <Field label={t('custom_provider')} hint={t('custom_provider_hint')}>
               <input
                 type="text"
                 value={form.provider}
                 onChange={e => setForm(f => ({ ...f, provider: e.target.value }))}
-                placeholder="Ex : Belfius"
+                placeholder={t('custom_provider_placeholder')}
                 className="w-full rounded-lg border border-[var(--warm-tan)] bg-[var(--warm-white)]
                   px-3 py-1.5 text-sm focus:outline-none focus:ring-1 focus:ring-[var(--forest)]"
               />
             </Field>
-            <Field label="Note / Avertissement" hint="Affiché en bas de la carte résultat (200 car. max)">
+            <Field label={t('custom_warning_note_label')} hint={t('custom_warning_note_hint')}>
               <textarea
                 value={form.warningNote}
                 onChange={e => setForm(f => ({ ...f, warningNote: e.target.value.slice(0, 200) }))}
@@ -553,7 +555,7 @@ export default function CustomProductForm({
 
       {/* Couleur */}
       <div className="mb-4 mt-4">
-        <p className="mb-2 text-xs font-medium text-[var(--charcoal)]/55">Couleur</p>
+        <p className="mb-2 text-xs font-medium text-[var(--charcoal)]/55">{t('custom_color')}</p>
         <div className="flex gap-1.5">
           {SWATCHES.map(color => (
             <button
@@ -587,7 +589,7 @@ export default function CustomProductForm({
           className="rounded-lg bg-[var(--forest)] px-5 py-2 text-sm font-semibold
             text-[var(--warm-white)] transition-opacity hover:opacity-90 disabled:opacity-35"
         >
-          Ajouter le produit
+          {t('custom_add_btn')}
         </button>
       </div>
     </div>

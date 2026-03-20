@@ -100,6 +100,7 @@ function ResultCard({
   years: number;
   t: ReturnType<typeof useTranslations<'calculator'>>;
 }) {
+  const td = useTranslations();
   const [showBreakdown, setShowBreakdown] = useState(false);
   const isEtf = product.category === 'etf';
   const isBankProduct = !isEtf;
@@ -116,6 +117,9 @@ function ResultCard({
   const isBranche21 = !!(product.taxConfig?.branche21WithholdingTax);
   const isBranche21Exempt = isBranche21 && years >= (product.taxConfig?.branche21MinYears ?? 8);
 
+  const name = product.name.startsWith('data.') ? td(product.name as any) : product.name;
+  const provider = product.provider?.startsWith('data.') ? td(product.provider as any) : product.provider;
+
   return (
     <div className="flex min-w-0 flex-col rounded-xl border border-[var(--warm-tan)]/40 bg-[var(--warm-white)] p-5">
 
@@ -123,16 +127,16 @@ function ResultCard({
       <div className="mb-4">
         <div className="flex min-w-0 items-center gap-2">
           <span className="h-2.5 w-2.5 flex-shrink-0 rounded-full" style={{ backgroundColor: product.color }} />
-          <p className="min-w-0 truncate text-sm font-bold leading-tight text-[var(--charcoal)]" title={product.name}>
-            {product.name}
+          <p className="min-w-0 truncate text-sm font-bold leading-tight text-[var(--charcoal)]" title={name}>
+            {name}
           </p>
           {product.isCustom && (
             <span className="flex-shrink-0 text-xs leading-none" title="Produit personnalisé">✏️</span>
           )}
         </div>
         <div className="mt-1.5 flex min-w-0 items-center justify-between gap-2 pl-[18px]">
-          {product.provider
-            ? <p className="min-w-0 truncate text-[10px] leading-tight text-[var(--charcoal)]/45" title={product.provider}>{product.provider}</p>
+          {provider
+            ? <p className="min-w-0 truncate text-[10px] leading-tight text-[var(--charcoal)]/45" title={provider}>{provider}</p>
             : <span />
           }
           <span className={`flex-shrink-0 rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase ${
@@ -163,7 +167,9 @@ function ResultCard({
           <div className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-[10px] leading-relaxed text-amber-800">
             {t('active_fund_warning', { rate: formatPct(rate) })}
             {product.warningNote && (
-              <p className="mt-1 font-medium">{product.warningNote}</p>
+              <p className="mt-1 font-medium">
+                {product.warningNote.startsWith('data.') || product.warningNote.startsWith('p_') ? td(product.warningNote as any) : product.warningNote}
+              </p>
             )}
           </div>
         )}
