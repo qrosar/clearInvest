@@ -553,7 +553,7 @@
     "f1_p1": "Het hangt af van uw broker.",
     "f1_p2": "Met een Belgische broker (MeDirect, Saxo Bank België, Bolero, Keytrade): de beurstaks (TOB) wordt automatisch ingehouden en aangegeven bij elke transactie. U hoeft niets te doen voor de beurstaks.",
     "f1_p3": "De meerwaarde (meerwaardebelasting 10% boven €10.000/jaar) moet worden aangegeven in uw jaarlijkse belastingaangifte. Uw broker verstrekt u een jaarlijks overzicht van transacties dat deze aangifte vergemakkelijkt.",
-    "f1_p4": "Met bepaalde buitenlandse brokers (Interactive Brokers, Trade Republic): u bent verantwoordelijk voor het berekenen en aangeven van de beurstaks zelf, per kwartaal — een echte administratieve last met risico op boetes.",
+    "f1_p4": "Met bepaalde buitenlandse brokers (Interactive Brokers, Trade Republic): u bent verantwoordelijk voor het berekenen en aangeven van de beurstaks zelf om de twee maanden — een echte administratieve last met risico op boetes bij vertraging.",
     "f1_p5": "Andere populaire buitenlandse brokers zoals DEGIRO beheren nu automatisch de beurstaks voor hun Belgische klanten, maar de roerende voorheffing en de CGT 2026 moeten nog steeds handmatig worden aangegeven. Controleer altijd de actuele voorwaarden van uw broker — deze praktijken kunnen evolueren.",
     "f2_q": "Wat gebeurt er fiscaal als ik verkoop?",
     "f2_p1": "Drie belastingen kunnen van toepassing zijn bij de verkoop, afhankelijk van uw situatie:",

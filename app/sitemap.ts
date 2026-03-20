@@ -4,28 +4,27 @@ const locales = ['fr', 'nl', 'en']
 const baseUrl = 'https://clearinvest.be'
 
 const pages = [
-  '',
-  '/strategies',
-  '/calculateur', 
-  '/brokers',
-  '/questions',
-  '/comprendre',
-  '/comprendre/etf',
-  '/comprendre/produits-bancaires',
-  '/comprendre/fiscalite',
-  '/ressources',
-  '/ressources/premier-achat',
-  '/ressources/declarer-compte-etranger',
-  '/ressources/glossaire',
-  '/a-propos',
-  '/mentions-legales',
-  '/politique-confidentialite',
+  { path: '', priority: 1.0, changeFrequency: 'weekly' as const },
+  { path: '/strategies', priority: 0.9, changeFrequency: 'monthly' as const },
+  { path: '/calculateur', priority: 0.9, changeFrequency: 'monthly' as const },
+  { path: '/brokers', priority: 0.8, changeFrequency: 'monthly' as const },
+  { path: '/questions', priority: 0.8, changeFrequency: 'monthly' as const },
+  { path: '/comprendre', priority: 0.8, changeFrequency: 'monthly' as const },
+  { path: '/comprendre/etf', priority: 0.8, changeFrequency: 'monthly' as const },
+  { path: '/comprendre/produits-bancaires', priority: 0.7, changeFrequency: 'monthly' as const },
+  { path: '/comprendre/fiscalite', priority: 0.7, changeFrequency: 'monthly' as const },
+  { path: '/ressources', priority: 0.6, changeFrequency: 'monthly' as const },
+  { path: '/ressources/premier-achat', priority: 0.6, changeFrequency: 'monthly' as const },
+  { path: '/ressources/declarer-compte-etranger', priority: 0.6, changeFrequency: 'monthly' as const },
+  { path: '/ressources/glossaire', priority: 0.6, changeFrequency: 'monthly' as const },
+  { path: '/a-propos', priority: 0.4, changeFrequency: 'yearly' as const },
+  { path: '/mentions-legales', priority: 0.3, changeFrequency: 'yearly' as const },
+  { path: '/politique-confidentialite', priority: 0.3, changeFrequency: 'yearly' as const },
 ]
 
-// Add strategy detail pages
 const strategyIds = [
   'monde-simplifie',
-  'monde-complet', 
+  'monde-complet',
   'tout-en-un',
   'esg-mondiale',
   'biais-europe',
@@ -38,14 +37,12 @@ const strategyIds = [
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = pages.flatMap(page =>
+  const staticPages = pages.flatMap(({ path, priority, changeFrequency }) =>
     locales.map(locale => ({
-      url: `${baseUrl}/${locale}${page}`,
+      url: `${baseUrl}/${locale}${path}`,
       lastModified: new Date(),
-      changeFrequency: page === '' ? 'weekly' : 'monthly' as const,
-      priority: page === '' ? 1 : page.includes('comprendre') || 
-                page === '/strategies' || 
-                page === '/calculateur' ? 0.8 : 0.6,
+      changeFrequency,
+      priority,
     }))
   )
 

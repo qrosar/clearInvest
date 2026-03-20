@@ -553,7 +553,7 @@
     "f1_p1": "Ça dépend de votre broker.",
     "f1_p2": "Avec un broker belge (MeDirect, Saxo Bank Belgique, Bolero, Keytrade) : la TOB est prélevée et déclarée automatiquement à chaque transaction. Vous n'avez rien à faire pour la TOB.",
     "f1_p3": "La plus-value (CGT 10% au-delà de 10 000 €/an) doit être déclarée dans votre déclaration fiscale annuelle. Votre broker vous fournit un relevé annuel des transactions qui facilite cette déclaration.",
-    "f1_p4": "Avec certains brokers étrangers (Interactive Brokers, Trade Republic) : vous êtes responsable de calculer et déclarer la TOB vous-même, par trimestre — une charge administrative réelle avec risque d'amende.",
+    "f1_p4": "Avec certains brokers étrangers (Interactive Brokers, Trade Republic) : vous êtes responsable de calculer et déclarer la TOB vous-même tous les deux mois — une charge administrative réelle avec risque d'amende en cas de retard.",
     "f1_p5": "D'autres brokers étrangers populaires comme DEGIRO gèrent désormais automatiquement la TOB pour leurs clients belges, mais le précompte mobilier et la CGT 2026 restent à déclarer manuellement. Vérifiez toujours les conditions actuelles de votre broker — ces pratiques peuvent évoluer.",
     "f2_q": "Qu'est-ce qui se passe fiscalement quand je vends ?",
     "f2_p1": "Trois taxes peuvent s'appliquer à la vente, selon votre situation :",

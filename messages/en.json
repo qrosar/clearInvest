@@ -553,7 +553,7 @@
     "f1_p1": "It depends on your broker.",
     "f1_p2": "With a Belgian broker (MeDirect, Saxo Bank Belgium, Bolero, Keytrade): the TOB is withheld and declared automatically at each transaction. You have nothing to do for the TOB.",
     "f1_p3": "Capital gains (CGT 10% above €10,000/year) must be declared in your annual tax return. Your broker provides you with an annual transaction statement that simplifies this declaration.",
-    "f1_p4": "With certain foreign brokers (Interactive Brokers, Trade Republic): you are responsible for calculating and declaring the TOB yourself, quarterly — a real administrative burden with risk of fines.",
+    "f1_p4": "With certain foreign brokers (Interactive Brokers, Trade Republic): you are responsible for calculating and declaring the TOB yourself every two months — a real administrative burden with risk of fines in case of delay.",
     "f1_p5": "Other popular foreign brokers like DEGIRO now automatically handle the TOB for their Belgian clients, but the précompte mobilier and CGT 2026 still need to be declared manually. Always check your broker's current terms — these practices may evolve.",
     "f2_q": "What happens tax-wise when I sell?",
     "f2_p1": "Three taxes may apply on sale, depending on your situation:",
