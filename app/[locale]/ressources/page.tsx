@@ -76,6 +76,21 @@ export default async function RessourcesPage() {
             </p>
           </Link>
           <Link
+            href="/ressources/immobilier-vs-etf"
+            className="group flex flex-col rounded-2xl border border-[var(--warm-tan)]/50 bg-[var(--warm-white)] p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+          >
+            <div className="flex items-start justify-between">
+              <span className="text-3xl">🏠</span>
+              <span className="text-[var(--charcoal)]/30 transition-transform duration-200 group-hover:translate-x-1">→</span>
+            </div>
+            <h2 className="mt-4 font-heading text-lg font-semibold text-[var(--charcoal)]">
+              {t('card_immo_title')}
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-[var(--charcoal)]/60">
+              {t('card_immo_desc')}
+            </p>
+          </Link>
+          <Link
             href="/ressources/glossaire"
             className="group flex flex-col rounded-2xl border border-[var(--warm-tan)]/50 bg-[var(--warm-white)] p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
           >

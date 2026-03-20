@@ -151,6 +151,17 @@ export default function FaqList() {
             { type: 'p', text: t('s3_p5') },
           ],
         },
+        {
+          q: t('s4_q'),
+          a: [
+            { type: 'p', text: t('s4_p1') },
+            { type: 'p', text: t('s4_p2') },
+            { type: 'p', text: t('s4_p3') },
+            { type: 'p', text: t('s4_p4') },
+            { type: 'p', text: t('s4_p5') },
+            { type: 'link', text: t('s4_link'), href: '/ressources/immobilier-vs-etf' },
+          ],
+        },
       ],
     },
     {

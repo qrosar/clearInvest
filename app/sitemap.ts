@@ -16,6 +16,7 @@ const pages = [
   { path: '/ressources', priority: 0.6, changeFrequency: 'monthly' as const },
   { path: '/ressources/premier-achat', priority: 0.6, changeFrequency: 'monthly' as const },
   { path: '/ressources/declarer-compte-etranger', priority: 0.6, changeFrequency: 'monthly' as const },
+  { path: '/ressources/immobilier-vs-etf', priority: 0.6, changeFrequency: 'monthly' as const },
   { path: '/ressources/glossaire', priority: 0.6, changeFrequency: 'monthly' as const },
   { path: '/a-propos', priority: 0.4, changeFrequency: 'yearly' as const },
   { path: '/mentions-legales', priority: 0.3, changeFrequency: 'yearly' as const },
