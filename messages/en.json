@@ -926,7 +926,7 @@
         "name": "Global ESG",
         "tagline": "Invest according to your values",
         "description": "Global exposure to developed markets with an ESG filter that excludes controversial companies (weapons, tobacco, thermal coal). Historical performance close to the unfiltered global market.",
-        "historicalReturnNote": "Closely tracks the MSCI World with slight variation due to ESG exclusions",
+        "historicalReturnNote": "Slightly outperformed IWDA since 2012 (+0.4%/year) thanks to the exclusion of sectors that underperformed (fossil fuels, tobacco). Data prior to 2012 is based on a backtest, not real data. This outperformance is not guaranteed in the future.",
         "why_0": "ESG Screened exclusions: XMAW excludes companies involved in controversial weapons, tobacco, thermal coal, and companies with serious ESG standard violations — about 10 to 15% of MSCI World companies are filtered out.",
         "why_1": "Market-like performance: the MSCI World ESG Screened index has historically tracked the classic MSCI World very closely — exclusions have not significantly penalised the 20-year return.",
         "why_2": "0.12% TOB and accumulating fund: same tax advantages as IWDA — no withholding tax on dividends, reduced TOB.",

@@ -925,7 +925,7 @@
         "name": "Mondiale ESG",
         "tagline": "Beleggen volgens uw waarden",
         "description": "Wereldwijde blootstelling aan ontwikkelde markten met een ESG-filter dat controversiële bedrijven uitsluit (wapens, tabak, steenkool). Historische prestaties dicht bij de niet-gefilterde wereldmarkt.",
-        "historicalReturnNote": "Volgt nauwgezet de MSCI World with lichte variatie door de ESG-uitsluitingen",
+        "historicalReturnNote": "Iets hoger dan IWDA sinds 2012 (+0,4%/jaar) dankzij de uitsluiting van sectoren die ondermaats presteerden (fossiele brandstoffen, tabak). Gegevens vóór 2012 zijn gebaseerd op een backtest, niet op reële data. Deze overperformance is niet gegarandeerd in de toekomst.",
         "why_0": "ESG Screened uitsluitingen: XMAW sluit bedrijven uit die betrokken zijn bij controversiële wapens, tabak, steenkool en bedrijven met ernstige schendingen van ESG-normen — ongeveer 10 tot 15% van de bedrijven in de MSCI World worden gefilterd.",
         "why_1": "Prestaties dicht bij de markt: de MSCI World ESG Screened index heeft historisch gezien zeer nauw de klassieke MSCI World gevolgd — de uitsluitingen hebben het rendement over 20 jaar niet significant geschaad.",
         "why_2": "TOB van 0,12% en accumulerend fonds: dezelfde fiscale voordelen als IWDA — geen roerende voorheffing op dividenden, verlaagde TOB.",
