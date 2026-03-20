@@ -66,9 +66,9 @@ function InfoTip({ text }: { text: string }) {
   );
 }
 
-function CgtBadge({ level }: { level: 'high' | 'low' }) {
+function CgtBadge({ cgtKey }: { cgtKey: string }) {
   const t = useTranslations('brokers');
-  if (level === 'high') {
+  if (cgtKey !== 'cgt_manual') {
     return (
       <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2 py-0.5 text-[11px] font-semibold text-amber-700">
         {t('cgt_auto')}
@@ -130,7 +130,7 @@ export default function BrokerCard({ broker }: Props) {
                 🤖 {t('badge_meilleur_automation')}
               </span>
             )}
-            {(!broker.tax.tobAutomated || !broker.tax.cgt2026Automated) && (
+            {(!broker.automation.tobAuto || broker.automation.cgtAuto === 'cgt_manual') && (
               <span className="rounded-full border border-amber-200 bg-amber-100 px-2.5 py-0.5 text-[11px] font-bold text-amber-700">
                 ⚠️ {t('badge_warning')}
               </span>
@@ -139,13 +139,13 @@ export default function BrokerCard({ broker }: Props) {
           <p className="mt-0.5 text-sm text-[var(--charcoal)]/60">{t(broker.tagline as any)}</p>
         </div>
         <div className="shrink-0">
-          {broker.regulatedInBelgium ? (
+          {broker.regulatedIn === 'regulated_be' ? (
             <span className="rounded-full bg-[var(--forest)]/10 px-2 py-0.5 text-[10px] font-semibold text-[var(--forest)]">
               🔒 {t('regulated_be')}
             </span>
           ) : (
             <span className="rounded-full bg-[var(--warm-tan)]/40 px-2 py-0.5 text-[10px] font-semibold text-[var(--charcoal)]/50">
-              {t('regulated_eu')}
+              {t(broker.regulatedIn as any)}
             </span>
           )}
         </div>
@@ -157,23 +157,15 @@ export default function BrokerCard({ broker }: Props) {
           {t('fee_story_label')}
         </p>
         <div className="space-y-1.5">
-          {broker.feeStory.map((item, i) => {
-            const valueClass =
-              item.highlight === 'good'
-                ? 'text-[var(--forest)] font-semibold'
-                : item.highlight === 'bad'
-                  ? 'text-amber-700 font-semibold'
-                  : 'text-[var(--charcoal)]';
-            return (
-              <div key={i} className="flex items-center justify-between gap-2">
-                <span className="text-sm text-[var(--charcoal)]/60">{t(item.label as any)}</span>
-                <span className={`flex items-center text-sm ${valueClass}`}>
-                  <span className="font-mono">{t(item.value as any)}</span>
-                  {item.note && <InfoTip text={t(item.note as any)} />}
-                </span>
-              </div>
-            );
-          })}
+          {broker.feeStory.map((item, i) => (
+            <div key={i} className="flex items-center justify-between gap-2">
+              <span className="text-sm text-[var(--charcoal)]/60">{t(item.label as any)}</span>
+              <span className="flex items-center text-sm text-[var(--charcoal)]">
+                <span className="font-mono">{t(item.value as any)}</span>
+                {item.note && <InfoTip text={t(item.note as any)} />}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -181,7 +173,7 @@ export default function BrokerCard({ broker }: Props) {
       <div className="rounded-xl border border-[var(--warm-tan)]/40 bg-[var(--warm-cream)] px-3 py-2">
         <span className="block text-[10px] uppercase tracking-wide text-[var(--charcoal)]/40">{t('cgt_2026')}</span>
         <div className="mt-1">
-          <CgtBadge level={broker.tax.cgt2026Level} />
+          <CgtBadge cgtKey={broker.automation.cgtAuto} />
         </div>
       </div>
 
@@ -222,14 +214,6 @@ export default function BrokerCard({ broker }: Props) {
         >
           {expanded ? t('show_less') : t('show_more')}
         </button>
-      )}
-
-      {/* ETF availability note (MeDirect) */}
-      {broker.etfAvailabilityNote && (
-        <div className="flex gap-2 rounded-xl border border-[var(--warm-tan)]/40 bg-[var(--warm-cream)] px-3 py-2.5 text-xs text-[var(--charcoal)]/60">
-          <span className="shrink-0">ℹ️</span>
-          <span>{t(broker.etfAvailabilityNote as any)}</span>
-        </div>
       )}
 
       {/* Ideal for */}

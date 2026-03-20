@@ -25,7 +25,7 @@ export type Broker = {
   automation: {
     savingsPlan: boolean;
     tobAuto: boolean;
-    cgtAuto: boolean; // i18n key
+    cgtAuto: string; // i18n key: 'cgt_auto' | 'cgt_manual'
   };
   protection: string; // i18n key
   protectionAmount: string; // literal amount or i18n key
@@ -301,6 +301,11 @@ export const BROKERS: Broker[] = [
     ],
     idealFor: 'ibkr_ideal',
     warningNote: 'ibkr_warning',
+    feeStory: [
+      { label: 'ibkr_fs0_label', value: 'data.brokers.ibkr.fees.fixed_min' },
+      { label: 'ibkr_fs1_label', value: 'data.brokers.ibkr.fees.percent' },
+      { label: 'ibkr_fs2_label', value: 'fees_declare_manual' },
+    ],
     guideLink: { text: 'guide_foreign_account', href: '/ressources/declarer-compte-etranger' },
   },
 ];

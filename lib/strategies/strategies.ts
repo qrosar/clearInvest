@@ -12,6 +12,10 @@ export type Strategy = {
   name: string;            // i18n key (data.strategies.[id].name)
   tagline: string;         // i18n key (data.strategies.[id].tagline)
   description: string;     // i18n key (data.strategies.[id].description)
+  complexity: 'simple' | 'intermediate';
+  horizon: ('short' | 'long')[];
+  esg: boolean;
+  geographic: ('global' | 'europe' | 'us' | 'china' | 'emerging')[];
   etfs: ETFAllocation[];
   historicalReturn: number; // annual return, e.g. 0.08 for 8%
   historicalReturnPeriod: string;
@@ -27,6 +31,7 @@ export const STRATEGIES: Strategy[] = [
     name: 'data.strategies.monde-simplifie.name',
     tagline: 'data.strategies.monde-simplifie.tagline',
     description: 'data.strategies.monde-simplifie.description',
+    complexity: 'simple', horizon: ['long'], esg: false, geographic: ['global'],
     etfs: [
       { ticker: 'IWDA', isin: 'IE00B4L5Y983', name: 'iShares Core MSCI World UCITS ETF (Acc)', allocation: 100, ter: 0.20, accumulating: true },
     ],
@@ -41,6 +46,7 @@ export const STRATEGIES: Strategy[] = [
     name: 'data.strategies.monde-complet.name',
     tagline: 'data.strategies.monde-complet.tagline',
     description: 'data.strategies.monde-complet.description',
+    complexity: 'simple', horizon: ['long'], esg: false, geographic: ['global', 'emerging'],
     etfs: [
       { ticker: 'IWDA', isin: 'IE00B4L5Y983', name: 'iShares Core MSCI World UCITS ETF (Acc)', allocation: 89, ter: 0.20, accumulating: true },
       { ticker: 'EMIM', isin: 'IE00BKM4GZ66', name: 'iShares Core MSCI EM IMI UCITS ETF (Acc)', allocation: 11, ter: 0.18, accumulating: true },
@@ -56,6 +62,7 @@ export const STRATEGIES: Strategy[] = [
     name: 'data.strategies.tout-en-un.name',
     tagline: 'data.strategies.tout-en-un.tagline',
     description: 'data.strategies.tout-en-un.description',
+    complexity: 'simple', horizon: ['long'], esg: false, geographic: ['global', 'emerging'],
     etfs: [
       { ticker: 'IMIE', isin: 'IE00B3YLTY66', name: 'State Street SPDR MSCI All Country World Investable Market UCITS ETF (Acc)', allocation: 100, ter: 0.17, accumulating: true },
     ],
@@ -70,6 +77,7 @@ export const STRATEGIES: Strategy[] = [
     name: 'data.strategies.esg-mondiale.name',
     tagline: 'data.strategies.esg-mondiale.tagline',
     description: 'data.strategies.esg-mondiale.description',
+    complexity: 'simple', horizon: ['long'], esg: true, geographic: ['global'],
     etfs: [
       { ticker: 'XMAW', isin: 'IE00BK5BQV03', name: 'Xtrackers MSCI World ESG Screened UCITS ETF (Acc)', allocation: 100, ter: 0.20, accumulating: true },
     ],
@@ -84,6 +92,7 @@ export const STRATEGIES: Strategy[] = [
     name: 'data.strategies.biais-europe.name',
     tagline: 'data.strategies.biais-europe.tagline',
     description: 'data.strategies.biais-europe.description',
+    complexity: 'intermediate', horizon: ['long'], esg: false, geographic: ['global', 'europe'],
     etfs: [
       { ticker: 'IWDA', isin: 'IE00B4L5Y983', name: 'iShares Core MSCI World UCITS ETF (Acc)', allocation: 60, ter: 0.20, accumulating: true },
       { ticker: 'IEUR', isin: 'IE00B1YZSC51', name: 'iShares Core MSCI Europe UCITS ETF (Acc)', allocation: 40, ter: 0.12, accumulating: true },
@@ -99,6 +108,7 @@ export const STRATEGIES: Strategy[] = [
     name: 'data.strategies.anti-us.name',
     tagline: 'data.strategies.anti-us.tagline',
     description: 'data.strategies.anti-us.description',
+    complexity: 'intermediate', horizon: ['long'], esg: false, geographic: ['global', 'europe', 'china'],
     etfs: [
       { ticker: 'IWDA', isin: 'IE00B4L5Y983', name: 'iShares Core MSCI World UCITS ETF (Acc)', allocation: 60, ter: 0.20, accumulating: true },
       { ticker: 'IEUR', isin: 'IE00B1YZSC51', name: 'iShares Core MSCI Europe UCITS ETF (Acc)', allocation: 20, ter: 0.12, accumulating: true },
@@ -115,6 +125,7 @@ export const STRATEGIES: Strategy[] = [
     name: 'data.strategies.biais-chine.name',
     tagline: 'data.strategies.biais-chine.tagline',
     description: 'data.strategies.biais-chine.description',
+    complexity: 'intermediate', horizon: ['long'], esg: false, geographic: ['global', 'china'],
     etfs: [
       { ticker: 'IWDA', isin: 'IE00B4L5Y983', name: 'iShares Core MSCI World UCITS ETF (Acc)', allocation: 70, ter: 0.20, accumulating: true },
       { ticker: 'ICHN', isin: 'IE00BQT38270', name: 'iShares MSCI China UCITS ETF (Acc)', allocation: 30, ter: 0.28, accumulating: true },
@@ -130,6 +141,7 @@ export const STRATEGIES: Strategy[] = [
     name: 'data.strategies.biais-us.name',
     tagline: 'data.strategies.biais-us.tagline',
     description: 'data.strategies.biais-us.description',
+    complexity: 'simple', horizon: ['long'], esg: false, geographic: ['us'],
     etfs: [
       { ticker: 'CSPX', isin: 'IE00B5BMR087', name: 'iShares Core S&P 500 UCITS ETF (Acc)', allocation: 100, ter: 0.07, accumulating: true },
     ],
@@ -144,6 +156,7 @@ export const STRATEGIES: Strategy[] = [
     name: 'data.strategies.tech-us.name',
     tagline: 'data.strategies.tech-us.tagline',
     description: 'data.strategies.tech-us.description',
+    complexity: 'simple', horizon: ['long'], esg: false, geographic: ['us'],
     etfs: [
       { ticker: 'CNDX', isin: 'IE00B53SZB19', name: 'iShares Nasdaq 100 UCITS ETF (Acc)', allocation: 100, ter: 0.33, accumulating: true },
     ],
@@ -161,6 +174,7 @@ export const STRATEGIES: Strategy[] = [
     name: 'data.strategies.dividendes.name',
     tagline: 'data.strategies.dividendes.tagline',
     description: 'data.strategies.dividendes.description',
+    complexity: 'simple', horizon: ['long'], esg: false, geographic: ['global'],
     etfs: [
       { ticker: 'VHYL', isin: 'IE00B8GKDB10', name: 'Vanguard FTSE All-World High Dividend Yield UCITS ETF (Dist)', allocation: 100, ter: 0.29, accumulating: false },
     ],
@@ -178,6 +192,7 @@ export const STRATEGIES: Strategy[] = [
     name: 'data.strategies.epargne-liquide.name',
     tagline: 'data.strategies.epargne-liquide.tagline',
     description: 'data.strategies.epargne-liquide.description',
+    complexity: 'simple', horizon: ['short'], esg: false, geographic: ['europe'],
     etfs: [
       { ticker: 'XEON', isin: 'LU0290358497', name: 'Xtrackers II EUR Overnight Rate Swap UCITS ETF (Acc)', allocation: 100, ter: 0.10, accumulating: true },
     ],

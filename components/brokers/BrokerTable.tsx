@@ -70,7 +70,8 @@ const COUNTRY_FLAG: Record<string, string> = {
 };
 
 function protectionShort(broker: Broker): string {
-  const flag = COUNTRY_FLAG[broker.protectionCountry] ?? broker.protectionCountry;
+  const countryCode = broker.protection.split('_')[1]?.toUpperCase() ?? '';
+  const flag = COUNTRY_FLAG[countryCode] ?? '';
   return `${broker.protectionAmount} ${flag}`;
 }
 
@@ -255,8 +256,6 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
                     const dimmed = highlightIds.length > 0 && !highlightIds.includes(broker.id);
                     const rowBg = idx % 2 === 0 ? 'bg-[var(--warm-white)]' : 'bg-[var(--warm-cream)]';
                     const leftBorder = tierBorderColor[key];
-                    const noteOnFixed = !!broker.fees.note && broker.fees.fixedFeePerTrade !== '—';
-                    const noteOnPercent = !!broker.fees.note && broker.fees.fixedFeePerTrade === '—';
 
                     return (
                       <tr
@@ -300,18 +299,16 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
                         <td className={`${TD} text-center`}>
                           <FeeCell
                             value={broker.fees.fixedFeePerTrade === 'fees_free' ? t('fees_free') : broker.fees.fixedFeePerTrade}
-                            note={noteOnFixed && broker.fees.note ? t(broker.fees.note as any) : undefined}
                           />
                         </td>
                         <td className={`${TD} text-center`}>
                           <FeeCell
                             value={broker.fees.percentFeePerTrade}
-                            note={noteOnPercent && broker.fees.note ? t(broker.fees.note as any) : undefined}
                           />
                         </td>
 
                         <td className={`${TD} text-center`}>
-                          {broker.features.savingsPlan ? (
+                          {broker.automation.savingsPlan ? (
                             broker.id === 'trade-republic' ? (
                               <YesStar href="#fn-tr-savings" />
                             ) : (
@@ -323,15 +320,15 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
                         </td>
 
                         <td className={`${TD} text-center`}>
-                          {broker.tax.tobAutomated ? <Yes /> : <No />}
+                          {broker.automation.tobAuto ? <Yes /> : <No />}
                         </td>
 
                         <td className={`${TD} text-center`}>
-                          {broker.tax.cgt2026Level === 'high' ? <Pending /> : <No />}
+                          {broker.automation.cgtAuto !== 'cgt_manual' ? <Pending /> : <No />}
                         </td>
 
                         <td className={`${TD} text-center`}>
-                          <Tip text={t(broker.investorProtection as any)}>
+                          <Tip text={t(broker.protection as any)}>
                             <span className="whitespace-nowrap font-medium text-[var(--charcoal)] underline decoration-dotted decoration-[var(--charcoal)]/30 underline-offset-2">
                               {protectionShort(broker)}
                             </span>
