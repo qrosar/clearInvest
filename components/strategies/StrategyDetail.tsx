@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import type { Strategy } from '@/lib/strategies/strategies';
 import type { StrategyContent, Alternative } from '@/lib/strategies/strategyContent';
+import StrategyReturnsBar from './StrategyReturnsBar';
 
 interface Props {
   strategy: Strategy;
@@ -281,6 +282,11 @@ export default function StrategyDetail({ strategy, content }: Props) {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* ── Historical returns ── */}
+      <section className="mb-10">
+        <StrategyReturnsBar strategyId={strategy.id} variant="detail" />
       </section>
 
       {/* ── Why this strategy ────────────────────────────────────── */}

@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import type { Strategy } from '@/lib/strategies/strategies';
 import TerInfoIcon from './TerInfoIcon';
+import StrategyReturnsBar from './StrategyReturnsBar';
 
 interface Props {
   strategy: Strategy;
@@ -159,6 +160,8 @@ export default function StrategyCard({ strategy }: Props) {
             })}
           </div>
         )}
+
+        <StrategyReturnsBar strategyId={strategy.id} variant="card" />
 
         {/* CTA — pushed to bottom */}
         <div className="mt-auto pt-2">

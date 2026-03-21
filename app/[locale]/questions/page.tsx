@@ -55,7 +55,7 @@ export default async function QuestionsPage() {
           <p className="text-sm text-[var(--charcoal)]/60">
             {t('footer_suggest')}{' '}
             <a
-              href="#"
+              href="mailto:contact@clearinvest.be"
               className="text-[var(--forest)] underline-offset-2 hover:underline"
             >
               {t('footer_suggest_link')}
