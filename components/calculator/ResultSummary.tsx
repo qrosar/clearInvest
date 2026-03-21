@@ -117,8 +117,8 @@ function ResultCard({
   const isBranche21 = !!(product.taxConfig?.branche21WithholdingTax);
   const isBranche21Exempt = isBranche21 && years >= (product.taxConfig?.branche21MinYears ?? 8);
 
-  const name = product.name;
-  const provider = product.provider;
+  const name = product.name.startsWith('data.') ? td(product.name as any) : product.name;
+  const provider = product.provider?.startsWith('data.') ? td(product.provider as any) : product.provider;
 
   return (
     <div className="flex min-w-0 flex-col rounded-xl border border-[var(--warm-tan)]/40 bg-[var(--warm-white)] p-5">
