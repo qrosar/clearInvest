@@ -141,7 +141,7 @@ export const STRATEGIES: Strategy[] = [
     name: 'data.strategies.biais-us.name',
     tagline: 'data.strategies.biais-us.tagline',
     description: 'data.strategies.biais-us.description',
-    complexity: 'simple', horizon: ['long'], esg: false, geographic: ['us'],
+    complexity: 'intermediate', horizon: ['long'], esg: false, geographic: ['us'],
     etfs: [
       { ticker: 'CSPX', isin: 'IE00B5BMR087', name: 'iShares Core S&P 500 UCITS ETF (Acc)', allocation: 100, ter: 0.07, accumulating: true },
     ],
@@ -156,7 +156,7 @@ export const STRATEGIES: Strategy[] = [
     name: 'data.strategies.tech-us.name',
     tagline: 'data.strategies.tech-us.tagline',
     description: 'data.strategies.tech-us.description',
-    complexity: 'simple', horizon: ['long'], esg: false, geographic: ['us'],
+    complexity: 'intermediate', horizon: ['long'], esg: false, geographic: ['us'],
     etfs: [
       { ticker: 'CNDX', isin: 'IE00B53SZB19', name: 'iShares Nasdaq 100 UCITS ETF (Acc)', allocation: 100, ter: 0.33, accumulating: true },
     ],
@@ -192,7 +192,7 @@ export const STRATEGIES: Strategy[] = [
     name: 'data.strategies.epargne-liquide.name',
     tagline: 'data.strategies.epargne-liquide.tagline',
     description: 'data.strategies.epargne-liquide.description',
-    complexity: 'simple', horizon: ['short'], esg: false, geographic: ['europe'],
+    complexity: 'intermediate', horizon: ['short'], esg: false, geographic: ['europe'],
     etfs: [
       { ticker: 'XEON', isin: 'LU0290358497', name: 'Xtrackers II EUR Overnight Rate Swap UCITS ETF (Acc)', allocation: 100, ter: 0.10, accumulating: true },
     ],

@@ -290,7 +290,7 @@
     "q_esg": "Responsible investing?",
     "esg_yes": "Yes",
     "esg_indifferent": "No preference",
-    "q_complexity": "Desired level?",
+    "q_complexity": "Desired complexity level?",
     "complexity_simple": "Simple",
     "complexity_intermediate": "Intermediate",
     "q_geographic": "Geographic exposure?",
