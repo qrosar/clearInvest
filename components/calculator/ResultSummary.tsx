@@ -106,19 +106,38 @@ function ResultCard({
   const isBankProduct = !isEtf;
   const isActiveFund = product.subcategory === 'active-fund';
   const isPensionOnCard = !!(product.taxConfig?.pensionTax);
-  const gain = sd.finalValueAfterTax - totalContributed;
-  const gainPositive = gain >= 0;
   const bd = sd.taxBreakdown;
+  
+  // Pension gain = Final Net Value - Net Contribution - Total Taxes
+  // Standard gain = Final Net Value - Gross Contribution
+  const gain = isPensionOnCard
+    ? sd.finalValueAfterTax - (totalContributed - bd.taxBenefit) - sd.totalTaxPaid
+    : sd.finalValueAfterTax - totalContributed;
+    
+  const gainPositive = gain >= 0;
   const hasCgt = bd.capitalGainsTax > 0;
   const hasPrecompte = bd.precompte > 0;
   const isInterestProduct = !!(product.taxConfig?.interestTax);
   const hasTer = bd.annualFeesCumulative > 0 && product.category === 'etf';
-  const hasBenefit = (bd.taxBenefit ?? 0) > 0;
   const isBranche21 = !!(product.taxConfig?.branche21WithholdingTax);
   const isBranche21Exempt = isBranche21 && years >= (product.taxConfig?.branche21MinYears ?? 8);
 
   const name = product.name.startsWith('data.') ? td(product.name as any) : product.name;
   const provider = product.provider?.startsWith('data.') ? td(product.provider as any) : product.provider;
+
+  // Dynamic rate label
+  let rateLabel = t('param_gross_rate');
+  if (product.subcategory === 'etf-strategy') {
+    rateLabel = t('param_rate_etf');
+  } else if (product.subcategory === 'active-fund' || isPensionOnCard) {
+    rateLabel = t('param_rate_simulated');
+  } else if (product.id.startsWith('savings-') || product.id.startsWith('bon-caisse-')) {
+    rateLabel = t('param_rate_savings');
+  } else if (isBranche21) {
+    rateLabel = t('param_rate_guaranteed');
+  } else if (product.isCustom || product.subcategory === 'custom') {
+    rateLabel = t('param_rate_estimated');
+  }
 
   return (
     <div className="flex min-w-0 flex-col rounded-xl border border-[var(--warm-tan)]/40 bg-[var(--warm-white)] p-5">
@@ -150,7 +169,7 @@ function ResultCard({
       {/* ── Parameter rows ───────────────────────────────────── */}
       <div className="space-y-2 text-xs">
         <div className="flex items-baseline justify-between gap-3">
-          <span className="whitespace-nowrap text-[var(--charcoal)]/45">{t('param_gross_rate')}</span>
+          <span className="whitespace-nowrap text-[var(--charcoal)]/45">{rateLabel}</span>
           <span className="text-right text-[var(--charcoal)]/70">{formatPct(rate)}</span>
         </div>
         {isBankProduct && (
@@ -180,6 +199,23 @@ function ResultCard({
           <span className="whitespace-nowrap text-[var(--charcoal)]/45">{t('total_contributed')}</span>
           <span className="text-right font-medium text-[var(--charcoal)]">{formatEuro(totalContributed)}</span>
         </div>
+
+        {isPensionOnCard && (
+          <>
+            <div className="flex items-baseline justify-between gap-3 text-[11px] -mt-1">
+              <span className="whitespace-nowrap text-[var(--charcoal)]/45 italic">{t('tax_relief_refund')}</span>
+              <span className="text-right font-medium text-[var(--forest)]">−{formatEuro(bd.taxBenefit)}</span>
+            </div>
+            <div className="flex items-baseline justify-between gap-3 pt-0.5">
+              <span className="flex items-center gap-1 whitespace-nowrap text-[var(--charcoal)]/60 font-medium">
+                {t('real_out_of_pocket')}
+                <CgtTooltip text={t('real_out_of_pocket_tooltip')} />
+              </span>
+              <span className="text-right font-bold text-[var(--charcoal)]">{formatEuro(totalContributed - bd.taxBenefit)}</span>
+            </div>
+          </>
+        )}
+
         <div className="flex items-center justify-between gap-3">
           <span className="flex items-center gap-1 whitespace-nowrap text-[var(--charcoal)]/45">
             {t('total_tax')}
@@ -224,7 +260,7 @@ function ResultCard({
 
         <div
           className="overflow-hidden transition-all duration-300 ease-in-out"
-          style={{ maxHeight: showBreakdown ? '400px' : '0px' }}
+          style={{ maxHeight: showBreakdown ? '500px' : '0px' }}
         >
           <div className="mt-2 space-y-1.5 text-xs">
             {bd.tobBuy > 0 && <BreakdownRow label={t('tax_detail_tob_buy')} amount={bd.tobBuy} />}
@@ -254,22 +290,6 @@ function ResultCard({
               <div className="flex items-baseline justify-between gap-3">
                 <span className="whitespace-nowrap text-[var(--charcoal)]/45">{t('tax_detail_pension')}</span>
                 <span className="text-right text-[#dc2626]">−{formatEuro(bd.pensionTax)}</span>
-              </div>
-            )}
-
-            {/* Pension savings tax relief (benefit) */}
-            {hasBenefit && (
-              <div className="flex items-baseline justify-between gap-3">
-                <div className="flex items-center gap-1.5 whitespace-nowrap text-[var(--forest)]/70">
-                  <span>{t('tax_detail_pension_benefit')}</span>
-                  <CgtTooltip text={td('p_pension_relief_tooltip' as any)} />
-                </div>
-                <div className="text-right">
-                  <span className="font-medium text-[var(--forest)]">+{formatEuro(bd.taxBenefit)}</span>
-                  <p className="text-[9px] text-[var(--forest)]/50 leading-none mt-0.5">
-                    {t('tax_detail_pension_benefit_note', { years })}
-                  </p>
-                </div>
               </div>
             )}
 
