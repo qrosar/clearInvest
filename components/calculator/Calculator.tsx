@@ -183,12 +183,12 @@ export default function Calculator() {
                 <span className="text-sm text-[var(--charcoal)]/40">€</span>
                 <input
                   type="number"
-                  min={50}
+                  min={0}
                   max={5000}
                   step={50}
                   value={monthlyContribution}
                   onChange={e =>
-                    setMonthlyContribution(Math.min(5000, Math.max(50, Number(e.target.value) || 50)))
+                    setMonthlyContribution(Math.min(5000, Math.max(0, Number(e.target.value) || 0)))
                   }
                   className="w-20 rounded border border-[var(--warm-tan)] bg-[var(--warm-white)]
                     px-2 py-1 text-right text-sm font-bold text-[var(--charcoal)]
@@ -197,12 +197,12 @@ export default function Calculator() {
               </div>
             </div>
             <input
-              type="range" min={50} max={5000} step={50} value={monthlyContribution}
+              type="range" min={0} max={5000} step={50} value={monthlyContribution}
               onChange={e => setMonthlyContribution(Number(e.target.value))}
               className="w-full" style={{ accentColor: 'var(--forest)' }}
             />
             <div className="mt-1 flex justify-between text-[10px] text-[var(--charcoal)]/35">
-              <span>€50</span><span>€5.000</span>
+              <span>€0</span><span>€5.000</span>
             </div>
           </div>
         )}

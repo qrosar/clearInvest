@@ -185,6 +185,16 @@ export default function FaqList() {
             { type: 'p', text: t('f2_p2') },
           ],
         },
+        {
+          q: t('f3_q'),
+          a: [
+            { type: 'p', text: t('f3_p1') },
+            { type: 'p', text: t('f3_p2') },
+            { type: 'p', text: t('f3_p3') },
+            { type: 'p', text: t('f3_p4') },
+            { type: 'p', text: t('f3_p5') },
+          ],
+        },
       ],
     },
   ];
