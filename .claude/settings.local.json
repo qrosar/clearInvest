@@ -18,7 +18,8 @@
       "Bash(node -e \"JSON.parse\\(require\\(''fs''\\).readFileSync\\(''C:/Users/Gebruiker/Documents/be-invest/messages/nl.json'',''utf8''\\)\\); console.log\\(''nl.json: valid''\\)\")",
       "Bash(node -e \"const fs=require\\(''fs''\\); const fr=JSON.parse\\(fs.readFileSync\\(''messages/fr.json'',''utf8''\\)\\); console.log\\(Object.keys\\(fr\\)\\); console.log\\(''Keys count:'', Object.keys\\(fr\\).length\\);\")",
       "Bash(node -e \"console.log\\(''node works''\\)\")",
-      "Bash(node -e \"const fs=require\\(''fs''\\); const fr=JSON.parse\\(fs.readFileSync\\(''messages/fr.json'',''utf8''\\)\\); console.log\\(JSON.stringify\\(Object.keys\\(fr.strategies\\)\\)\\);\")"
+      "Bash(node -e \"const fs=require\\(''fs''\\); const fr=JSON.parse\\(fs.readFileSync\\(''messages/fr.json'',''utf8''\\)\\); console.log\\(JSON.stringify\\(Object.keys\\(fr.strategies\\)\\)\\);\")",
+      "Bash(pnpm build:*)"
     ]
   }
 }
