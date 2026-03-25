@@ -28,7 +28,10 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export async function generateStaticParams() {
-  return STRATEGIES.map(s => ({ id: s.id }));
+  const locales = ['fr', 'nl', 'en'];
+  return locales.flatMap(locale =>
+    STRATEGIES.map(s => ({ locale, id: s.id }))
+  );
 }
 
 export default async function StrategyDetailRoute({ params }: Props) {
