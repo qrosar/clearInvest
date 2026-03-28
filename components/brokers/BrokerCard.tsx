@@ -161,7 +161,7 @@ export default function BrokerCard({ broker }: Props) {
             <div key={i} className="flex items-center justify-between gap-2">
               <span className="text-sm text-[var(--charcoal)]/60">{t(item.label as any)}</span>
               <span className="flex items-center text-sm text-[var(--charcoal)]">
-                <span className="font-mono">{t(item.value as any)}</span>
+                <span className="font-mono">{/^[a-z_]+$/.test(item.value) ? t(item.value as any) : item.value}</span>
                 {item.note && <InfoTip text={t(item.note as any)} />}
               </span>
             </div>

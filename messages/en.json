@@ -59,7 +59,8 @@
     "chart_delta": "+€260,000 vs bank",
     "chart_badge_rate": "~8% / yr",
     "chart_badge_label": "historical",
-    "chart_disclaimer": "* Indicative simulation before tax. €300/month for 30 years."
+    "chart_disclaimer": "* Indicative simulation before tax. €300/month for 30 years.",
+    "chart_year_label": "{count} yr"
   },
   "journey": {
     "heading": "From zero to your",
@@ -494,6 +495,7 @@
     "ibkr_fs0_label": "ETF purchase (Tiered)",
     "ibkr_fs0_value": "0,05% (min ~€1,25)",
     "ibkr_fs1_label": "⚠️ Belgian tax obligations",
+    "ibkr_fs2_label": "⚠️ Withholding tax & CGT 2026",
     "ibkr_fees_note": "Minimum ~€1,25 per order (Tiered pricing).",
     "ibkr_fee_fx": "Near zero (spot rate)",
     "ibkr_pro_0": "Global access — US markets, bonds, options, and more",

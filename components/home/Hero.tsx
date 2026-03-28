@@ -3,17 +3,18 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 
-const chartData = [
-  { label: '5 ans',  bank: 5,  etf: 5  },
-  { label: '10 ans', bank: 9,  etf: 13 },
-  { label: '15 ans', bank: 14, etf: 24 },
-  { label: '20 ans', bank: 20, etf: 42 },
-  { label: '25 ans', bank: 26, etf: 67 },
-  { label: '30 ans', bank: 35, etf: 96 },
+const chartPoints = [
+  { count: 5,  bank: 5,  etf: 5  },
+  { count: 10, bank: 9,  etf: 13 },
+  { count: 15, bank: 14, etf: 24 },
+  { count: 20, bank: 20, etf: 42 },
+  { count: 25, bank: 26, etf: 67 },
+  { count: 30, bank: 35, etf: 96 },
 ];
 
 export default function Hero() {
   const t = useTranslations('hero');
+  const chartData = chartPoints.map(p => ({ ...p, label: t('chart_year_label', { count: p.count }) }));
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-[var(--forest-deep)]">

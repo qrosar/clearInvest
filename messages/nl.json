@@ -59,7 +59,8 @@
     "chart_delta": "+€260.000 vs bank",
     "chart_badge_rate": "~8% / jaar",
     "chart_badge_label": "historisch",
-    "chart_disclaimer": "* Indicatieve simulatie vóór belasting. €300/maand gedurende 30 jaar."
+    "chart_disclaimer": "* Indicatieve simulatie vóór belasting. €300/maand gedurende 30 jaar.",
+    "chart_year_label": "{count} jaar"
   },
   "journey": {
     "heading": "Van nul tot uw",
@@ -494,6 +495,7 @@
     "ibkr_fs0_label": "ETF-aankoop (Tiered)",
     "ibkr_fs0_value": "0,05% (min ~€1,25)",
     "ibkr_fs1_label": "⚠️ Belgische fiscaliteit",
+    "ibkr_fs2_label": "⚠️ Roerende voorheffing & CGT 2026",
     "ibkr_fees_note": "Minimum ~€1,25 per order (Tiered-tarief).",
     "ibkr_fee_fx": "Vrijwel nul (spotwisselkoers)",
     "ibkr_pro_0": "Wereldwijde toegang — Amerikaanse markten, obligaties, opties en meer",
