@@ -67,6 +67,7 @@ const COUNTRY_FLAG: Record<string, string> = {
   NL: '🇳🇱',
   DE: '🇩🇪',
   IE: '🇮🇪',
+  LT: '🇱🇹',
 };
 
 function protectionShort(broker: Broker): string {
@@ -80,6 +81,7 @@ const DISPLAY_ORDER = [
   'medirect', 'saxo',                                        // recommended
   'bolero', 'degiro', 'rebel', 'keytrade', 'trade_republic', // situational
   'ing', 'ibkr',                                             // not_recommended
+  'robinhood',                                               // avoid
 ];
 
 // ── Cell components ───────────────────────────────────────────────────────────
@@ -156,7 +158,7 @@ interface Props {
   highlightIds: string[];
 }
 
-type TierKey = 'recommended' | 'situational' | 'not_recommended';
+type TierKey = 'recommended' | 'situational' | 'not_recommended' | 'avoid';
 
 export default function BrokerTable({ brokers, highlightIds }: Props) {
   const t = useTranslations('brokers');
@@ -184,6 +186,11 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
       label: t('tier_label_not_recommended'),
       rows: sorted.filter((b) => b.tier === 'not_recommended'),
     },
+    {
+      key: 'avoid',
+      label: t('tier_label_avoid'),
+      rows: sorted.filter((b) => b.tier === 'avoid'),
+    },
   ];
 
   // Left border color per tier
@@ -191,6 +198,7 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
     recommended: 'bg-[var(--sage)]',
     situational: '',
     not_recommended: 'bg-[var(--warm-tan)]',
+    avoid: 'bg-red-400',
   };
 
   return (
@@ -328,11 +336,19 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
                         </td>
 
                         <td className={`${TD} text-center`}>
-                          <Tip text={t(broker.protection as any)}>
-                            <span className="whitespace-nowrap font-medium text-[var(--charcoal)] underline decoration-dotted decoration-[var(--charcoal)]/30 underline-offset-2">
-                              {protectionShort(broker)}
-                            </span>
-                          </Tip>
+                          {broker.protection === 'protection_none' ? (
+                            <Tip text={t('protection_none' as any)}>
+                              <span className="whitespace-nowrap font-semibold text-red-600 underline decoration-dotted decoration-red-400 underline-offset-2">
+                                {t('protection_none_short' as any)} ⚠️
+                              </span>
+                            </Tip>
+                          ) : (
+                            <Tip text={t(broker.protection as any)}>
+                              <span className="whitespace-nowrap font-medium text-[var(--charcoal)] underline decoration-dotted decoration-[var(--charcoal)]/30 underline-offset-2">
+                                {protectionShort(broker)}
+                              </span>
+                            </Tip>
+                          )}
                         </td>
                       </tr>
                     );

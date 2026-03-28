@@ -161,7 +161,7 @@ export default function BrokerCard({ broker }: Props) {
             <div key={i} className="flex items-center justify-between gap-2">
               <span className="text-sm text-[var(--charcoal)]/60">{t(item.label as any)}</span>
               <span className="flex items-center text-sm text-[var(--charcoal)]">
-                <span className="font-mono">{/^[a-z_]+$/.test(item.value) ? t(item.value as any) : item.value}</span>
+                <span className="font-mono">{/^[a-z][a-z0-9_]*$/.test(item.value) ? t(item.value as any) : item.value}</span>
                 {item.note && <InfoTip text={t(item.note as any)} />}
               </span>
             </div>
@@ -217,17 +217,21 @@ export default function BrokerCard({ broker }: Props) {
       )}
 
       {/* Ideal for */}
-      <p className="border-t border-[var(--warm-tan)]/40 pt-3 text-sm text-[var(--charcoal)]/70">
-        <span className="mr-1 text-[11px] font-semibold uppercase not-italic tracking-wide text-[var(--charcoal)]/40">
-          {t('ideal_for')}
-        </span>
-        <span className="italic">{t(broker.idealFor as any)}</span>
-      </p>
+      {broker.idealFor && (
+        <p className="border-t border-[var(--warm-tan)]/40 pt-3 text-sm text-[var(--charcoal)]/70">
+          <span className="mr-1 text-[11px] font-semibold uppercase not-italic tracking-wide text-[var(--charcoal)]/40">
+            {t('ideal_for')}
+          </span>
+          <span className="italic">{t(broker.idealFor as any)}</span>
+        </p>
+      )}
 
       {/* Warning note */}
       {broker.warningNote && (
         <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-          <p>{t(broker.warningNote as any)}</p>
+          {t(broker.warningNote as any).split(' | ').map((para, i) => (
+            <p key={i} className={i > 0 ? 'mt-2' : ''}>{para}</p>
+          ))}
           {broker.guideLink && (
             <p className="mt-2">
               <Link

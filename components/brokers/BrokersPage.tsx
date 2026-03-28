@@ -38,6 +38,7 @@ export default function BrokersPage() {
   const recommended = BROKERS.filter((b) => b.tier === 'recommended');
   const situational = BROKERS.filter((b) => b.tier === 'situational');
   const notRecommended = BROKERS.filter((b) => b.tier === 'not_recommended');
+  const avoid = BROKERS.filter((b) => b.tier === 'avoid');
 
   return (
     <>
@@ -66,6 +67,7 @@ export default function BrokersPage() {
           <div className="rounded-xl border border-[var(--warm-tan)] bg-[var(--warm-cream)] px-5 py-4 text-sm leading-relaxed text-[var(--charcoal)]/65">
             {t('intro_scope')}
           </div>
+
         </div>
 
         {/* 3 — Comparison table */}
@@ -99,6 +101,14 @@ export default function BrokersPage() {
           brokers={notRecommended}
           titleClass="text-amber-700"
         />
+        {avoid.length > 0 && (
+          <TierSection
+            title={t('tier_avoid_title')}
+            subtitle={t('tier_avoid_subtitle')}
+            brokers={avoid}
+            titleClass="text-red-600"
+          />
+        )}
 
         {/* 6 — FX note */}
         <p className="mt-8 text-xs text-[var(--charcoal)]/45">

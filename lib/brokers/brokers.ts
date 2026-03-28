@@ -1,6 +1,6 @@
 export type RecommendedBadge = 'meilleur_cout' | 'meilleur_automation';
 export type Profile = 'debutant' | 'dca' | 'avance';
-export type Tier = 'recommended' | 'situational' | 'not_recommended';
+export type Tier = 'recommended' | 'situational' | 'not_recommended' | 'avoid';
 
 export type FeeItem = {
   label: string; // i18n key
@@ -31,7 +31,7 @@ export type Broker = {
   protectionAmount: string; // literal amount or i18n key
   pros: string[]; // array of i18n keys
   cons: string[]; // array of i18n keys
-  idealFor: string; // i18n key
+  idealFor?: string; // i18n key
   warningNote?: string; // i18n key
   feeStory: FeeItem[];
   guideLink?: { text: string; href: string };
@@ -150,7 +150,7 @@ export const BROKERS: Broker[] = [
     idealFor: 'degiro_ideal',
     warningNote: 'degiro_warning',
     feeStory: [
-      { label: 'degiro_fs0_label', value: '€1,00 par achat' },
+      { label: 'degiro_fs0_label', value: 'degiro_fs0_value' },
       { label: 'degiro_fs1_label', value: '€3,00 + 0,02%' },
       { label: 'degiro_fs2_label', value: 'fees_declare_manual' },
     ],
@@ -181,7 +181,7 @@ export const BROKERS: Broker[] = [
     idealFor: 'rebel_ideal',
     feeStory: [
       { label: 'rebel_fs0_label', value: '€3,00 – €6,00' },
-      { label: 'rebel_fs1_label', value: '1,00% (élevé)' },
+      { label: 'rebel_fs1_label', value: 'rebel_fs1_value' },
     ],
   },
   {
@@ -269,7 +269,7 @@ export const BROKERS: Broker[] = [
     warningNote: 'ing_warning',
     feeStory: [
       { label: 'ing_fs0_label', value: '0,35%' },
-      { label: 'ing_fs1_label', value: '0,0242%/mois', note: 'ing_fs1_note' },
+      { label: 'ing_fs1_label', value: 'ing_fs1_value', note: 'ing_fs1_note' },
     ],
   },
   {
@@ -307,5 +307,33 @@ export const BROKERS: Broker[] = [
       { label: 'ibkr_fs2_label', value: 'fees_declare_manual' },
     ],
     guideLink: { text: 'guide_foreign_account', href: '/ressources/declarer-compte-etranger' },
+  },
+  {
+    id: 'robinhood',
+    name: 'Robinhood EU',
+    tagline: 'robinhood_tagline',
+    tier: 'avoid',
+    regulatedIn: 'regulated_lt',
+    fees: {
+      fixedFeePerTrade: '—',
+      percentFeePerTrade: 'Spread',
+      fxFee: '—',
+      custodyFee: 'fees_none',
+      savingsPlanFee: 'fees_not_available',
+    },
+    automation: {
+      savingsPlan: false,
+      tobAuto: false,
+      cgtAuto: 'cgt_manual',
+    },
+    protection: 'protection_none',
+    protectionAmount: '—',
+    pros: ['robinhood_pro_0', 'robinhood_pro_1'],
+    cons: ['robinhood_con_0', 'robinhood_con_1', 'robinhood_con_2', 'common_nbb_required', 'robinhood_con_4'],
+    warningNote: 'robinhood_warning',
+    feeStory: [
+      { label: 'robinhood_fs0_label', value: '0,10%', note: 'robinhood_fs0_note' },
+      { label: 'robinhood_fs1_label', value: 'fees_declare_manual', note: 'robinhood_fs1_note' },
+    ],
   },
 ];
