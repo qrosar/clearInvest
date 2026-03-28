@@ -21,7 +21,7 @@ const strategyConfig = [
     nameKey: 'balanced_name',
     taglineKey: 'balanced_tagline',
     descKey: 'balanced_desc',
-    href: '/strategies/tech-us-nasdaq',
+    href: '/strategies/tech-us',
     // amber-light (#f5d49a)
     cardClass: 'bg-[#f5d49a] border border-[#e8c070]',
     tagClass: 'bg-[#e8c070] text-[#5a3e00]',
