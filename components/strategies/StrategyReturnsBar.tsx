@@ -9,7 +9,7 @@ interface Props {
   variant?: 'card' | 'detail';
 }
 
-type PeriodKey = keyof Omit<PeriodReturns, 'source'>;
+type PeriodKey = keyof Omit<PeriodReturns, 'source' | 'estimated'>;
 
 const PERIODS: { key: PeriodKey; labelKey: string }[] = [
   { key: 'y1',  labelKey: 'label_y1'  },
@@ -72,6 +72,11 @@ export default function StrategyReturnsBar({ strategyId, variant = 'card' }: Pro
         <p className="mt-2 text-[8px] leading-relaxed text-[var(--charcoal)]/30">
           {t('disclaimer_card', { source: sourcePrefix })}
         </p>
+        {returns.estimated && (
+          <p className="mt-1 text-[8px] leading-relaxed text-[var(--charcoal)]/25 italic">
+            {t('disclaimer_estimated')}
+          </p>
+        )}
       </div>
     );
   }
@@ -123,6 +128,11 @@ export default function StrategyReturnsBar({ strategyId, variant = 'card' }: Pro
       <p className="mt-4 text-[9px] leading-relaxed text-[var(--charcoal)]/35">
         {t('disclaimer_detail', { source: translatedSource })}
       </p>
+      {returns.estimated && (
+        <p className="mt-1 text-[9px] leading-relaxed text-[var(--charcoal)]/30 italic">
+          {t('disclaimer_estimated')}
+        </p>
+      )}
     </div>
   );
 }
