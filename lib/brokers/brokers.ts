@@ -6,6 +6,7 @@ export type FeeItem = {
   label: string; // i18n key
   value: string; // i18n key or literal
   note?: string; // i18n key
+  highlight?: 'good' | 'neutral' | 'bad';
 };
 
 export type Broker = {
@@ -21,6 +22,7 @@ export type Broker = {
     fxFee: string; // i18n key or literal
     custodyFee: string; // i18n key or literal
     savingsPlanFee: string; // i18n key or literal
+    note?: string; // i18n key
   };
   automation: {
     savingsPlan: boolean;
@@ -75,8 +77,8 @@ export const BROKERS: Broker[] = [
     tier: 'recommended',
     regulatedIn: 'regulated_be',
     fees: {
-      fixedFeePerTrade: '€2,00',
-      percentFeePerTrade: '—',
+      fixedFeePerTrade: '—',
+      percentFeePerTrade: '0,08% (min €2)',
       fxFee: '0,25%',
       custodyFee: 'fees_none',
       savingsPlanFee: 'saxo_fee_savings',
@@ -92,8 +94,8 @@ export const BROKERS: Broker[] = [
     cons: ['saxo_con_0', 'saxo_con_1'],
     idealFor: 'saxo_ideal',
     feeStory: [
-      { label: 'saxo_fs0_label', value: '0,08% (min €2)', note: 'saxo_fs0_note' },
-      { label: 'saxo_fs1_label', value: '0,25%' },
+      { label: 'saxo_fs0_label', value: 'saxo_fs0_value', note: 'saxo_fs0_note' },
+      { label: 'saxo_fs1_label', value: 'saxo_fs1_value' },
     ],
   },
   {
@@ -168,6 +170,7 @@ export const BROKERS: Broker[] = [
       fxFee: '1,00%',
       custodyFee: 'fees_none',
       savingsPlanFee: 'fees_not_available',
+      note: 'rebel_fees_table_note',
     },
     automation: {
       savingsPlan: false,
@@ -180,8 +183,8 @@ export const BROKERS: Broker[] = [
     cons: ['rebel_con_0', 'rebel_con_1', 'rebel_con_2'],
     idealFor: 'rebel_ideal',
     feeStory: [
-      { label: 'rebel_fs0_label', value: '€3,00 – €6,00' },
-      { label: 'rebel_fs1_label', value: 'rebel_fs1_value' },
+      { label: 'rebel_fs0_label', value: 'rebel_fs0_value', highlight: 'good' },
+      { label: 'rebel_fs1_label', value: 'rebel_fs1_value', note: 'rebel_fs1_note', highlight: 'neutral' },
     ],
   },
   {
@@ -316,8 +319,8 @@ export const BROKERS: Broker[] = [
     regulatedIn: 'regulated_lt',
     fees: {
       fixedFeePerTrade: '—',
-      percentFeePerTrade: 'Spread',
-      fxFee: '—',
+      percentFeePerTrade: '0,10% FX',
+      fxFee: '0,10%',
       custodyFee: 'fees_none',
       savingsPlanFee: 'fees_not_available',
     },

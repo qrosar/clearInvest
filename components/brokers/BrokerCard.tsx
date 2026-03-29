@@ -159,9 +159,17 @@ export default function BrokerCard({ broker }: Props) {
         <div className="space-y-1.5">
           {broker.feeStory.map((item, i) => (
             <div key={i} className="flex items-center justify-between gap-2">
-              <span className="text-sm text-[var(--charcoal)]/60">{t(item.label as any)}</span>
+              <span className={`text-sm ${
+                item.highlight === 'good' ? 'text-[var(--forest)] font-medium' : 
+                item.highlight === 'bad' ? 'text-red-600 font-medium' : 
+                'text-[var(--charcoal)]/60'
+              }`}>{t(item.label as any)}</span>
               <span className="flex items-center text-sm text-[var(--charcoal)]">
-                <span className="font-mono">{/^[a-z][a-z0-9_]*$/.test(item.value) ? t(item.value as any) : item.value}</span>
+                <span className={`font-mono ${
+                  item.highlight === 'good' ? 'text-[var(--forest)] font-bold' : 
+                  item.highlight === 'bad' ? 'text-red-600 font-bold' : 
+                  ''
+                }`}>{/^[a-z][a-z0-9_]*$/.test(item.value) ? t(item.value as any) : item.value}</span>
                 {item.note && <InfoTip text={t(item.note as any)} />}
               </span>
             </div>

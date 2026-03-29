@@ -307,11 +307,13 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
                         <td className={`${TD} text-center`}>
                           <FeeCell
                             value={broker.fees.fixedFeePerTrade === 'fees_free' ? t('fees_free') : broker.fees.fixedFeePerTrade}
+                            note={broker.fees.note ? t(broker.fees.note as any) : undefined}
                           />
                         </td>
                         <td className={`${TD} text-center`}>
                           <FeeCell
                             value={broker.fees.percentFeePerTrade}
+                            note={broker.id === 'robinhood' ? t('robinhood_fs0_note' as any) : undefined}
                           />
                         </td>
 
@@ -319,6 +321,10 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
                           {broker.automation.savingsPlan ? (
                             broker.id === 'trade_republic' ? (
                               <YesStar href="#fn-tr-savings" />
+                            ) : broker.id === 'saxo' ? (
+                              <Tip text={t('saxo_fs0_note' as any)}>
+                                <span className="cursor-help"><Yes /></span>
+                              </Tip>
                             ) : (
                               <Yes />
                             )
