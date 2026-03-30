@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import FaqList from './FaqList';
+import LastUpdated from '@/components/ui/LastUpdated';
 
 export async function generateMetadata({ 
   params 
@@ -66,8 +67,10 @@ export default async function QuestionsPage() {
           </p>
         </div>
 
+        <LastUpdated isoDate="2026-03-01" />
+
         {/* Back link */}
-        <div className="mt-8 text-center">
+        <div className="mt-6 text-center">
           <Link
             href="/"
             className="text-sm text-[var(--charcoal)]/40 transition-colors hover:text-[var(--charcoal)]"

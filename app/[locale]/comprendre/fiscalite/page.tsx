@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import LastUpdated from '@/components/ui/LastUpdated';
 
 export async function generateMetadata({ 
   params 
@@ -103,6 +104,7 @@ function TaxCard({ name, rate, appliesLabel, appliesTo, whenLabel, when, insight
 
 export default async function FiscalitePage() {
   const t = await getTranslations('comprFiscalite');
+  const tc = await getTranslations('common');
 
   const TABLE_ROWS = [
     { product: t('table_row1'), tob: '0,12%',  precompte: '✗',                          reynders: '✗',    pv: t('table_val_pv'), other: '—',                       etf: true },
@@ -150,6 +152,14 @@ export default async function FiscalitePage() {
 
       {/* Article body */}
       <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+
+        {/* Glossary prompt */}
+        <p className="mb-10 text-right text-sm text-[var(--charcoal)]/45">
+          {tc('glossaryPrompt')}{' '}
+          <Link href="/ressources/glossaire" className="text-[var(--forest)] underline-offset-2 hover:underline">
+            {tc('glossaryLink')}
+          </Link>
+        </p>
 
         {/* Intro */}
         <p className="text-base leading-relaxed text-[var(--charcoal)]/75">
@@ -271,8 +281,10 @@ export default async function FiscalitePage() {
           </div>
         </section>
 
+        <LastUpdated isoDate="2026-03-01" />
+
         {/* Back link */}
-        <div className="mt-10 text-center">
+        <div className="mt-6 text-center">
           <Link
             href="/comprendre"
             className="text-sm text-[var(--charcoal)]/40 transition-colors hover:text-[var(--charcoal)]"

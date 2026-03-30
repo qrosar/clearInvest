@@ -1,10 +1,15 @@
 {
+  "common": {
+    "last_updated": "Dernière mise à jour : {date}",
+    "glossaryPrompt": "Vous ne connaissez pas certains termes ? Consultez le",
+    "glossaryLink": "glossaire →"
+  },
   "nav": {
     "understand": "Comprendre",
     "strategies": "Stratégies",
     "calculator": "Calculateur",
     "brokers": "Brokers",
-    "questions": "Questions",
+    "questions": "Questions fréquentes",
     "ressources": "Ressources",
     "start": "Commencer",
     "menu_open": "Ouvrir le menu",

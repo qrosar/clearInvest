@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import LastUpdated from '@/components/ui/LastUpdated';
 
 export async function generateMetadata({ 
   params 
@@ -274,6 +275,8 @@ export default async function DeclarerCompteEtrangerPage() {
               {t('cta_back')}
             </Link>
           </div>
+
+          <LastUpdated isoDate="2026-03-01" />
 
         </div>
       </main>

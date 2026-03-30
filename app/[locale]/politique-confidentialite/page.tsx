@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import LastUpdated from '@/components/ui/LastUpdated';
 
 export async function generateMetadata({ 
   params 
@@ -105,7 +106,9 @@ export default async function PolitiqueConfidentialitePage() {
           <p className="text-[var(--charcoal)]/45">{t('s4_date')}</p>
         </Section>
 
-        <div className="mt-12 border-t border-[var(--warm-tan)]/40 pt-8">
+        <LastUpdated isoDate="2026-03-01" />
+
+        <div className="mt-8 border-t border-[var(--warm-tan)]/40 pt-6">
           <Link
             href="/"
             className="text-sm text-[var(--charcoal)]/40 transition-colors hover:text-[var(--charcoal)]"

@@ -1,10 +1,15 @@
 {
+  "common": {
+    "last_updated": "Laatste update: {date}",
+    "glossaryPrompt": "Sommige termen onbekend? Raadpleeg de",
+    "glossaryLink": "woordenlijst →"
+  },
   "nav": {
     "understand": "Begrijpen",
     "strategies": "Strategieën",
     "calculator": "Calculator",
     "brokers": "Brokers",
-    "questions": "Vragen",
+    "questions": "Veelgestelde vragen",
     "ressources": "Middelen",
     "start": "Beginnen",
     "menu_open": "Menu openen",
@@ -1688,10 +1693,10 @@
     "s5_title": "Actieve fondsen — waarom ze zo duur zijn",
     "s5_p1": "Actieve beleggingsfondsen zijn het meest lucratieve product voor banken — en vaak het minst voordelig voor de belegger.",
     "s5_p2": "Hun economisch model berust op retrocessies: de beheersmaatschappij houdt een TER of 1,50% to 2,50%, waarvan een deel wordt teruggestort aan de verdelende bank om haar commerciële inspanning te vergoeden. MiFID II (2018) heeft meer transparantie opgelegd — banken moeten voortaan een KID/Essentiële-informatiedocument publiceren met vermelding van de totale kosten — en heeft retrocessies aan onafhankelijke adviseurs verboden. Maar de klassieke banknetwerken, die als verbonden agenten opereren, kunnen deze commissies nog steeds ontvangen. In de praktijk blijft de netwerkklant blootgesteld aan een structurele selectiebias: de aanbevolen fondsen zijn de fondsen die de meeste retrocessies genereren, niet noodzakelijk de fondsen die het beste nettorendement bieden voor de belegger.",
-    "s5_quote": "Over 20 jaar presteert tussen 85% en 92% of the active funds worse than their benchmark index after costs. Dit is geen kwestie van incompetentie — het is een wiskundige realiteit verbonden aan de kostprijs van actief beheer.",
+    "s5_quote": "Over 20 jaar presteert tussen 85% en 92% van de actieve fondsen slechter dan hun referentie-index na kosten. Dit is geen kwestie van incompetentie — het is een wiskundige realiteit verbonden aan de kostprijs van actief beheer.",
     "s5_verdict_label": "Verdict",
     "s5_verdict_p1": "Er bestaat geen algemeen geval waarin een bancair actief fonds de beste keuze is voor een langetermijnbelegger.",
-    "s5_verdict_p2": "Tussen 85% en 92% of the active funds worse than their benchmark index over 20 years, after costs. Dit is geen mening — het is het gedocumenteerde resultaat van decennia aan academische studies en Morningstar-gegevens.",
+    "s5_verdict_p2": "Tussen 85% en 92% van de actieve fondsen presteert slechter dan hun referentie-index over 20 jaar, na kosten. Dit is geen mening — het is het gedocumenteerde resultaat van decennia aan academische studies en Morningstar-gegevens.",
     "s5_verdict_p3": "Een ETF met 0,17% TER tegenover een actief fonds aan 1,73%: het verschil lijkt klein. Over 30 jaar vertegenwoordigt het vaak meer dan 30% van het eindkapitaal.",
     "cta_title": "Wilt u de reële impact van de kosten op uw situatie zien ?",
     "cta_subtitle": "Onze calculator vergelijkt bankproducten en ETF's met uw reële kapitaal en horizon.",

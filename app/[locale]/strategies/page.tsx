@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import StrategiesPage from '@/components/strategies/StrategiesPage';
+import LastUpdated from '@/components/ui/LastUpdated';
 
 export async function generateMetadata({ 
   params 
@@ -45,6 +46,7 @@ export default async function StrategiesRoute() {
         <p className="mt-12 text-center text-xs text-[var(--charcoal)]/30">
           {t('disclaimer')}
         </p>
+        <LastUpdated isoDate="2026-03-01" />
       </div>
     </>
   );

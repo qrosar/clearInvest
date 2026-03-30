@@ -1,4 +1,5 @@
 import BrokersPage from '@/components/brokers/BrokersPage';
+import LastUpdated from '@/components/ui/LastUpdated';
 
 export async function generateMetadata({ 
   params 
@@ -25,6 +26,13 @@ export async function generateMetadata({
   }
 }
 
-export default function BrokersRoute() {
-  return <BrokersPage />;
+export default async function BrokersRoute() {
+  return (
+    <>
+      <BrokersPage />
+      <div className="mx-auto max-w-7xl px-4 pb-10 sm:px-6 lg:px-8">
+        <LastUpdated isoDate="2026-03-01" />
+      </div>
+    </>
+  );
 }

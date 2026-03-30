@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import LastUpdated from '@/components/ui/LastUpdated';
 
 export async function generateMetadata({ 
   params 
@@ -87,6 +88,7 @@ function Divider() {
 
 export default async function ProduitsBancairesPage() {
   const t = await getTranslations('comprProduits');
+  const tc = await getTranslations('common');
 
   return (
     <>
@@ -105,6 +107,14 @@ export default async function ProduitsBancairesPage() {
 
       {/* Article body */}
       <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+
+        {/* Glossary prompt */}
+        <p className="mb-10 text-right text-sm text-[var(--charcoal)]/45">
+          {tc('glossaryPrompt')}{' '}
+          <Link href="/ressources/glossaire" className="text-[var(--forest)] underline-offset-2 hover:underline">
+            {tc('glossaryLink')}
+          </Link>
+        </p>
 
         {/* Intro */}
         <p className="text-base leading-relaxed text-[var(--charcoal)]/75">
@@ -292,8 +302,10 @@ export default async function ProduitsBancairesPage() {
           </div>
         </section>
 
+        <LastUpdated isoDate="2026-03-01" />
+
         {/* Back link */}
-        <div className="mt-10 text-center">
+        <div className="mt-6 text-center">
           <Link
             href="/comprendre"
             className="text-sm text-[var(--charcoal)]/40 transition-colors hover:text-[var(--charcoal)]"

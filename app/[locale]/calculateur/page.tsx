@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import Calculator from '@/components/calculator/Calculator';
+import LastUpdated from '@/components/ui/LastUpdated';
 
 export async function generateMetadata({ 
   params 
@@ -46,6 +47,7 @@ export default async function CalculateurPage() {
       {/* Calculator body */}
       <div className="mx-auto max-w-6xl px-6 py-12">
         <Calculator />
+        <LastUpdated isoDate="2026-03-01" />
       </div>
     </main>
   );

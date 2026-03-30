@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import LastUpdated from '@/components/ui/LastUpdated';
 
 export async function generateMetadata({ 
   params 
@@ -194,8 +195,10 @@ export default async function GlossairePage() {
             ))}
           </div>
 
+          <LastUpdated isoDate="2026-03-01" />
+
           {/* Back link */}
-          <div className="mt-14 border-t border-[var(--warm-tan)]/40 pt-8">
+          <div className="mt-8 border-t border-[var(--warm-tan)]/40 pt-6">
             <Link
               href="/ressources"
               className="text-sm text-[var(--charcoal)]/40 transition-colors hover:text-[var(--charcoal)]"

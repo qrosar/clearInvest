@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import LastUpdated from '@/components/ui/LastUpdated';
 
 export async function generateMetadata({ 
   params 
@@ -270,6 +271,8 @@ export default async function PremierAchatPage() {
           <p className="mt-10 text-center text-xs text-[var(--charcoal)]/35">
             {t('disclaimer')}
           </p>
+
+          <LastUpdated isoDate="2026-03-01" />
 
         </div>
       </main>
