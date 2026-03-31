@@ -3,9 +3,11 @@ import Hero from '@/components/home/Hero';
 import ToolsGrid from '@/components/home/ToolsGrid';
 import StrategiesPreview from '@/components/home/StrategiesPreview';
 
-export async function generateMetadata({ 
-  params 
-}: { 
+export const dynamic = 'force-static';
+
+export async function generateMetadata({
+  params
+}: {
   params: Promise<{ locale: string }> 
 }) {
   const { locale } = await params;

@@ -2,9 +2,11 @@ import { getTranslations } from 'next-intl/server';
 import Calculator from '@/components/calculator/Calculator';
 import LastUpdated from '@/components/ui/LastUpdated';
 
-export async function generateMetadata({ 
-  params 
-}: { 
+export const dynamic = 'force-static';
+
+export async function generateMetadata({
+  params
+}: {
   params: Promise<{ locale: string }> 
 }) {
   const { locale } = await params;

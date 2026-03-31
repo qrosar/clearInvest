@@ -1,9 +1,11 @@
 import BrokersPage from '@/components/brokers/BrokersPage';
 import LastUpdated from '@/components/ui/LastUpdated';
 
-export async function generateMetadata({ 
-  params 
-}: { 
+export const dynamic = 'force-static';
+
+export async function generateMetadata({
+  params
+}: {
   params: Promise<{ locale: string }> 
 }) {
   const { locale } = await params;

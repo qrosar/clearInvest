@@ -21,6 +21,10 @@ const dmSans = DM_Sans({
   display: 'swap',
 });
 
+export async function generateStaticParams() {
+  return [{ locale: 'fr' }, { locale: 'nl' }, { locale: 'en' }];
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   
