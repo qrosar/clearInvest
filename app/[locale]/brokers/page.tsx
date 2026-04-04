@@ -1,8 +1,6 @@
 import BrokersPage from '@/components/brokers/BrokersPage';
 import LastUpdated from '@/components/ui/LastUpdated';
 
-export const dynamic = 'force-static';
-
 export async function generateMetadata({
   params
 }: {

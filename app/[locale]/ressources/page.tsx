@@ -1,8 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 
-export const dynamic = 'force-static';
-
 export async function generateMetadata({
   params
 }: {

@@ -2,8 +2,6 @@ import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import LastUpdated from '@/components/ui/LastUpdated';
 
-export const dynamic = 'force-static';
-
 export async function generateMetadata({
   params
 }: {

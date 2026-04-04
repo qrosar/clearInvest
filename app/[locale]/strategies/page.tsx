@@ -2,8 +2,6 @@ import { getTranslations } from 'next-intl/server';
 import StrategiesPage from '@/components/strategies/StrategiesPage';
 import LastUpdated from '@/components/ui/LastUpdated';
 
-export const dynamic = 'force-static';
-
 export async function generateMetadata({
   params
 }: {

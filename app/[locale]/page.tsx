@@ -3,8 +3,6 @@ import Hero from '@/components/home/Hero';
 import ToolsGrid from '@/components/home/ToolsGrid';
 import StrategiesPreview from '@/components/home/StrategiesPreview';
 
-export const dynamic = 'force-static';
-
 export async function generateMetadata({
   params
 }: {

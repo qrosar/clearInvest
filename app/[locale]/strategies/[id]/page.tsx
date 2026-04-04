@@ -27,8 +27,6 @@ export async function generateMetadata({ params }: Props) {
   }
 }
 
-export const dynamic = 'force-static';
-
 export async function generateStaticParams() {
   const locales = ['fr', 'nl', 'en'];
   return locales.flatMap(locale =>
