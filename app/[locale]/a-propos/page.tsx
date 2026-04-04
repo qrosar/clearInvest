@@ -81,6 +81,20 @@ export default async function AProposPage() {
           </p>
         </Section>
 
+        <Section title={t('s4_title')}>
+          <p>{t('s4_p1')}</p>
+          <p>
+            <a
+              href="https://github.com/qrosar/clearinvest"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--forest)] underline-offset-2 hover:underline"
+            >
+              {t('s4_link')}
+            </a>
+          </p>
+        </Section>
+
         <LastUpdated isoDate="2026-03-01" />
 
         <div className="mt-8 border-t border-[var(--warm-tan)]/40 pt-6">

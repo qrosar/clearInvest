@@ -133,7 +133,8 @@
     "copyright": "© 2026 ClearInvest. All rights reserved.",
     "legal": "Educational site only. The information presented does not constitute investment advice.",
     "mentions_legales": "Legal notice",
-    "politique_confidentialite": "Privacy policy"
+    "politique_confidentialite": "Privacy policy",
+    "sourceCode": "Source code"
   },
   "calculator": {
     "heading": "Returns calculator",
@@ -1439,6 +1440,9 @@
     "s2_p2": "The site does not receive any commission, display any advertising, and does not benefit from any remuneration related to the products or services mentioned.",
     "s3_title": "Contact",
     "s3_p1": "For any questions or to report an error:",
+    "s4_title": "Source code",
+    "s4_p1": "ClearInvest's source code is publicly available on GitHub under the CC BY-NC 4.0 license. You can review the calculator logic, verify the assumptions used, report inaccuracies, or suggest corrections.",
+    "s4_link": "View source code on GitHub →",
     "back": "← Back to home"
   },
   "mentionsLegales": {

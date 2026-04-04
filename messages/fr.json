@@ -133,7 +133,8 @@
     "copyright": "© 2026 ClearInvest. Tous droits réservés.",
     "legal": "Site à caractère éducatif uniquement. Les informations présentées ne constituent pas un conseil en investissement.",
     "mentions_legales": "Mentions légales",
-    "politique_confidentialite": "Politique de confidentialité"
+    "politique_confidentialite": "Politique de confidentialité",
+    "sourceCode": "Code source"
   },
   "calculator": {
     "heading": "Calculateur de rendement",
@@ -871,6 +872,9 @@
     "s2_p2": "Le site ne perçoit aucune commission, ne diffuse aucune publicité, et ne bénéficie d'aucune rémunération liée aux produits ou services mentionnés.",
     "s3_title": "Contact",
     "s3_p1": "Pour toute question ou signalement d'erreur :",
+    "s4_title": "Code source",
+    "s4_p1": "Le code source de ClearInvest est disponible publiquement sur GitHub sous licence CC BY-NC 4.0. Vous pouvez y consulter les calculs du simulateur, vérifier les hypothèses utilisées, signaler des erreurs ou proposer des corrections.",
+    "s4_link": "Voir le code source sur GitHub →",
     "back": "← Retour à l'accueil"
   },
   "mentionsLegales": {

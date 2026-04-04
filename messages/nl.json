@@ -133,7 +133,8 @@
     "copyright": "© 2026 ClearInvest. Alle rechten voorbehouden.",
     "legal": "Uitsluitend educatief. De gepresenteerde informatie vormt geen beleggingsadvies.",
     "mentions_legales": "Wettelijke vermeldingen",
-    "politique_confidentialite": "Privacybeleid"
+    "politique_confidentialite": "Privacybeleid",
+    "sourceCode": "Broncode"
   },
   "calculator": {
     "heading": "Rendementscalculator",
@@ -1438,6 +1439,9 @@
     "s2_p2": "De site ontvangt geen commissies, toont geen advertenties en geniet geen enkele vergoeding gerelateerd aan de vermelde producten of diensten.",
     "s3_title": "Contact",
     "s3_p1": "Voor vragen of het melden van een fout:",
+    "s4_title": "Broncode",
+    "s4_p1": "De broncode van ClearInvest is publiek beschikbaar op GitHub onder CC BY-NC 4.0 licentie. U kunt er de simulatieberekeningen raadplegen, de gebruikte hypotheses verifiëren, fouten melden of correcties voorstellen.",
+    "s4_link": "Broncode bekijken op GitHub →",
     "back": "← Terug naar home"
   },
   "mentionsLegales": {
