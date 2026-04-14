@@ -234,8 +234,8 @@ export default async function BnpPensionAnalysisPage() {
                 </tr>
                 <tr>
                   <td className="px-4 py-3 text-[var(--charcoal)]/60">{t('s4_table_row3')}</td>
-                  <td className="px-4 py-3 font-medium text-[var(--charcoal)]">~4,31%/an</td>
-                  <td className="px-4 py-3 font-medium text-[var(--charcoal)]">~8%/an</td>
+                  <td className="px-4 py-3 font-medium text-[var(--charcoal)]">{t('s4_val_bnp_return')}</td>
+                  <td className="px-4 py-3 font-medium text-[var(--charcoal)]">{t('s4_val_etf_return')}</td>
                 </tr>
                 <tr className="bg-[var(--warm-white)]/50">
                   <td className="px-4 py-3 text-[var(--charcoal)]/60">{t('s4_table_row4')}</td>

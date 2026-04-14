@@ -1942,7 +1942,9 @@
     "s5_point2": "L'avantage fiscal de 315 €/an est fixe et ne capitalise pas — tandis que les frais annuels s'accumulent chaque année sur un capital qui grossit.",
     "s5_point3": "Pour les moins de 45 ans, l'effet des frais annuels détruit totalement le bénéfice fiscal sur le long terme — même pour le meilleur fonds bancaire.",
     "s5_outro": "Argenta est le meilleur fonds d'épargne-pension belge. Mais être le meilleur d'une catégorie structurellement perdante reste une mauvaise affaire pour la majorité des épargnants.",
-    "s5_link": "→ Simuler avec le calculateur"
+    "s5_link": "→ Simuler avec le calculateur",
+    "s4_val_argenta_return": "~4,5 %/an",
+    "s4_val_etf_return": "~8 %/an"
   },
   "analyseAgFundPlus": {
     "meta_title": "AG Fund + Branche 23 analyse — 4,5 % de frais d’entrée pour quel bénéfice ?",
@@ -2259,7 +2261,9 @@
     "chart_crossover_label": "Point de non-retour — Année ~{n}",
     "chart_caption": "Belfius affiche 3% de frais d'entrée — les plus élevés des trois fonds — et un TER de 1,49%.",
     "chart_disclaimer": "Simulation à titre indicatif.",
-    "chart_years": "Années"
+    "chart_years": "Années",
+    "s4_val_belfius_return": "~4,20 %/an",
+    "s4_val_etf_return": "~8 %/an"
   },
   "analyseProductsPage": {
     "meta_title": "Analyse produits bancaires belges — Comparaisons ETF 2026",
@@ -2418,7 +2422,9 @@
     "s_hybrid_row_y30_diff": "+3 906 € ETF",
     "s_hybrid_horizon_title": "Un argument encore plus faible pour Pricos",
     "s_hybrid_horizon_desc": "À cause des frais d'entrée de 2% et d'un TER plus élevé, le point de croisement arrive dès l'année 5 ou 6. Même pour un horizon court, l'argument hybride s'effondre plus vite. Si vous tenez à cette stratégie, utilisez au moins Argenta.",
-    "s_hybrid_conclusion": "Le bonus de 315 €/an est réel. Mais il est fixe et ne se capitalise pas. L'écart de rendement entre un ETF Monde et Pricos, lui, se capitalise — et le dépasse autour de l'année 5."
+    "s_hybrid_conclusion": "Le bonus de 315 €/an est réel. Mais il est fixe et ne se capitalise pas. L'écart de rendement entre un ETF Monde et Pricos, lui, se capitalise — et le dépasse autour de l'année 5.",
+    "s4_val_kbc_return": "~4,3 %/an",
+    "s4_val_etf_return": "~8 %/an"
   },
   "analyseBnpPension": {
     "meta_title": "BNP Paribas B Pension analyse — 3% de frais d'entrée qui détruisent votre retraite",
@@ -2556,7 +2562,9 @@
     "chart_years": "Années",
     "disclaimer": "Cette analyse est fournie à titre éducatif uniquement et ne constitue pas un conseil en investissement au sens de la directive MiFID II. Les performances passées ne préjugent pas des performances futures.",
     "s1_label_isin": "ISIN",
-    "s1_val_isin": "BE0946411791"
+    "s1_val_isin": "BE0946411791",
+    "s4_val_bnp_return": "~4,31 %/an",
+    "s4_val_etf_return": "~8 %/an"
   },
   "ethiasAnalysis": {
     "hero_tag": "ANALYSE PRODUIT — BRANCHE 21",

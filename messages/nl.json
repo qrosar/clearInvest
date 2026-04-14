@@ -1951,7 +1951,9 @@
     "s_hybrid_row_y30_diff": "+3 906 € ETF",
     "s_hybrid_horizon_title": "Een nog zwakker argument voor Pricos",
     "s_hybrid_horizon_desc": "Door de instapkosten van 2% en een hogere TER wordt het omslagpunt al in jaar 5 of 6 bereikt. Zelfs voor een korte horizon stort het hybride argument sneller in. Als u aan deze strategie vasthoudt, gebruik dan tenminste Argenta.",
-    "s_hybrid_conclusion": "De bonus van 315 €/jaar is reëel. Maar hij is vast en kapitaliseert niet. Het rendementsverschil tussen een wereld-ETF en Pricos kapitaliseert wel — en overtreft de bonus rond jaar 5."
+    "s_hybrid_conclusion": "De bonus van 315 €/jaar is reëel. Maar hij is vast en kapitaliseert niet. Het rendementsverschil tussen een wereld-ETF en Pricos kapitaliseert wel — en overtreft de bonus rond jaar 5.",
+    "s4_val_kbc_return": "~4,3 %/jaar",
+    "s4_val_etf_return": "~8 %/jaar"
   },
   "analyseArgenta": {
     "hero_tag": "PRODUCTANALYSE — PENSIOENSPAREN",
@@ -2101,7 +2103,9 @@
     "s5_point2": "Het fiscale voordeel van € 315/jaar is vast en accumuleert niet — terwijl de jaarlijkse kosten elk jaar op een groeiend kapitaal worden toegepast.",
     "s5_point3": "Voor mensen onder de 45 vernietigt het effect van de jaarlijkse kosten op lange termijn het volledige fiscale voordeel — zelfs voor het beste bankfonds.",
     "s5_outro": "Argenta is het beste Belgische pensioenspaarf­onds. Maar het beste zijn in een structureel verliezende categorie blijft een slechte deal voor de meeste spaarders.",
-    "s5_link": "→ Simuleer met de rekenmachine"
+    "s5_link": "→ Simuleer met de rekenmachine",
+    "s4_val_argenta_return": "~4,5 %/jaar",
+    "s4_val_etf_return": "~8 %/jaar"
   },
   "analyseAgFundPlus": {
     "meta_title": "AG Fund + Tak 23 analyse — 4,5% instapkosten voor welk voordeel?",
@@ -2418,7 +2422,9 @@
     "chart_crossover_label": "Omslagpunt — Jaar ~{n}",
     "chart_caption": "Belfius heeft nu 3% instapkosten — de hoogste van de drie fondsen — en een TER van 1,49%.",
     "chart_disclaimer": "Simulatie ter illustratie.",
-    "chart_years": "Jaren"
+    "chart_years": "Jaren",
+    "s4_val_belfius_return": "~4,20 %/jaar",
+    "s4_val_etf_return": "~8 %/jaar"
   },
   "analyseNnStrategy": {
     "meta_title": "NN Strategy Tak 23 analyse — De fiscale illusie aan 1,50%/jaar",
@@ -2641,7 +2647,9 @@
     "chart_years": "Jaren",
     "disclaimer": "Deze analyse is uitsluitend voor educatieve doeleinden en vormt geen beleggingsadvies in de zin van de MiFID II-richtlijn. Resultaten uit het verleden bieden geen garantie voor de toekomst.",
     "s1_label_isin": "ISIN",
-    "s1_val_isin": "BE0946411791"
+    "s1_val_isin": "BE0946411791",
+    "s4_val_bnp_return": "~4,31 %/jaar",
+    "s4_val_etf_return": "~8 %/jaar"
   },
   "ethiasAnalysis": {
     "hero_tag": "PRODUCTANALYSE — TAK 21",

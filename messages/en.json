@@ -2143,7 +2143,9 @@
     "chart_crossover_label": "Point of no return — Year ~{n}",
     "chart_caption": "Belfius has 3% entry fees — the highest of the three funds — and a 1.49% TER.",
     "chart_disclaimer": "Simulation for illustrative purposes only.",
-    "chart_years": "Years"
+    "chart_years": "Years",
+    "s4_val_belfius_return": "~4.20%/yr",
+    "s4_val_etf_return": "~8%/yr"
   },
   "analyseNnStrategy": {
     "meta_title": "NN Strategy Branch 23 Review — The Tax Illusion at 1.50%/year",
@@ -2355,7 +2357,9 @@
     "s_hybrid_row_y30_diff": "+3 906 € ETF",
     "s_hybrid_horizon_title": "An even weaker argument for Pricos",
     "s_hybrid_horizon_desc": "Due to the 2% entry fees and a higher TER, the crossover point arrives as early as year 5 or 6. Even for a short horizon, the hybrid argument collapses faster. If you insist on this strategy, at least use Argenta.",
-    "s_hybrid_conclusion": "The 315 €/year bonus is real. But it is fixed and does not compound. The return gap between a Global ETF and Pricos does compound — and surpasses it around year 5."
+    "s_hybrid_conclusion": "The 315 €/year bonus is real. But it is fixed and does not compound. The return gap between a Global ETF and Pricos does compound — and surpasses it around year 5.",
+    "s4_val_kbc_return": "~4.3%/yr",
+    "s4_val_etf_return": "~8%/yr"
   },
   "analyseArgenta": {
     "hero_tag": "PRODUCT ANALYSIS — PENSION SAVINGS",
@@ -2505,7 +2509,9 @@
     "s5_point2": "The 315 €/year tax benefit is fixed and does not compound — while annual fees accumulate every year on a growing capital base.",
     "s5_point3": "For those under 45, the effect of annual fees completely destroys the initial tax benefit over the long term — even for the best bank fund.",
     "s5_outro": "Argenta is Belgium's best pension savings fund. But being the best in a structurally losing category remains a poor deal for most savers.",
-    "s5_link": "→ Simulate with the calculator"
+    "s5_link": "→ Simulate with the calculator",
+    "s4_val_argenta_return": "~4.5%/yr",
+    "s4_val_etf_return": "~8%/yr"
   },
   "analyseBnpPension": {
     "meta_title": "BNP Paribas B Pension Review — How 3% Entry Fees Destroy Your Retirement",
@@ -2643,7 +2649,9 @@
     "chart_years": "Years",
     "disclaimer": "This analysis is provided for educational purposes only and does not constitute investment advice within the meaning of MiFID II. Past performance is not a reliable indicator of future results.",
     "s1_label_isin": "ISIN",
-    "s1_val_isin": "BE0946411791"
+    "s1_val_isin": "BE0946411791",
+    "s4_val_bnp_return": "~4.31%/yr",
+    "s4_val_etf_return": "~8%/yr"
   },
   "ethiasAnalysis": {
     "hero_tag": "PRODUCT ANALYSIS — BRANCH 21",
