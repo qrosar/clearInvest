@@ -12,6 +12,7 @@ const toolLinks = [
 
 const learnLinks = [
   { href: '/comprendre',               labelKey: 'comprendre' },
+  { href: '/analyse-produits',         labelKey: 'analyse_products' },
   { href: '/questions',                labelKey: 'questions_faq' },
   { href: '/comprendre/fiscalite',     labelKey: 'tax' },
   { href: '/ressources/glossaire',     labelKey: 'glossaire' },

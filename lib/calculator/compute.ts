@@ -204,7 +204,12 @@ export function computeGrowth(
   const portfolioValue = points[points.length - 1].value;
 
   // TOB on sale — computed first so gain basis uses net proceeds
-  const tobSellAmt = portfolioValue * tobOnSale;
+  // tobExit is specifically for active funds (final redemption), tobOnSale is general (annual rebalancing etc)
+  const exitTobRate = tc.tobExit ?? tobOnSale;
+  const tobSellAmt = Math.min(
+    portfolioValue * exitTobRate,
+    tc.tobExitCap ?? Infinity
+  );
   let sellTaxes = tobSellAmt;
 
   // Net proceeds after TOB sell; cost basis excludes all buy-side costs that never entered the fund
@@ -215,23 +220,26 @@ export function computeGrowth(
   // product.bondAllocation drives the split (defaults to 1.0 = pure bond fund)
   let reyndersAmt = 0;
   let cgtAmt = 0;
-  if (tc.reyndersTax && tc.reyndersTax > 0) {
-    const bondAlloc = product.bondAllocation ?? 1.0;
-    const bondGains = gains * bondAlloc;
-    reyndersAmt = bondGains * tc.reyndersTax;
-    sellTaxes += reyndersAmt;
-    // CGT on the non-bond (equity) portion
-    if (tc.capitalGainsTax && tc.capitalGainsTax > 0) {
-      const equityGains = gains * (1 - bondAlloc);
-      const taxableEquityGains = Math.max(0, equityGains - (tc.capitalGainsExemption ?? 0));
-      cgtAmt = taxableEquityGains * tc.capitalGainsTax;
+  
+  if (product.category !== 'branche21') {
+    if (tc.reyndersTax && tc.reyndersTax > 0) {
+      const bondAlloc = product.bondAllocation ?? 1.0;
+      const bondGains = gains * bondAlloc;
+      reyndersAmt = bondGains * tc.reyndersTax;
+      sellTaxes += reyndersAmt;
+      // CGT on the non-bond (equity) portion
+      if (tc.capitalGainsTax && tc.capitalGainsTax > 0) {
+        const equityGains = gains * (1 - bondAlloc);
+        const taxableEquityGains = Math.max(0, equityGains - (tc.capitalGainsExemption ?? 0));
+        cgtAmt = taxableEquityGains * tc.capitalGainsTax;
+        sellTaxes += cgtAmt;
+      }
+    } else if (tc.capitalGainsTax && tc.capitalGainsTax > 0 && !tc.branche21WithholdingTax) {
+      // Pure equity / no Reynders path
+      const taxableGains = Math.max(0, gains - (tc.capitalGainsExemption ?? 0));
+      cgtAmt = taxableGains * tc.capitalGainsTax;
       sellTaxes += cgtAmt;
     }
-  } else if (tc.capitalGainsTax && tc.capitalGainsTax > 0 && !tc.branche21WithholdingTax) {
-    // Pure equity / no Reynders path
-    const taxableGains = Math.max(0, gains - (tc.capitalGainsExemption ?? 0));
-    cgtAmt = taxableGains * tc.capitalGainsTax;
-    sellTaxes += cgtAmt;
   }
 
   // Pilier 3: 8% on fictive 4.75%-capitalised amount (Belgian law basis, not actual portfolio value)

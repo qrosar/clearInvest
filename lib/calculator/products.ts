@@ -4,7 +4,9 @@ export type Subcategory = 'etf-strategy' | 'bank-common' | 'bank-specific' | 'ac
 
 export interface TaxConfig {
   tob?: number;                        // TOB on each buy (fraction)
-  tobOnSale?: number;                  // TOB on sale (defaults to tob)
+  tobOnSale?: number;                  // TOB on sale (fraction, defaults to tob)
+  tobExit?: number;                    // TOB on final exit (fraction)
+  tobExitCap?: number;                 // Cap on TOB on final exit (EUR)
   entryFee?: number;                   // one-time entry fee per purchase
   annualFee?: number;                  // annual management fee / TER (fraction); already in rate, tracked for breakdown only
   dividendTax?: number;                // précompte on dividends
@@ -26,7 +28,7 @@ export interface TaxConfig {
 export interface Product {
   id: string;
   name: string;                        // i18n key (data.products.[id].name)
-  category: 'bank' | 'etf';
+  category: 'bank' | 'etf' | 'branche21';
   subcategory: Subcategory;
   provider?: string;
   isCustom?: boolean;
@@ -290,7 +292,7 @@ const BANK_PRODUCTS: Product[] = [
   {
     id: 'branche21',
     name: 'data.products.branche21.name',
-    category: 'bank',
+    category: 'branche21',
     subcategory: 'bank-common',
     provider: 'AG Insurance',
     defaultRate: 0.031,
@@ -305,15 +307,13 @@ const BANK_PRODUCTS: Product[] = [
       branche21WithholdingTax: 0.30,
       branche21FictiveRate: 0.0475,
       branche21MinYears: 8,
-      capitalGainsTax: 0.10,
-      capitalGainsExemption: 10000,
     },
     contributionCapNote: "p_branche21_cap_note",
   },
   {
     id: 'branche21-ethias-9yr',
     name: 'data.products.branche21-ethias-9yr.name',
-    category: 'bank',
+    category: 'branche21',
     subcategory: 'bank-specific',
     provider: 'Ethias',
     defaultRate: 0.029,
@@ -328,14 +328,12 @@ const BANK_PRODUCTS: Product[] = [
       branche21WithholdingTax: 0.30,
       branche21FictiveRate: 0.0475,
       branche21MinYears: 8,
-      capitalGainsTax: 0.10,
-      capitalGainsExemption: 10000,
     },
   },
   {
     id: 'branche21-ethias-3yr',
     name: 'data.products.branche21-ethias-3yr.name',
-    category: 'bank',
+    category: 'branche21',
     subcategory: 'bank-specific',
     provider: 'Ethias',
     defaultRate: 0.023,
@@ -350,14 +348,12 @@ const BANK_PRODUCTS: Product[] = [
       branche21WithholdingTax: 0.30,
       branche21FictiveRate: 0.0475,
       branche21MinYears: 999,  // contract always matures before 8yr threshold
-      capitalGainsTax: 0.10,
-      capitalGainsExemption: 10000,
     },
   },
   {
     id: 'bnp-future-invest-bon',
     name: 'data.products.bnp-future-invest-bon.name',
-    category: 'bank',
+    category: 'branche21',
     subcategory: 'bank-specific',
     provider: 'BNP Paribas Fortis',
     defaultRate: 0.0310,
@@ -372,14 +368,12 @@ const BANK_PRODUCTS: Product[] = [
       branche21WithholdingTax: 0.30,
       branche21FictiveRate: 0.0475,
       branche21MinYears: 8,
-      capitalGainsTax: 0.10,
-      capitalGainsExemption: 10000,
     },
   },
   {
     id: 'beobank-invest-21',
     name: 'data.products.beobank-invest-21.name',
-    category: 'bank',
+    category: 'branche21',
     subcategory: 'bank-specific',
     provider: 'Beobank',
     defaultRate: 0.0250,
@@ -394,8 +388,6 @@ const BANK_PRODUCTS: Product[] = [
       branche21WithholdingTax: 0.30,
       branche21FictiveRate: 0.0475,
       branche21MinYears: 8,
-      capitalGainsTax: 0.10,
-      capitalGainsExemption: 10000,
     },
   },
 
@@ -408,11 +400,11 @@ const BANK_PRODUCTS: Product[] = [
     provider: 'KBC',
     defaultRate: 0.0409,
     grossBaseline: 0.0550,
-    ter: 0.0141,
+    ter: 0.0153,
     rateEditable: true,
     color: '#4a6eb8',
     description: 'data.products.pension-kbc-pricos.description',
-    taxConfig: { pensionTax: 0.08, upfrontTaxRelief: 0.30, upfrontTaxReliefCap: 1050, entryFee: 0.02, annualFee: 0.0141 },
+    taxConfig: { pensionTax: 0.08, upfrontTaxRelief: 0.30, upfrontTaxReliefCap: 1050, entryFee: 0.02, annualFee: 0.0153 },
     monthlyContributionCap: 112.5,
     contributionCapNote: "p_pension_cap_note",
   },
@@ -534,7 +526,9 @@ const BANK_PRODUCTS: Product[] = [
       capitalGainsExemption: 10000,
       entryFee: 0.03,
       annualFee: 0.0150,
-      tob: 0.0012,
+      tob: 0,
+      tobExit: 0.0132,
+      tobExitCap: 4000,
     },
   },
   {
@@ -555,7 +549,9 @@ const BANK_PRODUCTS: Product[] = [
       capitalGainsExemption: 10000,
       entryFee: 0.03,
       annualFee: 0.0149,
-      tob: 0.0012,
+      tob: 0,
+      tobExit: 0.0132,
+      tobExitCap: 4000,
     },
   },
   {
@@ -576,7 +572,9 @@ const BANK_PRODUCTS: Product[] = [
       capitalGainsExemption: 10000,
       entryFee: 0.03,
       annualFee: 0.0147,
-      tob: 0.0012,
+      tob: 0,
+      tobExit: 0.0132,
+      tobExitCap: 4000,
     },
   },
   {
@@ -598,7 +596,9 @@ const BANK_PRODUCTS: Product[] = [
       reyndersTax: 0.30,
       entryFee: 0.025,
       annualFee: 0.0210,
-      tob: 0.0012,
+      tob: 0,
+      tobExit: 0.0132,
+      tobExitCap: 4000,
     },
   },
   {
@@ -620,7 +620,9 @@ const BANK_PRODUCTS: Product[] = [
       reyndersTax: 0.30,
       entryFee: 0.03,
       annualFee: 0.0128,
-      tob: 0.0012,
+      tob: 0,
+      tobExit: 0.0132,
+      tobExitCap: 4000,
     },
   },
   {
@@ -641,7 +643,9 @@ const BANK_PRODUCTS: Product[] = [
       capitalGainsExemption: 10000,
       entryFee: 0.025,
       annualFee: 0.0220,
-      tob: 0.0012,
+      tob: 0,
+      tobExit: 0.0132,
+      tobExitCap: 4000,
     },
   },
 ];

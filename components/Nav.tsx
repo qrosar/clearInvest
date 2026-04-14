@@ -5,13 +5,14 @@ import { usePathname, useRouter, Link } from '@/i18n/navigation';
 import { useEffect, useState } from 'react';
 import { routing } from '@/i18n/routing';
 
-type NavKey = 'understand' | 'strategies' | 'calculator' | 'brokers' | 'questions' | 'ressources';
+type NavKey = 'understand' | 'strategies' | 'calculator' | 'brokers' | 'analyseProducts' | 'questions' | 'ressources';
 
 const navLinks: { href: string; key: NavKey }[] = [
   { href: '/comprendre', key: 'understand' },
   { href: '/strategies', key: 'strategies' },
   { href: '/calculateur', key: 'calculator' },
   { href: '/brokers', key: 'brokers' },
+  { href: '/analyse-produits', key: 'analyseProducts' },
   { href: '/questions', key: 'questions' },
   { href: '/ressources', key: 'ressources' },
 ];
