@@ -389,6 +389,142 @@ export default async function KbcPricosAnalysisPage() {
 
         <Divider />
 
+        {/* Section: Plan Cafétéria et Épargne-Pension */}
+        <section>
+          <SectionHeading>{t('s_caf_title')}</SectionHeading>
+          <WarningBox>{t('s_caf_product_warning')}</WarningBox>
+          <Body>{t('s_caf_intro_p1')}</Body>
+          <Body>{t('s_caf_intro_p2')}</Body>
+
+          <NeutralCallout>{t('s_caf_caveat')}</NeutralCallout>
+
+          <Divider />
+
+          {/* Subsection A: La Mécanique */}
+          <h3 className="font-heading text-xl font-bold text-[var(--charcoal)]">{t('s_caf_meca_title')}</h3>
+
+          <div className="mt-6 overflow-hidden rounded-2xl border border-[var(--warm-tan)]/50">
+            <table className="w-full text-left text-sm">
+              <thead>
+                <tr className="bg-[var(--warm-tan)]/10">
+                  <th className="px-4 py-3 font-semibold text-[var(--charcoal)]/40"></th>
+                  <th className="px-4 py-3 font-bold text-[var(--charcoal)]">{t('s_caf_meca_col_a')}</th>
+                  <th className="px-4 py-3 font-bold text-[var(--charcoal)]">{t('s_caf_meca_col_b')}</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[var(--warm-tan)]/20">
+                <tr>
+                  <td className="px-4 py-3 text-[var(--charcoal)]/60">{t('s_caf_meca_row_bonus')}</td>
+                  <td className="px-4 py-3 font-medium text-[var(--charcoal)]">1 050 €</td>
+                  <td className="px-4 py-3 font-medium text-[var(--charcoal)]">1 050 €</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 text-[var(--charcoal)]/60">{t('s_caf_meca_row_onss')}</td>
+                  <td className="px-4 py-3 font-medium text-red-600">−137 €</td>
+                  <td className="px-4 py-3 font-medium text-green-600">{t('s_caf_meca_val_onss_b')}</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 text-[var(--charcoal)]/60">{t('s_caf_meca_row_ir')}</td>
+                  <td className="px-4 py-3 font-medium text-red-600">−456 €</td>
+                  <td className="px-4 py-3 font-medium text-red-600">{t('s_caf_meca_val_ir_b')}</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 text-[var(--charcoal)]/60">{t('s_caf_meca_row_fiscal')}</td>
+                  <td className="px-4 py-3 font-medium text-[var(--charcoal)]">0 €</td>
+                  <td className="px-4 py-3 font-medium text-green-600">+315 €</td>
+                </tr>
+                <tr className="border-t-2 border-[var(--warm-tan)]/40 bg-[var(--sage-pale)]/30">
+                  <td className="px-4 py-4 font-bold text-[var(--charcoal)]">{t('s_caf_meca_row_result')}</td>
+                  <td className="px-4 py-4 font-bold text-[var(--charcoal)]">{t('s_caf_meca_val_result_a')}</td>
+                  <td className="px-4 py-4 font-bold text-red-600">{t('s_caf_meca_val_result_b')}</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-bold text-[var(--charcoal)]">{t('s_caf_meca_row_capital')}</td>
+                  <td className="px-4 py-3 font-bold text-[var(--forest)]">{t('s_caf_meca_val_capital_a')}</td>
+                  <td className="px-4 py-3 font-bold text-[var(--charcoal)]">{t('s_caf_meca_val_capital_b')}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <Body>{t('s_caf_meca_explanation')}</Body>
+
+          <Divider />
+
+          {/* Subsection B: Comparaison 30 ans */}
+          <h3 className="font-heading text-xl font-bold text-[var(--charcoal)]">{t('s_caf_compare_title')}</h3>
+          <Body>{t('s_caf_compare_intro')}</Body>
+
+          <div className="mt-6 overflow-hidden rounded-2xl border border-[var(--warm-tan)]/50">
+            <table className="w-full text-left text-sm">
+              <thead>
+                <tr className="bg-[var(--warm-tan)]/10">
+                  <th className="px-4 py-3 font-semibold text-[var(--charcoal)]/40"></th>
+                  <th className="px-4 py-3 font-bold text-[var(--forest)]">{t('s_caf_compare_col_a')}</th>
+                  <th className="px-4 py-3 font-bold text-[var(--charcoal)]">{t('s_caf_compare_col_b')}</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[var(--warm-tan)]/20">
+                <tr>
+                  <td className="px-4 py-3 text-[var(--charcoal)]/60">{t('s_caf_compare_row_sacrifice')}</td>
+                  <td className="px-4 py-3 font-medium text-[var(--charcoal)]">210 €</td>
+                  <td className="px-4 py-3 font-medium text-[var(--charcoal)]">210 €</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 text-[var(--charcoal)]/60">{t('s_caf_compare_row_capital_inv')}</td>
+                  <td className="px-4 py-3 font-medium text-[var(--charcoal)]">{t('s_caf_compare_val_capital_a')}</td>
+                  <td className="px-4 py-3 font-medium text-[var(--charcoal)]">{t('s_caf_compare_val_capital_b')}</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 text-[var(--charcoal)]/60">{t('s_caf_compare_row_fees')}</td>
+                  <td className="px-4 py-3 font-medium text-green-600">0,17 % TER</td>
+                  <td className="px-4 py-3 font-medium text-red-600">~1,40 % TER</td>
+                </tr>
+                <tr className="bg-[var(--warm-white)]/50">
+                  <td className="px-4 py-3 text-[var(--charcoal)]/60">{t('s_caf_compare_row_gross')}</td>
+                  <td className="px-4 py-3 font-medium text-[var(--charcoal)]">~75 600 €</td>
+                  <td className="px-4 py-3 font-medium text-[var(--charcoal)]">~66 350 €</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 text-[var(--charcoal)]/60">{t('s_caf_compare_row_tax')}</td>
+                  <td className="px-4 py-3 font-medium text-red-600">{t('s_caf_compare_val_tax_a')}</td>
+                  <td className="px-4 py-3 font-medium text-red-600">{t('s_caf_compare_val_tax_b')}</td>
+                </tr>
+                <tr className="border-t-2 border-[var(--warm-tan)]/40 bg-[var(--sage-pale)]/30">
+                  <td className="px-4 py-4 font-bold text-[var(--charcoal)]">{t('s_caf_compare_row_net')}</td>
+                  <td className="px-4 py-4 font-bold text-[var(--forest)]">~70 041 €</td>
+                  <td className="px-4 py-4 font-bold text-[var(--charcoal)]">~60 765 €</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-bold text-[var(--charcoal)]">{t('s_caf_compare_row_gain')}</td>
+                  <td className="px-4 py-3 font-bold text-[var(--forest)]">+63 831 €</td>
+                  <td className="px-4 py-3 font-bold text-[var(--charcoal)]">+54 555 €</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-6 rounded-xl bg-[var(--sage-pale)]/20 p-4 text-center">
+            <p className="text-sm font-bold text-[var(--forest)]">{t('s_caf_callout')}</p>
+          </div>
+
+          <NeutralCallout>{t('s_caf_context_note')}</NeutralCallout>
+
+          <Divider />
+
+          {/* Subsection C: Conclusion */}
+          <h3 className="font-heading text-xl font-bold text-[var(--charcoal)]">{t('s_caf_concl_title')}</h3>
+          <Body>{t('s_caf_concl_p1')}</Body>
+          <Body>{t('s_caf_concl_p2')}</Body>
+          <Body>{t('s_caf_concl_p3')}</Body>
+          <Body>{t('s_caf_concl_p4')}</Body>
+
+          <p className="mt-6 text-sm italic leading-relaxed text-[var(--charcoal)]/45">{t('s_caf_methodology')}</p>
+          <p className="mt-2 text-xs italic leading-relaxed text-[var(--charcoal)]/30">{t('s_caf_disclaimer')}</p>
+        </section>
+
+        <Divider />
+
         {/* Section 5: Quand est-ce zinvol? */}
         <section>
           <SectionHeading>{t('s5_title')}</SectionHeading>
