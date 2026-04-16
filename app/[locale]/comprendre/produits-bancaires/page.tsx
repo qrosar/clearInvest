@@ -215,6 +215,69 @@ export default async function ProduitsBancairesPage() {
 
         <Divider />
 
+        {/* ── Section LT — Épargne à long terme ── */}
+        <section>
+          <SectionHeading>{t('s_lt_title')}</SectionHeading>
+          <Body>{t('s_lt_p1')}</Body>
+
+          {/* Ceiling highlight */}
+          <div className="mt-6 rounded-xl border border-[var(--warm-tan)]/50 bg-[var(--warm-white)] px-5 py-4">
+            <p className="text-[10px] font-semibold uppercase tracking-widest text-[var(--charcoal)]/35">
+              {t('s_lt_ceil_label')}
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-[var(--charcoal)]/70">
+              {t('s_lt_ceil_text')}
+            </p>
+          </div>
+
+          <WarningBox>{t('s_lt_stackable')}</WarningBox>
+
+          {/* Mortgage conflict */}
+          <h3 className="mt-8 font-heading text-lg font-semibold text-[var(--charcoal)]">
+            {t('s_lt_mortgage_title')}
+          </h3>
+          <Body>{t('s_lt_mortgage_p1')}</Body>
+          <Body>{t('s_lt_mortgage_p2')}</Body>
+          <Body>{t('s_lt_mortgage_p3')}</Body>
+
+          {/* Fiscal structure */}
+          <p className="mt-8 text-[10px] font-semibold uppercase tracking-widest text-[var(--charcoal)]/35">
+            {t('s_lt_fiscal_label')}
+          </p>
+          <NumberedPoint n="1" title={t('s_lt_pt1_title')}>{t('s_lt_pt1_body')}</NumberedPoint>
+          <NumberedPoint n="2" title={t('s_lt_pt2_title')}>{t('s_lt_pt2_body')}</NumberedPoint>
+          <NumberedPoint n="3" title={t('s_lt_pt3_title')}>{t('s_lt_pt3_body')}</NumberedPoint>
+
+          {/* Math callout */}
+          <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50 px-5 py-4">
+            <p className="text-[10px] font-semibold uppercase tracking-widest text-amber-700/70">
+              {t('s_lt_math_label')}
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-amber-900/75">{t('s_lt_math_p1')}</p>
+            <ul className="mt-2 space-y-1.5">
+              {[t('s_lt_math_c1'), t('s_lt_math_c2'), t('s_lt_math_c3'), t('s_lt_math_c4')].map((item, i) => (
+                <li key={i} className="flex gap-2 text-sm leading-relaxed text-amber-900/75">
+                  <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-amber-600/50" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-2 text-sm leading-relaxed text-amber-900/75">{t('s_lt_math_p2')}</p>
+          </div>
+
+          {/* Verdict */}
+          <div className="mt-6 rounded-xl border border-[var(--forest)]/20 bg-[var(--sage-pale)] px-5 py-4">
+            <p className="text-[10px] font-semibold uppercase tracking-widest text-[var(--forest)]/60">
+              {t('s_lt_verdict_label')}
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-[var(--charcoal)]/70">{t('s_lt_verdict_p1')}</p>
+            <p className="mt-2 text-sm leading-relaxed text-[var(--charcoal)]/70">{t('s_lt_verdict_p2')}</p>
+            <p className="mt-2 text-sm leading-relaxed text-[var(--charcoal)]/70">{t('s_lt_verdict_p3')}</p>
+          </div>
+        </section>
+
+        <Divider />
+
         {/* ── Section 4 — Épargne-pension ── */}
         <section>
           <SectionHeading>{t('s4_title')}</SectionHeading>

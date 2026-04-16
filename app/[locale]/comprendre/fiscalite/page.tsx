@@ -113,6 +113,7 @@ export default async function FiscalitePage() {
     { product: t('table_row4'), tob: '—',       precompte: t('table_val_above_threshold'), reynders: '—',   pv: '—',               other: '—',                       etf: false },
     { product: t('table_row5'), tob: '—',       precompte: t('table_val_from_first'),     reynders: '—',   pv: '—',               other: '—',                       etf: false },
     { product: t('table_row6'), tob: '—',       precompte: t('table_val_lt8'),            reynders: '—',   pv: '—',               other: t('table_val_prime_tax'),  etf: false },
+    { product: t('table_row_lt'), tob: '—',    precompte: t('table_val_lt_precompte'),   reynders: t('table_val_lt_reynders'), pv: t('table_val_lt_pv'), other: t('table_val_lt_other'), etf: false },
     { product: t('table_row7'), tob: '—',       precompte: '—',                           reynders: '—',   pv: '—',               other: t('table_val_tax_60'),     etf: false },
     { product: t('table_row8'), tob: '0,12%',  precompte: t('table_val_dividends'),      reynders: t('table_val_bond_portion'), pv: t('table_val_pv'), other: '—', etf: false },
   ];
@@ -237,6 +238,7 @@ export default async function FiscalitePage() {
               </div>
               <p className="text-[11px] text-[var(--charcoal)]/40">{t('table_note1')}</p>
               <p className="text-[11px] text-[var(--charcoal)]/40">{t('table_note2')}</p>
+              <p className="text-[11px] text-[var(--charcoal)]/40">{t('table_note3')}</p>
             </div>
           </div>
         </section>
