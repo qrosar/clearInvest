@@ -253,12 +253,21 @@ export default async function NnStrategyAnalysisPage() {
 
         <Divider />
 
-        {/* Section 5: Succession */}
+        {/* Section 5: Use cases */}
         <section>
           <SectionHeading>{t('s5_title')}</SectionHeading>
           <Body>{t('s5_p1')}</Body>
           <Body>{t('s5_p2')}</Body>
           <NeutralCallout>{t('s5_callout')}</NeutralCallout>
+          <h3 className="mt-10 font-heading text-xl font-bold text-[var(--charcoal)] md:text-2xl">
+            {t('s5_lts_title')}
+          </h3>
+          <Body>{t('s5_lts_p1')}</Body>
+          <Body>{t('s5_lts_p2')}</Body>
+          <Body>{t('s5_lts_p3')}</Body>
+          <Body>{t('s5_lts_p4')}</Body>
+          <Body>{t('s5_lts_p5')}</Body>
+          <Body>{t('s5_lts_p6')}</Body>
         </section>
 
         <Divider />

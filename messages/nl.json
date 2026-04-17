@@ -2259,7 +2259,7 @@
     "s1_label_availability": "Beschikbaarheid",
     "s1_val_availability": "Afkopen mogelijk (1% afkoopkosten indien < 3 jaar)",
     "s1_label_cgt": "Meerwaardebelasting",
-    "s1_val_cgt": "10% op meerwaarden (> 10 000 €/jaar)",
+    "s1_val_cgt": "10% op meerwaarden (> 10 000 €/jaar) — vrijgesteld in het kader van langetermijnsparen (voorwaarden)",
     "s1_source": "De vermelde kosten zijn gebaseerd op de essentiële informatiedocumenten (KID/DICI) beschikbaar op de FSMA-website en de productdocumentatie van NN Insurance Belgium. Controleer het bijgewerkte KID voor elke inschrijving.",
     "s2_title": "Het fiscaal voordeel van Tak 23 — een mythe voor ETF-beleggers",
     "s2_p1": "De argumentatie van AG Fund + rust op de vrijstelling van roerende voorheffing. Dit is een technisch correct maar irrelevant argument voor een moderne belegger: kapitalisatie-ETF's zoals IMIE keren geen dividenden uit en ondergaan dus ook geen roerende voorheffing.",
@@ -2300,7 +2300,7 @@
     "s4_context_note": "Binnen het Tak 23-universum: NN Strategy (+115 140 € netto) is structureel goedkoper dan AG Fund + (+102 590 €), voornamelijk door lagere instapkosten. Beiden verliezen fors van de ETF.",
     "s4_nuance_note": "Opmerking: de ETF-simulatie past de CGT toe alsof het volledige kapitaal in één keer wordt verkocht. In de praktijk reduceert de geleidelijke verkoop de reële CGT tot bijna nul — waardoor het verschil met de ETF nog groter wordt.",
     "s4_methodology_note": "Methodologische noot: het rendement van 8% dat voor IMIE wordt gebruikt, is gebaseerd op het historisch gemiddelde van de MSCI ACWI IMI over 20 jaar (2005–2025). Het nettorendement van 6,30% voor AG Fund + gaat uit van totale kosten van 1,70%/jaar — aan de onderkant van de vastgestelde vork. De vergelijking is dus conservatief en gunstig voor AG Fund +.",
-    "s5_title": "Het enige scenario: de vermogensoverdracht",
+    "s5_title": "Legitieme gebruikssituaties",
     "s5_p1": "Tak 23 maakt het mogelijk om specifieke begunstigden aan te duiden buiten de klassieke successieregels. AG Insurance is de marktleider in België, dit mechanisme is daar perfect op punt gesteld. Voor een belegger ouder dan 60 jaar die zijn opvolging wil organiseren, is dit juridische voordeel reëel.",
     "s5_p2": "AG Insurance distribueert zijn producten via banken (BNP Paribas Fortis) en makelaars. De 2,5% instapkosten vergoeden dit netwerk. U betaalt de prijs voor het gemak om geen brokeraccount te openen: 168 000 € aan misgelopen winst over 30 jaar.",
     "s5_callout": "Tak 23 blijft een legitiem instrument voor successieplanning voor opgebouwde vermogens. Maar voor de fase van vermogensopbouw vertegenwoordigt de enveloppe van AG Fund + een kost zonder enige reële fiscale tegenprestatie ten opzichte van een directe ETF.",
@@ -2317,7 +2317,12 @@
     "cta_tertiary": "← Terug naar productanalyses",
     "disclaimer": "Simulatie ter illustratie. Resultaten uit het verleden bieden geen garantie voor de toekomst.",
     "s4_cta_text": "Simuleer met uw eigen cijfers in onze calculator.",
-    "s4_cta_btn": "Open de calculator →"
+    "s4_cta_btn": "Open de calculator →",
+    "s5_lts_title": "Tweede geval: langetermijnsparen",
+    "s5_lts_p1": "In het kader van langetermijnsparen genieten Tak 23-contracten van een belastingvermindering van 30% op premies (tot 2 450 €/jaar) en van een vrijstelling van de meerwaardebelasting vanaf 2026, onder de voorwaarden voor toegang tot het federale fiscale pakket (recente lening of geen lening).",
+    "s5_lts_p2": "Verandert dit de conclusie voor AG Fund+?",
+    "s5_lts_p3": "Nee — de instapkost van 4,5% volstaat op zich om de berekening ongeldig te maken.",
+    "s5_lts_p4": "Simulaties over 30 jaar tonen aan dat, om het fiscale voordeel van 30% te laten opwegen tegen de kosten van een Tak 23-product, de instapkost maximaal rond 3% moet liggen, de jaarlijkse kosten ≤ ~1,4%/jaar, en het product een index moet volgen. AG Fund+ combineert een instapkost van 4,5% (de hoogste in onze analyse), jaarlijkse kosten van ~1,7%/jaar, en actief beheer waarvan het bruto-rendement structureel onder de markt ligt. Deze drie negatieve factoren samen overtreffen ruimschoots wat de fiscale terugbetaling van 30% kan compenseren — zelfs in de meest gunstige omstandigheden."
   },
   "analyseBelfiusPension": {
     "hero_tag": "PRODUCTANALYSE — PENSIOENSPAREN",
@@ -2619,7 +2624,7 @@
     "s1_label_availability": "Beschikbaarheid",
     "s1_val_availability": "Afkopen mogelijk (afkoopkosten indien < 5 jaar)",
     "s1_label_cgt": "Meerwaardebelasting",
-    "s1_val_cgt": "10% op meerwaarden (> 10 000 €/jaar)",
+    "s1_val_cgt": "10% op meerwaarden (> 10 000 €/jaar) — vrijgesteld in het kader van langetermijnsparen (voorwaarden)",
     "s2_title": "Het fiscaal voordeel van Tak 23 — een mythe voor ETF-beleggers",
     "s2_p1": "Het verkoopargument van Tak 23 rust op één belofte: vrijstelling van roerende voorheffing en (vóór 2026) van meerwaardebelasting.",
     "s2_p2": "Technisch gezien is dit correct, maar het is irrelevant voor wie belegt in kapitalisatie-ETF's zoals IMIE. Aangezien deze geen dividenden uitkeren, is er geen roerende voorheffing om te vermijden. En wat de meerwaardebelasting van 10% betreft: deze is nu op dezelfde manier van toepassing op beide oplossingen.",
@@ -2661,7 +2666,7 @@
     "s4_methodology_note": "Methodologische noot: het rendement van 8% dat voor IMIE wordt gebruikt, is gebaseerd op het historisch gemiddelde van de MSCI ACWI IMI over 20 jaar (2005–2025). Het nettorendement van 6,50% voor NN Strategy gaat uit van totale kosten van 1,50%/jaar — aan de onderkant van de vastgestelde vork. De vergelijking is dus conservatief en gunstig voor NN Strategy.",
     "s4_cta_text": "Simuleer met uw eigen cijfers in onze calculator.",
     "s4_cta_btn": "Open de calculator →",
-    "s5_title": "Het enige reële scenario: de opvolging",
+    "s5_title": "Legitieme gebruikssituaties",
     "s5_p1": "Een Tak 23-contract maakt het mogelijk om specifieke begunstigden aan te duiden die het kapitaal rechtstreeks ontvangen bij overlijden, waarbij de standaard successieprocedure wordt omzeild. Voor beleggers ouder dan 60 jaar die al een vermogen hebben opgebouwd en hun overdracht buiten de klassieke regels willen plannen, heeft dit juridische voordeel een reële waarde.",
     "s5_p2": "Deze behoefte aan overdracht rechtvaardigt echter niet het betalen van 1,50% kosten per jaar gedurende 30 jaar tijdens de fase van vermogensopbouw. Het is een instrument voor overdracht, niet voor belegging.",
     "s5_callout": "Tak 23 blijft een legitiem instrument voor successieplanning. Maar het is een juridisch instrument, geen beleggingsinstrument. Als u een opgebouwd vermogen wilt overdragen, raadpleeg dan een notaris — niet een bankadviseur die u fondsen aan 1,50%/jaar zal verkopen.",
@@ -2676,7 +2681,14 @@
     "cta_primary": "Simuleren met de calculator →",
     "cta_secondary": "Vergelijken met AG Fund + →",
     "cta_tertiary": "← Terug naar productanalyses",
-    "disclaimer": "Simulatie ter illustratie. Resultaten uit het verleden bieden geen garantie voor de toekomst."
+    "disclaimer": "Simulatie ter illustratie. Resultaten uit het verleden bieden geen garantie voor de toekomst.",
+    "s5_lts_title": "Tweede geval: langetermijnsparen",
+    "s5_lts_p1": "In het kader van langetermijnsparen (een federaal fiscaal stelsel dat los staat van pensioensparen) genieten Tak 23-contracten van een belastingvermindering van 30% op premies tot 2 450 €/jaar en van een definitieve vrijstelling van de meerwaardebelasting vanaf 2026. Dit stelsel is toegankelijk voor belastingplichtigen van wie de hypothecaire lening recent is afgesloten (na 2016 in Vlaanderen, na 2017 in Brussel) of die geen lopende lening hebben.",
+    "s5_lts_p2": "Verandert dit de conclusie voor NN Strategy?",
+    "s5_lts_p3": "Nee — om twee cumulatieve redenen:",
+    "s5_lts_p4": "Ten eerste liggen de totale kosten van NN Strategy (~1,5%/jaar) op de bovengrens van de drempel waarboven het fiscale voordeel het kostenverschil over 30 jaar niet meer compenseert. Simulaties tonen aan dat bij ~1,4-1,5%/jaar aan kosten, het resultaat op zijn best vergelijkbaar is met een ETF — niet beter.",
+    "s5_lts_p5": "Ten tweede, en vooral, zijn de onderliggende fondsen van NN Strategy actief beheerde fondsen. Actieve fondsen presteren structureel slechter dan hun referentie-index op lange termijn — tussen 85% en 92% van de actieve fondsen presteren na kosten slechter dan hun benchmark over 20 jaar. Dit tekort aan bruto-rendement komt bovenop de hoge kosten. Het fiscale voordeel kan niet tegelijkertijd hoge kosten EN een lager bruto-rendement dan de markt compenseren.",
+    "s5_lts_p6": "Om Tak 23 langetermijnsparen competitief te maken met een ETF, moeten tegelijkertijd twee voorwaarden vervuld zijn: kosten ≤ ~1,4%/jaar EN een indexproduct dat een bruto-rendement dicht bij de markt garandeert. NN Strategy voldoet aan geen van beide voorwaarden op zekere wijze."
   },
   "analyseBnpPension": {
     "meta_title": "BNP Paribas B Pension analyse — 3% instapkosten die uw pensioen vernietigen",
@@ -3269,7 +3281,7 @@
     "s1_label_capital_guarantee": "Kapitaalgarantie",
     "s1_val_capital_guarantee": "Geen",
     "s1_label_cgt": "Meerwaardebelasting",
-    "s1_val_cgt": "10% op meerwaarden (> 10 000 €/jaar)",
+    "s1_val_cgt": "10% op meerwaarden (> 10 000 €/jaar) — vrijgesteld in het kader van langetermijnsparen (voorwaarden)",
     "s1_source": "Bron: KID Baloise Invest 23 (BLSBLG000005 / BLSBLG000004), FSMA, 25 maart 2026.",
     "s2_title": "Tak 23 en Kapitalisatie-ETF's: Identieke Fiscale Behandeling",
     "s2_p1": "Het verkoopargument van Tak 23 rust op een belofte: vrijstelling van roerende voorheffing en meerwaardebelasting.",
@@ -3328,7 +3340,7 @@
     "s4_methodology_note": "Methodologische noot: het rendement van 8% voor IMIE is gebaseerd op het historisch gemiddelde van de MSCI ACWI IMI over 20 jaar (2005–2025). De kosten van 2,00%/jaar voor Baloise Invest 23 zijn conservatief: de reële marge is 2,20% tot 2,50% voor een aandelenprofiel. De instapkosten van 3,00% zijn het midden van de officiële marge (tot 3,50%). De vergelijking is dus bewust gunstig voor Baloise.",
     "s4_cta_text": "Simuleer met uw eigen cijfers in onze calculator.",
     "s4_cta_btn": "Calculator openen →",
-    "s5_title": "Het Enige Legitieme Gebruiksscenario: Vermogensoverdracht",
+    "s5_title": "Legitieme gebruikssituaties",
     "s5_p1": "Een Tak 23-contract laat toe specifieke begunstigden aan te wijzen die het kapitaal rechtstreeks ontvangen bij overlijden, buiten de standaard erfenisprocedure. Baloise Insurance Belgium is een solide en gereguleerde verzekeraar — de aanwijzing van begunstigden is juridisch robuust. Voor beleggers ouder dan 60 die al een vermogen hebben opgebouwd en de overdracht ervan willen plannen, heeft dit juridische voordeel reële waarde.",
     "s5_p2": "Deze behoefte aan vermogensoverdracht rechtvaardigt echter niet het betalen van ~2,20% kosten per jaar gedurende 30 jaar tijdens de vermogensopbouwfase. Het is een instrument voor overdracht, niet voor belegging.",
     "s5_callout": "Tak 23 blijft een legitiem instrument voor successieplanning voor opgebouwde vermogens. Voor de opbouwfase vertegenwoordigen de kosten van Baloise Invest 23 een kost zonder tegenprestatie. Raadpleeg een notaris alvorens in te schrijven.",
@@ -3346,6 +3358,12 @@
     "cta_primary": "Simuleren met de calculator →",
     "cta_secondary": "Vergelijken met NN Strategy →",
     "cta_tertiary": "← Terug naar productanalyses",
-    "disclaimer": "Simulatie ter indicatie. Rendementen uit het verleden bieden geen garantie voor de toekomst."
+    "disclaimer": "Simulatie ter indicatie. Rendementen uit het verleden bieden geen garantie voor de toekomst.",
+    "s5_lts_title": "Tweede geval: langetermijnsparen",
+    "s5_lts_p1": "In het kader van langetermijnsparen kunnen Tak 23-contracten genieten van een belastingvermindering van 30% en van een vrijstelling van de meerwaardebelasting vanaf 2026, onder de voorwaarden voor toegang tot het federale fiscale pakket.",
+    "s5_lts_p2": "Verandert dit de conclusie voor Baloise Invest 23?",
+    "s5_lts_p3": "Nee — en nog minder dan voor zijn concurrenten.",
+    "s5_lts_p4": "Met tot 5,5% instapkost en 2,2% tot 2,5%/jaar aan totale jaarlijkse kosten, is Baloise het Tak 23-product dat het verst verwijderd is van de voorwaarden die nodig zijn voor langetermijnsparen om competitief te zijn met een ETF. Ter vergelijking: de levensvatbaarheidsdrempel ligt op ongeveer ~3% instapkost en ~1,4%/jaar aan kosten — Baloise overschrijdt beide drempels aanzienlijk.",
+    "s5_lts_p5": "Bovendien zijn de onderliggende fondsen van Baloise actief beheerd, wat een tekort aan bruto-rendement toevoegt bovenop de kosten. Langetermijnsparen is een reële kans voor goede producten; Baloise Invest 23 behoort daar niet toe."
   }
 }

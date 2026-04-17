@@ -1891,7 +1891,7 @@
     "s1_label_availability": "Availability",
     "s1_val_availability": "Redemptions possible (1% exit fee if < 3 years)",
     "s1_label_cgt": "Capital gains tax",
-    "s1_val_cgt": "10% on gains (> €10,000/year)",
+    "s1_val_cgt": "10% on gains (> €10,000/year) — exempt under long-term savings scheme (conditions apply)",
     "s1_source": "Fees shown are based on AG Insurance Key Information Documents (KID/DICI) available on the FSMA website. The 2.50% entry fee and ~1.70%/year are standard rates — some brokers may apply different tariffs.",
     "s2_title": "The Branch 23 Tax Advantage — A Myth for ETF Investors",
     "s2_p1": "The AG Fund + pitch relies on the exemption from withholding tax. This is a technically correct but irrelevant argument for a modern investor: accumulator ETFs like IMIE do not distribute dividends and therefore incur no withholding tax either.",
@@ -1934,7 +1934,7 @@
     "s4_methodology_note": "Methodology note: the 8% return used for IMIE is based on the historical average of the MSCI ACWI IMI over 20 years (2005–2025). The net return of 6.30% for AG Fund + assumes total fees of 1.70%/year — at the bottom of the observed range. The comparison is therefore conservative and favourable to AG Fund +.",
     "s4_cta_text": "Simulate with your own numbers in our calculator.",
     "s4_cta_btn": "Open the calculator →",
-    "s5_title": "The Only Real Use Case: Succession",
+    "s5_title": "Legitimate use cases",
     "s5_p1": "Branch 23 allows designating specific beneficiaries outside classic succession rules. AG Insurance being the leading insurer in Belgium, this mechanism is perfectly established. For an investor over 60 looking to organize their succession, this legal advantage is real.",
     "s5_p2": "AG Insurance distributes its products through banks (BNP Paribas Fortis) and brokers. The 2.5% entry fees remunerate this network. You pay the price for the convenience of not opening a broker account dearly: €168,000 in unrealized profits over 30 years.",
     "s5_callout": "Branch 23 remains a legitimate estate planning tool for built-up wealth. But for the wealth accumulation phase, the AG Fund + wrapper represents a cost without any real tax counterpart compared to a direct ETF.",
@@ -1949,7 +1949,12 @@
     "cta_primary": "Simulate with the calculator →",
     "cta_secondary": "Compare with NN Strategy →",
     "cta_tertiary": "← Back to product reviews",
-    "disclaimer": "Illustrative simulation only. Past performance is no guarantee of future results."
+    "disclaimer": "Illustrative simulation only. Past performance is no guarantee of future results.",
+    "s5_lts_title": "Second case: long-term savings",
+    "s5_lts_p1": "Under the long-term savings scheme, Branch 23 contracts benefit from a 30% tax reduction on premiums (up to €2,450/year) and a capital gains tax exemption from 2026, subject to access conditions for the federal tax basket (recent mortgage or no mortgage).",
+    "s5_lts_p2": "Does this change the verdict for AG Fund+?",
+    "s5_lts_p3": "No — the 4.5% entry friction alone is enough to invalidate the calculation.",
+    "s5_lts_p4": "30-year simulations show that for the 30% tax benefit to offset the costs of a Branch 23 product, the entry friction must stay around 3% maximum, annual fees must be ≤ ~1.4%/year, and the product must track an index. AG Fund+ combines a 4.5% entry friction (the highest in our analysis), annual fees of ~1.7%/year, and active management whose gross return is structurally below the market. These three combined negative factors far exceed what the 30% tax refund can compensate — even under the most favourable conditions."
   },
   "analyseBelfiusPension": {
     "hero_tag": "PRODUCT REVIEW — PENSION SAVINGS",
@@ -2251,7 +2256,7 @@
     "s1_label_availability": "Availability",
     "s1_val_availability": "Redemptions possible (exit fees if < 5 years)",
     "s1_label_cgt": "Capital gains tax",
-    "s1_val_cgt": "10% on gains (> €10,000/year)",
+    "s1_val_cgt": "10% on gains (> €10,000/year) — exempt under long-term savings scheme (conditions apply)",
     "s1_source": "Fees shown are based on the Key Information Documents (KID/DICI) available on the FSMA website and NN Insurance Belgium product documentation. Verify the current KID before subscribing.",
     "s2_title": "The Branch 23 Tax Advantage — A Myth for ETF Investors",
     "s2_p1": "The Branch 23 pitch relies on one claim: exemption from withholding tax (précompte mobilier) and (before 2026) from capital gains tax.",
@@ -2294,7 +2299,7 @@
     "s4_methodology_note": "Methodology note: the 8% return used for IMIE is based on the historical average of the MSCI ACWI IMI over 20 years (2005–2025). The net return of 6.50% for NN Strategy assumes total fees of 1.50%/year — at the bottom of the observed range. The comparison is therefore conservative and favorable to NN Strategy.",
     "s4_cta_text": "Simulate with your own numbers in our calculator.",
     "s4_cta_btn": "Open the calculator →",
-    "s5_title": "The Only Real Use Case: Succession",
+    "s5_title": "Legitimate use cases",
     "s5_p1": "A Branch 23 contract allows you to designate specific beneficiaries who receive the capital directly in case of death, bypassing standard inheritance procedure. For investors over 60 who have already built up wealth and wish to plan its transmission outside classic rules, this legal advantage has real value.",
     "s5_p2": "However, this need for transmission does not justify paying 1.50% fees per year for 30 years during the wealth accumulation phase. It is an instrument of transfer, not investment.",
     "s5_callout": "Branch 23 remains a legitimate estate planning tool. But it is a legal instrument, not an investment instrument. If you are looking to transfer built-up wealth, consult a notary — not a bank advisor who will sell you funds at 1.50%/year.",
@@ -2309,7 +2314,14 @@
     "cta_primary": "Simulate with the calculator →",
     "cta_secondary": "Compare with AG Fund + →",
     "cta_tertiary": "← Back to product reviews",
-    "disclaimer": "Simulation for illustrative purposes only. Past performance is no guarantee of future results."
+    "disclaimer": "Simulation for illustrative purposes only. Past performance is no guarantee of future results.",
+    "s5_lts_title": "Second case: long-term savings",
+    "s5_lts_p1": "Under the long-term savings scheme (a separate federal tax scheme distinct from pension savings), Branch 23 contracts benefit from a 30% tax reduction on premiums up to €2,450/year and a permanent capital gains tax exemption from 2026. The scheme is available to taxpayers whose mortgage was taken out recently (post-2016 in Flanders, post-2017 in Brussels) or who have no mortgage.",
+    "s5_lts_p2": "Does this change the verdict for NN Strategy?",
+    "s5_lts_p3": "No — for two cumulative reasons:",
+    "s5_lts_p4": "First, NN Strategy’s total fees (~1.5%/year) sit at the upper boundary of the threshold beyond which the tax benefit no longer compensates for the cost differential over 30 years. Simulations show that at ~1.4–1.5%/year in fees, the outcome is at best comparable to an ETF — not better.",
+    "s5_lts_p5": "Second, and more importantly, NN Strategy’s underlying funds are actively managed. Active funds structurally underperform their benchmark over the long term — between 85% and 92% of active funds underperform their benchmark over 20 years after fees. This gross return deficit is on top of the high fees. The tax benefit cannot compensate for both high fees AND gross returns below the market.",
+    "s5_lts_p6": "For long-term savings Branch 23 to be competitive with an ETF, two conditions must be met simultaneously: fees ≤ ~1.4%/year AND an index product delivering gross returns close to the market. NN Strategy meets neither condition with any certainty."
   },
   "kbcPricosAnalysis": {
     "hero_tag": "PRODUCT ANALYSIS — PENSION SAVINGS",
@@ -3271,7 +3283,7 @@
     "s1_label_capital_guarantee": "Capital guarantee",
     "s1_val_capital_guarantee": "None",
     "s1_label_cgt": "Capital gains tax",
-    "s1_val_cgt": "10% on gains (> €10,000/year)",
+    "s1_val_cgt": "10% on gains (> €10,000/year) — exempt under long-term savings scheme (conditions apply)",
     "s1_source": "Source: KID Baloise Invest 23 (BLSBLG000005 / BLSBLG000004), FSMA, 25 March 2026.",
     "s2_title": "Branch 23 and Accumulator ETFs: Identical Tax Treatment",
     "s2_p1": "The sales pitch for Branch 23 rests on a promise: exemption from withholding tax and capital gains tax.",
@@ -3330,7 +3342,7 @@
     "s4_methodology_note": "Methodological note: the 8% return used for IMIE is based on the 20-year historical average of the MSCI ACWI IMI (2005–2025). The 2.00%/year fees used for Baloise Invest 23 are conservative: the real range is 2.20% to 2.50% for an equity profile. The 3.00% entry fee represents the midpoint of the official range (up to 3.50%). The comparison is therefore deliberately favourable to Baloise.",
     "s4_cta_text": "Run the numbers with your own figures in our calculator.",
     "s4_cta_btn": "Open the calculator →",
-    "s5_title": "The One Legitimate Use Case: Estate Planning",
+    "s5_title": "Legitimate use cases",
     "s5_p1": "A Branch 23 contract allows you to designate specific beneficiaries who receive the capital directly upon death, bypassing the standard Belgian succession procedure. Baloise Insurance Belgium is a solid, regulated insurer — the beneficiary designation is legally robust. For investors over 60 who have already built up wealth and wish to plan its transfer, this legal advantage has real value.",
     "s5_p2": "This estate planning need does not justify paying ~2.20% in fees per year for 30 years during the wealth-building phase. It is a transfer instrument, not an investment vehicle.",
     "s5_callout": "Branch 23 remains a legitimate estate planning tool for built-up wealth. For the building phase, the fees of Baloise Invest 23 represent a cost with no counterpart. Consult a notary before subscribing.",
@@ -3348,6 +3360,12 @@
     "cta_primary": "Run the calculator →",
     "cta_secondary": "Compare with NN Strategy →",
     "cta_tertiary": "← Back to product reviews",
-    "disclaimer": "For illustrative purposes only. Past performance does not guarantee future returns."
+    "disclaimer": "For illustrative purposes only. Past performance does not guarantee future returns.",
+    "s5_lts_title": "Second case: long-term savings",
+    "s5_lts_p1": "Under the long-term savings scheme, Branch 23 contracts can benefit from a 30% tax reduction and a capital gains tax exemption from 2026, subject to access conditions for the federal tax basket.",
+    "s5_lts_p2": "Does this change the verdict for Baloise Invest 23?",
+    "s5_lts_p3": "No — and even less so than for its competitors.",
+    "s5_lts_p4": "With up to 5.5% entry friction and 2.2% to 2.5%/year in total annual fees, Baloise is the Branch 23 product furthest from the conditions required for long-term savings to be competitive with an ETF. For comparison, the viability threshold is around ~3% entry friction and ~1.4%/year in fees — Baloise exceeds both thresholds significantly.",
+    "s5_lts_p5": "Furthermore, Baloise’s underlying funds are actively managed, which adds a gross return deficit on top of the fees. Long-term savings is a genuine opportunity for the right products; Baloise Invest 23 is not one of them."
   }
 }
