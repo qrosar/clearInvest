@@ -254,6 +254,15 @@ export default async function AnalyseProduitsPage() {
             statusLabel={t('status_available')}
             readAnalysisLabel={t('read_analysis')}
           />
+          <ProductCard
+            name="Vivium Selection Dynamic plus Passive"
+            provider="P&V / Vivium"
+            status="available"
+            link="/analyse-produits/vivium-selection"
+            teaser={t('card_vivium_teaser')}
+            statusLabel={t('status_available')}
+            readAnalysisLabel={t('read_analysis')}
+          />
         </CategorySection>
 
         {/* Category 4 */}
