@@ -245,6 +245,15 @@ export default async function AnalyseProduitsPage() {
             statusLabel={t('status_available')}
             readAnalysisLabel={t('read_analysis')}
           />
+          <ProductCard
+            name="AXA Index4P Global Equity"
+            provider="AXA Belgium"
+            status="available"
+            link="/analyse-produits/axa-index4p"
+            teaser={t('card_axa_teaser')}
+            statusLabel={t('status_available')}
+            readAnalysisLabel={t('read_analysis')}
+          />
         </CategorySection>
 
         {/* Category 4 */}
