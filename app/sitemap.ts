@@ -20,6 +20,7 @@ const pages = [
   { path: '/analyse-produits/baloise-invest', priority: 0.8, changeFrequency: 'monthly' as const },
   { path: '/analyse-produits/axa-index4p', priority: 0.8, changeFrequency: 'monthly' as const },
   { path: '/analyse-produits/vivium-selection', priority: 0.8, changeFrequency: 'monthly' as const },
+  { path: '/analyse-produits/crelan-invest-opportunities', priority: 0.8, changeFrequency: 'monthly' as const },
   { path: '/analyse-produits/ag-safe-plus', priority: 0.8, changeFrequency: 'monthly' as const },
   { path: '/analyse-produits/belfius-invest-capital-safe', priority: 0.8, changeFrequency: 'monthly' as const },
   { path: '/questions', priority: 0.8, changeFrequency: 'monthly' as const },

@@ -266,15 +266,24 @@ export default async function AnalyseProduitsPage() {
         </CategorySection>
 
         {/* Category 4 */}
-        <CategorySection 
-          title={t('cat_active_funds_title')} 
-          subtitle={t('cat_active_funds_subtitle')} 
+        <CategorySection
+          title={t('cat_active_funds_title')}
+          subtitle={t('cat_active_funds_subtitle')}
           icon="📊"
         >
-          <ProductCard 
-            name="BNP Comfort Sustainable Equity World" 
-            provider="BNP Paribas" 
-            status="in_progress" 
+          <ProductCard
+            name="Crelan Invest Opportunities"
+            provider="Crelan"
+            status="available"
+            link="/analyse-produits/crelan-invest-opportunities"
+            teaser={t('card_crelan_opps_teaser')}
+            statusLabel={t('status_available')}
+            readAnalysisLabel={t('read_analysis')}
+          />
+          <ProductCard
+            name="BNP Comfort Sustainable Equity World"
+            provider="BNP Paribas"
+            status="in_progress"
             statusLabel={t('status_in_progress')}
           />
           <ProductCard 
