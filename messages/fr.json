@@ -2426,7 +2426,11 @@
     "card_baloise_teaser": "Jusqu'à 5,50% de friction totale à l'entrée et ~2,20%/an de frais — tout confirmé KID. Le produit Branche 23 le plus cher de notre analyse.",
     "card_axa_teaser": "Le seul produit Branche 23 à gestion passive. Compétitif avec un ETF uniquement dans le cadre de l'épargne à long terme — sous conditions strictes.",
     "card_vivium_teaser": "2,54%/an pour investir dans des ETF disponibles directement à 0,17%/an. Minimum 25 000 €.",
-    "card_crelan_opps_teaser": "Fonds de fonds à 2,80%/an de frais. Rendement net officiel : 2,57%/an — à peine plus qu'un compte épargne réglementé."
+    "card_crelan_opps_teaser": "Fonds de fonds à 2,80%/an de frais. Rendement net officiel : 2,57%/an — à peine plus qu'un compte épargne réglementé.",
+    "coming_soon_heading": "Analyses en cours de rédaction",
+    "verdict_avoid": "À éviter",
+    "verdict_avoid_conditions": "Cas limités",
+    "verdict_niche": "Usage niche"
   },
   "kbcPricosAnalysis": {
     "hero_tag": "ANALYSE PRODUITS — ÉPARGNE-PENSION",

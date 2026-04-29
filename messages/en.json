@@ -1862,7 +1862,11 @@
     "card_baloise_teaser": "Up to 5.50% total entry friction and ~2.20%/year in fees — all KID-confirmed. The most expensive Branch 23 product in our review.",
     "card_axa_teaser": "The only Branch 23 product with passive management. Competitive with an ETF only under the long-term savings scheme — under strict conditions.",
     "card_vivium_teaser": "2.54%/year to invest in ETFs available directly at 0.17%/year. Minimum €25,000.",
-    "card_crelan_opps_teaser": "Fund-of-funds with 2.80%/year fees. Official net return: 2.57%/year — barely above a regulated savings account."
+    "card_crelan_opps_teaser": "Fund-of-funds with 2.80%/year fees. Official net return: 2.57%/year — barely above a regulated savings account.",
+    "coming_soon_heading": "Reviews in progress",
+    "verdict_avoid": "Avoid",
+    "verdict_avoid_conditions": "Limited cases",
+    "verdict_niche": "Niche use"
   },
   "analyseAgFundPlus": {
     "meta_title": "AG Fund + Branch 23 Review — 4.5% Entry Costs for What Benefit?",

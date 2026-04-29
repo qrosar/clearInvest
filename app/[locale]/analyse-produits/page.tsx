@@ -4,11 +4,11 @@ import { Link } from '@/i18n/navigation';
 export async function generateMetadata({
   params
 }: {
-  params: Promise<{ locale: string }> 
+  params: Promise<{ locale: string }>
 }) {
   const { locale } = await params;
   const t = await getTranslations('analyseProductsPage');
-  
+
   return {
     title: t('meta_title'),
     description: t('meta_description'),
@@ -18,76 +18,66 @@ export async function generateMetadata({
   }
 }
 
+type Verdict = 'avoid' | 'avoid_conditions' | 'niche';
+
 interface ProductCardProps {
   name: string;
   provider: string;
-  status: 'available' | 'in_progress';
-  link?: string;
+  link: string;
   teaser?: string;
-  statusLabel: string;
+  verdict?: Verdict;
+  verdictLabel?: string;
   readAnalysisLabel?: string;
 }
 
-function ProductCard({ name, provider, status, link, teaser, statusLabel, readAnalysisLabel }: ProductCardProps) {
-  const isAvailable = status === 'available' && link;
-  
-  const content = (
-    <>
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <h3 className="font-heading text-base font-bold text-[var(--charcoal)]">
-            {name}
-          </h3>
-          <p className="text-xs text-[var(--charcoal)]/45">
-            {provider}
-          </p>
-        </div>
-        <span className={`flex-shrink-0 whitespace-nowrap rounded px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
-          isAvailable 
-            ? 'bg-green-100 text-green-700' 
-            : 'bg-amber-100 text-amber-700'
-        }`}>
-          {statusLabel}
-        </span>
+function ProductCard({ name, provider, link, teaser, verdict, verdictLabel, readAnalysisLabel }: ProductCardProps) {
+  const verdictStyles: Record<Verdict, string> = {
+    avoid: 'bg-red-50 text-red-700 border border-red-200',
+    avoid_conditions: 'bg-amber-50 text-amber-700 border border-amber-200',
+    niche: 'bg-[var(--warm-tan)]/30 text-[var(--charcoal)]/60',
+  };
+
+  return (
+    <Link href={link} className="group flex flex-col rounded-xl border border-[var(--warm-tan)]/40 bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md cursor-pointer">
+      <div>
+        <h3 className="font-heading text-base font-bold text-[var(--charcoal)]">
+          {name}
+        </h3>
+        <p className="text-xs text-[var(--charcoal)]/45">
+          {provider}
+        </p>
+        {verdict && verdictLabel && (
+          <span className={`mt-2 inline-flex rounded px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${verdictStyles[verdict]}`}>
+            {verdictLabel}
+          </span>
+        )}
       </div>
-      
+
       {teaser && (
         <p className="mt-3 text-xs leading-relaxed text-[var(--charcoal)]/65">
           {teaser}
         </p>
       )}
-      
-      {isAvailable && (
-        <div className="mt-4 flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-[var(--forest)]">
-          <span>{readAnalysisLabel || "Lire l'analyse"}</span>
-          <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-        </div>
-      )}
-    </>
-  );
 
-  const className = `group flex flex-col rounded-xl border border-[var(--warm-tan)]/40 bg-white p-5 transition-all duration-200 ${
-    isAvailable 
-      ? 'hover:-translate-y-0.5 hover:shadow-md cursor-pointer' 
-      : 'opacity-60 cursor-default'
-  }`;
-
-  if (isAvailable) {
-    return (
-      <Link href={link} className={className}>
-        {content}
-      </Link>
-    );
-  }
-
-  return (
-    <div className={className}>
-      {content}
-    </div>
+      <div className="mt-4 flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-[var(--forest)]">
+        <span>{readAnalysisLabel || "Lire l'analyse"}</span>
+        <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+      </div>
+    </Link>
   );
 }
 
-function CategorySection({ title, subtitle, icon, children }: { title: string; subtitle: string; icon: string; children: React.ReactNode }) {
+function CategorySection({
+  title,
+  subtitle,
+  icon,
+  children,
+}: {
+  title: string;
+  subtitle: string;
+  icon: string;
+  children: React.ReactNode;
+}) {
   return (
     <section className="mb-16">
       <div className="mb-8">
@@ -110,8 +100,39 @@ function CategorySection({ title, subtitle, icon, children }: { title: string; s
   );
 }
 
+interface ComingSoonProduct {
+  name: string;
+  provider: string;
+}
+
+function ComingSoonSection({ heading, products }: { heading: string; products: ComingSoonProduct[] }) {
+  return (
+    <div className="mb-12">
+      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-[var(--charcoal)]/35">
+        {heading}
+      </p>
+      <div className="flex flex-wrap gap-2">
+        {products.map(({ name, provider }) => (
+          <span key={name} className="rounded-full bg-[var(--warm-tan)]/20 px-3 py-1 text-xs text-[var(--charcoal)]/50">
+            {provider} · {name}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default async function AnalyseProduitsPage() {
   const t = await getTranslations('analyseProductsPage');
+
+  const comingSoon: ComingSoonProduct[] = [
+    { name: 'BNP Comfort Sustainable Equity World', provider: 'BNP Paribas' },
+    { name: 'KBC Sivek', provider: 'KBC' },
+    { name: 'Carmignac Patrimoine', provider: 'Carmignac' },
+    { name: 'ING Easy Invest', provider: 'ING' },
+    { name: 'Belfius Flex Invest', provider: 'Belfius' },
+    { name: "KBC Plan d'investissement", provider: 'KBC' },
+  ];
 
   return (
     <>
@@ -128,144 +149,144 @@ export default async function AnalyseProduitsPage() {
       </div>
 
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-        
+
         <p className="mb-16 text-center text-base text-[var(--charcoal)]/70">
           {t('intro')}
         </p>
 
-        {/* Category 1 */}
-        <CategorySection 
-          title={t('cat_pension_title')} 
-          subtitle={t('cat_pension_subtitle')} 
+        {/* Category 1 — Pension savings */}
+        <CategorySection
+          title={t('cat_pension_title')}
+          subtitle={t('cat_pension_subtitle')}
           icon="🏦"
         >
-          <ProductCard 
-            name="KBC Pricos" 
-            provider="KBC" 
-            status="available" 
+          <ProductCard
+            name="KBC Pricos"
+            provider="KBC"
             link="/analyse-produits/kbc-pricos"
             teaser={t('card_kbc_teaser')}
-            statusLabel={t('status_available')}
+            verdict="avoid"
+            verdictLabel={t('verdict_avoid')}
             readAnalysisLabel={t('read_analysis')}
           />
-          <ProductCard 
-            name="Argenta Pensioenspaarfonds" 
-            provider="Argenta" 
-            status="available" 
-            link="/analyse-produits/argenta-pensioenspaarfonds"
-            teaser={t('card_argenta_teaser')}
-            statusLabel={t('status_available')}
-            readAnalysisLabel={t('read_analysis')}
-          />
-          <ProductCard 
-            name="BNP Paribas B Pension Sustainable" 
-            provider="BNP Paribas" 
-            status="available" 
+          <ProductCard
+            name="BNP Paribas B Pension Sustainable"
+            provider="BNP Paribas"
             link="/analyse-produits/bnp-b-pension"
             teaser={t('card_bnp_teaser')}
-            statusLabel={t('status_available')}
+            verdict="avoid"
+            verdictLabel={t('verdict_avoid')}
             readAnalysisLabel={t('read_analysis')}
           />
-          <ProductCard 
-            name="Belfius Pension Fund High Equities" 
-            provider="Belfius" 
-            status="available" 
+          <ProductCard
+            name="Belfius Pension Fund High Equities"
+            provider="Belfius"
             link="/analyse-produits/belfius-pension-high-equities"
             teaser={t('card_belfius_teaser')}
-            statusLabel={t('status_available')}
+            verdict="avoid"
+            verdictLabel={t('verdict_avoid')}
+            readAnalysisLabel={t('read_analysis')}
+          />
+          <ProductCard
+            name="Argenta Pensioenspaarfonds"
+            provider="Argenta"
+            link="/analyse-produits/argenta-pensioenspaarfonds"
+            teaser={t('card_argenta_teaser')}
+            verdict="avoid_conditions"
+            verdictLabel={t('verdict_avoid_conditions')}
             readAnalysisLabel={t('read_analysis')}
           />
         </CategorySection>
 
-        {/* Category 2 */}
-        <CategorySection 
-          title={t('cat_insurance_guaranteed_title')} 
-          subtitle={t('cat_insurance_guaranteed_subtitle')} 
+        {/* Category 2 — Branch 21 */}
+        <CategorySection
+          title={t('cat_insurance_guaranteed_title')}
+          subtitle={t('cat_insurance_guaranteed_subtitle')}
           icon="🔒"
         >
-          <ProductCard 
-            name="Ethias Savings 21+" 
-            provider="Ethias" 
-            status="available" 
+          <ProductCard
+            name="Ethias Savings 21+"
+            provider="Ethias"
             link="/analyse-produits/ethias-savings-21"
             teaser={t('card_ethias_teaser')}
-            statusLabel={t('status_available')}
+            verdict="avoid"
+            verdictLabel={t('verdict_avoid')}
             readAnalysisLabel={t('read_analysis')}
           />
           <ProductCard
             name="AG Safe+"
             provider="AG Insurance"
-            status="available"
             link="/analyse-produits/ag-safe-plus"
             teaser={t('card_ag_safe_teaser')}
-            statusLabel={t('status_available')}
+            verdict="avoid"
+            verdictLabel={t('verdict_avoid')}
             readAnalysisLabel={t('read_analysis')}
           />
           <ProductCard
             name="Belfius Invest Capital Safe"
             provider="Belfius"
-            status="available"
             link="/analyse-produits/belfius-invest-capital-safe"
             teaser={t('card_belfius_capital_safe_teaser')}
-            statusLabel={t('status_available')}
+            verdict="avoid"
+            verdictLabel={t('verdict_avoid')}
             readAnalysisLabel={t('read_analysis')}
           />
         </CategorySection>
 
-        {/* Category 3 */}
-        <CategorySection 
-          title={t('cat_insurance_funds_title')} 
-          subtitle={t('cat_insurance_funds_subtitle')} 
+        {/* Category 3 — Branch 23 */}
+        <CategorySection
+          title={t('cat_insurance_funds_title')}
+          subtitle={t('cat_insurance_funds_subtitle')}
           icon="📋"
         >
-          <ProductCard 
-            name="NN Strategy" 
-            provider="NN" 
-            status="available" 
+          <ProductCard
+            name="NN Strategy"
+            provider="NN"
             link="/analyse-produits/nn-strategy"
             teaser={t('card_nn_teaser')}
-            statusLabel={t('status_available')}
+            verdict="avoid"
+            verdictLabel={t('verdict_avoid')}
             readAnalysisLabel={t('read_analysis')}
           />
-          <ProductCard 
-            name="AG Fund+" 
-            provider="AG Insurance" 
-            status="available" 
+          <ProductCard
+            name="AG Fund+"
+            provider="AG Insurance"
             link="/analyse-produits/ag-fund-plus"
             teaser={t('card_ag_teaser')}
-            statusLabel={t('status_available')}
+            verdict="avoid"
+            verdictLabel={t('verdict_avoid')}
             readAnalysisLabel={t('read_analysis')}
           />
           <ProductCard
             name="Baloise Invest 23"
             provider="Baloise"
-            status="available"
             link="/analyse-produits/baloise-invest"
             teaser={t('card_baloise_teaser')}
-            statusLabel={t('status_available')}
+            verdict="avoid"
+            verdictLabel={t('verdict_avoid')}
             readAnalysisLabel={t('read_analysis')}
           />
           <ProductCard
             name="AXA Index4P Global Equity"
             provider="AXA Belgium"
-            status="available"
             link="/analyse-produits/axa-index4p"
             teaser={t('card_axa_teaser')}
-            statusLabel={t('status_available')}
+            verdict="avoid_conditions"
+            verdictLabel={t('verdict_avoid_conditions')}
             readAnalysisLabel={t('read_analysis')}
           />
           <ProductCard
             name="Vivium Selection Dynamic plus Passive"
             provider="P&V / Vivium"
-            status="available"
             link="/analyse-produits/vivium-selection"
             teaser={t('card_vivium_teaser')}
-            statusLabel={t('status_available')}
+            verdict="avoid_conditions"
+            verdictLabel={t('verdict_avoid_conditions')}
             readAnalysisLabel={t('read_analysis')}
           />
         </CategorySection>
 
-        {/* Category 4 */}
+        {/* Category 4 — Active funds */}
         <CategorySection
           title={t('cat_active_funds_title')}
           subtitle={t('cat_active_funds_subtitle')}
@@ -274,57 +295,19 @@ export default async function AnalyseProduitsPage() {
           <ProductCard
             name="Crelan Invest Opportunities"
             provider="Crelan"
-            status="available"
             link="/analyse-produits/crelan-invest-opportunities"
             teaser={t('card_crelan_opps_teaser')}
-            statusLabel={t('status_available')}
+            verdict="avoid"
+            verdictLabel={t('verdict_avoid')}
             readAnalysisLabel={t('read_analysis')}
-          />
-          <ProductCard
-            name="BNP Comfort Sustainable Equity World"
-            provider="BNP Paribas"
-            status="in_progress"
-            statusLabel={t('status_in_progress')}
-          />
-          <ProductCard 
-            name="KBC Sivek" 
-            provider="KBC" 
-            status="in_progress" 
-            statusLabel={t('status_in_progress')}
-          />
-          <ProductCard 
-            name="Carmignac Patrimoine" 
-            provider="Carmignac" 
-            status="in_progress" 
-            statusLabel={t('status_in_progress')}
           />
         </CategorySection>
 
-        {/* Category 5 */}
-        <CategorySection 
-          title={t('cat_investment_plans_title')} 
-          subtitle={t('cat_investment_plans_subtitle')} 
-          icon="📱"
-        >
-          <ProductCard 
-            name="ING Easy Invest" 
-            provider="ING" 
-            status="in_progress" 
-            statusLabel={t('status_in_progress')}
-          />
-          <ProductCard 
-            name="Belfius Flex Invest" 
-            provider="Belfius" 
-            status="in_progress" 
-            statusLabel={t('status_in_progress')}
-          />
-          <ProductCard 
-            name="KBC Plan d'investissement" 
-            provider="KBC" 
-            status="in_progress" 
-            statusLabel={t('status_in_progress')}
-          />
-        </CategorySection>
+        {/* Coming soon — analyses in progress */}
+        <ComingSoonSection
+          heading={t('coming_soon_heading')}
+          products={comingSoon}
+        />
 
         <p className="mt-20 text-center text-sm text-[var(--charcoal)]/50 italic">
           {t.rich('note', {
