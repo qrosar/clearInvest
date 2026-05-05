@@ -126,7 +126,6 @@ export default async function AnalyseProduitsPage() {
   const t = await getTranslations('analyseProductsPage');
 
   const comingSoon: ComingSoonProduct[] = [
-    { name: 'BNP Comfort Sustainable Equity World', provider: 'BNP Paribas' },
     { name: 'KBC Sivek', provider: 'KBC' },
     { name: 'Carmignac Patrimoine', provider: 'Carmignac' },
     { name: 'ING Easy Invest', provider: 'ING' },
@@ -299,6 +298,24 @@ export default async function AnalyseProduitsPage() {
             teaser={t('card_crelan_opps_teaser')}
             verdict="avoid"
             verdictLabel={t('verdict_avoid')}
+            readAnalysisLabel={t('read_analysis')}
+          />
+          <ProductCard
+            name="BNP Comfort Sustainable Equity World"
+            provider="BNP Paribas"
+            link="/analyse-produits/bnp-comfort-equity"
+            teaser={t('card_bnp_comfort_teaser')}
+            verdict="avoid"
+            verdictLabel={t('verdict_avoid')}
+            readAnalysisLabel={t('read_analysis')}
+          />
+          <ProductCard
+            name="Carmignac Investissement"
+            provider="Carmignac"
+            link="/analyse-produits/carmignac-investissement"
+            teaser={t('card_carmignac_inv_teaser')}
+            verdict="avoid_conditions"
+            verdictLabel={t('verdict_avoid_conditions')}
             readAnalysisLabel={t('read_analysis')}
           />
         </CategorySection>

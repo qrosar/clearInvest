@@ -58,6 +58,11 @@ export default function BrokersPage() {
       <main className="min-h-screen bg-[var(--warm-cream)]">
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
 
+        {/* Independence note */}
+        <p className="mb-8 text-xs italic text-[var(--charcoal)]/50">
+          {t('independence_note')}
+        </p>
+
         {/* 2 — Introduction */}
         <div className="mb-10 space-y-4">
           <p className="text-base leading-relaxed text-[var(--charcoal)]/80">

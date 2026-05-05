@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
 import type { Broker } from '@/lib/brokers/brokers';
@@ -61,20 +61,6 @@ function Tip({ text, children }: { text: string; children: React.ReactNode }) {
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
-
-const COUNTRY_FLAG: Record<string, string> = {
-  BE: '🇧🇪',
-  NL: '🇳🇱',
-  DE: '🇩🇪',
-  IE: '🇮🇪',
-  LT: '🇱🇹',
-};
-
-function protectionShort(broker: Broker): string {
-  const countryCode = broker.protection.split('_')[1]?.toUpperCase() ?? '';
-  const flag = COUNTRY_FLAG[countryCode] ?? '';
-  return `${broker.protectionAmount} ${flag}`;
-}
 
 // Explicit display order, grouped by tier
 const DISPLAY_ORDER = [
@@ -207,15 +193,15 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
         <div className="h-1 rounded-t-2xl bg-[var(--forest)]" />
 
         <table className="w-full min-w-[680px] table-fixed bg-[var(--warm-white)] text-sm">
-          {/* ── Column widths ────────────────────────────────────────────── */}
+          {/* Column widths: Broker | Fixed | % | Savings | TOB | CGT | Protection */}
           <colgroup>
-            <col style={{ width: '26%' }} />  {/* Broker */}
-            <col style={{ width: '13%' }} />  {/* Fixed fee */}
-            <col style={{ width: '13%' }} />  {/* % fee */}
-            <col style={{ width: '12%' }} />  {/* Savings plan */}
-            <col style={{ width: '10%' }} />  {/* TOB */}
-            <col style={{ width: '10%' }} />  {/* CGT */}
-            <col style={{ width: '16%' }} />  {/* Protection */}
+            <col style={{ width: '26%' }} />
+            <col style={{ width: '13%' }} />
+            <col style={{ width: '13%' }} />
+            <col style={{ width: '12%' }} />
+            <col style={{ width: '10%' }} />
+            <col style={{ width: '10%' }} />
+            <col style={{ width: '16%' }} />
           </colgroup>
 
           {/* ── Header ─────────────────────────────────────────────────── */}
@@ -240,7 +226,7 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
                 <ColHeader label={t('col_cgt_2026')} tooltip={t('cgt_2026_tooltip')} />
               </th>
               <th className={`${TH} text-center`}>
-                <ColHeader label={t('col_protection')} tooltip={t('protection_tooltip')} />
+                <ColHeader label={t('col_protection_cash')} tooltip={t('protection_cash_tooltip')} />
               </th>
             </tr>
           </thead>
@@ -249,7 +235,7 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
           <tbody>
             {tierGroups.map(({ key, label, rows }) => (
               rows.length === 0 ? null : (
-                <>
+                <React.Fragment key={key}>
                   {/* Tier divider row */}
                   <tr key={`divider-${key}`} className="border-b border-[var(--warm-tan)]/20 bg-[var(--warm-cream)]/60">
                     <td colSpan={7} className="px-4 py-1.5">
@@ -341,25 +327,20 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
                           {broker.automation.cgtAuto !== 'cgt_manual' ? <Pending /> : <No />}
                         </td>
 
+                        {/* Cash protection column */}
                         <td className={`${TD} text-center`}>
-                          {broker.protection === 'protection_none' ? (
-                            <Tip text={t('protection_none' as any)}>
-                              <span className="whitespace-nowrap font-semibold text-red-600 underline decoration-dotted decoration-red-400 underline-offset-2">
-                                {t('protection_none_short' as any)} ⚠️
-                              </span>
-                            </Tip>
-                          ) : (
-                            <Tip text={t(broker.protection as any)}>
-                              <span className="whitespace-nowrap font-medium text-[var(--charcoal)] underline decoration-dotted decoration-[var(--charcoal)]/30 underline-offset-2">
-                                {protectionShort(broker)}
-                              </span>
-                            </Tip>
-                          )}
+                          <span className={`whitespace-nowrap font-mono text-xs ${
+                            broker.protectionCash === '—'
+                              ? 'text-[var(--charcoal)]/30'
+                              : 'text-[var(--charcoal)]'
+                          }`}>
+                            {broker.protectionCash}
+                          </span>
                         </td>
                       </tr>
                     );
                   })}
-                </>
+                </React.Fragment>
               )
             ))}
           </tbody>

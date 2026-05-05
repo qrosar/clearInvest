@@ -15,12 +15,13 @@ const pages = [
   { path: '/analyse-produits/bnp-b-pension', priority: 0.8, changeFrequency: 'monthly' as const },
   { path: '/analyse-produits/belfius-pension-high-equities', priority: 0.8, changeFrequency: 'monthly' as const },
   { path: '/analyse-produits/nn-strategy', priority: 0.8, changeFrequency: 'monthly' as const },
-  { path: '/analyse-produits/nn-strategy', priority: 0.8, changeFrequency: 'monthly' as const },
   { path: '/analyse-produits/ag-fund-plus', priority: 0.8, changeFrequency: 'monthly' as const },
   { path: '/analyse-produits/baloise-invest', priority: 0.8, changeFrequency: 'monthly' as const },
   { path: '/analyse-produits/axa-index4p', priority: 0.8, changeFrequency: 'monthly' as const },
   { path: '/analyse-produits/vivium-selection', priority: 0.8, changeFrequency: 'monthly' as const },
   { path: '/analyse-produits/crelan-invest-opportunities', priority: 0.8, changeFrequency: 'monthly' as const },
+  { path: '/analyse-produits/bnp-comfort-equity', priority: 0.8, changeFrequency: 'monthly' as const },
+  { path: '/analyse-produits/carmignac-investissement', priority: 0.8, changeFrequency: 'monthly' as const },
   { path: '/analyse-produits/ag-safe-plus', priority: 0.8, changeFrequency: 'monthly' as const },
   { path: '/analyse-produits/belfius-invest-capital-safe', priority: 0.8, changeFrequency: 'monthly' as const },
   { path: '/questions', priority: 0.8, changeFrequency: 'monthly' as const },
@@ -53,10 +54,14 @@ const strategyIds = [
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  // Use a fixed date that can be bumped when content actually changes.
+  // Google uses lastModified as a signal to decide when to re-crawl.
+  const lastModified = new Date('2026-05-05')
+
   const staticPages = pages.flatMap(({ path, priority, changeFrequency }) =>
     locales.map(locale => ({
       url: `${baseUrl}/${locale}${path}`,
-      lastModified: new Date(),
+      lastModified,
       changeFrequency,
       priority,
     }))
@@ -65,7 +70,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const strategyPages = strategyIds.flatMap(id =>
     locales.map(locale => ({
       url: `${baseUrl}/${locale}/strategies/${id}`,
-      lastModified: new Date(),
+      lastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     }))

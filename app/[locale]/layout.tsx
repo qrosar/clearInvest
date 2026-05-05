@@ -7,6 +7,7 @@ import { routing } from '@/i18n/routing';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import { Analytics } from "@vercel/analytics/react";
+import JsonLd from '@/components/JsonLd';
 import '../globals.css';
 
 const playfair = Playfair_Display({
@@ -50,9 +51,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     alternates: {
       canonical: `https://clearinvest.be/${locale}`,
       languages: {
-        'fr-BE': 'https://clearinvest.be/fr',
-        'nl-BE': 'https://clearinvest.be/nl',
-        'en': 'https://clearinvest.be/en',
+        fr: `https://clearinvest.be/fr`,
+        nl: `https://clearinvest.be/nl`,
+        en: `https://clearinvest.be/en`,
       },
     },
     openGraph: {
@@ -62,11 +63,20 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       url: `https://clearinvest.be/${locale}`,
       title: titles[locale as keyof typeof titles] ?? titles.fr,
       description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
+      images: [
+        {
+          url: '/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: 'ClearInvest — ETF Investing in Belgium',
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: titles[locale as keyof typeof titles] ?? titles.fr,
       description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
+      images: ['/og-image.png'],
     },
     robots: {
       index: true,
@@ -91,18 +101,14 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html
-      lang={locale}
-      className={`${playfair.variable} ${dmSans.variable}`}
-    >
-      <body className="antialiased font-sans">
-        <NextIntlClientProvider messages={messages}>
-          <Nav />
-          {children}
-          <Footer />
-          <Analytics />
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <div className={`${playfair.variable} ${dmSans.variable} antialiased font-sans`}>
+      <NextIntlClientProvider messages={messages}>
+        <JsonLd />
+        <Nav />
+        {children}
+        <Footer />
+        <Analytics />
+      </NextIntlClientProvider>
+    </div>
   );
 }
