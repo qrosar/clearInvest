@@ -1373,6 +1373,46 @@
       "savings-argenta": {
         "name": "Argenta Savings Account (Groeirekening)",
         "description": "Base rate 1.10% + fidelity premium 1.50%. First €1,020 of interest/year exempt from 30% withholding tax."
+      },
+      "branche23-ag-fund-plus": {
+        "name": "AG Fund+ (Branch 23)",
+        "description": "Branch 23 insurance by AG Insurance. Annual fees ~1.70%, premium tax 2%, entry fee 2.50%. Estimated net return ~6.30%."
+      },
+      "branche23-baloise-invest": {
+        "name": "Baloise Invest 23",
+        "description": "Branch 23 insurance by Baloise. Annual fees ~2.20%, premium tax 2%, entry fee 3.50%. Estimated net return ~5.65%."
+      },
+      "branche23-nn-strategy": {
+        "name": "NN Strategy (Branch 23)",
+        "description": "Branch 23 insurance by NN Insurance. Annual fees ~1.50%, premium tax 2%, entry fee 1%. Estimated net return ~6.35%."
+      },
+      "branche23-axa-index4p": {
+        "name": "AXA Index4P Global Equity",
+        "description": "Branch 23 insurance by AXA. Passive management, annual fees 1.40%, premium tax 2%, entry fee 1%. Estimated net return ~6.60%."
+      },
+      "branche23-vivium-selection": {
+        "name": "Vivium Selection Dynamic+ Passive",
+        "description": "Branch 23 insurance by Vivium. Annual fees 2.54% (RIY), premium tax 2%, minimum €25,000. Net return ~7.60%."
+      },
+      "fonds-bnp-comfort-equity": {
+        "name": "BNP Comfort Sust. Equity World Plus",
+        "description": "Luxembourg SICAV by BNP Paribas. TER 2.56%, entry fee 2.50%, exit TOB 1.32%. Net return ~5.44%."
+      },
+      "fonds-carmignac-investissement": {
+        "name": "Carmignac Investissement (A EUR Acc)",
+        "description": "French FCP by Carmignac. 37-year track record, TER 2.15%, entry fee up to 4%. Net return ~8.77% (10yr)."
+      },
+      "fonds-crelan-opportunities": {
+        "name": "Crelan Invest Opportunities",
+        "description": "Belgian SICAV by Crelan. Management fee 2.07%, entry fee 2.50%. Net return ~2.57% (intermediate scenario)."
+      },
+      "branche21-ag-safe-plus": {
+        "name": "AG Safe+ (Branch 21)",
+        "description": "Branch 21 insurance by AG Insurance. Guaranteed rate 2.75% yr1 then 2.25%. Premium tax 2%, entry fee ~1%. Net return ~2.80%."
+      },
+      "branche21-belfius-capital-safe": {
+        "name": "Belfius Invest Capital Safe",
+        "description": "Branch 21 insurance by Belfius Insurance. Guaranteed rate 2.80% gross. Premium tax 2%, entry fee 2.50%, annual fee 0.12%. Net return ~2.68%."
       }
     },
     "brokers": {

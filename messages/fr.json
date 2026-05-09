@@ -1687,6 +1687,46 @@
       "fonds-beobank-equities": {
         "name": "Fonds Beobank Full Equities Strategy Fund B",
         "description": "Rendement annualisé ~5,80% (net de TER 2,20%). Fonds 100% actions mondiales. TER élevé. Frais d'entrée 2,5%."
+      },
+      "branche23-ag-fund-plus": {
+        "name": "AG Fund+ (Branche 23)",
+        "description": "Assurance Branche 23 AG Insurance. Frais annuels ~1,70%, taxe sur prime 2%, frais d'entrée 2,50%. Rendement net estimé ~6,30%."
+      },
+      "branche23-baloise-invest": {
+        "name": "Baloise Invest 23",
+        "description": "Assurance Branche 23 Baloise. Frais annuels ~2,20%, taxe sur prime 2%, frais d'entrée 3,50%. Rendement net estimé ~5,65%."
+      },
+      "branche23-nn-strategy": {
+        "name": "NN Strategy (Branche 23)",
+        "description": "Assurance Branche 23 NN Insurance. Frais annuels ~1,50%, taxe sur prime 2%, frais d'entrée 1%. Rendement net estimé ~6,35%."
+      },
+      "branche23-axa-index4p": {
+        "name": "AXA Index4P Global Equity",
+        "description": "Assurance Branche 23 AXA. Gestion passive, frais annuels 1,40%, taxe sur prime 2%, frais d'entrée 1%. Rendement net estimé ~6,60%."
+      },
+      "branche23-vivium-selection": {
+        "name": "Vivium Selection Dynamic+ Passive",
+        "description": "Assurance Branche 23 Vivium. Frais annuels 2,54% (RIY), taxe sur prime 2%, minimum 25 000 €. Rendement net ~7,60%."
+      },
+      "fonds-bnp-comfort-equity": {
+        "name": "BNP Comfort Sust. Equity World Plus",
+        "description": "SICAV luxembourgeoise BNP Paribas. TER 2,56%, frais d'entrée 2,50%, TOB sortie 1,32%. Rendement net ~5,44%."
+      },
+      "fonds-carmignac-investissement": {
+        "name": "Carmignac Investissement (A EUR Acc)",
+        "description": "FCP français Carmignac. 37 ans de track record, TER 2,15%, frais d'entrée jusqu'à 4%. Rendement net ~8,77% (10 ans)."
+      },
+      "fonds-crelan-opportunities": {
+        "name": "Crelan Invest Opportunities",
+        "description": "SICAV belge Crelan. Frais de gestion 2,07%, frais d'entrée 2,50%. Rendement net ~2,57% (scénario intermédiaire)."
+      },
+      "branche21-ag-safe-plus": {
+        "name": "AG Safe+ (Branche 21)",
+        "description": "Assurance Branche 21 AG Insurance. Taux garanti 2,75% an 1 puis 2,25%. Taxe sur prime 2%, frais d'entrée ~1%. Rendement net ~2,80%."
+      },
+      "branche21-belfius-capital-safe": {
+        "name": "Belfius Invest Capital Safe",
+        "description": "Assurance Branche 21 Belfius Insurance. Taux garanti 2,80% brut. Taxe sur prime 2%, frais d'entrée 2,50%, frais annuels 0,12%. Rendement net ~2,68%."
       }
     },
     "brokers": {

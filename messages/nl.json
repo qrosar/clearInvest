@@ -1372,6 +1372,46 @@
       "savings-argenta": {
         "name": "Argenta Spaarrekening (Groeirekening)",
         "description": "Basisrente 1,10% + getrouwheidspremie 1,50%. Eerste €1.020 aan interesten/jaar vrijgesteld van 30% roerende voorheffing."
+      },
+      "branche23-ag-fund-plus": {
+        "name": "AG Fund+ (Tak 23)",
+        "description": "Tak 23-verzekering AG Insurance. Jaarlijkse kosten ~1,70%, premietaks 2%, instapkosten 2,50%. Geschat netto rendement ~6,30%."
+      },
+      "branche23-baloise-invest": {
+        "name": "Baloise Invest 23",
+        "description": "Tak 23-verzekering Baloise. Jaarlijkse kosten ~2,20%, premietaks 2%, instapkosten 3,50%. Geschat netto rendement ~5,65%."
+      },
+      "branche23-nn-strategy": {
+        "name": "NN Strategy (Tak 23)",
+        "description": "Tak 23-verzekering NN Insurance. Jaarlijkse kosten ~1,50%, premietaks 2%, instapkosten 1%. Geschat netto rendement ~6,35%."
+      },
+      "branche23-axa-index4p": {
+        "name": "AXA Index4P Global Equity",
+        "description": "Tak 23-verzekering AXA. Passief beheer, jaarlijkse kosten 1,40%, premietaks 2%, instapkosten 1%. Geschat netto rendement ~6,60%."
+      },
+      "branche23-vivium-selection": {
+        "name": "Vivium Selection Dynamic+ Passive",
+        "description": "Tak 23-verzekering Vivium. Jaarlijkse kosten 2,54% (RIY), premietaks 2%, minimum 25 000 €. Netto rendement ~7,60%."
+      },
+      "fonds-bnp-comfort-equity": {
+        "name": "BNP Comfort Sust. Equity World Plus",
+        "description": "Luxemburgse SICAV BNP Paribas. TER 2,56%, instapkosten 2,50%, TOB uitstap 1,32%. Netto rendement ~5,44%."
+      },
+      "fonds-carmignac-investissement": {
+        "name": "Carmignac Investissement (A EUR Acc)",
+        "description": "Frans FCP Carmignac. 37 jaar track record, TER 2,15%, instapkosten tot 4%. Netto rendement ~8,77% (10 jaar)."
+      },
+      "fonds-crelan-opportunities": {
+        "name": "Crelan Invest Opportunities",
+        "description": "Belgische SICAV Crelan. Beheerskosten 2,07%, instapkosten 2,50%. Netto rendement ~2,57% (gemiddeld scenario)."
+      },
+      "branche21-ag-safe-plus": {
+        "name": "AG Safe+ (Tak 21)",
+        "description": "Tak 21-verzekering AG Insurance. Gegarandeerde rente 2,75% jr 1 daarna 2,25%. Premietaks 2%, instapkosten ~1%. Netto rendement ~2,80%."
+      },
+      "branche21-belfius-capital-safe": {
+        "name": "Belfius Invest Capital Safe",
+        "description": "Tak 21-verzekering Belfius Insurance. Gegarandeerde rente 2,80% bruto. Premietaks 2%, instapkosten 2,50%, jaarlijkse kosten 0,12%. Netto rendement ~2,68%."
       }
     },
     "brokers": {
