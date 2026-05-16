@@ -31,56 +31,59 @@ export async function generateMetadata({
 
 async function ComparisonCard() {
   const t = await getTranslations('immobilierVsEtf');
-  const items = [
-    { label: 'yield', icon: '📈' },
-    { label: 'liq', icon: '💧' },
-    { label: 'div', icon: '🌐' },
-    { label: 'levier', icon: '⚖️' },
-    { label: 'mgmt', icon: '⏳' },
-    { label: 'min', icon: '💰' },
+  const rows = [
+    { key: 'yield' },
+    { key: 'liq' },
+    { key: 'div' },
+    { key: 'levier' },
+    { key: 'mgmt' },
+    { key: 'min' },
   ];
 
   return (
     <div className="my-10 overflow-hidden rounded-2xl border border-[var(--warm-tan)]/50 bg-[var(--warm-white)] shadow-sm">
-      <div className="grid grid-cols-2 divide-x divide-[var(--warm-tan)]/30">
-        {/* Immobilier */}
-        <div className="p-5 sm:p-6">
-          <h3 className="mb-6 text-center font-heading text-lg font-bold text-[var(--charcoal)]">
-            {t('comp_left_title')}
-          </h3>
-          <div className="space-y-5">
-            {items.map(item => (
-              <div key={item.label}>
-                <p className="mb-1 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[var(--charcoal)]/35">
-                  <span>{item.icon}</span>
-                  {/* We reuse labels from right if they are the same category, or just use keys */}
-                </p>
-                <p className="text-sm font-medium text-[var(--charcoal)]">
-                  {t(`comp_left_${item.label}` as any)}
-                </p>
-              </div>
-            ))}
-          </div>
+      {/* Header row */}
+      <div className="hidden sm:grid sm:grid-cols-[180px_1fr_1fr] bg-[var(--warm-cream)]">
+        <div className="px-4 py-3" />
+        <div className="px-4 py-3 text-center font-heading text-sm font-bold text-[var(--charcoal)]">
+          {t('comp_left_title')}
         </div>
+        <div className="px-4 py-3 text-center font-heading text-sm font-bold text-[var(--forest)]">
+          {t('comp_right_title')}
+        </div>
+      </div>
 
-        {/* ETF */}
-        <div className="bg-[var(--forest)]/5 p-5 sm:p-6">
-          <h3 className="mb-6 text-center font-heading text-lg font-bold text-[var(--forest)]">
-            {t('comp_right_title')}
-          </h3>
-          <div className="space-y-5">
-            {items.map(item => (
-              <div key={item.label}>
-                <p className="mb-1 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[var(--forest)]/40">
-                  <span>{item.icon}</span>
-                </p>
-                <p className="text-sm font-medium text-[var(--charcoal)]">
-                  {t(`comp_right_${item.label}` as any)}
-                </p>
-              </div>
-            ))}
+      {/* Visible column headers on mobile */}
+      <div className="sm:hidden px-4 pt-5 pb-1">
+        <h3 className="text-center font-heading text-base font-bold text-[var(--charcoal)]">
+          {t('comp_left_title')} &nbsp;·&nbsp; <span className="text-[var(--forest)]">{t('comp_right_title')}</span>
+        </h3>
+      </div>
+
+      {/* Row content */}
+      <div className="divide-y divide-[var(--warm-tan)]/20">
+        {rows.map((row) => (
+          <div key={row.key} className="sm:grid sm:grid-cols-[180px_1fr_1fr]">
+            {/* Criterion label */}
+            <div className="flex items-center px-4 py-3 sm:py-4 bg-[var(--warm-cream)]/60">
+              <p className="text-xs font-semibold uppercase tracking-wider text-[var(--charcoal)]/60">
+                {t(`comp_row_${row.key}` as any)}
+              </p>
+            </div>
+            {/* Immobilier */}
+            <div className="px-4 py-3 sm:py-4 flex items-center sm:border-l sm:border-[var(--warm-tan)]/20">
+              <p className="text-sm text-[var(--charcoal)]">
+                {t(`comp_left_${row.key}` as any)}
+              </p>
+            </div>
+            {/* ETF */}
+            <div className="px-4 py-3 sm:py-4 flex items-center bg-[var(--forest)]/5 sm:border-l sm:border-[var(--warm-tan)]/20">
+              <p className="text-sm text-[var(--charcoal)]">
+                {t(`comp_right_${row.key}` as any)}
+              </p>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );

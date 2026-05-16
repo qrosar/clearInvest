@@ -205,6 +205,52 @@ export default async function EtfGuidePage() {
 
         <Divider />
 
+        {/* ── Section 7 ── */}
+        <section>
+          <SectionHeading>{t('s7_title')}</SectionHeading>
+          <Body>{t('s7_intro_p1')}</Body>
+          <Body>{t('s7_intro_p2')}</Body>
+
+          {/* Three engines */}
+          <HandicapBlock label={t('s7_engine1_title')} title={t('s7_engine1_title')}>{t('s7_engine1_body')}</HandicapBlock>
+          <HandicapBlock label={t('s7_engine2_title')} title={t('s7_engine2_title')}>{t('s7_engine2_body')}</HandicapBlock>
+          <HandicapBlock label={t('s7_engine3_title')} title={t('s7_engine3_title')}>{t('s7_engine3_body')}</HandicapBlock>
+
+          <Body>{t('s7_cleanup')}</Body>
+          <Body>{t('s7_analogy_p1')}</Body>
+          <Body>{t('s7_history')}</Body>
+
+          {/* FAQ sub-section */}
+          <div className="mt-8 rounded-xl border border-[var(--warm-tan)]/50 bg-[var(--warm-cream)] px-6 py-6">
+            <p className="font-heading text-lg font-semibold text-[var(--charcoal)]">
+              {t('s7_faq_q')}
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-[var(--charcoal)]/70">
+              {t('s7_faq_p1')}
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-[var(--charcoal)]/70">
+              {t('s7_faq_p2')}
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-[var(--charcoal)]/70">
+              {t('s7_faq_p3')}
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-[var(--charcoal)]/70">
+              {t('s7_faq_p4')}
+            </p>
+          </div>
+
+          {/* Comparison */}
+          <div className="mt-6 rounded-2xl bg-[var(--forest)] p-6 text-[var(--warm-white)] md:p-8">
+            <p className="text-sm font-semibold uppercase tracking-widest text-white/50">
+              {t('s7_comparison_intro')}
+            </p>
+          </div>
+
+          <Body>{t('s7_condition')}</Body>
+        </section>
+
+        <Divider />
+
         {/* ── CTA ── */}
         <section className="rounded-2xl border border-[var(--warm-tan)]/50 bg-[var(--warm-cream)] px-6 py-8 text-center md:px-10 md:py-10">
           <p className="font-heading text-xl font-semibold text-[var(--charcoal)]">
@@ -237,7 +283,7 @@ export default async function EtfGuidePage() {
           </div>
         </section>
 
-        <LastUpdated isoDate="2026-03-01" />
+        <LastUpdated isoDate="2026-05-01" />
 
         {/* Back link */}
         <div className="mt-6 text-center">
