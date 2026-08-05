@@ -1,8 +1,9 @@
 name: CI
 
 on:
+  # Every branch, not just main: a feature branch pushed without a PR would
+  # otherwise get no checks at all, which is exactly when they're most useful.
   push:
-    branches: [main]
   pull_request:
 
 jobs:
