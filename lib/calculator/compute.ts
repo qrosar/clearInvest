@@ -12,14 +12,44 @@ export interface TaxBreakdown {
   tobSell: number;              // TOB on sale
   precompte: number;            // précompte on dividends, savings interest above exemption, branche 21 withholding
   reynders: number;             // Reynders tax on gains (bond funds)
-  capitalGainsTax: number;      // CGT on gains (10% above €10k, equity ETFs, effective 2026)
+  capitalGainsTax: number;      // CGT on gains (10% above the exemption, equity ETFs, since 2026)
   entryFees: number;            // insurer/broker entry fee
   premiumTax: number;           // Belgian 2% government tax on insurance premiums (branche 21)
   annualFeesCumulative: number; // TER impact estimate — already reflected in rate, shown separately
   pensionTax: number;           // 8% lump tax on fictive-capitalised amount (pilier 3)
   taxBenefit: number;           // pension savings tax reduction on contributions (total amount redirected to side-pot)
   pensionSidePotFinal: number;  // final value of the tax-return side-pot reinvested at 6%/yr
-  total: number;                // net costs (all taxes/fees minus taxBenefit; excludes annualFeesCumulative)
+  // Sum of the rounded cost rows above (tobBuy…pensionTax). Deliberately gross:
+  // it mirrors the "Détail des taxes" column, where taxBenefit is shown under
+  // contributions instead, and annualFeesCumulative is greyed out as already
+  // reflected in the return rate.
+  total: number;
+}
+
+/**
+ * Dividend detail for distributing products (income strategies).
+ *
+ * The headline `finalValueAfterTax` assumes dividends are reinvested. This block
+ * additionally models the alternative the investor actually cares about here:
+ * cashing the dividends out as income instead of reinvesting them.
+ */
+export interface DividendBreakdown {
+  /** Gross dividends received over the whole period, before précompte */
+  grossTotal: number;
+  /** 30% précompte mobilier withheld on those dividends */
+  precompte: number;
+  /** Dividends actually pocketed after précompte */
+  netTotal: number;
+  /** Assumed gross annual dividend yield (fraction) */
+  grossYield: number;
+  /** Yield actually received after the 30% précompte (fraction) */
+  netYield: number;
+  /** Net dividends cashed out over the period (not reinvested, held as cash) */
+  cashCollected: number;
+  /** Portfolio value after sell-side tax when dividends were cashed out rather than reinvested */
+  portfolioIfCashedOut: number;
+  /** portfolioIfCashedOut + cashCollected — total end position in the payout scenario */
+  totalIfCashedOut: number;
 }
 
 export interface GrowthResult {
@@ -30,6 +60,36 @@ export interface GrowthResult {
   sellTaxes: number;
   /** Breakdown of each tax and fee component */
   taxBreakdown: TaxBreakdown;
+  /** Present only for distributing products (dividendTax + dividendYield set) */
+  dividends?: DividendBreakdown;
+}
+
+/** Base annual capital-gains exemption (EUR). */
+export const CGT_ANNUAL_EXEMPTION = 10_000;
+/** Unused franchise that can be carried into a later year (EUR per year). */
+export const CGT_CARRY_PER_YEAR = 1_000;
+/** Carry-forward is capped at five years, giving a €15,000 ceiling. */
+export const CGT_CARRY_MAX_YEARS = 5;
+
+/**
+ * Capital-gains exemption available in the year of sale.
+ *
+ * The franchise is €10,000 per year. Unused franchise carries forward at up to
+ * €1,000 per year for a maximum of five years, so a holder who never sold can
+ * reach €15,000 in the year they finally do.
+ *
+ * `years` is the holding period. Only *completed* years before the sale can
+ * have gone unused, hence `years - 1`: selling within the first year gives the
+ * base €10,000, and the €15,000 ceiling is reached from year 6 onward.
+ *
+ * Note this models a single sale at the end of the horizon, which is what the
+ * calculator simulates. Selling progressively uses the €10,000 afresh each
+ * year and is usually more favourable — `calculator.cgt_tooltip` says so.
+ */
+export function cgtExemptionFor(years: number, baseExemption = CGT_ANNUAL_EXEMPTION): number {
+  if (baseExemption <= 0) return 0;
+  const deferredYears = Math.min(Math.max(0, years - 1), CGT_CARRY_MAX_YEARS);
+  return baseExemption + deferredYears * CGT_CARRY_PER_YEAR;
 }
 
 /**
@@ -42,12 +102,15 @@ export interface GrowthResult {
  *   - Précompte mobilier on savings interest above €1,020/year exemption
  *
  * Holding-period benefits:
- *   - Pilier 3: 30% tax reduction on contributions up to €1,020/year, modelled as additional monthly investment
+ *   - Pilier 3: 30% tax reduction on contributions up to €1,050/year, or 25% up to
+ *     €1,350/year, modelled as additional monthly investment
  *
  * Sell-side taxes (computed at end, not subtracted from chart values):
  *   - TOB on sale
  *   - Reynders tax: 30% on gains (bond-heavy funds)
- *   - CGT: 10% on gains above €10,000 (equity ETFs, Belgium, effective 1 Jan 2026)
+ *   - CGT: 10% on gains above the annual exemption (equity ETFs, Belgium, since
+ *     1 Jan 2026). The exemption is €10,000/year, and unused franchise carries
+ *     forward at up to €1,000/year for 5 years — see cgtExemptionFor().
  *   - Pension tax: 8% on full capital (épargne-pension, pilier 3)
  *   - Branche 21: 30% précompte on gains at maturity (always, regardless of duration)
  *
@@ -64,8 +127,6 @@ export function computeGrowth(
 ): GrowthResult {
   const rateBase = rateOverride ?? product.defaultRate ?? 0;
 
-  // Resolve tax config — for legacy custom products without taxConfig,
-  // fall back to the old taxRate/entryFee fields.
   const tc = product.taxConfig ?? {};
   const entryFee = tc.entryFee ?? 0;
   const premiumTax = tc.premiumTax ?? 0;
@@ -95,10 +156,10 @@ export function computeGrowth(
     : 0;
   const pensionMonthlyBenefit = annualRelief / 12;
 
-  // For legacy custom products: apply taxRate as a simple annual fraction of gains
-  const legacyTaxRate = !product.taxConfig ? (product.taxRate ?? 0) : 0;
-  const legacyEntryFee = !product.taxConfig ? (product.entryFee ?? 0) : 0;
-  const effectiveBuyFee = product.taxConfig ? buyFee : legacyEntryFee;
+  const effectiveBuyFee = buyFee;
+
+  // Exemption available in the year of sale, including carry-forward.
+  const cgtExemption = cgtExemptionFor(years, tc.capitalGainsExemption ?? 0);
 
   // ── Breakdown accumulators ────────────────────────────────
   let tobBuyAcc = lumpSum * tob;
@@ -107,6 +168,17 @@ export function computeGrowth(
   let precompteAcc = 0;
   let annualFeesAcc = 0;
   let taxBenefitAcc = 0;
+
+  // ── Dividend accumulators (distributing products only) ────
+  const isDistributing = dividendTax > 0 && dividendYield > 0;
+  let dividendGrossAcc = 0;
+  let dividendPrecompteAcc = 0;
+  // Parallel "dividends cashed out" scenario: the portfolio only compounds the
+  // price return, and net dividends pile up as cash instead of being reinvested.
+  const payoutRate = Math.max(-0.99, rate - dividendYield);
+  const payoutMonthlyRate = (1 + payoutRate) ** (1 / 12) - 1;
+  let payoutValue = lumpSum * (1 - effectiveBuyFee);
+  let dividendCashAcc = 0;
 
   // ── Fictive 4.75%/yr capital accumulators (time-weighted) ─
   // Used for: pension 8% tax basis (Belgian law: taxed on fictive capital, not actual portfolio)
@@ -168,13 +240,20 @@ export function computeGrowth(
       value += growth;
 
       // Distributing ETF: dividend précompte drained monthly
-      if (dividendTax > 0 && dividendYield > 0) {
+      if (isDistributing) {
         const monthDividend = value * (dividendYield / 12);
         const tax = monthDividend * dividendTax;
         value -= tax;
         precompteAcc += tax;
+        dividendGrossAcc += monthDividend;
+        dividendPrecompteAcc += tax;
         totalTaxPaid += tax;
         yearGrowth -= tax;
+
+        // Payout scenario: same contribution, price-only growth, dividends to cash
+        payoutValue += monthlyContribution * (1 - effectiveBuyFee);
+        payoutValue += payoutValue * payoutMonthlyRate;
+        dividendCashAcc += payoutValue * (dividendYield / 12) * (1 - dividendTax);
       }
     }
 
@@ -201,7 +280,10 @@ export function computeGrowth(
   }
 
   // ── Sell-side taxes (applied at redemption) ───────────────
-  const portfolioValue = points[points.length - 1].value;
+  // Use the running balance rather than points[last].value: the latter was
+  // rounded to whole euros for the chart, and rounding the tax base shifts
+  // every downstream figure.
+  const portfolioValue = value;
 
   // TOB on sale — computed first so gain basis uses net proceeds
   // tobExit is specifically for active funds (final redemption), tobOnSale is general (annual rebalancing etc)
@@ -230,13 +312,13 @@ export function computeGrowth(
       // CGT on the non-bond (equity) portion
       if (tc.capitalGainsTax && tc.capitalGainsTax > 0) {
         const equityGains = gains * (1 - bondAlloc);
-        const taxableEquityGains = Math.max(0, equityGains - (tc.capitalGainsExemption ?? 0));
+        const taxableEquityGains = Math.max(0, equityGains - cgtExemption);
         cgtAmt = taxableEquityGains * tc.capitalGainsTax;
         sellTaxes += cgtAmt;
       }
     } else if (tc.capitalGainsTax && tc.capitalGainsTax > 0 && !tc.branche21WithholdingTax) {
       // Pure equity / no Reynders path
-      const taxableGains = Math.max(0, gains - (tc.capitalGainsExemption ?? 0));
+      const taxableGains = Math.max(0, gains - cgtExemption);
       cgtAmt = taxableGains * tc.capitalGainsTax;
       sellTaxes += cgtAmt;
     }
@@ -262,24 +344,21 @@ export function computeGrowth(
     } else {
       // After exemption period: no withholding, but CGT applies on real gains
       if (tc.capitalGainsTax && tc.capitalGainsTax > 0) {
-        const taxableGains = Math.max(0, gains - (tc.capitalGainsExemption ?? 0));
+        const taxableGains = Math.max(0, gains - cgtExemption);
         cgtAmt = taxableGains * tc.capitalGainsTax;
         sellTaxes += cgtAmt;
       }
     }
   }
 
-  // Legacy custom product: apply taxRate as simple gain tax at sale
-  if (legacyTaxRate > 0) {
-    sellTaxes += gains * legacyTaxRate;
-  }
-
   // branche21Amt (withholding) is reported under precompte (it is a précompte mobilier)
   const totalPrecompte = precompteAcc + branche21Amt;
 
-  const grossCosts = Math.round(tobBuyAcc + tobSellAmt + totalPrecompte + reyndersAmt + cgtAmt + entryFeesAcc + premiumTaxAcc + pensionAmt);
-
-  const taxBreakdown: TaxBreakdown = {
+  // Round each row first, then total the rounded rows. Totalling the raw
+  // figures and rounding once left the "Total" line up to a euro away from the
+  // rows printed above it — on a page whose whole point is fee transparency,
+  // the column has to add up.
+  const rows = {
     tobBuy: Math.round(tobBuyAcc),
     tobSell: Math.round(tobSellAmt),
     precompte: Math.round(totalPrecompte),
@@ -287,18 +366,49 @@ export function computeGrowth(
     capitalGainsTax: Math.round(cgtAmt),
     entryFees: Math.round(entryFeesAcc),
     premiumTax: Math.round(premiumTaxAcc),
-    annualFeesCumulative: Math.round(annualFeesAcc),
     pensionTax: Math.round(pensionAmt),
+  };
+
+  const taxBreakdown: TaxBreakdown = {
+    ...rows,
+    // Tracked for display only — already reflected in the return rate, so it is
+    // deliberately excluded from `total`.
+    annualFeesCumulative: Math.round(annualFeesAcc),
     taxBenefit: Math.round(taxBenefitAcc),
     pensionSidePotFinal: Math.round(pensionSidePot),
-    total: grossCosts,
+    total: Object.values(rows).reduce((sum, n) => sum + n, 0),
   };
+
+  // ── Dividends cashed out instead of reinvested ────────────
+  // Same contributions and buy-side costs; only the price return compounds, so the
+  // portfolio ends lower but the investor also holds the dividend cash collected.
+  let dividends: DividendBreakdown | undefined;
+  if (isDistributing) {
+    const payoutTobSell = Math.min(payoutValue * exitTobRate, tc.tobExitCap ?? Infinity);
+    const payoutGains = Math.max(0, payoutValue - payoutTobSell - netInvested);
+    const payoutCgt = tc.capitalGainsTax
+      ? Math.max(0, payoutGains - cgtExemption) * tc.capitalGainsTax
+      : 0;
+    const portfolioIfCashedOut = Math.max(0, payoutValue - payoutTobSell - payoutCgt);
+
+    dividends = {
+      grossTotal: Math.round(dividendGrossAcc),
+      precompte: Math.round(dividendPrecompteAcc),
+      netTotal: Math.round(dividendGrossAcc - dividendPrecompteAcc),
+      grossYield: dividendYield,
+      netYield: dividendYield * (1 - dividendTax),
+      cashCollected: Math.round(dividendCashAcc),
+      portfolioIfCashedOut: Math.round(portfolioIfCashedOut),
+      totalIfCashedOut: Math.round(portfolioIfCashedOut + dividendCashAcc),
+    };
+  }
 
   return {
     points,
     finalValueAfterTax: Math.round(Math.max(0, portfolioValue - sellTaxes) + pensionSidePot),
     sellTaxes: Math.round(sellTaxes),
     taxBreakdown,
+    dividends,
   };
 }
 

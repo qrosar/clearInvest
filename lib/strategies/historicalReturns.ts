@@ -142,7 +142,7 @@ export const STRATEGY_RETURNS: Record<string, PeriodReturns> = {
     source: 'source_bonds',
   },
 
-  // ── Overnight Rate (XEON) ───────────────────────────────────────────────────
+  // ── Overnight Rate (CSH2) ───────────────────────────────────────────────────
   // Tracks ECB €STR rate
   'epargne-liquide': {
     y1: 0.029,   // €STR approx 2025

@@ -4,6 +4,7 @@ import React, { useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
 import type { Broker } from '@/lib/brokers/brokers';
+import { asDynamic } from '@/lib/i18n/dynamicKeys';
 
 // ── Portal tooltip — same pattern as TerInfoIcon ──────────────────────────────
 function Tip({ text, children }: { text: string; children: React.ReactNode }) {
@@ -92,16 +93,16 @@ function YesStar({ href }: { href: string }) {
         ✓
       </span>
       <a href={href} className="text-[10px] font-semibold text-[var(--charcoal)]/40 no-underline">
-        *
+        †
       </a>
     </span>
   );
 }
 
-function Pending() {
+function CgtAuto() {
   const t = useTranslations('brokers');
   return (
-    <span className="inline-flex h-6 items-center justify-center rounded-full bg-amber-50 px-2 text-[10px] font-semibold text-amber-700">
+    <span className="inline-flex h-6 items-center justify-center whitespace-nowrap rounded-full bg-[var(--forest)]/10 px-2 text-[10px] font-semibold text-[var(--forest)]">
       {t('cgt_auto')}
     </span>
   );
@@ -148,6 +149,7 @@ type TierKey = 'recommended' | 'situational' | 'not_recommended' | 'avoid';
 
 export default function BrokerTable({ brokers, highlightIds }: Props) {
   const t = useTranslations('brokers');
+  const tDyn = asDynamic(t);
 
   // Sort brokers by display order
   const sorted = [...brokers].sort((a, b) => {
@@ -293,13 +295,13 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
                         <td className={`${TD} text-center`}>
                           <FeeCell
                             value={broker.fees.fixedFeePerTrade === 'fees_free' ? t('fees_free') : broker.fees.fixedFeePerTrade}
-                            note={broker.fees.note ? t(broker.fees.note as any) : undefined}
+                            note={broker.fees.note ? tDyn(broker.fees.note) : undefined}
                           />
                         </td>
                         <td className={`${TD} text-center`}>
                           <FeeCell
                             value={broker.fees.percentFeePerTrade}
-                            note={broker.id === 'robinhood' ? t('robinhood_fs0_note' as any) : undefined}
+                            note={broker.id === 'robinhood' ? tDyn('robinhood_fs0_note') : undefined}
                           />
                         </td>
 
@@ -308,7 +310,7 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
                             broker.id === 'trade_republic' ? (
                               <YesStar href="#fn-tr-savings" />
                             ) : broker.id === 'saxo' ? (
-                              <Tip text={t('saxo_fs0_note' as any)}>
+                              <Tip text={tDyn('saxo_fs0_note')}>
                                 <span className="cursor-help"><Yes /></span>
                               </Tip>
                             ) : (
@@ -324,7 +326,7 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
                         </td>
 
                         <td className={`${TD} text-center`}>
-                          {broker.automation.cgtAuto !== 'cgt_manual' ? <Pending /> : <No />}
+                          {broker.automation.cgtAuto !== 'cgt_manual' ? <CgtAuto /> : <No />}
                         </td>
 
                         {/* Cash protection column */}
@@ -350,7 +352,7 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
       {/* Footnote */}
       <div className="mt-2.5 px-1 text-xs text-[var(--charcoal)]/45">
         <p id="fn-tr-savings">
-          <span className="font-semibold">*</span>{' '}
+          <span className="font-semibold">†</span>{' '}
           {t('fn_tr_savings')}
         </p>
       </div>

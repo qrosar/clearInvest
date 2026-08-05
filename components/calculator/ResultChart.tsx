@@ -13,6 +13,7 @@ import {
 import { useTranslations } from 'next-intl';
 import type { Product } from '@/lib/calculator/products';
 import { formatEuro } from '@/lib/calculator/compute';
+import { asDynamic } from '@/lib/i18n/dynamicKeys';
 
 interface Props {
   data: Record<string, number>[];
@@ -35,6 +36,7 @@ interface CustomTooltipProps {
 function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
   const t = useTranslations('calculator');
   const td = useTranslations();
+  const tdDyn = asDynamic(td);
   if (!active || !payload?.length) return null;
   return (
     <div className="rounded-lg border border-[var(--warm-tan)]/50 bg-[var(--warm-white)] p-3 shadow-lg text-xs">
@@ -42,7 +44,7 @@ function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
         {t('chart_after_years', { count: Number(label) })}
       </p>
       {payload.map((entry, i) => {
-        const translatedName = entry.name?.startsWith('data.') ? td(entry.name as any) : entry.name;
+        const translatedName = entry.name?.startsWith('data.') ? tdDyn(entry.name) : entry.name;
         return (
           <div key={entry.dataKey ?? i} className="flex items-center gap-2 py-0.5">
             <span className="h-2 w-2 rounded-full flex-shrink-0" style={{ backgroundColor: entry.color }} />
@@ -65,6 +67,7 @@ function yFormatter(value: number): string {
 
 export default function ResultChart({ data, products }: Props) {
   const td = useTranslations();
+  const tdDyn = asDynamic(td);
   if (!data.length || !products.length) return null;
 
   return (
@@ -89,7 +92,7 @@ export default function ResultChart({ data, products }: Props) {
         <Tooltip content={<CustomTooltip />} />
         <Legend
           formatter={(value: string) => {
-            const translatedValue = value.startsWith('data.') ? td(value as any) : value;
+            const translatedValue = value.startsWith('data.') ? tdDyn(value) : value;
             return <span style={{ fontSize: 11, color: '#2c2c2c', opacity: 0.6 }}>{translatedValue}</span>;
           }}
         />

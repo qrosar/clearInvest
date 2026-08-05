@@ -1,6 +1,8 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import LastUpdated from '@/components/ui/LastUpdated';
+import { buildAlternates } from '@/lib/site';
+import { ArticleJsonLd } from '@/components/StructuredData';
 
 export async function generateMetadata({
   params
@@ -21,9 +23,7 @@ export async function generateMetadata({
   return {
     title: titles[locale as keyof typeof titles] ?? titles.fr,
     description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
-    alternates: {
-      canonical: `https://clearinvest.be/${locale}/analyse-produits/belfius-invest-capital-safe`,
-    },
+    alternates: buildAlternates(locale, '/analyse-produits/belfius-invest-capital-safe'),
   }
 }
 
@@ -106,11 +106,16 @@ function LabelledCallout({
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 
-export default async function BelfiusCapitalSafeAnalysisPage() {
+export default async function BelfiusCapitalSafeAnalysisPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations('analyseBelfiusCapitalSafe');
 
   return (
     <>
+      <ArticleJsonLd locale={locale} path="/analyse-produits/belfius-invest-capital-safe" namespace="analyseBelfiusCapitalSafe" />
+
       {/* Hero */}
       <div className="bg-[var(--forest-deep)] px-6 py-14 text-center text-white md:py-20">
         <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-white/40">
@@ -408,7 +413,7 @@ export default async function BelfiusCapitalSafeAnalysisPage() {
           </div>
         </div>
 
-        <LastUpdated isoDate="2026-04-13" />
+        <LastUpdated path="/analyse-produits/belfius-invest-capital-safe" />
 
         <p className="mt-8 text-center text-xs italic leading-relaxed text-[var(--charcoal)]/30">
           {t('disclaimer')}

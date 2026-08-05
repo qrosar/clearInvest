@@ -55,7 +55,7 @@ export default function BrokersPage() {
         </p>
       </div>
 
-      <main className="min-h-screen bg-[var(--warm-cream)]">
+      <div className="min-h-screen bg-[var(--warm-cream)]">
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
 
         {/* Independence note */}
@@ -71,6 +71,16 @@ export default function BrokersPage() {
           {/* Scope callout — informative, not alarming */}
           <div className="rounded-xl border border-[var(--warm-tan)] bg-[var(--warm-cream)] px-5 py-4 text-sm leading-relaxed text-[var(--charcoal)]/65">
             {t('intro_scope')}
+          </div>
+
+          {/* CGT 2026 — withholding regime in force since 1 June 2026 */}
+          <div className="rounded-xl border border-amber-200 bg-amber-50 px-5 py-4">
+            <p className="mb-2 text-sm font-semibold text-amber-900">{t('cgt_regime_title')}</p>
+            <div className="space-y-2 text-sm leading-relaxed text-amber-800">
+              <p>{t('cgt_regime_p1')}</p>
+              <p>{t('cgt_regime_p2')}</p>
+              <p>{t('cgt_regime_p3')}</p>
+            </div>
           </div>
 
         </div>
@@ -128,7 +138,7 @@ export default function BrokersPage() {
           {t('footer_disclaimer')}
         </p>
       </div>
-    </main>
+    </div>
     </>
   );
 }

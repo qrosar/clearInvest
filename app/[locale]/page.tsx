@@ -1,7 +1,8 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Hero from '@/components/home/Hero';
 import ToolsGrid from '@/components/home/ToolsGrid';
 import StrategiesPreview from '@/components/home/StrategiesPreview';
+import { buildAlternates } from '@/lib/site';
 
 export async function generateMetadata({
   params
@@ -22,18 +23,19 @@ export async function generateMetadata({
   return {
     title: titles[locale as keyof typeof titles] ?? titles.fr,
     description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
-    alternates: {
-      canonical: `https://clearinvest.be/${locale}`,
-    },
+    alternates: buildAlternates(locale, ''),
   }
 }
 
-export default async function HomePage() {
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations('home');
   const trustItems = [t('trust_1'), t('trust_2'), t('trust_3')];
 
   return (
-    <main>
+    <div>
       <Hero />
 
       {/* Trust banner */}
@@ -52,6 +54,6 @@ export default async function HomePage() {
 
       <ToolsGrid />
       <StrategiesPreview />
-    </main>
+    </div>
   );
 }

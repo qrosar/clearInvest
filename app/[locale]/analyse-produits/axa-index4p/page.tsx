@@ -1,6 +1,8 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import LastUpdated from '@/components/ui/LastUpdated';
+import { buildAlternates } from '@/lib/site';
+import { ArticleJsonLd } from '@/components/StructuredData';
 
 export async function generateMetadata({
   params
@@ -13,9 +15,7 @@ export async function generateMetadata({
   return {
     title: t('meta_title'),
     description: t('meta_description'),
-    alternates: {
-      canonical: `https://clearinvest.be/${locale}/analyse-produits/axa-index4p`,
-    },
+    alternates: buildAlternates(locale, '/analyse-produits/axa-index4p'),
   }
 }
 
@@ -100,11 +100,16 @@ function InfoRow({ label, value }: { label: string; value: string }) {
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 
-export default async function AxaIndex4pAnalysisPage() {
+export default async function AxaIndex4pAnalysisPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations('analyseAxaIndex4p');
 
   return (
     <>
+      <ArticleJsonLd locale={locale} path="/analyse-produits/axa-index4p" namespace="analyseAxaIndex4p" />
+
       {/* Hero */}
       <div className="bg-[var(--forest-deep)] px-6 py-14 text-center text-white md:py-20">
         <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-white/40">
@@ -405,7 +410,7 @@ export default async function AxaIndex4pAnalysisPage() {
           </div>
         </div>
 
-        <LastUpdated isoDate="2026-04-17" />
+        <LastUpdated path="/analyse-produits/axa-index4p" />
 
         <p className="mt-8 text-center text-xs italic leading-relaxed text-[var(--charcoal)]/30">
           {t('disclaimer')}

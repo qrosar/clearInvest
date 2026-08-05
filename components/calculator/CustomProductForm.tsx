@@ -3,6 +3,7 @@
 import { useState, type ReactNode } from 'react';
 import { useTranslations } from 'next-intl';
 import type { Product, TaxConfig } from '@/lib/calculator/products';
+import { asDynamic } from '@/lib/i18n/dynamicKeys';
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
@@ -261,6 +262,7 @@ export default function CustomProductForm({
   onCancel: () => void;
 }) {
   const t = useTranslations('calculator');
+  const tDyn = asDynamic(t);
   const [formMode, setFormMode] = useState<FormMode>('simple');
   const [form, setForm] = useState<FormState>(INITIAL_FORM);
   const [openSections, setOpenSections] = useState<string[]>([]);
@@ -385,7 +387,7 @@ export default function CustomProductForm({
                 }`}
             >
               <span className="flex-shrink-0">{icon}</span>
-              <span className="leading-tight">{t(labelKey as any)}</span>
+              <span className="leading-tight">{tDyn(labelKey)}</span>
             </button>
           ))}
         </div>
@@ -395,7 +397,7 @@ export default function CustomProductForm({
       <div className="mb-4 space-y-3">
         {/* Rate + TER on the same row when TER is visible */}
         <div className={showAnnualFee ? 'grid grid-cols-2 gap-3 items-start' : undefined}>
-          <Field label={t(rateLabelKey(cat) as any)}>
+          <Field label={tDyn(rateLabelKey(cat))}>
             <NumInput
               value={form.rate}
               onChange={v => setForm(f => ({ ...f, rate: v }))}

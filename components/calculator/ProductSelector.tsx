@@ -5,6 +5,8 @@ import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
 import type { Product } from '@/lib/calculator/products';
 import CustomProductForm from './CustomProductForm';
+import NumberField from './NumberField';
+import { asDynamic } from '@/lib/i18n/dynamicKeys';
 
 // ── Category definitions ──────────────────────────────────────────────────────
 
@@ -141,6 +143,7 @@ export default function ProductSelector({
 }: Props) {
   const t = useTranslations('calculator');
   const td = useTranslations();
+  const tdDyn = asDynamic(td);
   const [selectedCategory, setSelectedCategory] = useState<CategoryKey | null>(null);
   const [showCustomForm, setShowCustomForm] = useState(false);
 
@@ -177,7 +180,7 @@ export default function ProductSelector({
             const product = allProducts.find(p => p.id === id);
             if (!product) return null;
             const rate = rates[id] ?? product.defaultRate ?? 0;
-            const name = product.name.startsWith('data.') ? td(product.name as any) : product.name;
+            const name = product.name.startsWith('data.') ? tdDyn(product.name) : product.name;
             return (
               <div
                 key={id}
@@ -196,21 +199,20 @@ export default function ProductSelector({
                     {t('contribution_cap_warning')}
                   </span>
                 )}
+                {/* p_* notes are top-level namespaces, so they resolve through
+                    the root translator rather than 'calculator'. */}
                 {product.contributionCapNote && (
-                  <ChipNoteTooltip text={t(product.contributionCapNote as any)} />
+                  <ChipNoteTooltip text={tdDyn(product.contributionCapNote)} />
                 )}
                 {product.rateEditable && (
                   <div className="flex items-center gap-0.5" onClick={e => e.stopPropagation()}>
-                    <input
-                      type="number"
-                      min="0"
-                      max="20"
-                      step="0.1"
-                      value={(rate * 100).toFixed(1)}
-                      onChange={e => {
-                        const v = parseFloat(e.target.value);
-                        if (!isNaN(v) && v >= 0 && v <= 20) onRateChange(id, v / 100);
-                      }}
+                    <NumberField
+                      value={rate * 100}
+                      min={0}
+                      max={20}
+                      decimals={1}
+                      onCommit={v => onRateChange(id, v / 100)}
+                      ariaLabel={`${name} — %`}
                       className="w-10 border-b border-[var(--warm-tan)]/60 bg-transparent text-right
                         text-xs font-medium text-[var(--charcoal)] focus:outline-none
                         focus:border-[var(--forest)]"
@@ -301,8 +303,8 @@ export default function ProductSelector({
                   ) : (
                     categoryProducts.map(product => {
                       const isSelected = selectedIds.includes(product.id);
-                      const name = product.name.startsWith('data.') ? td(product.name as any) : product.name;
-                      const provider = product.provider?.startsWith('data.') ? td(product.provider as any) : product.provider;
+                      const name = product.name.startsWith('data.') ? tdDyn(product.name) : product.name;
+                      const provider = product.provider?.startsWith('data.') ? tdDyn(product.provider) : product.provider;
                       return (
                         <button
                           key={product.id}

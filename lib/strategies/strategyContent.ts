@@ -27,7 +27,6 @@ export interface StrategyContent {
 
 const FISCAL_STANDARD = 'data.fiscal.standard';
 const FISCAL_DISTRIBUTING = 'data.fiscal.distributing';
-const FISCAL_REYNDERS = 'data.fiscal.reynders';
 
 export const STRATEGY_CONTENT: Record<string, StrategyContent> = {
 
@@ -513,10 +512,10 @@ export const STRATEGY_CONTENT: Record<string, StrategyContent> = {
         verdict: 'data.strategies.epargne-liquide.alt_0_verdict',
       },
       {
-        ticker: 'CSH2',
-        isin: 'LU1190417599',
-        name: 'Lyxor Smart Overnight Return ETF',
-        ter: 0.07,
+        ticker: 'XEON',
+        isin: 'LU0290358497',
+        name: 'Xtrackers II EUR Overnight Rate Swap UCITS ETF',
+        ter: 0.10,
         tob: 0.0012,
         accumulating: true,
         pros: ['data.strategies.epargne-liquide.alt_1_pro_0', 'data.strategies.epargne-liquide.alt_1_pro_1'],

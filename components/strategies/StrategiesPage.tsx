@@ -2,7 +2,6 @@
 
 import { useState, useMemo, useRef } from 'react';
 import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
 import { STRATEGIES } from '@/lib/strategies/strategies';
 import StrategyFilter, { type FilterState, EMPTY_FILTERS } from './StrategyFilter';
 import StrategyCard from './StrategyCard';

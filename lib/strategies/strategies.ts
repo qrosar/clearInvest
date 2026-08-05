@@ -194,7 +194,7 @@ export const STRATEGIES: Strategy[] = [
     description: 'data.strategies.epargne-liquide.description',
     complexity: 'intermediate', horizon: ['short'], esg: false, geographic: ['europe'],
     etfs: [
-      { ticker: 'XEON', isin: 'LU0290358497', name: 'Xtrackers II EUR Overnight Rate Swap UCITS ETF (Acc)', allocation: 100, ter: 0.10, accumulating: true },
+      { ticker: 'CSH2', isin: 'LU1190417599', name: 'Amundi Smart Overnight Return UCITS ETF (Acc)', allocation: 100, ter: 0.10, accumulating: true },
     ],
     historicalReturn: 0.03,
     historicalReturnPeriod: '2024–2025',

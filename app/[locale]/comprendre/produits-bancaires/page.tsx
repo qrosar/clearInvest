@@ -1,6 +1,7 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import LastUpdated from '@/components/ui/LastUpdated';
+import { buildAlternates } from '@/lib/site';
 
 export async function generateMetadata({
   params
@@ -21,9 +22,7 @@ export async function generateMetadata({
   return {
     title: titles[locale as keyof typeof titles] ?? titles.fr,
     description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
-    alternates: {
-      canonical: `https://clearinvest.be/${locale}/comprendre/produits-bancaires`,
-    },
+    alternates: buildAlternates(locale, '/comprendre/produits-bancaires'),
   }
 }
 
@@ -86,7 +85,10 @@ function Divider() {
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 
-export default async function ProduitsBancairesPage() {
+export default async function ProduitsBancairesPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations('comprProduits');
   const tc = await getTranslations('common');
 
@@ -365,7 +367,7 @@ export default async function ProduitsBancairesPage() {
           </div>
         </section>
 
-        <LastUpdated isoDate="2026-03-01" />
+        <LastUpdated path="/comprendre/produits-bancaires" />
 
         {/* Back link */}
         <div className="mt-6 text-center">

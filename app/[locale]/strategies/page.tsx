@@ -1,6 +1,7 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import StrategiesPage from '@/components/strategies/StrategiesPage';
 import LastUpdated from '@/components/ui/LastUpdated';
+import { buildAlternates } from '@/lib/site';
 
 export async function generateMetadata({
   params
@@ -21,13 +22,14 @@ export async function generateMetadata({
   return {
     title: titles[locale as keyof typeof titles] ?? titles.fr,
     description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
-    alternates: {
-      canonical: `https://clearinvest.be/${locale}/strategies`,
-    },
+    alternates: buildAlternates(locale, '/strategies'),
   }
 }
 
-export default async function StrategiesRoute() {
+export default async function StrategiesRoute({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations('strategiesPage');
 
   return (
@@ -46,7 +48,7 @@ export default async function StrategiesRoute() {
         <p className="mt-12 text-center text-xs text-[var(--charcoal)]/30">
           {t('disclaimer')}
         </p>
-        <LastUpdated isoDate="2026-03-01" />
+        <LastUpdated path="/strategies" />
       </div>
     </>
   );

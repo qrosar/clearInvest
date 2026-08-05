@@ -1,6 +1,7 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import LastUpdated from '@/components/ui/LastUpdated';
+import { buildAlternates } from '@/lib/site';
 
 export async function generateMetadata({
   params
@@ -21,9 +22,7 @@ export async function generateMetadata({
   return {
     title: titles[locale as keyof typeof titles] ?? titles.fr,
     description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
-    alternates: {
-      canonical: `https://clearinvest.be/${locale}/ressources/glossaire`,
-    },
+    alternates: buildAlternates(locale, '/ressources/glossaire'),
   }
 }
 
@@ -64,7 +63,10 @@ function buildLetterMap(themes: Theme[]): Map<string, string> {
 
 // ── Page ───────────────────────────────────────────────────────────────────────
 
-export default async function GlossairePage() {
+export default async function GlossairePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations('glossaire');
 
   const THEMES: Theme[] = [
@@ -195,7 +197,7 @@ export default async function GlossairePage() {
             ))}
           </div>
 
-          <LastUpdated isoDate="2026-03-01" />
+          <LastUpdated path="/ressources/glossaire" />
 
           {/* Back link */}
           <div className="mt-8 border-t border-[var(--warm-tan)]/40 pt-6">

@@ -1,5 +1,7 @@
 import BrokersPage from '@/components/brokers/BrokersPage';
 import LastUpdated from '@/components/ui/LastUpdated';
+import { setRequestLocale } from 'next-intl/server';
+import { buildAlternates } from '@/lib/site';
 
 export async function generateMetadata({
   params
@@ -22,9 +24,7 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: {
-      canonical: `https://clearinvest.be/${locale}/brokers`,
-    },
+    alternates: buildAlternates(locale, '/brokers'),
     openGraph: {
       title,
       description,
@@ -37,12 +37,15 @@ export async function generateMetadata({
   }
 }
 
-export default async function BrokersRoute() {
+export default async function BrokersRoute({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <>
       <BrokersPage />
       <div className="mx-auto max-w-7xl px-4 pb-10 sm:px-6 lg:px-8">
-        <LastUpdated isoDate="2026-05-01" />
+        <LastUpdated path="/brokers" />
       </div>
     </>
   );

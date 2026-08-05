@@ -1,6 +1,7 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import LastUpdated from '@/components/ui/LastUpdated';
+import { buildAlternates } from '@/lib/site';
 
 export async function generateMetadata({
   params
@@ -21,9 +22,7 @@ export async function generateMetadata({
   return {
     title: titles[locale as keyof typeof titles] ?? titles.fr,
     description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
-    alternates: {
-      canonical: `https://clearinvest.be/${locale}/a-propos`,
-    },
+    alternates: buildAlternates(locale, '/a-propos'),
   }
 }
 
@@ -38,7 +37,10 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   );
 }
 
-export default async function AProposPage() {
+export default async function AProposPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations('aPropos');
 
   return (
@@ -93,7 +95,7 @@ export default async function AProposPage() {
           </p>
         </Section>
 
-        <LastUpdated isoDate="2026-03-01" />
+        <LastUpdated path="/a-propos" />
 
         <div className="mt-8 border-t border-[var(--warm-tan)]/40 pt-6">
           <Link

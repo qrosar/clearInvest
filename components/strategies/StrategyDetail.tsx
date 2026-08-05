@@ -5,6 +5,7 @@ import { Link } from '@/i18n/navigation';
 import type { Strategy } from '@/lib/strategies/strategies';
 import type { StrategyContent, Alternative } from '@/lib/strategies/strategyContent';
 import StrategyReturnsBar from './StrategyReturnsBar';
+import { asDynamic, type DynamicTranslator } from '@/lib/i18n/dynamicKeys';
 
 interface Props {
   strategy: Strategy;
@@ -31,7 +32,13 @@ function FactBox({ label, value, sub }: { label: string; value: string; sub?: st
 }
 
 // ── Single alternative card ───────────────────────────────────────────────────
-function AlternativeCard({ alt, t, ts, td }: { alt: Alternative; t: ReturnType<typeof useTranslations<'strategyDetail'>>; ts: ReturnType<typeof useTranslations<'strategies'>>; td: ReturnType<typeof useTranslations> }) {
+// ts/td resolve keys that come from strategy data, so they arrive widened.
+function AlternativeCard({ alt, t, tsDyn, tdDyn }: {
+  alt: Alternative;
+  t: ReturnType<typeof useTranslations<'strategyDetail'>>;
+  tsDyn: DynamicTranslator;
+  tdDyn: DynamicTranslator;
+}) {
   const tickers = alt.ticker.split(' + ');
   const isins = alt.isin.split(' + ');
 
@@ -70,7 +77,7 @@ function AlternativeCard({ alt, t, ts, td }: { alt: Alternative; t: ReturnType<t
 
       {/* ISINs + justETF links */}
       <div className="mb-3 flex flex-wrap gap-2">
-        {isins.map((isin, i) => (
+        {isins.map(isin => (
           <a
             key={isin}
             href={`https://www.justetf.com/en/etf-profile.html?isin=${isin.trim()}`}
@@ -92,7 +99,7 @@ function AlternativeCard({ alt, t, ts, td }: { alt: Alternative; t: ReturnType<t
             {alt.pros.map((p, i) => (
               <li key={i} className="flex gap-1.5 text-[11px] leading-snug text-[var(--charcoal)]/65">
                 <span className="mt-0.5 shrink-0 text-[var(--forest)]/60">+</span>
-                {p.startsWith('data.') ? td(p as any) : ts(p as any)}
+                {p.startsWith('data.') ? tdDyn(p) : tsDyn(p)}
               </li>
             ))}
           </ul>
@@ -103,7 +110,7 @@ function AlternativeCard({ alt, t, ts, td }: { alt: Alternative; t: ReturnType<t
             {alt.cons.map((c, i) => (
               <li key={i} className="flex gap-1.5 text-[11px] leading-snug text-[var(--charcoal)]/65">
                 <span className="mt-0.5 shrink-0 text-red-400/60">−</span>
-                {c.startsWith('data.') ? td(c as any) : ts(c as any)}
+                {c.startsWith('data.') ? tdDyn(c) : tsDyn(c)}
               </li>
             ))}
           </ul>
@@ -113,7 +120,7 @@ function AlternativeCard({ alt, t, ts, td }: { alt: Alternative; t: ReturnType<t
       {/* Verdict */}
       <div className="rounded-lg bg-[var(--warm-tan)]/15 px-3 py-2 text-[11px] leading-relaxed text-[var(--charcoal)]/70">
         <span className="font-semibold text-[var(--charcoal)]/50">{t('alt_verdict')} : </span>
-        {alt.verdict.startsWith('data.') ? td(alt.verdict as any) : ts(alt.verdict as any)}
+        {alt.verdict.startsWith('data.') ? tdDyn(alt.verdict) : tsDyn(alt.verdict)}
       </div>
     </div>
   );
@@ -122,9 +129,11 @@ function AlternativeCard({ alt, t, ts, td }: { alt: Alternative; t: ReturnType<t
 // ── Main component ────────────────────────────────────────────────────────────
 export default function StrategyDetail({ strategy, content }: Props) {
   const t = useTranslations('strategyDetail');
-  const tc = useTranslations('strategyCard');
+  const tDyn = asDynamic(t);
   const ts = useTranslations('strategies');
+  const tsDyn = asDynamic(ts);
   const td = useTranslations();
+  const tdDyn = asDynamic(td);
 
   const weightedTer = strategy.etfs.reduce(
     (sum, e) => sum + (e.ter * e.allocation) / 100,
@@ -134,9 +143,9 @@ export default function StrategyDetail({ strategy, content }: Props) {
   const hasDistributing = content?.hasDistributing ?? strategy.etfs.some(e => !e.accumulating);
   const hasReynders = content?.hasReynders ?? false;
 
-  const name = strategy.name.startsWith('data.') ? td(strategy.name as any) : ts(strategy.name as any);
-  const tagline = strategy.tagline.startsWith('data.') ? td(strategy.tagline as any) : ts(strategy.tagline as any);
-  const description = strategy.description.startsWith('data.') ? td(strategy.description as any) : ts(strategy.description as any);
+  const name = strategy.name.startsWith('data.') ? tdDyn(strategy.name) : tsDyn(strategy.name);
+  const tagline = strategy.tagline.startsWith('data.') ? tdDyn(strategy.tagline) : tsDyn(strategy.tagline);
+  const description = strategy.description.startsWith('data.') ? tdDyn(strategy.description) : tsDyn(strategy.description);
 
   return (
     <div className="mx-auto max-w-4xl px-4 pb-16 sm:px-6">
@@ -170,11 +179,11 @@ export default function StrategyDetail({ strategy, content }: Props) {
           {/* Badges */}
           <div className="mt-4 flex flex-wrap gap-2">
             <Badge className="bg-[var(--warm-tan)]/40 text-[var(--charcoal)]/60">
-              {t(`complexity_${strategy.complexity}` as any)}
+              {tDyn(`complexity_${strategy.complexity}`)}
             </Badge>
             {strategy.horizon.map(h => (
               <Badge key={h} className="bg-[var(--warm-tan)]/40 text-[var(--charcoal)]/60">
-                {t(`horizon_${h}` as any)}
+                {tDyn(`horizon_${h}`)}
               </Badge>
             ))}
             {strategy.esg && (
@@ -192,7 +201,7 @@ export default function StrategyDetail({ strategy, content }: Props) {
           {strategy.warnings && strategy.warnings.length > 0 && (
             <div className="mt-4 space-y-2">
               {strategy.warnings.map((w, i) => {
-                const translated = w.startsWith('data.') ? td(w as any) : ts(w as any);
+                const translated = w.startsWith('data.') ? tdDyn(w) : tsDyn(w);
                 return (
                   <div
                     key={i}
@@ -238,7 +247,7 @@ export default function StrategyDetail({ strategy, content }: Props) {
         </div>
         {strategy.historicalReturnNote && (
           <p className="mt-2 text-[11px] italic leading-relaxed text-[var(--charcoal)]/40">
-            {strategy.historicalReturnNote.startsWith('data.') ? td(strategy.historicalReturnNote as any) : ts(strategy.historicalReturnNote as any)}
+            {strategy.historicalReturnNote.startsWith('data.') ? tdDyn(strategy.historicalReturnNote) : tsDyn(strategy.historicalReturnNote)}
           </p>
         )}
       </section>
@@ -303,7 +312,7 @@ export default function StrategyDetail({ strategy, content }: Props) {
                   >
                     {i + 1}
                   </span>
-                  {point.startsWith('data.') ? td(point as any) : ts(point as any)}
+                  {point.startsWith('data.') ? tdDyn(point) : tsDyn(point)}
                 </li>
               ))}
             </ul>
@@ -317,7 +326,7 @@ export default function StrategyDetail({ strategy, content }: Props) {
           <h2 className="mb-4 font-heading text-xl font-bold text-[var(--charcoal)]">{t('alternatives_title')}</h2>
           <div className="space-y-4">
             {content.alternatives.map(alt => (
-              <AlternativeCard key={alt.ticker} alt={alt} t={t} ts={ts} td={td} />
+              <AlternativeCard key={alt.ticker} alt={alt} t={t} tsDyn={tsDyn} tdDyn={tdDyn} />
             ))}
           </div>
         </section>
@@ -328,7 +337,7 @@ export default function StrategyDetail({ strategy, content }: Props) {
         <section className="mb-10">
           <h2 className="mb-3 font-heading text-xl font-bold text-[var(--charcoal)]">{t('disclaimer_title')}</h2>
           <div className="rounded-xl border border-amber-200 bg-amber-50 px-5 py-4 text-sm leading-relaxed text-amber-900/80">
-            {content.fiscalNote.startsWith('data.') ? td(content.fiscalNote as any) : ts(content.fiscalNote as any)}
+            {content.fiscalNote.startsWith('data.') ? tdDyn(content.fiscalNote) : tsDyn(content.fiscalNote)}
           </div>
         </section>
       )}

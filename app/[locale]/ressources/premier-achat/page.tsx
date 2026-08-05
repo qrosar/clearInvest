@@ -1,6 +1,7 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import LastUpdated from '@/components/ui/LastUpdated';
+import { buildAlternates } from '@/lib/site';
 
 export async function generateMetadata({
   params
@@ -21,9 +22,7 @@ export async function generateMetadata({
   return {
     title: titles[locale as keyof typeof titles] ?? titles.fr,
     description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
-    alternates: {
-      canonical: `https://clearinvest.be/${locale}/ressources/premier-achat`,
-    },
+    alternates: buildAlternates(locale, '/ressources/premier-achat'),
   }
 }
 
@@ -47,27 +46,12 @@ function WarningBox({ label, children }: { label: string; children: React.ReactN
   );
 }
 
-function Step({ number, title, children }: { number: number; title: string; children: React.ReactNode }) {
-  return (
-    <div className="flex gap-5">
-      <div className="flex-shrink-0">
-        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--forest)] text-sm font-bold text-white">
-          {number}
-        </div>
-      </div>
-      <div className="min-w-0">
-        <h3 className="font-semibold text-[var(--charcoal)]">{title}</h3>
-        <div className="mt-1 text-sm leading-relaxed text-[var(--charcoal)]/70">
-          {children}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 // ── Page ───────────────────────────────────────────────────────────────────────
 
-export default async function PremierAchatPage() {
+export default async function PremierAchatPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations('premierAchat');
 
   const prereqs = [
@@ -83,7 +67,7 @@ export default async function PremierAchatPage() {
     { ticker: 'CSPX', isin: 'IE00B5BMR087', name: t('s2_cspx_name') },
     { ticker: 'CNDX', isin: 'IE00B53SZB19', name: t('s2_cndx_name') },
     { ticker: 'XMAW', isin: 'IE00BJ0KDQ92', name: t('s2_xmaw_name') },
-    { ticker: 'XEON', isin: 'LU0290358497', name: t('s2_xeon_name') },
+    { ticker: 'CSH2', isin: 'LU1190417599', name: t('s2_csh2_name') },
   ];
 
   const checks = [
@@ -107,7 +91,7 @@ export default async function PremierAchatPage() {
         </p>
       </div>
 
-      <main className="bg-[var(--warm-cream)]">
+      <div className="bg-[var(--warm-cream)]">
         <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
 
           {/* Section 1 — Prérequis */}
@@ -272,10 +256,10 @@ export default async function PremierAchatPage() {
             {t('disclaimer')}
           </p>
 
-          <LastUpdated isoDate="2026-03-01" />
+          <LastUpdated path="/ressources/premier-achat" />
 
         </div>
-      </main>
+      </div>
     </>
   );
 }

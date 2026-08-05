@@ -60,7 +60,7 @@ export const BROKERS: Broker[] = [
     },
     protectionCash: '€100 000 🇧🇪',
     pros: ['medirect_pro_0', 'common_taxes_auto'],
-    cons: ['medirect_con_0', 'medirect_con_1'],
+    cons: ['medirect_con_0', 'medirect_con_1', 'medirect_con_2'],
     idealFor: 'medirect_ideal',
     warningNote: 'medirect_etf_note',
     feeStory: [
@@ -107,6 +107,7 @@ export const BROKERS: Broker[] = [
       fxFee: 'fees_none',
       custodyFee: 'fees_none',
       savingsPlanFee: 'bolero_fee_savings',
+      note: 'bolero_fees_note',
     },
     automation: {
       savingsPlan: true,
@@ -135,6 +136,7 @@ export const BROKERS: Broker[] = [
       fxFee: '0,25% + €0,50',
       custodyFee: 'fees_none',
       savingsPlanFee: 'fees_not_available',
+      note: 'degiro_fees_note',
     },
     automation: {
       savingsPlan: false,
@@ -193,6 +195,7 @@ export const BROKERS: Broker[] = [
       fxFee: 'fees_none',
       custodyFee: 'fees_none',
       savingsPlanFee: 'keytrade_fee_savings',
+      note: 'keytrade_fees_note',
     },
     automation: {
       savingsPlan: false,
@@ -220,6 +223,7 @@ export const BROKERS: Broker[] = [
       fxFee: 'fees_none',
       custodyFee: 'fees_none',
       savingsPlanFee: 'trade_republic_fee_savings',
+      note: 'trade_republic_fees_note',
     },
     automation: {
       savingsPlan: true,
@@ -250,6 +254,7 @@ export const BROKERS: Broker[] = [
       fxFee: '1,00%',
       custodyFee: '0,0242%/mois',
       savingsPlanFee: 'ing_fee_savings',
+      note: 'ing_fees_note',
     },
     automation: {
       savingsPlan: false,
@@ -262,7 +267,7 @@ export const BROKERS: Broker[] = [
     idealFor: 'ing_ideal',
     warningNote: 'ing_warning',
     feeStory: [
-      { label: 'ing_fs0_label', value: '0,35%' },
+      { label: 'ing_fs0_label', value: 'ing_fs0_value' },
       { label: 'ing_fs1_label', value: 'ing_fs1_value', note: 'ing_fs1_note' },
     ],
   },
@@ -278,16 +283,18 @@ export const BROKERS: Broker[] = [
       fxFee: 'ibkr_fee_fx',
       custodyFee: 'fees_none',
       savingsPlanFee: 'fees_not_available',
+      note: 'ibkr_fees_note',
     },
     automation: {
       savingsPlan: false,
       tobAuto: false,
       cgtAuto: 'cgt_manual',
     },
-    protectionCash: '€100 000 🇮🇪',
+    protectionCash: '€20 000 🇮🇪',
     pros: ['ibkr_pro_0', 'ibkr_pro_1'],
     cons: [
       'ibkr_con_0',
+      'ibkr_con_4',
       'ibkr_con_1',
       'common_nbb_required',
       'ibkr_con_3',
@@ -295,8 +302,8 @@ export const BROKERS: Broker[] = [
     idealFor: 'ibkr_ideal',
     warningNote: 'ibkr_warning',
     feeStory: [
-      { label: 'ibkr_fs0_label', value: '~€1,25' },
-      { label: 'ibkr_fs1_label', value: '0,05%' },
+      { label: 'ibkr_fs0_label', value: 'ibkr_fs0_value' },
+      { label: 'ibkr_fs1_label', value: 'fees_all_manual', highlight: 'bad' },
       { label: 'ibkr_fs2_label', value: 'fees_declare_manual' },
     ],
     guideLink: { text: 'guide_foreign_account', href: '/ressources/declarer-compte-etranger' },
@@ -319,7 +326,7 @@ export const BROKERS: Broker[] = [
       tobAuto: false,
       cgtAuto: 'cgt_manual',
     },
-    protectionCash: '—',
+    protectionCash: '€22 000 🇱🇹',
     pros: ['robinhood_pro_0', 'robinhood_pro_1'],
     cons: ['robinhood_con_0', 'robinhood_con_1', 'robinhood_con_2', 'common_nbb_required', 'robinhood_con_4'],
     warningNote: 'robinhood_warning',

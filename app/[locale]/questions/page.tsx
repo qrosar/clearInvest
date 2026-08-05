@@ -1,7 +1,9 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import FaqList from './FaqList';
 import LastUpdated from '@/components/ui/LastUpdated';
+import { buildAlternates } from '@/lib/site';
+import { FaqJsonLd } from '@/components/StructuredData';
 
 export async function generateMetadata({
   params
@@ -22,17 +24,20 @@ export async function generateMetadata({
   return {
     title: titles[locale as keyof typeof titles] ?? titles.fr,
     description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
-    alternates: {
-      canonical: `https://clearinvest.be/${locale}/questions`,
-    },
+    alternates: buildAlternates(locale, '/questions'),
   }
 }
 
-export default async function QuestionsPage() {
+export default async function QuestionsPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations('questions');
 
   return (
     <>
+      <FaqJsonLd />
+
       {/* Hero */}
       <div className="bg-[var(--forest-deep)] px-6 py-14 text-center text-white md:py-20">
         <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-white/40">
@@ -67,7 +72,7 @@ export default async function QuestionsPage() {
           </p>
         </div>
 
-        <LastUpdated isoDate="2026-03-01" />
+        <LastUpdated path="/questions" />
 
         {/* Back link */}
         <div className="mt-6 text-center">

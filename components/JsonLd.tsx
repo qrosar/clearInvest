@@ -1,9 +1,11 @@
+import { SITE_URL } from '@/lib/site';
+
 export default function JsonLd() {
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'ClearInvest',
-    url: 'https://clearinvest.be',
+    url: SITE_URL,
     description:
       'Independent guides, calculator and comparisons for ETF investing in Belgium. Free, no jargon.',
     inLanguage: ['fr', 'nl', 'en'],
@@ -13,8 +15,8 @@ export default function JsonLd() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'ClearInvest',
-    url: 'https://clearinvest.be',
-    logo: 'https://clearinvest.be/og-image.png',
+    url: SITE_URL,
+    logo: `${SITE_URL}/og-image.png`,
   };
 
   return (

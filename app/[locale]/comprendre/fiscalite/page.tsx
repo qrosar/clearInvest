@@ -1,6 +1,8 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import LastUpdated from '@/components/ui/LastUpdated';
+import { buildAlternates } from '@/lib/site';
+import { asDynamic } from '@/lib/i18n/dynamicKeys';
 
 export async function generateMetadata({
   params
@@ -21,9 +23,7 @@ export async function generateMetadata({
   return {
     title: titles[locale as keyof typeof titles] ?? titles.fr,
     description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
-    alternates: {
-      canonical: `https://clearinvest.be/${locale}/comprendre/fiscalite`,
-    },
+    alternates: buildAlternates(locale, '/comprendre/fiscalite'),
   }
 }
 
@@ -102,8 +102,12 @@ function TaxCard({ name, rate, appliesLabel, appliesTo, whenLabel, when, insight
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 
-export default async function FiscalitePage() {
+export default async function FiscalitePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations('comprFiscalite');
+  const tDyn = asDynamic(t);
   const tc = await getTranslations('common');
 
   const TABLE_ROWS = [
@@ -167,6 +171,18 @@ export default async function FiscalitePage() {
           {t('intro')}
         </p>
 
+        {/* CGT 2026 — withholding regime in force since 1 June 2026 */}
+        <div className="mt-8 rounded-xl border border-amber-200 bg-amber-50 px-5 py-4">
+          <p className="mb-2 font-heading text-base font-semibold text-amber-900">
+            {t('cgt_regime_title')}
+          </p>
+          <div className="space-y-2 text-sm leading-relaxed text-amber-800">
+            <p>{t('cgt_regime_p1')}</p>
+            <p>{t('cgt_regime_p2')}</p>
+            <p>{t('cgt_regime_p3')}</p>
+          </div>
+        </div>
+
         <Divider />
 
         {/* ── Tax cards ── */}
@@ -178,14 +194,14 @@ export default async function FiscalitePage() {
             {taxes.map(({ key, highlight }) => (
               <TaxCard
                 key={key}
-                name={t(`${key}_name` as any)}
-                rate={t(`${key}_rate` as any)}
+                name={tDyn(`${key}_name`)}
+                rate={tDyn(`${key}_rate`)}
                 appliesLabel={t('applies_label')}
-                appliesTo={t(`${key}_applies` as any)}
+                appliesTo={tDyn(`${key}_applies`)}
                 whenLabel={t('when_label')}
-                when={t(`${key}_when` as any)}
+                when={tDyn(`${key}_when`)}
                 insightLabel={t('insight_label')}
-                insight={t(`${key}_insight` as any)}
+                insight={tDyn(`${key}_insight`)}
                 highlight={highlight}
               />
             ))}
@@ -283,7 +299,7 @@ export default async function FiscalitePage() {
           </div>
         </section>
 
-        <LastUpdated isoDate="2026-03-01" />
+        <LastUpdated path="/comprendre/fiscalite" />
 
         {/* Back link */}
         <div className="mt-6 text-center">

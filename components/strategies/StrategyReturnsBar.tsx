@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { STRATEGY_RETURNS, type PeriodReturns } from '@/lib/strategies/historicalReturns';
+import { asDynamic } from '@/lib/i18n/dynamicKeys';
 
 interface Props {
   strategyId: string;
@@ -49,10 +50,11 @@ function ReturnPill({ label, value }: { label: string; value: number }) {
 
 export default function StrategyReturnsBar({ strategyId, variant = 'card' }: Props) {
   const t = useTranslations('strategies_returns');
+  const tDyn = asDynamic(t);
   const returns = STRATEGY_RETURNS[strategyId];
   if (!returns) return null;
 
-  const translatedSource = t(returns.source as any);
+  const translatedSource = tDyn(returns.source);
 
   /* ── Card variant: compact pill strip ─────────────────────────── */
   if (variant === 'card') {
@@ -66,7 +68,7 @@ export default function StrategyReturnsBar({ strategyId, variant = 'card' }: Pro
         </p>
         <div className="grid grid-cols-4 divide-x divide-[var(--warm-tan)]/40">
           {PERIODS.map(({ key, labelKey }) => (
-            <ReturnPill key={key} label={t(labelKey as any)} value={returns[key]} />
+            <ReturnPill key={key} label={tDyn(labelKey)} value={returns[key]} />
           ))}
         </div>
         <p className="mt-2 text-[8px] leading-relaxed text-[var(--charcoal)]/30">
@@ -102,7 +104,7 @@ export default function StrategyReturnsBar({ strategyId, variant = 'card' }: Pro
           return (
             <div key={key} className="flex items-center gap-3">
               <span className="w-12 shrink-0 text-right text-[10px] font-semibold text-[var(--charcoal)]/50">
-                {t(labelKey as any)}
+                {tDyn(labelKey)}
               </span>
               <div className="relative h-5 flex-1 overflow-hidden rounded-full bg-[var(--warm-tan)]/25">
                 <div

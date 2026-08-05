@@ -1,8 +1,10 @@
 import { notFound } from 'next/navigation';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { STRATEGIES } from '@/lib/strategies/strategies';
 import { STRATEGY_CONTENT } from '@/lib/strategies/strategyContent';
 import StrategyDetail from '@/components/strategies/StrategyDetail';
+import { buildAlternates } from '@/lib/site';
+import { asDynamic } from '@/lib/i18n/dynamicKeys';
 
 interface Props {
   params: Promise<{ locale: string; id: string }>;
@@ -11,19 +13,19 @@ interface Props {
 export async function generateMetadata({ params }: Props) {
   const { id, locale } = await params;
   const t = await getTranslations({ locale, namespace: 'data.strategies' });
+  const tDyn = asDynamic(t);
   
   const strategy = STRATEGIES.find(s => s.id === id);
   if (!strategy) return {};
 
-  const name = t(`${id}.name` as any);
-  const tagline = t(`${id}.tagline` as any);
+  const name = tDyn(`${id}.name`);
+  const tagline = tDyn(`${id}.tagline`);
 
   return {
-    title: `${name} | ClearInvest`,
+    // The locale layout's title template already appends "| ClearInvest".
+    title: name,
     description: tagline,
-    alternates: {
-      canonical: `https://clearinvest.be/${locale}/strategies/${id}`,
-    },
+    alternates: buildAlternates(locale, `/strategies/${id}`),
   }
 }
 
@@ -35,7 +37,9 @@ export async function generateStaticParams() {
 }
 
 export default async function StrategyDetailRoute({ params }: Props) {
-  const { id } = await params;
+  const { id, locale } = await params;
+  setRequestLocale(locale);
+
   const strategy = STRATEGIES.find(s => s.id === id);
   if (!strategy) notFound();
 

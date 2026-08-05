@@ -1,6 +1,8 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import LastUpdated from '@/components/ui/LastUpdated';
+import { buildAlternates } from '@/lib/site';
+import { asDynamic } from '@/lib/i18n/dynamicKeys';
 
 export async function generateMetadata({
   params
@@ -21,9 +23,7 @@ export async function generateMetadata({
   return {
     title: titles[locale as keyof typeof titles] ?? titles.fr,
     description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
-    alternates: {
-      canonical: `https://clearinvest.be/${locale}/ressources/immobilier-vs-etf`,
-    },
+    alternates: buildAlternates(locale, '/ressources/immobilier-vs-etf'),
   }
 }
 
@@ -31,6 +31,7 @@ export async function generateMetadata({
 
 async function ComparisonCard() {
   const t = await getTranslations('immobilierVsEtf');
+  const tDyn = asDynamic(t);
   const rows = [
     { key: 'yield' },
     { key: 'liq' },
@@ -67,19 +68,19 @@ async function ComparisonCard() {
             {/* Criterion label */}
             <div className="flex items-center px-4 py-3 sm:py-4 bg-[var(--warm-cream)]/60">
               <p className="text-xs font-semibold uppercase tracking-wider text-[var(--charcoal)]/60">
-                {t(`comp_row_${row.key}` as any)}
+                {tDyn(`comp_row_${row.key}`)}
               </p>
             </div>
             {/* Immobilier */}
             <div className="px-4 py-3 sm:py-4 flex items-center sm:border-l sm:border-[var(--warm-tan)]/20">
               <p className="text-sm text-[var(--charcoal)]">
-                {t(`comp_left_${row.key}` as any)}
+                {tDyn(`comp_left_${row.key}`)}
               </p>
             </div>
             {/* ETF */}
             <div className="px-4 py-3 sm:py-4 flex items-center bg-[var(--forest)]/5 sm:border-l sm:border-[var(--warm-tan)]/20">
               <p className="text-sm text-[var(--charcoal)]">
-                {t(`comp_right_${row.key}` as any)}
+                {tDyn(`comp_right_${row.key}`)}
               </p>
             </div>
           </div>
@@ -115,7 +116,10 @@ function SubHeading({ children }: { children: React.ReactNode }) {
 
 // ── Page ───────────────────────────────────────────────────────────────────────
 
-export default async function ImmobilierVsEtfPage() {
+export default async function ImmobilierVsEtfPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations('immobilierVsEtf');
 
   return (
@@ -133,7 +137,7 @@ export default async function ImmobilierVsEtfPage() {
         </p>
       </div>
 
-      <main className="bg-[var(--warm-cream)]">
+      <div className="bg-[var(--warm-cream)]">
         <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
           
           <div className="prose prose-sm max-w-none text-[var(--charcoal)]/80">
@@ -314,10 +318,10 @@ export default async function ImmobilierVsEtfPage() {
             </div>
           </div>
 
-          <LastUpdated isoDate="2026-03-01" />
+          <LastUpdated path="/ressources/immobilier-vs-etf" />
 
         </div>
-      </main>
+      </div>
     </>
   );
 }

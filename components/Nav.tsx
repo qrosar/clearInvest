@@ -36,11 +36,21 @@ export default function Nav() {
     router.replace(pathname, { locale: next });
   }
 
-  const navBg = scrolled
+  // The transparent nav only works over a dark hero. Every page template opens
+  // with a --forest-deep band for exactly that reason — except the strategy
+  // detail pages, which start on the page background, where white-on-black/20
+  // measures 1.7:1 against 14.6:1 everywhere else. Those get the solid
+  // treatment from the top instead.
+  //
+  // If you add a template without a dark hero, add it here too.
+  const hasDarkHero = !/^\/strategies\/[^/]+$/.test(pathname);
+  const solid = scrolled || !hasDarkHero;
+
+  const navBg = solid
     ? 'border-b border-[var(--warm-tan)]/30 bg-[var(--warm-white)]/80 backdrop-blur-md shadow-sm'
     : 'bg-black/20 backdrop-blur-sm';
 
-  const isDark = !scrolled;
+  const isDark = !solid;
 
   return (
     <nav className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${navBg}`}>
@@ -85,14 +95,18 @@ export default function Nav() {
                 )}
                 <button
                   onClick={() => switchLocale(loc)}
+                  aria-current={locale === loc ? 'true' : undefined}
+                  // Inactive locales sit at /70 rather than /50: at /50 they
+                  // measured 2.9:1 on the solid nav, below the 4.5:1 AA floor.
+                  // The active locale still reads as active via weight+colour.
                   className={`uppercase transition-colors ${
                     isDark
                       ? locale === loc
                         ? 'font-bold text-white'
-                        : 'text-white/50 hover:text-white'
+                        : 'text-white/70 hover:text-white'
                       : locale === loc
                         ? 'font-bold text-[var(--forest)]'
-                        : 'text-[var(--charcoal)]/50 hover:text-[var(--forest)]'
+                        : 'text-[var(--charcoal)]/70 hover:text-[var(--forest)]'
                   }`}
                 >
                   {loc}
@@ -153,10 +167,11 @@ export default function Nav() {
                 <button
                   key={loc}
                   onClick={() => { switchLocale(loc); setMenuOpen(false); }}
+                  aria-current={locale === loc ? 'true' : undefined}
                   className={`text-xs font-medium uppercase transition-colors hover:text-[var(--forest)] ${
                     locale === loc
                       ? 'font-bold text-[var(--forest)]'
-                      : 'text-[var(--charcoal)]/50'
+                      : 'text-[var(--charcoal)]/70'
                   }`}
                 >
                   {loc}

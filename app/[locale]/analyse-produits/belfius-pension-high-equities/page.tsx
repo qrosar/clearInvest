@@ -1,7 +1,9 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import LastUpdated from '@/components/ui/LastUpdated';
-import PensionFeeChart from '@/components/analyse-produits/PensionFeeChart';
+import { PensionFeeChart } from '@/components/analyse-produits/LazyFeeCharts';
+import { buildAlternates } from '@/lib/site';
+import { ArticleJsonLd } from '@/components/StructuredData';
 
 export async function generateMetadata({
   params
@@ -22,9 +24,7 @@ export async function generateMetadata({
   return {
     title: titles[locale as keyof typeof titles] ?? titles.fr,
     description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
-    alternates: {
-      canonical: `https://clearinvest.be/${locale}/analyse-produits/belfius-pension-high-equities`,
-    },
+    alternates: buildAlternates(locale, '/analyse-produits/belfius-pension-high-equities'),
   }
 }
 
@@ -109,11 +109,16 @@ function InfoRow({ label, value }: { label: string; value: string }) {
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 
-export default async function BelfiusPensionAnalysisPage() {
+export default async function BelfiusPensionAnalysisPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations('analyseBelfius');
 
   return (
     <>
+      <ArticleJsonLd locale={locale} path="/analyse-produits/belfius-pension-high-equities" namespace="analyseBelfius" />
+
       {/* Hero */}
       <div className="bg-[var(--forest-deep)] px-6 py-14 text-center text-white md:py-20">
         <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-white/40">
@@ -635,7 +640,7 @@ export default async function BelfiusPensionAnalysisPage() {
           </div>
         </section>
 
-        <LastUpdated isoDate="2026-04-10" />
+        <LastUpdated path="/analyse-produits/belfius-pension-high-equities" />
 
         {/* MiFID II disclaimer */}
         <p className="mt-8 text-center text-xs leading-relaxed text-[var(--charcoal)]/30 italic">

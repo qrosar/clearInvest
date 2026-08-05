@@ -1,7 +1,9 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import LastUpdated from '@/components/ui/LastUpdated';
-import PricosFeeChart from '@/components/analyse-produits/PricosFeeChart';
+import { PensionFeeChart } from '@/components/analyse-produits/LazyFeeCharts';
+import { buildAlternates } from '@/lib/site';
+import { ArticleJsonLd } from '@/components/StructuredData';
 
 export async function generateMetadata({
   params
@@ -22,9 +24,7 @@ export async function generateMetadata({
   return {
     title: titles[locale as keyof typeof titles] ?? titles.fr,
     description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
-    alternates: {
-      canonical: `https://clearinvest.be/${locale}/analyse-produits/kbc-pricos`,
-    },
+    alternates: buildAlternates(locale, '/analyse-produits/kbc-pricos'),
   }
 }
 
@@ -109,11 +109,16 @@ function InfoRow({ label, value }: { label: string; value: string }) {
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 
-export default async function KbcPricosAnalysisPage() {
+export default async function KbcPricosAnalysisPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations('kbcPricosAnalysis');
 
   return (
     <>
+      <ArticleJsonLd locale={locale} path="/analyse-produits/kbc-pricos" namespace="kbcPricosAnalysis" />
+
       {/* Hero */}
       <div className="bg-[var(--forest-deep)] px-6 py-14 text-center text-white md:py-20">
         <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-white/40">
@@ -280,7 +285,7 @@ export default async function KbcPricosAnalysisPage() {
           </p>
 
           {/* Death-cross chart: cumulative tax benefit vs cumulative management fees */}
-          <PricosFeeChart />
+          <PensionFeeChart namespace="kbcPricosAnalysis" grossReturn={0.045} ter={0.0141} />
 
           <p className="mt-6 text-sm italic leading-relaxed text-[var(--charcoal)]/45">
             {t('s4_methodology_note')}
@@ -603,7 +608,7 @@ export default async function KbcPricosAnalysisPage() {
           </div>
         </section>
 
-        <LastUpdated isoDate="2026-04-08" />
+        <LastUpdated path="/analyse-produits/kbc-pricos" />
 
         {/* Back link */}
         <div className="mt-10 text-center">

@@ -1,6 +1,8 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import LastUpdated from '@/components/ui/LastUpdated';
+import { buildAlternates } from '@/lib/site';
+import { ArticleJsonLd } from '@/components/StructuredData';
 
 export async function generateMetadata({
   params
@@ -14,16 +16,14 @@ export async function generateMetadata({
     en: 'Ethias Savings 21+ Review — Why the Guarantee Costs You Dearly'
   }
   const descriptions = {
-    fr: 'Analyse complète d\'Ethias Savings 21+. La taxe sur prime de 2% sur chaque versement détruit le rendement réel. XEON offre mieux pour un horizon court, un ETF Monde 3x mieux sur le long terme.',
-    nl: 'Volledige analyse van Ethias Savings 21+. De premietaks van 2% op elke storting vernietigt het werkelijk rendement. XEON biedt beter voor een korte horizon, een wereld-ETF 3x beter op lange termijn.',
-    en: 'Full analysis of Ethias Savings 21+. The 2% premium tax on every payment destroys the real return. XEON does better for a short horizon, a World ETF nearly 3x better long-term.'
+    fr: 'Analyse complète d\'Ethias Savings 21+. La taxe sur prime de 2% sur chaque versement détruit le rendement réel. CSH2 offre mieux pour un horizon court, un ETF Monde 3x mieux sur le long terme.',
+    nl: 'Volledige analyse van Ethias Savings 21+. De premietaks van 2% op elke storting vernietigt het werkelijk rendement. CSH2 biedt beter voor een korte horizon, een wereld-ETF 3x beter op lange termijn.',
+    en: 'Full analysis of Ethias Savings 21+. The 2% premium tax on every payment destroys the real return. CSH2 does better for a short horizon, a World ETF nearly 3x better long-term.'
   }
   return {
     title: titles[locale as keyof typeof titles] ?? titles.fr,
     description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
-    alternates: {
-      canonical: `https://clearinvest.be/${locale}/analyse-produits/ethias-savings-21`,
-    },
+    alternates: buildAlternates(locale, '/analyse-produits/ethias-savings-21'),
   }
 }
 
@@ -77,11 +77,16 @@ function InfoRow({ label, value, valueClassName }: { label: string; value: strin
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 
-export default async function EthiasAnalysisPage() {
+export default async function EthiasAnalysisPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations('ethiasAnalysis');
 
   return (
     <>
+      <ArticleJsonLd locale={locale} path="/analyse-produits/ethias-savings-21" namespace="ethiasAnalysis" />
+
       {/* Hero */}
       <div className="bg-[var(--forest-deep)] px-6 py-14 text-center text-white md:py-20">
         <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-white/40">
@@ -130,7 +135,7 @@ export default async function EthiasAnalysisPage() {
 
         <Divider />
 
-        {/* Section 2: Court terme — XEON */}
+        {/* Section 2: Court terme — CSH2 */}
         <section>
           <SectionHeading>{t('s2_title')}</SectionHeading>
           <Body>{t('s2_intro')}</Body>
@@ -307,7 +312,7 @@ export default async function EthiasAnalysisPage() {
           </Link>
         </div>
 
-        <LastUpdated isoDate="2026-04-12" />
+        <LastUpdated path="/analyse-produits/ethias-savings-21" />
 
         <p className="mt-8 text-center text-xs italic leading-relaxed text-[var(--charcoal)]/30">
           {t('disclaimer')}

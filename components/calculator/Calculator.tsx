@@ -1,13 +1,17 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 import { PRODUCTS, type Product } from '@/lib/calculator/products';
-import { computeGrowth, type TaxBreakdown } from '@/lib/calculator/compute';
+import { computeGrowth, type TaxBreakdown, type DividendBreakdown } from '@/lib/calculator/compute';
 import ProductSelector from './ProductSelector';
 import ResultSummary from './ResultSummary';
+import NumberField from './NumberField';
+
+const MIN_YEARS = 1;
+const MAX_YEARS = 60;
 
 // Recharts must not render server-side (uses DOM APIs)
 const ResultChart = dynamic(() => import('./ResultChart'), { ssr: false });
@@ -18,6 +22,9 @@ const fmtPension = (n: number) =>
 export default function Calculator() {
   const t = useTranslations('calculator');
 
+  // "1 an" vs "20 ans" — NL/EN fall back gracefully via their own singular key
+  const yearsUnit = (n: number) => (n === 1 ? t('years_unit_one') : t('years_unit'));
+
   const [lumpSum, setLumpSum] = useState(0);
   const [monthlyContribution, setMonthlyContribution] = useState(200);
   const [years, setYears] = useState(20);
@@ -25,18 +32,15 @@ export default function Calculator() {
   // All available products (static defaults + user-added custom products)
   const [allProducts, setAllProducts] = useState<Product[]>(PRODUCTS);
 
-  // Which products are currently selected (by ID)
-  const [selectedIds, setSelectedIds] = useState<string[]>([]);
-
-  // Pre-select strategy from ?strategy= URL param — runs once on mount only
+  // Which products are currently selected (by ID), pre-seeded from ?strategy=.
+  // Reading the param in the initialiser rather than a mount effect means the
+  // right product is selected on the very first render — no flash of an empty
+  // comparison, and no cascading re-render.
   const searchParams = useSearchParams();
-  useEffect(() => {
+  const [selectedIds, setSelectedIds] = useState<string[]>(() => {
     const strategyId = searchParams.get('strategy');
-    if (!strategyId) return;
-    if (PRODUCTS.some(p => p.id === strategyId)) {
-      setSelectedIds([strategyId]);
-    }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    return strategyId && PRODUCTS.some(p => p.id === strategyId) ? [strategyId] : [];
+  });
 
   // Per-product rate overrides (initialised from defaultRate, editable inline)
   const [rates, setRates] = useState<Record<string, number>>(
@@ -89,18 +93,19 @@ export default function Calculator() {
       return row;
     });
 
-    const summaryData: Record<string, { finalValueAfterTax: number; totalTaxPaid: number; taxBreakdown: TaxBreakdown }> = {};
+    const summaryData: Record<string, { finalValueAfterTax: number; totalTaxPaid: number; taxBreakdown: TaxBreakdown; dividends?: DividendBreakdown }> = {};
     activeProducts.forEach(p => {
       const result = growthResults.get(p.id)!;
       summaryData[p.id] = {
         finalValueAfterTax: result.finalValueAfterTax,
         totalTaxPaid: result.taxBreakdown.total,
         taxBreakdown: result.taxBreakdown,
+        dividends: result.dividends,
       };
     });
 
     return { chartData, activeProducts, summaryData };
-  }, [allProducts, selectedIds, rates, effectiveMonthly, effectiveLumpSum, years]);
+  }, [allProducts, selectedIds, rates, effectiveMonthly, effectiveLumpSum, years, isPensionLocked, pensionAnnual]);
 
   return (
     <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
@@ -116,17 +121,13 @@ export default function Calculator() {
             </label>
             <div className="flex items-center gap-1">
               {effectiveLumpSum > 0 && <span className="text-sm text-[var(--charcoal)]/40">€</span>}
-              <input
-                type="number"
+              <NumberField
+                value={effectiveLumpSum}
                 min={0}
                 max={2000000}
-                step={1000}
-                value={effectiveLumpSum === 0 ? '' : effectiveLumpSum}
-                placeholder={t('lump_sum_none')}
-                onChange={e => {
-                  const v = Number(e.target.value);
-                  setLumpSum(Math.min(2000000, Math.max(0, isNaN(v) ? 0 : v)));
-                }}
+                onCommit={setLumpSum}
+                zeroPlaceholder={t('lump_sum_none')}
+                ariaLabel={t('lump_sum_label')}
                 className="w-24 rounded border border-[var(--warm-tan)] bg-[var(--warm-white)]
                   px-2 py-1 text-right text-sm font-bold text-[var(--charcoal)]
                   placeholder:font-normal placeholder:text-[var(--charcoal)]/35
@@ -181,15 +182,12 @@ export default function Calculator() {
               </label>
               <div className="flex items-center gap-1">
                 <span className="text-sm text-[var(--charcoal)]/40">€</span>
-                <input
-                  type="number"
+                <NumberField
+                  value={monthlyContribution}
                   min={0}
                   max={10000}
-                  step={50}
-                  value={monthlyContribution}
-                  onChange={e =>
-                    setMonthlyContribution(Math.min(10000, Math.max(0, Number(e.target.value) || 0)))
-                  }
+                  onCommit={setMonthlyContribution}
+                  ariaLabel={t('monthly_label')}
                   className="w-20 rounded border border-[var(--warm-tan)] bg-[var(--warm-white)]
                     px-2 py-1 text-right text-sm font-bold text-[var(--charcoal)]
                     focus:outline-none focus:ring-1 focus:ring-[var(--forest)]"
@@ -214,27 +212,65 @@ export default function Calculator() {
               {t('years_label')}
             </label>
             <div className="flex items-center gap-1.5">
-              <input
-                type="number"
-                min={5}
-                max={60}
-                step={1}
+              <button
+                type="button"
+                aria-label={t('years_decrease')}
+                onClick={() => setYears(y => Math.max(MIN_YEARS, y - 1))}
+                disabled={years <= MIN_YEARS}
+                className="flex h-8 w-8 items-center justify-center rounded-lg border border-[var(--warm-tan)]
+                  bg-[var(--warm-white)] text-base leading-none text-[var(--charcoal)]/70 transition-colors
+                  hover:border-[var(--forest)]/50 hover:text-[var(--forest)] disabled:opacity-30"
+              >
+                −
+              </button>
+              <NumberField
                 value={years}
-                onChange={e => setYears(Math.min(60, Math.max(5, Number(e.target.value) || 5)))}
-                className="w-14 rounded border border-[var(--warm-tan)] bg-[var(--warm-white)]
-                  px-2 py-1 text-right text-sm font-bold text-[var(--charcoal)]
+                min={MIN_YEARS}
+                max={MAX_YEARS}
+                onCommit={setYears}
+                ariaLabel={t('years_label')}
+                className="w-12 rounded border border-[var(--warm-tan)] bg-[var(--warm-white)]
+                  px-2 py-1 text-center text-sm font-bold text-[var(--charcoal)]
                   focus:outline-none focus:ring-1 focus:ring-[var(--forest)]"
               />
+              <button
+                type="button"
+                aria-label={t('years_increase')}
+                onClick={() => setYears(y => Math.min(MAX_YEARS, y + 1))}
+                disabled={years >= MAX_YEARS}
+                className="flex h-8 w-8 items-center justify-center rounded-lg border border-[var(--warm-tan)]
+                  bg-[var(--warm-white)] text-base leading-none text-[var(--charcoal)]/70 transition-colors
+                  hover:border-[var(--forest)]/50 hover:text-[var(--forest)] disabled:opacity-30"
+              >
+                +
+              </button>
               <span className="text-sm text-[var(--charcoal)]/40">{t('years_unit')}</span>
             </div>
           </div>
           <input
-            type="range" min={5} max={60} step={1} value={years}
+            type="range" min={MIN_YEARS} max={MAX_YEARS} step={1} value={years}
             onChange={e => setYears(Number(e.target.value))}
             className="w-full" style={{ accentColor: 'var(--forest)' }}
           />
           <div className="mt-1 flex justify-between text-[10px] text-[var(--charcoal)]/35">
-            <span>5 {t('years_unit')}</span><span>60 {t('years_unit')}</span>
+            <span>{MIN_YEARS} {yearsUnit(MIN_YEARS)}</span><span>{MAX_YEARS} {yearsUnit(MAX_YEARS)}</span>
+          </div>
+          {/* Quick presets — faster than the slider on touch screens */}
+          <div className="mt-2 flex flex-wrap gap-1.5">
+            {[1, 3, 5, 10, 20, 30].map(preset => (
+              <button
+                key={preset}
+                type="button"
+                onClick={() => setYears(preset)}
+                className={`rounded-full border px-2.5 py-1 text-[11px] font-medium transition-colors ${
+                  years === preset
+                    ? 'border-[var(--forest)] bg-[var(--forest)] text-white'
+                    : 'border-[var(--warm-tan)]/60 bg-[var(--warm-cream)] text-[var(--charcoal)]/60 hover:border-[var(--forest)]/50'
+                }`}
+              >
+                {preset} {yearsUnit(preset)}
+              </button>
+            ))}
           </div>
         </div>
 

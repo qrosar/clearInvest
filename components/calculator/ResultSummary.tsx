@@ -4,12 +4,14 @@ import { useState, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
 import type { Product } from '@/lib/calculator/products';
-import { formatEuro, type TaxBreakdown } from '@/lib/calculator/compute';
+import { formatEuro, type TaxBreakdown, type DividendBreakdown } from '@/lib/calculator/compute';
+import { asDynamic } from '@/lib/i18n/dynamicKeys';
 
 interface SummaryEntry {
   finalValueAfterTax: number;
   totalTaxPaid: number;
   taxBreakdown: TaxBreakdown;
+  dividends?: DividendBreakdown;
 }
 
 interface Props {
@@ -101,12 +103,14 @@ function ResultCard({
   t: ReturnType<typeof useTranslations<'calculator'>>;
 }) {
   const td = useTranslations();
+  const tdDyn = asDynamic(td);
   const [showBreakdown, setShowBreakdown] = useState(false);
   const isEtf = product.category === 'etf';
   const isBankProduct = !isEtf;
   const isActiveFund = product.subcategory === 'active-fund';
   const isPensionOnCard = !!(product.taxConfig?.pensionTax);
   const bd = sd.taxBreakdown;
+  const div = sd.dividends;
   
   // Pension gain = Final Net Value - Net Contribution - Total Taxes
   // Standard gain = Final Net Value - Gross Contribution
@@ -122,8 +126,8 @@ function ResultCard({
   const isBranche21 = !!(product.taxConfig?.branche21WithholdingTax);
   const isBranche21Exempt = isBranche21 && years >= (product.taxConfig?.branche21MinYears ?? 8);
 
-  const name = product.name.startsWith('data.') ? td(product.name as any) : product.name;
-  const provider = product.provider?.startsWith('data.') ? td(product.provider as any) : product.provider;
+  const name = product.name.startsWith('data.') ? tdDyn(product.name) : product.name;
+  const provider = product.provider?.startsWith('data.') ? tdDyn(product.provider) : product.provider;
 
   // Dynamic rate label
   let rateLabel = t('param_gross_rate');
@@ -187,7 +191,7 @@ function ResultCard({
             {t('active_fund_warning', { rate: formatPct(rate) })}
             {product.warningNote && (
               <p className="mt-1 font-medium">
-                {product.warningNote.startsWith('data.') || product.warningNote.startsWith('p_') ? td(product.warningNote as any) : product.warningNote}
+                {product.warningNote.startsWith('data.') || product.warningNote.startsWith('p_') ? tdDyn(product.warningNote) : product.warningNote}
               </p>
             )}
           </div>
@@ -231,12 +235,70 @@ function ResultCard({
         </div>
       </div>
 
+      {/* ── Dividend panel — the reason to pick an income strategy ─ */}
+      {div && (
+        <div className="mt-3 rounded-lg border border-[#e8d9a8] bg-[#fdf8e9] p-3">
+          <div className="flex items-baseline justify-between gap-2">
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-[#8a6d1f]">
+              {t('dividends_title')}
+            </p>
+            <p className="text-[10px] font-medium text-[#8a6d1f]/70">
+              {t('dividends_yield_inline', {
+                gross: formatPct(div.grossYield),
+                net: formatPct(div.netYield),
+              })}
+            </p>
+          </div>
+
+          <p className="mt-1.5 font-heading text-xl font-bold leading-none text-[#7a5f12]">
+            {formatEuro(div.netTotal)}
+          </p>
+          <p className="mt-1 text-[10px] leading-snug text-[#8a6d1f]/80">
+            {t('dividends_net_over_period', { years })}
+          </p>
+
+          <div className="mt-2 space-y-1 border-t border-[#e8d9a8] pt-2 text-[11px]">
+            <div className="flex items-baseline justify-between gap-3">
+              <span className="whitespace-nowrap text-[#8a6d1f]/70">{t('dividends_gross')}</span>
+              <span className="text-right text-[#7a5f12]">{formatEuro(div.grossTotal)}</span>
+            </div>
+            <div className="flex items-baseline justify-between gap-3">
+              <span className="whitespace-nowrap text-[#8a6d1f]/70">{t('dividends_precompte')}</span>
+              <span className="text-right text-[#b45309]">−{formatEuro(div.precompte)}</span>
+            </div>
+            <div className="flex items-baseline justify-between gap-3 border-t border-[#e8d9a8] pt-1">
+              <span className="whitespace-nowrap text-[#8a6d1f]/70">{t('dividends_if_cashed_out')}</span>
+              <span className="text-right font-medium text-[#7a5f12]">{formatEuro(div.cashCollected)}</span>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* ── Final value — pushed to bottom ───────────────────── */}
       <div className="mt-auto border-t border-[var(--warm-tan)]/30 pt-4">
-        <p className="text-[10px] uppercase tracking-wide text-[var(--charcoal)]/35">{t('final_value')}</p>
+        <p className="text-[10px] uppercase tracking-wide text-[var(--charcoal)]/35">
+          {div ? t('final_value_reinvested') : t('final_value')}
+        </p>
         <p className="mt-1 font-heading text-2xl font-bold leading-none text-[var(--charcoal)]">
           {formatEuro(sd.finalValueAfterTax)}
         </p>
+
+        {div && (
+          <div className="mt-3 border-t border-dashed border-[var(--warm-tan)]/50 pt-2.5">
+            <p className="text-[10px] uppercase tracking-wide text-[var(--charcoal)]/35">
+              {t('final_value_cashed_out')}
+            </p>
+            <p className="mt-1 font-heading text-xl font-bold leading-none text-[var(--charcoal)]/75">
+              {formatEuro(div.totalIfCashedOut)}
+            </p>
+            <p className="mt-1 text-[10px] leading-snug text-[var(--charcoal)]/45">
+              {t('final_value_cashed_out_detail', {
+                portfolio: formatEuro(div.portfolioIfCashedOut),
+                cash: formatEuro(div.cashCollected),
+              })}
+            </p>
+          </div>
+        )}
       </div>
 
       {/* ── Expandable breakdown ─────────────────────────────── */}

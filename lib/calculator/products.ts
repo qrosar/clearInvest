@@ -50,12 +50,9 @@ export interface Product {
   grossBaseline?: number;
   /** Total Expense Ratio for display in result card formula (mirrors taxConfig.annualFee) */
   ter?: number;
-  // Legacy fields — kept for custom products created via ProductSelector form
-  taxRate?: number;
-  entryFee?: number;
 }
 
-const ETF_PRODUCTS: Product[] = STRATEGIES.filter(s => s.id !== 'epargne-liquide').map(s => {
+const ETF_PRODUCTS: Product[] = STRATEGIES.map(s => {
   const hasDistributing = s.etfs.some(e => !e.accumulating);
   // Weighted average TER in fraction form (e.g. 0.0020 = 0.20%)
   // ter in strategies is stored as percentage like 0.20, allocation as 100

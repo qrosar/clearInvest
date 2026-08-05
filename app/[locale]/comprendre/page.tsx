@@ -1,5 +1,6 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import { buildAlternates } from '@/lib/site';
 
 export async function generateMetadata({
   params
@@ -20,9 +21,7 @@ export async function generateMetadata({
   return {
     title: titles[locale as keyof typeof titles] ?? titles.fr,
     description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
-    alternates: {
-      canonical: `https://clearinvest.be/${locale}/comprendre`,
-    },
+    alternates: buildAlternates(locale, '/comprendre'),
   }
 }
 
@@ -32,7 +31,10 @@ const CARD_HREFS = [
   { href: '/comprendre/fiscalite',         icon: '📋', tagClass: 'bg-[var(--warm-tan)]/40 text-[var(--charcoal)]/60', titleKey: 'card3_title', descKey: 'card3_desc', tagKey: 'card3_tag' },
 ] as const;
 
-export default async function ComprendrePage() {
+export default async function ComprendrePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations('comprendre');
 
   return (

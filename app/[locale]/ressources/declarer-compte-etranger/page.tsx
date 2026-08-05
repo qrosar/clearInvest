@@ -1,6 +1,7 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import LastUpdated from '@/components/ui/LastUpdated';
+import { buildAlternates } from '@/lib/site';
 
 export async function generateMetadata({
   params
@@ -21,9 +22,7 @@ export async function generateMetadata({
   return {
     title: titles[locale as keyof typeof titles] ?? titles.fr,
     description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
-    alternates: {
-      canonical: `https://clearinvest.be/${locale}/ressources/declarer-compte-etranger`,
-    },
+    alternates: buildAlternates(locale, '/ressources/declarer-compte-etranger'),
   }
 }
 
@@ -67,7 +66,10 @@ function Step({ number, title, children }: { number: number; title: string; chil
 
 // ── Page ───────────────────────────────────────────────────────────────────────
 
-export default async function DeclarerCompteEtrangerPage() {
+export default async function DeclarerCompteEtrangerPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations('declarerCompte');
 
   const formFields = [
@@ -101,7 +103,7 @@ export default async function DeclarerCompteEtrangerPage() {
         </p>
       </div>
 
-      <main className="bg-[var(--warm-cream)]">
+      <div className="bg-[var(--warm-cream)]">
         <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
 
           {/* Intro */}
@@ -276,10 +278,10 @@ export default async function DeclarerCompteEtrangerPage() {
             </Link>
           </div>
 
-          <LastUpdated isoDate="2026-03-01" />
+          <LastUpdated path="/ressources/declarer-compte-etranger" />
 
         </div>
-      </main>
+      </div>
     </>
   );
 }

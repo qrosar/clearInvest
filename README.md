@@ -23,10 +23,13 @@ the full Belgian tax stack as of 2026:
 - TOB (0.12% / 1.32%)
 - Précompte mobilier (30% / 15%)
 - Taxe Reynders (30% on bond allocation)
-- CGT 10% above €10,000/yr
+- CGT 10% above the annual exemption (€10,000/yr, plus €1,000/yr
+  carried forward for up to 5 years → €15,000 ceiling)
 - Branche 21 premium tax (2%)
 - Pension exit tax (8% on fictive 4.75% capital)
-- Pension tax relief (30%)
+- Pension tax relief (30% up to €1,050/yr, or 25% up to €1,350/yr)
+
+Run the tax-engine tests with `pnpm test`.
 
 ## Contributing
 Found an inaccuracy? Open an issue or submit a pull request.

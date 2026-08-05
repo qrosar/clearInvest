@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import type { Broker } from '@/lib/brokers/brokers';
+import { asDynamic } from '@/lib/i18n/dynamicKeys';
 
 // ── Portal tooltip for fee notes ──────────────────────────────────────────────
 function InfoTip({ text }: { text: string }) {
@@ -70,7 +71,7 @@ function CgtBadge({ cgtKey }: { cgtKey: string }) {
   const t = useTranslations('brokers');
   if (cgtKey !== 'cgt_manual') {
     return (
-      <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2 py-0.5 text-[11px] font-semibold text-amber-700">
+      <span className="inline-flex items-center gap-1 rounded-full bg-[var(--forest)]/10 px-2 py-0.5 text-[11px] font-semibold text-[var(--forest)]">
         {t('cgt_auto')}
       </span>
     );
@@ -88,6 +89,7 @@ interface Props {
 
 export default function BrokerCard({ broker }: Props) {
   const t = useTranslations('brokers');
+  const tDyn = asDynamic(t);
   const [expanded, setExpanded] = useState(false);
 
   const maxItems = 4;
@@ -136,7 +138,7 @@ export default function BrokerCard({ broker }: Props) {
               </span>
             )}
           </div>
-          <p className="mt-0.5 text-sm text-[var(--charcoal)]/60">{t(broker.tagline as any)}</p>
+          <p className="mt-0.5 text-sm text-[var(--charcoal)]/60">{tDyn(broker.tagline)}</p>
         </div>
         <div className="shrink-0">
           {broker.regulatedIn === 'regulated_be' ? (
@@ -145,7 +147,7 @@ export default function BrokerCard({ broker }: Props) {
             </span>
           ) : (
             <span className="rounded-full bg-[var(--warm-tan)]/40 px-2 py-0.5 text-[10px] font-semibold text-[var(--charcoal)]/50">
-              {t(broker.regulatedIn as any)}
+              {tDyn(broker.regulatedIn)}
             </span>
           )}
         </div>
@@ -163,14 +165,14 @@ export default function BrokerCard({ broker }: Props) {
                 item.highlight === 'good' ? 'text-[var(--forest)] font-medium' : 
                 item.highlight === 'bad' ? 'text-red-600 font-medium' : 
                 'text-[var(--charcoal)]/60'
-              }`}>{t(item.label as any)}</span>
+              }`}>{tDyn(item.label)}</span>
               <span className="flex items-center text-sm text-[var(--charcoal)]">
                 <span className={`font-mono ${
                   item.highlight === 'good' ? 'text-[var(--forest)] font-bold' : 
                   item.highlight === 'bad' ? 'text-red-600 font-bold' : 
                   ''
-                }`}>{/^[a-z][a-z0-9_]*$/.test(item.value) ? t(item.value as any) : item.value}</span>
-                {item.note && <InfoTip text={t(item.note as any)} />}
+                }`}>{/^[a-z][a-z0-9_]*$/.test(item.value) ? tDyn(item.value) : item.value}</span>
+                {item.note && <InfoTip text={tDyn(item.note)} />}
               </span>
             </div>
           ))}
@@ -195,7 +197,7 @@ export default function BrokerCard({ broker }: Props) {
             {prosToShow.map((pro, i) => (
               <li key={i} className="flex gap-2 text-sm text-[var(--charcoal)]">
                 <span className="mt-0.5 shrink-0 text-[var(--forest)]">●</span>
-                {t(pro as any)}
+                {tDyn(pro)}
               </li>
             ))}
           </ul>
@@ -208,7 +210,7 @@ export default function BrokerCard({ broker }: Props) {
             {consToShow.map((con, i) => (
               <li key={i} className="flex gap-2 text-sm text-[var(--charcoal)]">
                 <span className="mt-0.5 shrink-0 text-red-400">●</span>
-                {t(con as any)}
+                {tDyn(con)}
               </li>
             ))}
           </ul>
@@ -230,14 +232,14 @@ export default function BrokerCard({ broker }: Props) {
           <span className="mr-1 text-[11px] font-semibold uppercase not-italic tracking-wide text-[var(--charcoal)]/40">
             {t('ideal_for')}
           </span>
-          <span className="italic">{t(broker.idealFor as any)}</span>
+          <span className="italic">{tDyn(broker.idealFor)}</span>
         </p>
       )}
 
       {/* Warning note */}
       {broker.warningNote && (
         <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-          {t(broker.warningNote as any).split(' | ').map((para, i) => (
+          {tDyn(broker.warningNote).split(' | ').map((para, i) => (
             <p key={i} className={i > 0 ? 'mt-2' : ''}>{para}</p>
           ))}
           {broker.guideLink && (
@@ -246,7 +248,7 @@ export default function BrokerCard({ broker }: Props) {
                 href={broker.guideLink.href}
                 className="font-semibold underline underline-offset-2 hover:text-amber-900"
               >
-                → {t(broker.guideLink.text as any)}
+                → {tDyn(broker.guideLink.text)}
               </Link>
             </p>
           )}

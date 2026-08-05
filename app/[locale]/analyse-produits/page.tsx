@@ -1,5 +1,6 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import { buildAlternates } from '@/lib/site';
 
 export async function generateMetadata({
   params
@@ -12,9 +13,7 @@ export async function generateMetadata({
   return {
     title: t('meta_title'),
     description: t('meta_description'),
-    alternates: {
-      canonical: `https://clearinvest.be/${locale}/analyse-produits`,
-    },
+    alternates: buildAlternates(locale, '/analyse-produits'),
   }
 }
 
@@ -122,7 +121,10 @@ function ComingSoonSection({ heading, products }: { heading: string; products: C
   );
 }
 
-export default async function AnalyseProduitsPage() {
+export default async function AnalyseProduitsPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations('analyseProductsPage');
 
   const comingSoon: ComingSoonProduct[] = [

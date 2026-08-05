@@ -11,6 +11,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import { useTranslations } from 'next-intl';
+import { asDynamic } from '@/lib/i18n/dynamicKeys';
 
 interface DataPoint {
   year: number;
@@ -108,8 +109,8 @@ export default function PensionFeeChart({
   annualContrib = 1050,
   annualTaxBonus = 315,
 }: PensionFeeChartProps) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const t = useTranslations(namespace as any);
+  // The namespace is chosen by the page, so it can't be a literal here.
+  const t = asDynamic(useTranslations(namespace as Parameters<typeof useTranslations>[0]));
   const { data, crossoverYear } = buildData(grossReturn, ter, annualContrib, annualTaxBonus);
 
   const lineALabel = t('chart_line_a');

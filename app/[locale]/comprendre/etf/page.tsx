@@ -1,6 +1,7 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import LastUpdated from '@/components/ui/LastUpdated';
+import { buildAlternates } from '@/lib/site';
 
 export async function generateMetadata({
   params
@@ -21,9 +22,7 @@ export async function generateMetadata({
   return {
     title: titles[locale as keyof typeof titles] ?? titles.fr,
     description: descriptions[locale as keyof typeof descriptions] ?? descriptions.fr,
-    alternates: {
-      canonical: `https://clearinvest.be/${locale}/comprendre/etf`,
-    },
+    alternates: buildAlternates(locale, '/comprendre/etf'),
   }
 }
 
@@ -76,7 +75,10 @@ function Divider() {
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 
-export default async function EtfGuidePage() {
+export default async function EtfGuidePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations('comprendreEtf');
   const tc = await getTranslations('common');
 
@@ -283,7 +285,7 @@ export default async function EtfGuidePage() {
           </div>
         </section>
 
-        <LastUpdated isoDate="2026-05-01" />
+        <LastUpdated path="/comprendre/etf" />
 
         {/* Back link */}
         <div className="mt-6 text-center">

@@ -1,6 +1,7 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import LastUpdated from '@/components/ui/LastUpdated';
+import { buildAlternates } from '@/lib/site';
 
 export async function generateMetadata({
   params
@@ -15,9 +16,7 @@ export async function generateMetadata({
   }
   return {
     title: titles[locale as keyof typeof titles] ?? titles.fr,
-    alternates: {
-      canonical: `https://clearinvest.be/${locale}/politique-confidentialite`,
-    },
+    alternates: buildAlternates(locale, '/politique-confidentialite'),
   }
 }
 
@@ -32,7 +31,10 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   );
 }
 
-export default async function PolitiqueConfidentialitePage() {
+export default async function PolitiqueConfidentialitePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations('politiqueConfidentialite');
   const bullets = [t('s1_bullet_1'), t('s1_bullet_2'), t('s1_bullet_3')];
 
@@ -106,7 +108,7 @@ export default async function PolitiqueConfidentialitePage() {
           <p className="text-[var(--charcoal)]/45">{t('s4_date')}</p>
         </Section>
 
-        <LastUpdated isoDate="2026-03-01" />
+        <LastUpdated path="/politique-confidentialite" />
 
         <div className="mt-8 border-t border-[var(--warm-tan)]/40 pt-6">
           <Link
