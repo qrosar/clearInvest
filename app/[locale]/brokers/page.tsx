@@ -15,9 +15,9 @@ export async function generateMetadata({
     en: 'Best ETF Broker Belgium 2026 — MeDirect, Saxo, Bolero, DEGIRO Compared',
   }
   const descriptions = {
-    fr: "Frais, fiscalité belge (TOB, CGT 2026), plan d'épargne automatique : comparatif indépendant de MeDirect, Saxo, Bolero, DEGIRO, Trade Republic, Interactive Brokers et Robinhood. Quel broker pour votre profil ?",
-    nl: "Kosten, Belgische fiscaliteit (beurstaks, meerwaardebelasting 2026), automatisch spaarplan: onafhankelijke vergelijking van MeDirect, Saxo, Bolero, DEGIRO, Trade Republic, Interactive Brokers en Robinhood. Welke broker past bij u?",
-    en: "Fees, Belgian taxation (TOB, CGT 2026), automatic savings plan: independent comparison of MeDirect, Saxo, Bolero, DEGIRO, Trade Republic, Interactive Brokers and Robinhood. Which broker fits your profile?",
+    fr: "Frais, fiscalité belge (TOB, CGT 2026), plan d'épargne automatique et parts fractionnées : comparatif indépendant de 13 brokers — MeDirect, Saxo, ING, Bolero, Re=Bel, DEGIRO, MEXEM, Keytrade, BUX, Trade Republic, Interactive Brokers, Revolut et Robinhood. Tarifs vérifiés en août 2026.",
+    nl: "Kosten, Belgische fiscaliteit (beurstaks, meerwaardebelasting 2026), automatisch spaarplan en fractionele deelbewijzen: onafhankelijke vergelijking van 13 brokers — MeDirect, Saxo, ING, Bolero, Re=Bel, DEGIRO, MEXEM, Keytrade, BUX, Trade Republic, Interactive Brokers, Revolut en Robinhood. Tarieven geverifieerd in augustus 2026.",
+    en: "Fees, Belgian taxation (TOB, CGT 2026), automatic savings plans and fractional shares: an independent comparison of 13 brokers — MeDirect, Saxo, ING, Bolero, Re=Bel, DEGIRO, MEXEM, Keytrade, BUX, Trade Republic, Interactive Brokers, Revolut and Robinhood. Fees verified August 2026.",
   }
   const title = titles[locale as keyof typeof titles] ?? titles.fr;
   const description = descriptions[locale as keyof typeof descriptions] ?? descriptions.fr;

@@ -26,7 +26,7 @@ export const PAGE_UPDATED: Record<string, string> = {
   '': '2026-08-02',
   '/strategies': '2026-08-04',
   '/calculateur': '2026-08-04',
-  '/brokers': '2026-08-02',
+  '/brokers': '2026-08-07',
   '/questions': '2026-08-02',
   '/comprendre': '2026-05-01',
   '/comprendre/etf': '2026-08-04',

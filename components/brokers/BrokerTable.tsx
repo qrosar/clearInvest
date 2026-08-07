@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
 import type { Broker } from '@/lib/brokers/brokers';
-import { asDynamic } from '@/lib/i18n/dynamicKeys';
+import { asDynamic, type DynamicTranslator } from '@/lib/i18n/dynamicKeys';
 
 // ── Portal tooltip — same pattern as TerInfoIcon ──────────────────────────────
 function Tip({ text, children }: { text: string; children: React.ReactNode }) {
@@ -65,10 +65,10 @@ function Tip({ text, children }: { text: string; children: React.ReactNode }) {
 
 // Explicit display order, grouped by tier
 const DISPLAY_ORDER = [
-  'medirect', 'saxo',                                        // recommended
-  'bolero', 'degiro', 'rebel', 'keytrade', 'trade_republic', // situational
-  'ing', 'ibkr',                                             // not_recommended
-  'robinhood',                                               // avoid
+  'medirect', 'saxo',                                              // recommended
+  'ing', 'bolero', 'rebel', 'degiro', 'mexem', 'keytrade', 'bux',  // situational
+  'trade_republic', 'ibkr', 'revolut',                             // not_recommended
+  'robinhood',                                                     // avoid
 ];
 
 // ── Cell components ───────────────────────────────────────────────────────────
@@ -106,6 +106,14 @@ function CgtAuto() {
       {t('cgt_auto')}
     </span>
   );
+}
+
+/**
+ * Fee fields hold either a message key or a ready-to-display literal ("€2,50").
+ * Bare snake_case is the key shape; anything else is already display text.
+ */
+function resolve(t: DynamicTranslator, value: string) {
+  return /^[a-z][a-z0-9_]*$/.test(value) ? t(value) : value;
 }
 
 function FeeCell({ value, note }: { value: string; note?: string }) {
@@ -194,16 +202,17 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
       <div className="overflow-x-auto rounded-2xl border border-[var(--warm-tan)]/40">
         <div className="h-1 rounded-t-2xl bg-[var(--forest)]" />
 
-        <table className="w-full min-w-[680px] table-fixed bg-[var(--warm-white)] text-sm">
-          {/* Column widths: Broker | Fixed | % | Savings | TOB | CGT | Protection */}
+        <table className="w-full min-w-[780px] table-fixed bg-[var(--warm-white)] text-sm">
+          {/* Column widths: Broker | Fixed | % | Savings | Fractional | TOB | CGT | Protection */}
           <colgroup>
-            <col style={{ width: '26%' }} />
-            <col style={{ width: '13%' }} />
-            <col style={{ width: '13%' }} />
+            <col style={{ width: '23%' }} />
             <col style={{ width: '12%' }} />
-            <col style={{ width: '10%' }} />
-            <col style={{ width: '10%' }} />
-            <col style={{ width: '16%' }} />
+            <col style={{ width: '12%' }} />
+            <col style={{ width: '11%' }} />
+            <col style={{ width: '11%' }} />
+            <col style={{ width: '9%' }} />
+            <col style={{ width: '9%' }} />
+            <col style={{ width: '13%' }} />
           </colgroup>
 
           {/* ── Header ─────────────────────────────────────────────────── */}
@@ -220,6 +229,9 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
               </th>
               <th className={`${TH} text-center`}>
                 {t('col_savings_plan')}
+              </th>
+              <th className={`${TH} text-center`}>
+                <ColHeader label={t('col_fractional')} tooltip={t('fractional_tooltip')} />
               </th>
               <th className={`${TH} text-center`}>
                 {t('col_tob_auto')}
@@ -240,7 +252,7 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
                 <React.Fragment key={key}>
                   {/* Tier divider row */}
                   <tr key={`divider-${key}`} className="border-b border-[var(--warm-tan)]/20 bg-[var(--warm-cream)]/60">
-                    <td colSpan={7} className="px-4 py-1.5">
+                    <td colSpan={8} className="px-4 py-1.5">
                       <span className="text-[10px] font-semibold uppercase tracking-widest text-[var(--charcoal)]/40">
                         {label}
                       </span>
@@ -280,34 +292,52 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
                                 {broker.recommendedBadge === 'meilleur_cout' ? '🏆' : '🤖'}
                               </span>
                             )}
-                            {broker.warningNote && (
-                              <a
-                                href={`#broker-${broker.id}`}
-                                className="no-underline text-amber-400 hover:text-amber-500"
-                                title={t('warning_scroll_hint')}
-                              >
-                                ⚠️
-                              </a>
-                            )}
+                            {/*
+                              ⚠️ is reserved for a real tax risk — a broker that
+                              leaves the TOB or the 2026 withholding to you. Other
+                              notes (deposit-scheme jurisdiction, ETF coverage) get
+                              a neutral ℹ️ so the alarm keeps its meaning.
+                            */}
+                            {broker.warningNote &&
+                              (!broker.automation.tobAuto ||
+                              broker.automation.cgtAuto === 'cgt_manual' ? (
+                                <a
+                                  href={`#broker-${broker.id}`}
+                                  className="no-underline text-amber-400 hover:text-amber-500"
+                                  title={t('warning_scroll_hint')}
+                                >
+                                  ⚠️
+                                </a>
+                              ) : (
+                                <a
+                                  href={`#broker-${broker.id}`}
+                                  className="text-[10px] text-[var(--charcoal)]/35 no-underline hover:text-[var(--charcoal)]/60"
+                                  title={t('note_scroll_hint')}
+                                >
+                                  ℹ️
+                                </a>
+                              ))}
                           </div>
                         </td>
 
                         <td className={`${TD} text-center`}>
                           <FeeCell
-                            value={broker.fees.fixedFeePerTrade === 'fees_free' ? t('fees_free') : broker.fees.fixedFeePerTrade}
+                            value={resolve(tDyn, broker.fees.fixedFeePerTrade)}
                             note={broker.fees.note ? tDyn(broker.fees.note) : undefined}
                           />
                         </td>
                         <td className={`${TD} text-center`}>
                           <FeeCell
-                            value={broker.fees.percentFeePerTrade}
+                            value={resolve(tDyn, broker.fees.percentFeePerTrade)}
                             note={broker.id === 'robinhood' ? tDyn('robinhood_fs0_note') : undefined}
                           />
                         </td>
 
                         <td className={`${TD} text-center`}>
                           {broker.automation.savingsPlan ? (
-                            broker.id === 'trade_republic' ? (
+                            !broker.automation.tobAuto ? (
+                              // An automatic plan that still leaves the TOB to you
+                              // is not the same product — flag it in the cell.
                               <YesStar href="#fn-tr-savings" />
                             ) : broker.id === 'saxo' ? (
                               <Tip text={tDyn('saxo_fs0_note')}>
@@ -319,6 +349,10 @@ export default function BrokerTable({ brokers, highlightIds }: Props) {
                           ) : (
                             <No />
                           )}
+                        </td>
+
+                        <td className={`${TD} text-center`}>
+                          {broker.automation.fractionalShares ? <Yes /> : <No />}
                         </td>
 
                         <td className={`${TD} text-center`}>

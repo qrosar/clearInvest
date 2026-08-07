@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import type { Broker } from '@/lib/brokers/brokers';
-import { asDynamic } from '@/lib/i18n/dynamicKeys';
+import { asDynamic, type DynamicTranslator } from '@/lib/i18n/dynamicKeys';
 
 // ── Portal tooltip for fee notes ──────────────────────────────────────────────
 function InfoTip({ text }: { text: string }) {
@@ -83,6 +83,29 @@ function CgtBadge({ cgtKey }: { cgtKey: string }) {
   );
 }
 
+/**
+ * Fee fields hold either a message key or a ready-to-display literal ("0,25%").
+ * Bare snake_case is the key shape; anything else is already display text.
+ */
+function resolve(t: DynamicTranslator, value: string) {
+  return /^[a-z][a-z0-9_]*$/.test(value) ? t(value) : value;
+}
+
+/** Neutral on/off pill for a binary feature (savings plan, fractional shares). */
+function TraitBadge({ on, label }: { on: boolean; label: string }) {
+  return (
+    <span
+      className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold ${
+        on
+          ? 'bg-[var(--forest)]/10 text-[var(--forest)]'
+          : 'bg-[var(--warm-tan)]/30 text-[var(--charcoal)]/45'
+      }`}
+    >
+      {on ? '✓' : '✗'} {label}
+    </span>
+  );
+}
+
 interface Props {
   broker: Broker;
 }
@@ -91,6 +114,10 @@ export default function BrokerCard({ broker }: Props) {
   const t = useTranslations('brokers');
   const tDyn = asDynamic(t);
   const [expanded, setExpanded] = useState(false);
+
+  // A Belgian tax the broker leaves to you — the only thing worth an amber alarm.
+  const taxRisk =
+    !broker.automation.tobAuto || broker.automation.cgtAuto === 'cgt_manual';
 
   const maxItems = 4;
   const prosToShow = expanded ? broker.pros : broker.pros.slice(0, maxItems);
@@ -132,7 +159,7 @@ export default function BrokerCard({ broker }: Props) {
                 🤖 {t('badge_meilleur_automation')}
               </span>
             )}
-            {(!broker.automation.tobAuto || broker.automation.cgtAuto === 'cgt_manual') && (
+            {taxRisk && (
               <span className="rounded-full border border-amber-200 bg-amber-100 px-2.5 py-0.5 text-[11px] font-bold text-amber-700">
                 ⚠️ {t('badge_warning')}
               </span>
@@ -171,19 +198,45 @@ export default function BrokerCard({ broker }: Props) {
                   item.highlight === 'good' ? 'text-[var(--forest)] font-bold' : 
                   item.highlight === 'bad' ? 'text-red-600 font-bold' : 
                   ''
-                }`}>{/^[a-z][a-z0-9_]*$/.test(item.value) ? tDyn(item.value) : item.value}</span>
+                }`}>{resolve(tDyn, item.value)}</span>
                 {item.note && <InfoTip text={tDyn(item.note)} />}
               </span>
             </div>
           ))}
         </div>
+
+        {/* Recurring costs — invisible on a per-order comparison, decisive over a decade */}
+        <div className="mt-2.5 flex flex-wrap gap-x-4 gap-y-1 border-t border-[var(--warm-tan)]/40 pt-2 text-[11px] text-[var(--charcoal)]/50">
+          <span>
+            {t('fee_fx_label')}{' '}
+            <span className="font-mono text-[var(--charcoal)]/75">
+              {resolve(tDyn, broker.fees.fxFee)}
+            </span>
+          </span>
+          <span>
+            {t('fee_custody_label')}{' '}
+            <span
+              className={`font-mono ${
+                broker.fees.custodyFee === 'fees_none'
+                  ? 'text-[var(--charcoal)]/75'
+                  : 'font-semibold text-amber-700'
+              }`}
+            >
+              {resolve(tDyn, broker.fees.custodyFee)}
+            </span>
+          </span>
+        </div>
       </div>
 
-      {/* CGT 2026 */}
+      {/* Automation at a glance — CGT withholding, plan, fractional shares */}
       <div className="rounded-xl border border-[var(--warm-tan)]/40 bg-[var(--warm-cream)] px-3 py-2">
-        <span className="block text-[10px] uppercase tracking-wide text-[var(--charcoal)]/40">{t('cgt_2026')}</span>
-        <div className="mt-1">
+        <span className="block text-[10px] uppercase tracking-wide text-[var(--charcoal)]/40">
+          {t('automation_label')}
+        </span>
+        <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
           <CgtBadge cgtKey={broker.automation.cgtAuto} />
+          <TraitBadge on={broker.automation.savingsPlan} label={t('savings_plan')} />
+          <TraitBadge on={broker.automation.fractionalShares} label={t('col_fractional')} />
         </div>
       </div>
 
@@ -236,9 +289,15 @@ export default function BrokerCard({ broker }: Props) {
         </p>
       )}
 
-      {/* Warning note */}
+      {/* Trailing note — amber only when it flags a real tax risk */}
       {broker.warningNote && (
-        <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+        <div
+          className={`rounded-xl border px-4 py-3 text-sm ${
+            taxRisk
+              ? 'border-amber-200 bg-amber-50 text-amber-800'
+              : 'border-[var(--warm-tan)]/50 bg-[var(--warm-cream)] text-[var(--charcoal)]/70'
+          }`}
+        >
           {tDyn(broker.warningNote).split(' | ').map((para, i) => (
             <p key={i} className={i > 0 ? 'mt-2' : ''}>{para}</p>
           ))}

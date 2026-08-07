@@ -3,8 +3,67 @@
 import { useTranslations } from 'next-intl';
 import { BROKERS } from '@/lib/brokers/brokers';
 import type { Broker } from '@/lib/brokers/brokers';
+import { asDynamic } from '@/lib/i18n/dynamicKeys';
 import BrokerTable from './BrokerTable';
 import BrokerCard from './BrokerCard';
+
+/**
+ * Which brokers actually run a recurring ETF plan, split by whether the plan
+ * also settles your Belgian taxes. Derived from BROKERS so the prose and the
+ * table can never disagree.
+ */
+function SavingsPlanSection() {
+  const t = useTranslations('brokers');
+  const tDyn = asDynamic(t);
+
+  const withPlan = BROKERS.filter((b) => b.automation.savingsPlan);
+  const taxHandled = withPlan.filter((b) => b.automation.tobAuto);
+  const taxManual = withPlan.filter((b) => !b.automation.tobAuto);
+
+  return (
+    <section className="mb-8 rounded-2xl border border-[var(--warm-tan)]/40 bg-[var(--warm-white)] px-5 py-5">
+      <h2 className="text-base font-bold text-[var(--charcoal)]">{t('plans_title')}</h2>
+      <p className="mt-1 text-sm leading-relaxed text-[var(--charcoal)]/65">{t('plans_intro')}</p>
+
+      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {[
+          { key: 'auto', rows: taxHandled, label: t('plans_col_auto') },
+          { key: 'manual', rows: taxManual, label: t('plans_col_manual') },
+        ].map(({ key, rows, label }) => (
+          <div key={key}>
+            <p
+              className={`mb-2 text-[11px] font-semibold uppercase tracking-wide ${
+                key === 'auto' ? 'text-[var(--forest)]' : 'text-amber-700'
+              }`}
+            >
+              {label}
+            </p>
+            <ul className="space-y-1.5">
+              {rows.map((b) => (
+                <li key={b.id} className="flex flex-wrap items-baseline gap-x-2 text-sm">
+                  <a
+                    href={`#broker-${b.id}`}
+                    className="font-semibold text-[var(--charcoal)] no-underline hover:underline"
+                  >
+                    {b.name}
+                  </a>
+                  <span className="text-[var(--charcoal)]/55">{tDyn(b.fees.savingsPlanFee)}</span>
+                  {b.automation.fractionalShares && (
+                    <span className="rounded-full bg-[var(--forest)]/10 px-1.5 py-0.5 text-[10px] font-semibold text-[var(--forest)]">
+                      {t('col_fractional')}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <p className="mt-4 text-xs leading-relaxed text-[var(--charcoal)]/45">{t('plans_note')}</p>
+    </section>
+  );
+}
 
 function TierSection({
   title,
@@ -83,6 +142,15 @@ export default function BrokersPage() {
             </div>
           </div>
 
+          {/* PFOF — banned EU-wide since 30 June 2026 */}
+          <div className="rounded-xl border border-[var(--warm-tan)] bg-[var(--warm-white)] px-5 py-4">
+            <p className="mb-2 text-sm font-semibold text-[var(--charcoal)]">{t('pfof_title')}</p>
+            <div className="space-y-2 text-sm leading-relaxed text-[var(--charcoal)]/70">
+              <p>{t('pfof_p1')}</p>
+              <p>{t('pfof_p2')}</p>
+            </div>
+          </div>
+
         </div>
 
         {/* 3 — Comparison table */}
@@ -92,9 +160,18 @@ export default function BrokersPage() {
         </section>
 
         {/* 4 — Legend */}
-        <div className="mb-12 rounded-xl border border-[var(--warm-tan)]/40 bg-[var(--warm-white)] px-5 py-4 text-sm text-[var(--charcoal)]/70">
+        <div className="mb-8 rounded-xl border border-[var(--warm-tan)]/40 bg-[var(--warm-white)] px-5 py-4 text-sm text-[var(--charcoal)]/70">
           <p className="mb-1 font-semibold text-[var(--charcoal)]">{t('legend_title')}</p>
           <p>{t('legend_body')}</p>
+        </div>
+
+        {/* 4b — Savings plans: the dimension that separates brokers in 2026 */}
+        <SavingsPlanSection />
+
+        {/* 4c — Fee-vs-tax framing */}
+        <div className="mb-12 rounded-xl border border-[var(--warm-tan)]/40 bg-[var(--warm-white)] px-5 py-4 text-sm leading-relaxed text-[var(--charcoal)]/70">
+          <p className="mb-1 font-semibold text-[var(--charcoal)]">{t('cost_reality_title')}</p>
+          <p>{t('cost_reality_body')}</p>
         </div>
 
         {/* 5 — Tier card sections */}
