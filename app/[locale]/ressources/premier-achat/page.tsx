@@ -66,7 +66,7 @@ export default async function PremierAchatPage({ params }: { params: Promise<{ l
     { ticker: 'EMIM', isin: 'IE00BKM4GZ66', name: t('s2_emim_name') },
     { ticker: 'CSPX', isin: 'IE00B5BMR087', name: t('s2_cspx_name') },
     { ticker: 'CNDX', isin: 'IE00B53SZB19', name: t('s2_cndx_name') },
-    { ticker: 'XMAW', isin: 'IE00BJ0KDQ92', name: t('s2_xmaw_name') },
+    { ticker: 'XMAW', isin: 'IE00BGHQ0G80', name: t('s2_xmaw_name') },
     { ticker: 'CSH2', isin: 'LU1190417599', name: t('s2_csh2_name') },
   ];
 

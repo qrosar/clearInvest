@@ -6,7 +6,8 @@
  * taxes (TOB, précompte mobilier, CGT, Reynders). Past performance ≠ future results.
  *
  * Sources: MSCI factsheets (monde-simplifie, monde-complet, tout-en-un,
- * esg-mondiale, biais-us, tech-us), ECB/STOXX (epargne-liquide).
+ * biais-us, tech-us), ECB/STOXX (epargne-liquide), ETF calendar-year returns
+ * (esg-mondiale — see note below).
  * Strategies marked estimated:true use weighted blends of confirmed index data.
  */
 
@@ -26,6 +27,12 @@ export interface PeriodReturns {
    * rather than direct index factsheet data. A small disclaimer is shown in the UI.
    */
   estimated?: boolean;
+  /**
+   * True when the figures are ETF returns (already net of the TER) rather than
+   * index returns. A small disclaimer is shown in the UI, since the generic one
+   * states figures are gross of ETF fees.
+   */
+  netOfFees?: boolean;
 }
 
 export const STRATEGY_RETURNS: Record<string, PeriodReturns> = {
@@ -59,14 +66,17 @@ export const STRATEGY_RETURNS: Record<string, PeriodReturns> = {
     source: 'source_msci_acwi_imi',
   },
 
-  // ── MSCI World ESG Screened ──────────────────────────────────────────────────
-  // Source: MSCI World ESG Screened EUR factsheet, December 31 2025
+  // ── MSCI ACWI Select Screened ────────────────────────────────────────────────
+  // Source: Xtrackers MSCI AC World Screened (IE00BGHQ0G80) calendar-year returns
+  // in EUR, net of TER, 2016–2025. The ETF only tracks the MSCI ACWI Select
+  // Screened index since 20 October 2021; before that it tracked MSCI ACWI.
   'esg-mondiale': {
-    y1: 0.070,
-    y3: 0.167,
-    y5: 0.132,
-    y10: 0.124,
-    source: 'source_msci_world_esg',
+    y1: 0.077,
+    y3: 0.174,
+    y5: 0.121,
+    y10: 0.107,
+    source: 'source_msci_acwi_screened',
+    netOfFees: true,
   },
 
   // ── MSCI World 60% + MSCI Europe 40% ─────────────────────────────────────────

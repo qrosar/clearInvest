@@ -10,7 +10,7 @@ interface Props {
   variant?: 'card' | 'detail';
 }
 
-type PeriodKey = keyof Omit<PeriodReturns, 'source' | 'estimated'>;
+type PeriodKey = keyof Omit<PeriodReturns, 'source' | 'estimated' | 'netOfFees'>;
 
 const PERIODS: { key: PeriodKey; labelKey: string }[] = [
   { key: 'y1',  labelKey: 'label_y1'  },
@@ -79,6 +79,11 @@ export default function StrategyReturnsBar({ strategyId, variant = 'card' }: Pro
             {t('disclaimer_estimated')}
           </p>
         )}
+        {returns.netOfFees && (
+          <p className="mt-1 text-[8px] leading-relaxed text-[var(--charcoal)]/25 italic">
+            {t('disclaimer_net_of_fees')}
+          </p>
+        )}
       </div>
     );
   }
@@ -133,6 +138,11 @@ export default function StrategyReturnsBar({ strategyId, variant = 'card' }: Pro
       {returns.estimated && (
         <p className="mt-1 text-[9px] leading-relaxed text-[var(--charcoal)]/30 italic">
           {t('disclaimer_estimated')}
+        </p>
+      )}
+      {returns.netOfFees && (
+        <p className="mt-1 text-[9px] leading-relaxed text-[var(--charcoal)]/30 italic">
+          {t('disclaimer_net_of_fees')}
         </p>
       )}
     </div>

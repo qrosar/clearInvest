@@ -186,7 +186,7 @@ export const STRATEGY_CONTENT: Record<string, StrategyContent> = {
   },
 
   'esg-mondiale': {
-    numberOfSecurities: 700,
+    numberOfSecurities: 1800,
     hasReynders: false,
     hasDistributing: false,
     whyPoints: [
@@ -197,9 +197,9 @@ export const STRATEGY_CONTENT: Record<string, StrategyContent> = {
     ],
     alternatives: [
       {
-        ticker: 'SUWS',
+        ticker: 'SUSW',
         isin: 'IE00BYX2JD69',
-        name: 'iShares MSCI World SRI UCITS ETF Acc',
+        name: 'iShares MSCI World SRI UCITS ETF EUR (Acc)',
         ter: 0.20,
         tob: 0.0012,
         accumulating: true,
@@ -208,10 +208,10 @@ export const STRATEGY_CONTENT: Record<string, StrategyContent> = {
         verdict: 'data.strategies.esg-mondiale.alt_0_verdict',
       },
       {
-        ticker: 'XDEQ',
-        isin: 'IE00BZ0PKT83',
-        name: 'Xtrackers MSCI World ESG Screened Swap UCITS ETF Acc',
-        ter: 0.07,
+        ticker: 'SNAW',
+        isin: 'IE00BFNM3J75',
+        name: 'iShares MSCI World Screened UCITS ETF USD (Acc)',
+        ter: 0.20,
         tob: 0.0012,
         accumulating: true,
         pros: ['data.strategies.esg-mondiale.alt_1_pro_0', 'data.strategies.esg-mondiale.alt_1_pro_1', 'data.strategies.esg-mondiale.alt_1_pro_2'],
