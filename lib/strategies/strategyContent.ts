@@ -368,8 +368,8 @@ export const STRATEGY_CONTENT: Record<string, StrategyContent> = {
     alternatives: [
       {
         ticker: 'VUAA',
-        isin: 'IE00B3XXRP09',
-        name: 'Vanguard S&P 500 UCITS ETF Acc',
+        isin: 'IE00BFMXXD54',
+        name: 'Vanguard S&P 500 UCITS ETF (USD) Accumulating',
         ter: 0.07,
         tob: 0.0012,
         accumulating: true,
