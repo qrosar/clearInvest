@@ -245,10 +245,10 @@ export const STRATEGY_CONTENT: Record<string, StrategyContent> = {
     ],
     alternatives: [
       {
-        ticker: 'IWDA + XESX',
-        isin: 'IE00B4L5Y983 + IE00B0M62Q58',
-        name: 'iShares MSCI World + iShares Core EURO STOXX 50',
-        ter: 0.165,
+        ticker: 'IWDA + XESC',
+        isin: 'IE00B4L5Y983 + LU0380865021',
+        name: 'iShares Core MSCI World + Xtrackers EURO STOXX 50 UCITS ETF 1C',
+        ter: 0.156,
         tob: 0.0012,
         accumulating: true,
         pros: ['data.strategies.biais-europe.alt_0_pro_0', 'data.strategies.biais-europe.alt_0_pro_1', 'data.strategies.biais-europe.alt_0_pro_2'],
@@ -427,8 +427,8 @@ export const STRATEGY_CONTENT: Record<string, StrategyContent> = {
       },
       {
         ticker: 'XNAS',
-        isin: 'IE000CNSFAR2',
-        name: 'Xtrackers Nasdaq-100 UCITS ETF 1C',
+        isin: 'IE00BMFKG444',
+        name: 'Xtrackers Nasdaq 100 UCITS ETF 1C',
         ter: 0.20,
         tob: 0.0012,
         accumulating: true,
@@ -501,9 +501,9 @@ export const STRATEGY_CONTENT: Record<string, StrategyContent> = {
     ],
     alternatives: [
       {
-        ticker: 'ERNA',
-        isin: 'IE00BKG6Z746',
-        name: 'iShares € Ultrashort Bond UCITS ETF',
+        ticker: 'ERNX',
+        isin: 'IE000RHYOR04',
+        name: 'iShares € Ultrashort Bond UCITS ETF EUR (Acc)',
         ter: 0.09,
         tob: 0.0012,
         accumulating: true,

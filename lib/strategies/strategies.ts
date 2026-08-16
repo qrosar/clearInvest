@@ -95,7 +95,7 @@ export const STRATEGIES: Strategy[] = [
     complexity: 'intermediate', horizon: ['long'], esg: false, geographic: ['global', 'europe'],
     etfs: [
       { ticker: 'IWDA', isin: 'IE00B4L5Y983', name: 'iShares Core MSCI World UCITS ETF (Acc)', allocation: 60, ter: 0.20, accumulating: true },
-      { ticker: 'IEUR', isin: 'IE00B1YZSC51', name: 'iShares Core MSCI Europe UCITS ETF (Acc)', allocation: 40, ter: 0.12, accumulating: true },
+      { ticker: 'SMEA', isin: 'IE00B4K48X80', name: 'iShares Core MSCI Europe UCITS ETF EUR (Acc)', allocation: 40, ter: 0.12, accumulating: true },
     ],
     historicalReturn: 0.075,
     historicalReturnPeriod: '2005–2025',
@@ -111,8 +111,8 @@ export const STRATEGIES: Strategy[] = [
     complexity: 'intermediate', horizon: ['long'], esg: false, geographic: ['global', 'europe', 'china'],
     etfs: [
       { ticker: 'IWDA', isin: 'IE00B4L5Y983', name: 'iShares Core MSCI World UCITS ETF (Acc)', allocation: 60, ter: 0.20, accumulating: true },
-      { ticker: 'IEUR', isin: 'IE00B1YZSC51', name: 'iShares Core MSCI Europe UCITS ETF (Acc)', allocation: 20, ter: 0.12, accumulating: true },
-      { ticker: 'ICHN', isin: 'IE00BQT38270', name: 'iShares MSCI China UCITS ETF (Acc)', allocation: 20, ter: 0.28, accumulating: true },
+      { ticker: 'SMEA', isin: 'IE00B4K48X80', name: 'iShares Core MSCI Europe UCITS ETF EUR (Acc)', allocation: 20, ter: 0.12, accumulating: true },
+      { ticker: 'ICHN', isin: 'IE00BJ5JPG56', name: 'iShares MSCI China UCITS ETF USD (Acc)', allocation: 20, ter: 0.28, accumulating: true },
     ],
     historicalReturn: 0.068,
     historicalReturnPeriod: '2005–2025',
@@ -128,7 +128,7 @@ export const STRATEGIES: Strategy[] = [
     complexity: 'intermediate', horizon: ['long'], esg: false, geographic: ['global', 'china'],
     etfs: [
       { ticker: 'IWDA', isin: 'IE00B4L5Y983', name: 'iShares Core MSCI World UCITS ETF (Acc)', allocation: 70, ter: 0.20, accumulating: true },
-      { ticker: 'ICHN', isin: 'IE00BQT38270', name: 'iShares MSCI China UCITS ETF (Acc)', allocation: 30, ter: 0.28, accumulating: true },
+      { ticker: 'ICHN', isin: 'IE00BJ5JPG56', name: 'iShares MSCI China UCITS ETF USD (Acc)', allocation: 30, ter: 0.28, accumulating: true },
     ],
     historicalReturn: 0.065,
     historicalReturnPeriod: '2005–2025',
@@ -158,7 +158,7 @@ export const STRATEGIES: Strategy[] = [
     description: 'data.strategies.tech-us.description',
     complexity: 'intermediate', horizon: ['long'], esg: false, geographic: ['us'],
     etfs: [
-      { ticker: 'CNDX', isin: 'IE00B53SZB19', name: 'iShares Nasdaq 100 UCITS ETF (Acc)', allocation: 100, ter: 0.33, accumulating: true },
+      { ticker: 'CNDX', isin: 'IE00B53SZB19', name: 'iShares Nasdaq 100 UCITS ETF (Acc)', allocation: 100, ter: 0.30, accumulating: true },
     ],
     historicalReturn: 0.132,
     historicalReturnPeriod: '2005–2025',
