@@ -46,7 +46,7 @@ function CgtTooltip({ text }: { text: string }) {
         ref={ref}
         onMouseEnter={show}
         onMouseLeave={() => setPos(null)}
-        className="flex h-3.5 w-3.5 cursor-default select-none items-center justify-center rounded-full border border-[var(--charcoal)]/25 text-[9px] leading-none text-[var(--charcoal)]/40"
+        className="flex h-3.5 w-3.5 flex-shrink-0 cursor-default select-none items-center justify-center rounded-full border border-[var(--charcoal)]/25 text-[9px] leading-none text-[var(--charcoal)]/40"
       >
         i
       </span>
@@ -85,8 +85,8 @@ function CgtTooltip({ text }: { text: string }) {
 function BreakdownRow({ label, amount }: { label: string; amount: number }) {
   return (
     <div className="flex items-baseline justify-between gap-3">
-      <span className="whitespace-nowrap text-[var(--charcoal)]/45">{label}</span>
-      <span className="text-right text-[var(--charcoal)]/65">{formatEuro(amount)}</span>
+      <span className="min-w-0 text-[var(--charcoal)]/45">{label}</span>
+      <span className="flex-shrink-0 whitespace-nowrap text-right text-[var(--charcoal)]/65">{formatEuro(amount)}</span>
     </div>
   );
 }
@@ -173,8 +173,8 @@ function ResultCard({
       {/* ── Parameter rows ───────────────────────────────────── */}
       <div className="space-y-2 text-xs">
         <div className="flex items-baseline justify-between gap-3">
-          <span className="whitespace-nowrap text-[var(--charcoal)]/45">{rateLabel}</span>
-          <span className="text-right text-[var(--charcoal)]/70">{formatPct(rate)}</span>
+          <span className="min-w-0 text-[var(--charcoal)]/45">{rateLabel}</span>
+          <span className="flex-shrink-0 whitespace-nowrap text-right text-[var(--charcoal)]/70">{formatPct(rate)}</span>
         </div>
         {isBankProduct && (
           <p className="text-[10px] italic leading-relaxed text-[var(--charcoal)]/35">
@@ -200,36 +200,36 @@ function ResultCard({
         <div className="my-1 border-t border-[var(--warm-tan)]/30" />
 
         <div className="flex items-baseline justify-between gap-3">
-          <span className="whitespace-nowrap text-[var(--charcoal)]/45">{t('total_contributed')}</span>
-          <span className="text-right font-medium text-[var(--charcoal)]">{formatEuro(totalContributed)}</span>
+          <span className="min-w-0 text-[var(--charcoal)]/45">{t('total_contributed')}</span>
+          <span className="flex-shrink-0 whitespace-nowrap text-right font-medium text-[var(--charcoal)]">{formatEuro(totalContributed)}</span>
         </div>
 
         {isPensionOnCard && (
           <>
             <div className="flex items-baseline justify-between gap-3 text-[11px] -mt-1">
-              <span className="whitespace-nowrap text-[var(--charcoal)]/45 italic">{t('tax_relief_refund')}</span>
-              <span className="text-right font-medium text-[var(--forest)]">−{formatEuro(bd.taxBenefit)}</span>
+              <span className="min-w-0 text-[var(--charcoal)]/45 italic">{t('tax_relief_refund')}</span>
+              <span className="flex-shrink-0 whitespace-nowrap text-right font-medium text-[var(--forest)]">−{formatEuro(bd.taxBenefit)}</span>
             </div>
             <div className="flex items-baseline justify-between gap-3 pt-0.5">
-              <span className="flex items-center gap-1 whitespace-nowrap text-[var(--charcoal)]/60 font-medium">
+              <span className="flex min-w-0 items-center gap-1 text-[var(--charcoal)]/60 font-medium">
                 {t('real_out_of_pocket')}
                 <CgtTooltip text={t('real_out_of_pocket_tooltip')} />
               </span>
-              <span className="text-right font-bold text-[var(--charcoal)]">{formatEuro(totalContributed - bd.taxBenefit)}</span>
+              <span className="flex-shrink-0 whitespace-nowrap text-right font-bold text-[var(--charcoal)]">{formatEuro(totalContributed - bd.taxBenefit)}</span>
             </div>
           </>
         )}
 
         <div className="flex items-center justify-between gap-3">
-          <span className="flex items-center gap-1 whitespace-nowrap text-[var(--charcoal)]/45">
+          <span className="flex min-w-0 items-center gap-1 text-[var(--charcoal)]/45">
             {t('total_tax')}
             {hasCgt && <CgtTooltip text={t('cgt_tooltip')} />}
           </span>
-          <span className="text-right font-medium text-[var(--charcoal)]/65">{formatEuro(sd.totalTaxPaid)}</span>
+          <span className="flex-shrink-0 whitespace-nowrap text-right font-medium text-[var(--charcoal)]/65">{formatEuro(sd.totalTaxPaid)}</span>
         </div>
         <div className="flex items-baseline justify-between gap-3">
-          <span className="whitespace-nowrap text-[var(--charcoal)]/45">{t('total_gain')}</span>
-          <span className="text-right font-semibold" style={{ color: gainPositive ? 'var(--forest)' : '#dc2626' }}>
+          <span className="min-w-0 text-[var(--charcoal)]/45">{t('total_gain')}</span>
+          <span className="flex-shrink-0 whitespace-nowrap text-right font-semibold" style={{ color: gainPositive ? 'var(--forest)' : '#dc2626' }}>
             {gainPositive ? '+' : ''}{formatEuro(gain)}
           </span>
         </div>
@@ -259,16 +259,16 @@ function ResultCard({
 
           <div className="mt-2 space-y-1 border-t border-[#e8d9a8] pt-2 text-[11px]">
             <div className="flex items-baseline justify-between gap-3">
-              <span className="whitespace-nowrap text-[#8a6d1f]/70">{t('dividends_gross')}</span>
-              <span className="text-right text-[#7a5f12]">{formatEuro(div.grossTotal)}</span>
+              <span className="min-w-0 text-[#8a6d1f]/70">{t('dividends_gross')}</span>
+              <span className="flex-shrink-0 whitespace-nowrap text-right text-[#7a5f12]">{formatEuro(div.grossTotal)}</span>
             </div>
             <div className="flex items-baseline justify-between gap-3">
-              <span className="whitespace-nowrap text-[#8a6d1f]/70">{t('dividends_precompte')}</span>
-              <span className="text-right text-[#b45309]">−{formatEuro(div.precompte)}</span>
+              <span className="min-w-0 text-[#8a6d1f]/70">{t('dividends_precompte')}</span>
+              <span className="flex-shrink-0 whitespace-nowrap text-right text-[#b45309]">−{formatEuro(div.precompte)}</span>
             </div>
             <div className="flex items-baseline justify-between gap-3 border-t border-[#e8d9a8] pt-1">
-              <span className="whitespace-nowrap text-[#8a6d1f]/70">{t('dividends_if_cashed_out')}</span>
-              <span className="text-right font-medium text-[#7a5f12]">{formatEuro(div.cashCollected)}</span>
+              <span className="min-w-0 text-[#8a6d1f]/70">{t('dividends_if_cashed_out')}</span>
+              <span className="flex-shrink-0 whitespace-nowrap text-right font-medium text-[#7a5f12]">{formatEuro(div.cashCollected)}</span>
             </div>
           </div>
         </div>
@@ -330,8 +330,8 @@ function ResultCard({
             {/* Précompte: branche 21 shows context-sensitive label; others show normal label */}
             {isBranche21Exempt ? (
               <div className="flex items-baseline justify-between gap-3">
-                <span className="whitespace-nowrap text-[var(--charcoal)]/45">{t('tax_detail_precompte_interest')}</span>
-                <span className="text-right text-[var(--forest)]/70">{t('tax_detail_branche21_exempt')}</span>
+                <span className="min-w-0 text-[var(--charcoal)]/45">{t('tax_detail_precompte_interest')}</span>
+                <span className="flex-shrink-0 whitespace-nowrap text-right text-[var(--forest)]/70">{t('tax_detail_branche21_exempt')}</span>
               </div>
             ) : hasPrecompte && (
               <BreakdownRow
@@ -350,23 +350,23 @@ function ResultCard({
             {/* Pension exit tax (8%) */}
             {bd.pensionTax > 0 && (
               <div className="flex items-baseline justify-between gap-3">
-                <span className="whitespace-nowrap text-[var(--charcoal)]/45">{t('tax_detail_pension')}</span>
-                <span className="text-right text-[#dc2626]">−{formatEuro(bd.pensionTax)}</span>
+                <span className="min-w-0 text-[var(--charcoal)]/45">{t('tax_detail_pension')}</span>
+                <span className="flex-shrink-0 whitespace-nowrap text-right text-[#dc2626]">−{formatEuro(bd.pensionTax)}</span>
               </div>
             )}
 
             {/* TER — shown separately, already in rate */}
             {hasTer && (
               <div className="flex items-baseline justify-between gap-3 pt-1">
-                <span className="whitespace-nowrap text-[var(--charcoal)]/30">{t('tax_detail_ter')}</span>
-                <span className="text-right text-[var(--charcoal)]/30">{formatEuro(bd.annualFeesCumulative)}</span>
+                <span className="min-w-0 text-[var(--charcoal)]/30">{t('tax_detail_ter')}</span>
+                <span className="flex-shrink-0 whitespace-nowrap text-right text-[var(--charcoal)]/30">{formatEuro(bd.annualFeesCumulative)}</span>
               </div>
             )}
 
             {/* Total */}
             <div className="flex items-baseline justify-between gap-3 border-t border-[var(--warm-tan)]/30 pt-1.5">
-              <span className="whitespace-nowrap font-semibold text-[var(--charcoal)]/70">{t('tax_detail_total')}</span>
-              <span className="text-right font-semibold text-[var(--charcoal)]">{formatEuro(bd.total)}</span>
+              <span className="min-w-0 font-semibold text-[var(--charcoal)]/70">{t('tax_detail_total')}</span>
+              <span className="flex-shrink-0 whitespace-nowrap text-right font-semibold text-[var(--charcoal)]">{formatEuro(bd.total)}</span>
             </div>
 
             {hasTer && (
@@ -393,7 +393,7 @@ export default function ResultSummary({ products, summaryData, rates, lumpSum, m
   return (
     <div className="mt-5 space-y-4">
       <div
-        className={single ? 'mx-auto w-full max-w-[420px]' : 'grid grid-cols-2 gap-4'}
+        className={single ? 'mx-auto w-full max-w-[420px]' : 'grid grid-cols-1 gap-4 sm:grid-cols-2'}
       >
         {products.map(product => {
           const sd = summaryData[product.id] ?? { finalValueAfterTax: 0, totalTaxPaid: 0, taxBreakdown: { tobBuy: 0, tobSell: 0, precompte: 0, reynders: 0, capitalGainsTax: 0, entryFees: 0, premiumTax: 0, annualFeesCumulative: 0, pensionTax: 0, taxBenefit: 0, total: 0 } };
