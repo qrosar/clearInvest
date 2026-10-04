@@ -183,7 +183,9 @@ export default async function DeclarerCompteEtrangerPage({ params }: { params: P
                   <tr className="border-b border-[var(--warm-tan)]/40 bg-[var(--warm-cream)]">
                     <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-[var(--charcoal)]/50">{t('s3_col_tax')}</th>
                     <th className="px-4 py-3 text-center text-xs font-semibold uppercase tracking-wide text-[var(--charcoal)]/50">DEGIRO</th>
-                    <th className="px-4 py-3 text-center text-xs font-semibold uppercase tracking-wide text-[var(--charcoal)]/50">Trade Republic</th>
+                    <th className="px-4 py-3 text-center text-xs font-semibold uppercase tracking-wide text-[var(--charcoal)]/50">
+                      Trade Republic <span className="whitespace-nowrap font-normal normal-case">(IBAN DE)</span>
+                    </th>
                     <th className="px-4 py-3 text-center text-xs font-semibold uppercase tracking-wide text-[var(--charcoal)]/50">IBKR</th>
                   </tr>
                 </thead>

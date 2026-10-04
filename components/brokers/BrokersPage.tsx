@@ -1,8 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { BROKERS } from '@/lib/brokers/brokers';
-import type { Broker } from '@/lib/brokers/brokers';
+import { BROKERS, taxLevel, type Broker } from '@/lib/brokers/brokers';
 import { asDynamic } from '@/lib/i18n/dynamicKeys';
 import BrokerTable from './BrokerTable';
 import BrokerCard from './BrokerCard';
@@ -17,8 +16,9 @@ function SavingsPlanSection() {
   const tDyn = asDynamic(t);
 
   const withPlan = BROKERS.filter((b) => b.automation.savingsPlan);
-  const taxHandled = withPlan.filter((b) => b.automation.tobAuto);
-  const taxManual = withPlan.filter((b) => !b.automation.tobAuto);
+  const taxHandled = withPlan.filter((b) => taxLevel(b) === 'all');
+  const taxManual = withPlan.filter((b) => taxLevel(b) !== 'all');
+  const withoutPlan = BROKERS.filter((b) => !b.automation.savingsPlan && b.tier !== 'avoid');
 
   return (
     <section className="mb-8 rounded-2xl border border-[var(--warm-tan)]/40 bg-[var(--warm-white)] px-5 py-5">
@@ -60,8 +60,28 @@ function SavingsPlanSection() {
         ))}
       </div>
 
-      <p className="mt-4 text-xs leading-relaxed text-[var(--charcoal)]/45">{t('plans_note')}</p>
+      <p className="mt-4 text-xs leading-relaxed text-[var(--charcoal)]/45">
+        {t('plans_note', { brokers: withoutPlan.map((b) => b.name).join(', ') })}
+      </p>
     </section>
+  );
+}
+
+/** Disclosure chevron for <details> cards; rotates when the parent `group` is open. */
+function Chevron() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      className="h-4 w-4 shrink-0 opacity-60 transition-transform group-open:rotate-180"
+    >
+      <path
+        fillRule="evenodd"
+        d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z"
+        clipRule="evenodd"
+      />
+    </svg>
   );
 }
 
@@ -122,48 +142,33 @@ export default function BrokersPage() {
           {t('independence_note')}
         </p>
 
-        {/* 2 — Introduction */}
+        {/* 2 — Introduction: what actually separates brokers for a passive ETF investor */}
         <div className="mb-10 space-y-4">
           <p className="text-base leading-relaxed text-[var(--charcoal)]/80">
-            {t('intro_market')}
+            {t('intro')}
           </p>
-          {/* Scope callout — informative, not alarming */}
-          <div className="rounded-xl border border-[var(--warm-tan)] bg-[var(--warm-cream)] px-5 py-4 text-sm leading-relaxed text-[var(--charcoal)]/65">
+          <p className="text-sm leading-relaxed text-[var(--charcoal)]/55">
             {t('intro_scope')}
-          </div>
+          </p>
 
-          {/* CGT 2026 — withholding regime in force since 1 June 2026 */}
-          <div className="rounded-xl border border-amber-200 bg-amber-50 px-5 py-4">
-            <p className="mb-2 text-sm font-semibold text-amber-900">{t('cgt_regime_title')}</p>
-            <div className="space-y-2 text-sm leading-relaxed text-amber-800">
+          {/* CGT 2026 — who withholds the capital-gains tax since 1 June 2026 */}
+          <details className="group rounded-xl border border-amber-200 bg-amber-50">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 text-sm font-semibold text-amber-900 [&::-webkit-details-marker]:hidden">
+              {t('cgt_regime_title')}
+              <Chevron />
+            </summary>
+            <div className="space-y-2 px-5 pb-4 text-sm leading-relaxed text-amber-800">
               <p>{t('cgt_regime_p1')}</p>
-              <p>{t('cgt_regime_p2')}</p>
               <p>{t('cgt_regime_p3')}</p>
             </div>
-          </div>
-
-          {/* PFOF — banned EU-wide since 30 June 2026 */}
-          <div className="rounded-xl border border-[var(--warm-tan)] bg-[var(--warm-white)] px-5 py-4">
-            <p className="mb-2 text-sm font-semibold text-[var(--charcoal)]">{t('pfof_title')}</p>
-            <div className="space-y-2 text-sm leading-relaxed text-[var(--charcoal)]/70">
-              <p>{t('pfof_p1')}</p>
-              <p>{t('pfof_p2')}</p>
-            </div>
-          </div>
-
+          </details>
         </div>
 
         {/* 3 — Comparison table */}
-        <section className="mb-4">
+        <section className="mb-8">
           <h2 className="mb-4 text-xl font-bold text-[var(--charcoal)]">{t('table_title')}</h2>
           <BrokerTable brokers={BROKERS} highlightIds={[]} />
         </section>
-
-        {/* 4 — Legend */}
-        <div className="mb-8 rounded-xl border border-[var(--warm-tan)]/40 bg-[var(--warm-white)] px-5 py-4 text-sm text-[var(--charcoal)]/70">
-          <p className="mb-1 font-semibold text-[var(--charcoal)]">{t('legend_title')}</p>
-          <p>{t('legend_body')}</p>
-        </div>
 
         {/* 4b — Savings plans: the dimension that separates brokers in 2026 */}
         <SavingsPlanSection />
@@ -209,11 +214,6 @@ export default function BrokersPage() {
 
         {/* 7 — Data disclaimer */}
         <p className="mt-3 text-xs text-[var(--charcoal)]/40">{t('page_disclaimer')}</p>
-
-        {/* 8 — Footer disclaimer */}
-        <p className="mt-2 text-center text-xs text-[var(--charcoal)]/35">
-          {t('footer_disclaimer')}
-        </p>
       </div>
     </div>
     </>

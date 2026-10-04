@@ -32,16 +32,29 @@ export type Broker = {
      */
     fractionalShares: boolean;
     tobAuto: boolean;
-    cgtAuto: string; // i18n key: 'cgt_auto' | 'cgt_manual'
+    /** Withholds dividend tax and the 2026 capital-gains tax (opt-in regime). */
+    cgtAuto: boolean;
   };
   protectionCash: string; // literal display value for cash protection column (e.g. '€100 000 🇧🇪' or '—')
   pros: string[]; // array of i18n keys
   cons: string[]; // array of i18n keys
   idealFor?: string; // i18n key
+  /** Only for facts the pros/cons can't carry (deposit-scheme jurisdiction, dual tariffs). */
   warningNote?: string; // i18n key
   feeStory: FeeItem[];
   guideLink?: { text: string; href: string };
 };
+
+export type TaxLevel = 'all' | 'tob' | 'none';
+
+/**
+ * How much of the Belgian tax burden the broker carries for you: everything,
+ * only the stock-exchange tax (you still file dividends and gains), or nothing.
+ */
+export function taxLevel(broker: Broker): TaxLevel {
+  if (broker.automation.tobAuto && broker.automation.cgtAuto) return 'all';
+  return broker.automation.tobAuto ? 'tob' : 'none';
+}
 
 export const BROKERS: Broker[] = [
   {
@@ -62,23 +75,53 @@ export const BROKERS: Broker[] = [
       savingsPlan: false,
       fractionalShares: false,
       tobAuto: true,
-      cgtAuto: 'cgt_auto',
+      cgtAuto: true,
     },
     protectionCash: '€100 000 🇧🇪',
-    pros: ['medirect_pro_0', 'common_taxes_auto', 'medirect_pro_2'],
+    pros: ['medirect_pro_0', 'common_taxes_auto'],
     cons: ['medirect_con_0', 'medirect_con_1', 'medirect_con_2'],
     idealFor: 'medirect_ideal',
-    warningNote: 'medirect_etf_note',
     feeStory: [
       { label: 'medirect_fs0_label', value: 'fees_free', highlight: 'good' },
-      { label: 'medirect_fs1_label', value: 'medirect_fs1_value', note: 'medirect_fs1_note' },
     ],
+  },
+  {
+    // Belgian branch since 15 Sept 2026 — taxes withheld on BE-IBAN accounts only.
+    id: 'trade_republic',
+    name: 'Trade Republic',
+    tagline: 'trade_republic_tagline',
+    recommendedBadge: 'meilleur_automation',
+    tier: 'recommended',
+    regulatedIn: 'regulated_be',
+    fees: {
+      fixedFeePerTrade: '€1,00',
+      percentFeePerTrade: '—',
+      fxFee: 'fees_none',
+      custodyFee: 'fees_none',
+      savingsPlanFee: 'trade_republic_fee_savings',
+      note: 'trade_republic_fees_note',
+    },
+    automation: {
+      savingsPlan: true,
+      fractionalShares: true,
+      tobAuto: true,
+      cgtAuto: true,
+    },
+    protectionCash: '€100 000 🇩🇪',
+    pros: ['trade_republic_pro_0', 'common_taxes_auto', 'trade_republic_pro_1'],
+    cons: ['trade_republic_con_0', 'trade_republic_con_1'],
+    idealFor: 'trade_republic_ideal',
+    warningNote: 'trade_republic_warning',
+    feeStory: [
+      { label: 'trade_republic_fs0_label', value: 'fees_free', note: 'trade_republic_fs0_note', highlight: 'good' },
+      { label: 'trade_republic_fs1_label', value: '€1,00' },
+    ],
+    guideLink: { text: 'guide_foreign_account', href: '/ressources/declarer-compte-etranger' },
   },
   {
     id: 'saxo',
     name: 'Saxo Bank',
     tagline: 'saxo_tagline',
-    recommendedBadge: 'meilleur_automation',
     tier: 'recommended',
     regulatedIn: 'regulated_be',
     fees: {
@@ -92,7 +135,7 @@ export const BROKERS: Broker[] = [
       savingsPlan: true,
       fractionalShares: false,
       tobAuto: true,
-      cgtAuto: 'cgt_auto',
+      cgtAuto: true,
     },
     protectionCash: '€100 000 🇩🇰',
     pros: ['saxo_pro_0', 'common_taxes_auto'],
@@ -122,7 +165,7 @@ export const BROKERS: Broker[] = [
       savingsPlan: true,
       fractionalShares: true,
       tobAuto: true,
-      cgtAuto: 'cgt_auto',
+      cgtAuto: true,
     },
     protectionCash: '€100 000 🇧🇪',
     pros: ['ing_pro_0', 'common_taxes_auto', 'ing_pro_2', 'ing_pro_1'],
@@ -153,11 +196,11 @@ export const BROKERS: Broker[] = [
       savingsPlan: true,
       fractionalShares: false,
       tobAuto: true,
-      cgtAuto: 'cgt_auto',
+      cgtAuto: true,
     },
     protectionCash: '€100 000 🇧🇪',
     pros: ['bolero_pro_0', 'common_taxes_auto', 'bolero_pro_2'],
-    cons: ['bolero_con_0', 'bolero_con_2', 'bolero_con_1'],
+    cons: ['bolero_con_0', 'bolero_con_2'],
     idealFor: 'bolero_ideal',
     feeStory: [
       { label: 'bolero_fs0_label', value: 'bolero_fs0_value', note: 'bolero_fs0_note' },
@@ -183,7 +226,7 @@ export const BROKERS: Broker[] = [
       savingsPlan: false,
       fractionalShares: false,
       tobAuto: true,
-      cgtAuto: 'cgt_auto',
+      cgtAuto: true,
     },
     protectionCash: '€100 000 🇧🇪',
     pros: ['rebel_pro_0', 'common_taxes_auto'],
@@ -212,13 +255,12 @@ export const BROKERS: Broker[] = [
       savingsPlan: false,
       fractionalShares: false,
       tobAuto: true,
-      cgtAuto: 'cgt_manual',
+      cgtAuto: false,
     },
     protectionCash: '€100 000 🇩🇪',
     pros: ['degiro_pro_0', 'degiro_pro_1'],
-    cons: ['degiro_con_0', 'degiro_con_1', 'degiro_con_3'],
+    cons: ['degiro_con_0', 'degiro_con_1', 'common_nbb_required', 'degiro_con_3'],
     idealFor: 'degiro_ideal',
-    warningNote: 'degiro_warning',
     feeStory: [
       { label: 'degiro_fs0_label', value: 'degiro_fs0_value', highlight: 'good' },
       { label: 'degiro_fs1_label', value: 'degiro_fs1_value' },
@@ -242,18 +284,17 @@ export const BROKERS: Broker[] = [
     },
     automation: {
       savingsPlan: true,
-      fractionalShares: false,
+      fractionalShares: true,
       tobAuto: true,
-      cgtAuto: 'cgt_manual',
+      cgtAuto: false,
     },
     protectionCash: '€20 000 🇨🇾',
-    pros: ['mexem_pro_0', 'mexem_pro_1', 'mexem_pro_2'],
+    pros: ['mexem_pro_0', 'mexem_pro_2', 'mexem_pro_1'],
     cons: ['mexem_con_0', 'mexem_con_1', 'common_nbb_required', 'mexem_con_3'],
     idealFor: 'mexem_ideal',
-    warningNote: 'mexem_warning',
     feeStory: [
       { label: 'mexem_fs0_label', value: 'mexem_fs0_value', highlight: 'good' },
-      { label: 'mexem_fs1_label', value: 'mexem_fs1_value' },
+      { label: 'mexem_fs1_label', value: 'mexem_fs1_value', highlight: 'good' },
       { label: 'mexem_fs2_label', value: 'fees_declare_manual', highlight: 'bad' },
     ],
     guideLink: { text: 'guide_foreign_account', href: '/ressources/declarer-compte-etranger' },
@@ -276,7 +317,7 @@ export const BROKERS: Broker[] = [
       savingsPlan: false,
       fractionalShares: false,
       tobAuto: true,
-      cgtAuto: 'cgt_auto',
+      cgtAuto: true,
     },
     protectionCash: '€100 000 🇫🇷',
     pros: ['keytrade_pro_1', 'common_taxes_auto'],
@@ -296,9 +337,9 @@ export const BROKERS: Broker[] = [
     tier: 'situational',
     regulatedIn: 'regulated_nl',
     fees: {
-      fixedFeePerTrade: '€1,99',
+      fixedFeePerTrade: '€0,99',
       percentFeePerTrade: '—',
-      fxFee: '0,25%',
+      fxFee: '0,75% (Basic)',
       custodyFee: 'bux_fee_custody_short',
       savingsPlanFee: 'bux_fee_savings',
       note: 'bux_fees_note',
@@ -307,49 +348,17 @@ export const BROKERS: Broker[] = [
       savingsPlan: true,
       fractionalShares: true,
       tobAuto: true,
-      cgtAuto: 'cgt_manual',
+      cgtAuto: false,
     },
     protectionCash: '€20 000 🇳🇱',
     pros: ['bux_pro_0', 'bux_pro_1', 'bux_pro_2'],
     cons: ['bux_con_0', 'bux_con_1', 'common_nbb_required', 'bux_con_3'],
     idealFor: 'bux_ideal',
-    warningNote: 'bux_warning',
     feeStory: [
-      { label: 'bux_fs0_label', value: 'bux_fs0_value', note: 'bux_fs0_note' },
-      { label: 'bux_fs1_label', value: 'bux_fs1_value', note: 'bux_fs1_note', highlight: 'bad' },
-      { label: 'bux_fs2_label', value: 'fees_declare_manual', highlight: 'bad' },
-    ],
-    guideLink: { text: 'guide_foreign_account', href: '/ressources/declarer-compte-etranger' },
-  },
-  {
-    id: 'trade_republic',
-    name: 'Trade Republic',
-    tagline: 'trade_republic_tagline',
-    tier: 'not_recommended',
-    regulatedIn: 'regulated_eu',
-    fees: {
-      fixedFeePerTrade: '€1,00',
-      percentFeePerTrade: '—',
-      fxFee: 'fees_none',
-      custodyFee: 'fees_none',
-      savingsPlanFee: 'trade_republic_fee_savings',
-      note: 'trade_republic_fees_note',
-    },
-    automation: {
-      savingsPlan: true,
-      fractionalShares: true,
-      tobAuto: false,
-      cgtAuto: 'cgt_manual',
-    },
-    protectionCash: '€100 000 🇩🇪',
-    pros: ['trade_republic_pro_0', 'trade_republic_pro_1', 'trade_republic_pro_2'],
-    cons: ['trade_republic_con_0', 'trade_republic_con_1', 'trade_republic_con_2'],
-    idealFor: 'trade_republic_ideal',
-    warningNote: 'trade_republic_warning',
-    feeStory: [
-      { label: 'trade_republic_fs0_label', value: 'fees_free' },
-      { label: 'trade_republic_fs1_label', value: '€1,00' },
-      { label: 'trade_republic_fs2_label', value: 'fees_declare_manual', highlight: 'bad' },
+      { label: 'bux_fs0_label', value: 'fees_free', highlight: 'good' },
+      { label: 'bux_fs1_label', value: '€0,99' },
+      { label: 'bux_fs2_label', value: 'bux_fs2_value', note: 'bux_fs2_note', highlight: 'bad' },
+      { label: 'bux_fs3_label', value: 'fees_declare_manual', highlight: 'bad' },
     ],
     guideLink: { text: 'guide_foreign_account', href: '/ressources/declarer-compte-etranger' },
   },
@@ -371,23 +380,15 @@ export const BROKERS: Broker[] = [
       savingsPlan: false,
       fractionalShares: false,
       tobAuto: false,
-      cgtAuto: 'cgt_manual',
+      cgtAuto: false,
     },
     protectionCash: '€20 000 🇮🇪',
     pros: ['ibkr_pro_0', 'ibkr_pro_1'],
-    cons: [
-      'ibkr_con_0',
-      'ibkr_con_4',
-      'ibkr_con_1',
-      'common_nbb_required',
-      'ibkr_con_3',
-    ],
+    cons: ['ibkr_con_0', 'ibkr_con_4', 'common_nbb_required', 'ibkr_con_3'],
     idealFor: 'ibkr_ideal',
-    warningNote: 'ibkr_warning',
     feeStory: [
       { label: 'ibkr_fs0_label', value: 'ibkr_fs0_value' },
       { label: 'ibkr_fs1_label', value: 'fees_all_manual', highlight: 'bad' },
-      { label: 'ibkr_fs2_label', value: 'fees_declare_manual' },
     ],
     guideLink: { text: 'guide_foreign_account', href: '/ressources/declarer-compte-etranger' },
   },
@@ -398,8 +399,8 @@ export const BROKERS: Broker[] = [
     tier: 'not_recommended',
     regulatedIn: 'regulated_lt',
     fees: {
-      fixedFeePerTrade: 'revolut_fee_fixed',
-      percentFeePerTrade: '0,25% (min €1)',
+      fixedFeePerTrade: '€1,00',
+      percentFeePerTrade: '—',
       fxFee: 'revolut_fee_fx',
       custodyFee: 'fees_none',
       savingsPlanFee: 'revolut_fee_savings',
@@ -409,16 +410,15 @@ export const BROKERS: Broker[] = [
       savingsPlan: true,
       fractionalShares: true,
       tobAuto: false,
-      cgtAuto: 'cgt_manual',
+      cgtAuto: false,
     },
     protectionCash: '€22 000 🇱🇹',
-    pros: ['revolut_pro_0', 'revolut_pro_1', 'revolut_pro_2'],
+    pros: ['revolut_pro_0', 'revolut_pro_1'],
     cons: ['revolut_con_0', 'revolut_con_1', 'common_nbb_required', 'revolut_con_3'],
     idealFor: 'revolut_ideal',
-    warningNote: 'revolut_warning',
     feeStory: [
-      { label: 'revolut_fs0_label', value: 'revolut_fs0_value', note: 'revolut_fs0_note' },
-      { label: 'revolut_fs1_label', value: 'revolut_fs1_value' },
+      { label: 'revolut_fs0_label', value: 'fees_free' },
+      { label: 'revolut_fs1_label', value: '€1,00', note: 'revolut_fs1_note' },
       { label: 'revolut_fs2_label', value: 'fees_declare_manual', highlight: 'bad' },
     ],
     guideLink: { text: 'guide_foreign_account', href: '/ressources/declarer-compte-etranger' },
@@ -440,11 +440,11 @@ export const BROKERS: Broker[] = [
       savingsPlan: false,
       fractionalShares: true,
       tobAuto: false,
-      cgtAuto: 'cgt_manual',
+      cgtAuto: false,
     },
     protectionCash: '€22 000 🇱🇹',
     pros: ['robinhood_pro_0', 'robinhood_pro_1'],
-    cons: ['robinhood_con_0', 'robinhood_con_1', 'robinhood_con_2', 'common_nbb_required', 'robinhood_con_4'],
+    cons: ['robinhood_con_0', 'robinhood_con_2', 'robinhood_con_1', 'robinhood_con_4', 'common_nbb_required'],
     idealFor: 'robinhood_ideal',
     warningNote: 'robinhood_warning',
     feeStory: [

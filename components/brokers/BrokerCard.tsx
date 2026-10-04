@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import type { Broker } from '@/lib/brokers/brokers';
+import { taxLevel, type Broker, type TaxLevel } from '@/lib/brokers/brokers';
 import { asDynamic, type DynamicTranslator } from '@/lib/i18n/dynamicKeys';
 
 // ── Portal tooltip for fee notes ──────────────────────────────────────────────
@@ -67,18 +67,19 @@ function InfoTip({ text }: { text: string }) {
   );
 }
 
-function CgtBadge({ cgtKey }: { cgtKey: string }) {
+const TAX_BADGE: Record<TaxLevel, string> = {
+  all: 'bg-[var(--forest)]/10 text-[var(--forest)]',
+  tob: 'bg-amber-100 text-amber-700',
+  none: 'bg-red-100 text-red-700',
+};
+
+function TaxBadge({ level }: { level: TaxLevel }) {
   const t = useTranslations('brokers');
-  if (cgtKey !== 'cgt_manual') {
-    return (
-      <span className="inline-flex items-center gap-1 rounded-full bg-[var(--forest)]/10 px-2 py-0.5 text-[11px] font-semibold text-[var(--forest)]">
-        {t('cgt_auto')}
-      </span>
-    );
-  }
   return (
-    <span className="inline-flex items-center gap-1 rounded-full bg-red-100 px-2 py-0.5 text-[11px] font-semibold text-red-700">
-      ✗ {t('cgt_manual')}
+    <span
+      className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold ${TAX_BADGE[level]}`}
+    >
+      {t('taxes_label')} {t(`tax_${level}`)}
     </span>
   );
 }
@@ -116,8 +117,8 @@ export default function BrokerCard({ broker }: Props) {
   const [expanded, setExpanded] = useState(false);
 
   // A Belgian tax the broker leaves to you — the only thing worth an amber alarm.
-  const taxRisk =
-    !broker.automation.tobAuto || broker.automation.cgtAuto === 'cgt_manual';
+  const tax = taxLevel(broker);
+  const taxRisk = tax !== 'all';
 
   const maxItems = 4;
   const prosToShow = expanded ? broker.pros : broker.pros.slice(0, maxItems);
@@ -234,7 +235,7 @@ export default function BrokerCard({ broker }: Props) {
           {t('automation_label')}
         </span>
         <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
-          <CgtBadge cgtKey={broker.automation.cgtAuto} />
+          <TaxBadge level={tax} />
           <TraitBadge on={broker.automation.savingsPlan} label={t('savings_plan')} />
           <TraitBadge on={broker.automation.fractionalShares} label={t('col_fractional')} />
         </div>
@@ -301,17 +302,16 @@ export default function BrokerCard({ broker }: Props) {
           {tDyn(broker.warningNote).split(' | ').map((para, i) => (
             <p key={i} className={i > 0 ? 'mt-2' : ''}>{para}</p>
           ))}
-          {broker.guideLink && (
-            <p className="mt-2">
-              <Link
-                href={broker.guideLink.href}
-                className="font-semibold underline underline-offset-2 hover:text-amber-900"
-              >
-                → {tDyn(broker.guideLink.text)}
-              </Link>
-            </p>
-          )}
         </div>
+      )}
+
+      {broker.guideLink && (
+        <Link
+          href={broker.guideLink.href}
+          className="self-start text-sm font-semibold text-[var(--forest)] underline underline-offset-2 hover:no-underline"
+        >
+          → {tDyn(broker.guideLink.text)}
+        </Link>
       )}
     </div>
   );
