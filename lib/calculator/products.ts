@@ -767,7 +767,7 @@ const BANK_PRODUCTS: Product[] = [
     category: 'branche21',
     subcategory: 'bank-specific',
     provider: 'AG Insurance',
-    defaultRate: 0.0280,
+    defaultRate: 0.0300,
     rateEditable: true,
     color: '#8a6a2a',
     taxConfig: {
@@ -786,7 +786,7 @@ const BANK_PRODUCTS: Product[] = [
     category: 'branche21',
     subcategory: 'bank-specific',
     provider: 'Belfius Insurance',
-    defaultRate: 0.0268,
+    defaultRate: 0.0313,
     rateEditable: true,
     color: '#5a4a6a',
     taxConfig: {

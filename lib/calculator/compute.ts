@@ -391,15 +391,20 @@ export function computeGrowth(
       : 0;
     const portfolioIfCashedOut = Math.max(0, payoutValue - payoutTobSell - payoutCgt);
 
+    // Totals are sums of the rounded parts, so the displayed figures reconcile.
+    const grossTotal = Math.round(dividendGrossAcc);
+    const precompte = Math.round(dividendPrecompteAcc);
+    const cashCollected = Math.round(dividendCashAcc);
+    const portfolioIfCashedOutRounded = Math.round(portfolioIfCashedOut);
     dividends = {
-      grossTotal: Math.round(dividendGrossAcc),
-      precompte: Math.round(dividendPrecompteAcc),
-      netTotal: Math.round(dividendGrossAcc - dividendPrecompteAcc),
+      grossTotal,
+      precompte,
+      netTotal: grossTotal - precompte,
       grossYield: dividendYield,
       netYield: dividendYield * (1 - dividendTax),
-      cashCollected: Math.round(dividendCashAcc),
-      portfolioIfCashedOut: Math.round(portfolioIfCashedOut),
-      totalIfCashedOut: Math.round(portfolioIfCashedOut + dividendCashAcc),
+      cashCollected,
+      portfolioIfCashedOut: portfolioIfCashedOutRounded,
+      totalIfCashedOut: portfolioIfCashedOutRounded + cashCollected,
     };
   }
 

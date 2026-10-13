@@ -121,7 +121,7 @@ describe('golden case: €200/month, 20 years, no lump sum', () => {
     const r = computeGrowth(product('monde-simplifie'), 200, 20, 0);
     expect(r.taxBreakdown).toMatchObject({
       tobBuy: 58,
-      tobSell: 137,
+      tobSell: 142,
       precompte: 0,
       reynders: 0,
       entryFees: 0,
@@ -129,13 +129,13 @@ describe('golden case: €200/month, 20 years, no lump sum', () => {
       pensionTax: 0,
     });
     // TER is tracked for display only and excluded from `total`.
-    expect(r.taxBreakdown.annualFeesCumulative).toBe(1610);
+    expect(r.taxBreakdown.annualFeesCumulative).toBe(1648);
     expect(r.sellTaxes).toBe(r.taxBreakdown.tobSell + r.taxBreakdown.capitalGainsTax);
   });
 
   it('distributing equity ETF withholds précompte on dividends', () => {
     const r = computeGrowth(product('dividendes'), 200, 20, 0);
-    expect(r.taxBreakdown.precompte).toBe(6088);
+    expect(r.taxBreakdown.precompte).toBe(6528);
     expect(r.dividends).toBeDefined();
     expect(r.dividends!.grossYield).toBeCloseTo(0.026, 5);
     expect(r.dividends!.netYield).toBeCloseTo(0.026 * 0.7, 5);
@@ -209,7 +209,7 @@ describe('carry-forward reduces the tax actually charged', () => {
   it('taxes a long hold less than the flat exemption would', () => {
     const r = computeGrowth(etf, 200, 20, 0);
     // Ceiling applies: €15,000 exempt rather than €10,000, so €500 less tax.
-    expect(r.taxBreakdown.capitalGainsTax).toBe(5131);
+    expect(r.taxBreakdown.capitalGainsTax).toBe(5536);
   });
 
   it('charges 10% on the excess over the available exemption', () => {

@@ -5,10 +5,12 @@
  * They reflect index performance (before ETF TER) and do NOT include Belgian
  * taxes (TOB, précompte mobilier, CGT, Reynders). Past performance ≠ future results.
  *
- * Sources: MSCI factsheets (monde-simplifie, monde-complet, tout-en-un,
- * biais-us, tech-us), ECB/STOXX (epargne-liquide), ETF calendar-year returns
- * (esg-mondiale — see note below).
- * Strategies marked estimated:true use weighted blends of confirmed index data.
+ * Sources: monthly index series in EUR via Curvo Backtest — MSCI indices with
+ * net dividends, S&P 500 total return, Nasdaq-100 net, FTSE All-World High
+ * Dividend Yield net — computed from year-end levels (recomputed Oct 2026);
+ * ECB (epargne-liquide); ETF calendar-year returns (esg-mondiale — see below).
+ * Strategies marked estimated:true are blends of those index series, rebalanced
+ * annually, rather than a single published index.
  */
 
 export interface PeriodReturns {
@@ -39,29 +41,29 @@ export const STRATEGY_RETURNS: Record<string, PeriodReturns> = {
   // ── Single MSCI World ────────────────────────────────────────────────────────
   // Source: MSCI World EUR factsheet, December 31 2025
   'monde-simplifie': {
-    y1: 0.068,
-    y3: 0.157,
-    y5: 0.133,
-    y10: 0.121,
+    y1: 0.071,
+    y3: 0.173,
+    y5: 0.131,
+    y10: 0.113,
     source: 'source_msci_world',
   },
 
   // ── MSCI World 89% + EM IMI 11% ─────────────────────────────────────────────
   // Source: MSCI factsheets weighted 89/11
   'monde-complet': {
-    y1: 0.074,
-    y3: 0.149,
-    y5: 0.120,
-    y10: 0.115,
+    y1: 0.081,
+    y3: 0.168,
+    y5: 0.123,
+    y10: 0.109,
     source: 'source_msci_world_em',
   },
 
   // ── MSCI ACWI IMI ────────────────────────────────────────────────────────────
   // Source: MSCI ACWI IMI EUR factsheet, December 31 2025
   'tout-en-un': {
-    y1: 0.076,
+    y1: 0.079,
     y3: 0.162,
-    y5: 0.120,
+    y5: 0.117,
     y10: 0.106,
     source: 'source_msci_acwi_imi',
   },
@@ -82,10 +84,10 @@ export const STRATEGY_RETURNS: Record<string, PeriodReturns> = {
   // ── MSCI World 60% + MSCI Europe 40% ─────────────────────────────────────────
   // Weighted blend: confirmed index data
   'biais-europe': {
-    y1: 0.118,
-    y3: 0.145,
-    y5: 0.122,
-    y10: 0.104,
+    y1: 0.121,
+    y3: 0.163,
+    y5: 0.125,
+    y10: 0.099,
     source: 'source_msci_world_europe',
     estimated: true,
   },
@@ -93,10 +95,10 @@ export const STRATEGY_RETURNS: Record<string, PeriodReturns> = {
   // ── MSCI World 60% + MSCI Europe 20% + MSCI China 20% ───────────────────────
   // Weighted blend: confirmed index data (China EUR approx +18% in 2025)
   'anti-us': {
-    y1: 0.116,
-    y3: 0.132,
-    y5: 0.098,
-    y10: 0.085,
+    y1: 0.113,
+    y3: 0.153,
+    y5: 0.100,
+    y10: 0.096,
     source: 'source_msci_world_europe_china',
     estimated: true,
   },
@@ -104,10 +106,10 @@ export const STRATEGY_RETURNS: Record<string, PeriodReturns> = {
   // ── MSCI World 70% + MSCI China 30% ─────────────────────────────────────────
   // Weighted blend: confirmed index data
   'biais-chine': {
-    y1: 0.101,
-    y3: 0.128,
+    y1: 0.096,
+    y3: 0.149,
     y5: 0.089,
-    y10: 0.078,
+    y10: 0.097,
     source: 'source_msci_world_china',
     estimated: true,
   },
@@ -115,9 +117,9 @@ export const STRATEGY_RETURNS: Record<string, PeriodReturns> = {
   // ── S&P 500 (CSPX) ───────────────────────────────────────────────────────────
   // Source: S&P 500 EUR factsheet, December 31 2025 (USD weakness reduces EUR return)
   'biais-us': {
-    y1: 0.040,   // 2025 in EUR: ~+18% in USD, minus ~13% EUR/USD appreciation
-    y3: 0.157,
-    y5: 0.140,
+    y1: 0.042,
+    y3: 0.191,
+    y5: 0.154,
     y10: 0.139,
     source: 'source_sp500',
   },
@@ -125,21 +127,20 @@ export const STRATEGY_RETURNS: Record<string, PeriodReturns> = {
   // ── FTSE All-World High Dividend Yield ───────────────────────────────────────
   // Weighted blend based on confirmed dividend-tilt index data
   'dividendes': {
-    y1: 0.065,
-    y3: 0.138,
-    y5: 0.112,
-    y10: 0.098,
+    y1: 0.117,
+    y3: 0.117,
+    y5: 0.123,
+    y10: 0.083,
     source: 'source_high_dividend',
-    estimated: true,
   },
 
   // ── Nasdaq-100 ───────────────────────────────────────────────────────────────
   // Source: Nasdaq-100 EUR return, December 31 2025 (USD weakness reduces EUR return)
   'tech-us': {
-    y1: 0.108,
-    y3: 0.185,
-    y5: 0.172,
-    y10: 0.181,
+    y1: 0.068,
+    y3: 0.287,
+    y5: 0.160,
+    y10: 0.184,
     source: 'source_nasdaq',
   },
 

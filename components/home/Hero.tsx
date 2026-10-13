@@ -7,9 +7,9 @@ const chartPoints = [
   { count: 5,  bank: 5,  etf: 5  },
   { count: 10, bank: 9,  etf: 13 },
   { count: 15, bank: 14, etf: 24 },
-  { count: 20, bank: 20, etf: 41 },
-  { count: 25, bank: 26, etf: 65 },
-  { count: 30, bank: 35, etf: 93 },
+  { count: 20, bank: 20, etf: 42 },
+  { count: 25, bank: 26, etf: 67 },
+  { count: 30, bank: 35, etf: 96 },
 ];
 
 export default function Hero() {
