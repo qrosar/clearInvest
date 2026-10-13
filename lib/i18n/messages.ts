@@ -14,7 +14,6 @@ export const BASE_CLIENT_NAMESPACES = [
   'home',
   'hero',
   'tools',
-  'journey',
   'strategies',
 ] as const;
 

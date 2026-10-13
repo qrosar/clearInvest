@@ -143,19 +143,10 @@ export const STRATEGY_RETURNS: Record<string, PeriodReturns> = {
     source: 'source_nasdaq',
   },
 
-  // ── Short-duration bond blend ─────────────────────────────────────────────────
-  'obligations': {
-    y1: 0.048,
-    y3: 0.023,
-    y5: 0.025,
-    y10: 0.021,
-    source: 'source_bonds',
-  },
-
   // ── Overnight Rate (CSH2) ───────────────────────────────────────────────────
   // Tracks ECB €STR rate
   'epargne-liquide': {
-    y1: 0.029,   // €STR approx 2025
+    y1: 0.022,   // €STR average 2025 (ECB deposit rate 3.00% → 2.00% during the year)
     y3: 0.031,
     y5: 0.021,
     y10: 0.012,

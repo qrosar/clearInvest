@@ -406,7 +406,9 @@ export function computeGrowth(
   return {
     points,
     finalValueAfterTax: Math.round(Math.max(0, portfolioValue - sellTaxes) + pensionSidePot),
-    sellTaxes: Math.round(sellTaxes),
+    // Sum of the rounded sell-side rows, for the same reason as `total` above.
+    sellTaxes:
+      rows.tobSell + rows.reynders + rows.capitalGainsTax + rows.pensionTax + Math.round(branche21Amt),
     taxBreakdown,
     dividends,
   };

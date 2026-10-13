@@ -17,7 +17,10 @@ export type Strategy = {
   esg: boolean;
   geographic: ('global' | 'europe' | 'us' | 'china' | 'emerging')[];
   etfs: ETFAllocation[];
-  historicalReturn: number; // annual return, e.g. 0.08 for 8%
+  // Annual return NET of the ETF's TER (index return minus weighted TER, or the
+  // fund's own net return where available). The calculator uses it as-is and
+  // shows the TER for information only — do not deduct it again.
+  historicalReturn: number; // e.g. 0.078 for 7.8%
   historicalReturnPeriod: string;
   historicalReturnNote: string; // i18n key (data.strategies.[id].historicalReturnNote)
   tob: number;             // fraction, e.g. 0.0012 for 0.12%
@@ -35,7 +38,7 @@ export const STRATEGIES: Strategy[] = [
     etfs: [
       { ticker: 'IWDA', isin: 'IE00B4L5Y983', name: 'iShares Core MSCI World UCITS ETF (Acc)', allocation: 100, ter: 0.20, accumulating: true },
     ],
-    historicalReturn: 0.082,
+    historicalReturn: 0.080,
     historicalReturnPeriod: '2005–2025',
     historicalReturnNote: 'data.strategies.monde-simplifie.historicalReturnNote',
     tob: 0.0012,
@@ -51,7 +54,7 @@ export const STRATEGIES: Strategy[] = [
       { ticker: 'IWDA', isin: 'IE00B4L5Y983', name: 'iShares Core MSCI World UCITS ETF (Acc)', allocation: 89, ter: 0.20, accumulating: true },
       { ticker: 'EMIM', isin: 'IE00BKM4GZ66', name: 'iShares Core MSCI EM IMI UCITS ETF (Acc)', allocation: 11, ter: 0.18, accumulating: true },
     ],
-    historicalReturn: 0.081,
+    historicalReturn: 0.079,
     historicalReturnPeriod: '2005–2025',
     historicalReturnNote: 'data.strategies.monde-complet.historicalReturnNote',
     tob: 0.0012,
@@ -66,7 +69,7 @@ export const STRATEGIES: Strategy[] = [
     etfs: [
       { ticker: 'IMIE', isin: 'IE00B3YLTY66', name: 'State Street SPDR MSCI All Country World Investable Market UCITS ETF (Acc)', allocation: 100, ter: 0.17, accumulating: true },
     ],
-    historicalReturn: 0.08,
+    historicalReturn: 0.078,
     historicalReturnPeriod: '2005–2025',
     historicalReturnNote: 'data.strategies.tout-en-un.historicalReturnNote',
     tob: 0.0012,
@@ -97,7 +100,7 @@ export const STRATEGIES: Strategy[] = [
       { ticker: 'IWDA', isin: 'IE00B4L5Y983', name: 'iShares Core MSCI World UCITS ETF (Acc)', allocation: 60, ter: 0.20, accumulating: true },
       { ticker: 'SMEA', isin: 'IE00B4K48X80', name: 'iShares Core MSCI Europe UCITS ETF EUR (Acc)', allocation: 40, ter: 0.12, accumulating: true },
     ],
-    historicalReturn: 0.075,
+    historicalReturn: 0.073,
     historicalReturnPeriod: '2005–2025',
     historicalReturnNote: 'data.strategies.biais-europe.historicalReturnNote',
     tob: 0.0012,
@@ -114,7 +117,7 @@ export const STRATEGIES: Strategy[] = [
       { ticker: 'SMEA', isin: 'IE00B4K48X80', name: 'iShares Core MSCI Europe UCITS ETF EUR (Acc)', allocation: 20, ter: 0.12, accumulating: true },
       { ticker: 'ICHN', isin: 'IE00BJ5JPG56', name: 'iShares MSCI China UCITS ETF USD (Acc)', allocation: 20, ter: 0.28, accumulating: true },
     ],
-    historicalReturn: 0.068,
+    historicalReturn: 0.066,
     historicalReturnPeriod: '2005–2025',
     historicalReturnNote: 'data.strategies.anti-us.historicalReturnNote',
     tob: 0.0012,
@@ -130,7 +133,7 @@ export const STRATEGIES: Strategy[] = [
       { ticker: 'IWDA', isin: 'IE00B4L5Y983', name: 'iShares Core MSCI World UCITS ETF (Acc)', allocation: 70, ter: 0.20, accumulating: true },
       { ticker: 'ICHN', isin: 'IE00BJ5JPG56', name: 'iShares MSCI China UCITS ETF USD (Acc)', allocation: 30, ter: 0.28, accumulating: true },
     ],
-    historicalReturn: 0.065,
+    historicalReturn: 0.063,
     historicalReturnPeriod: '2005–2025',
     historicalReturnNote: 'data.strategies.biais-chine.historicalReturnNote',
     tob: 0.0012,
@@ -145,7 +148,7 @@ export const STRATEGIES: Strategy[] = [
     etfs: [
       { ticker: 'CSPX', isin: 'IE00B5BMR087', name: 'iShares Core S&P 500 UCITS ETF (Acc)', allocation: 100, ter: 0.07, accumulating: true },
     ],
-    historicalReturn: 0.115,
+    historicalReturn: 0.114,
     historicalReturnPeriod: '2005–2025',
     historicalReturnNote: 'data.strategies.biais-us.historicalReturnNote',
     tob: 0.0012,
@@ -160,7 +163,7 @@ export const STRATEGIES: Strategy[] = [
     etfs: [
       { ticker: 'CNDX', isin: 'IE00B53SZB19', name: 'iShares Nasdaq 100 UCITS ETF (Acc)', allocation: 100, ter: 0.30, accumulating: true },
     ],
-    historicalReturn: 0.132,
+    historicalReturn: 0.129,
     historicalReturnPeriod: '2005–2025',
     historicalReturnNote: 'data.strategies.tech-us.historicalReturnNote',
     tob: 0.0012,
@@ -178,7 +181,7 @@ export const STRATEGIES: Strategy[] = [
     etfs: [
       { ticker: 'VHYL', isin: 'IE00B8GKDB10', name: 'Vanguard FTSE All-World High Dividend Yield UCITS ETF (Dist)', allocation: 100, ter: 0.29, accumulating: false },
     ],
-    historicalReturn: 0.078,
+    historicalReturn: 0.075,
     historicalReturnPeriod: '2005–2025',
     historicalReturnNote: 'data.strategies.dividendes.historicalReturnNote',
     tob: 0.0012,
@@ -196,8 +199,8 @@ export const STRATEGIES: Strategy[] = [
     etfs: [
       { ticker: 'CSH2', isin: 'LU1190417599', name: 'Amundi Smart Overnight Return UCITS ETF (Acc)', allocation: 100, ter: 0.10, accumulating: true },
     ],
-    historicalReturn: 0.03,
-    historicalReturnPeriod: '2024–2025',
+    historicalReturn: 0.023,
+    historicalReturnPeriod: '€STR 10/2026',
     historicalReturnNote: 'data.strategies.epargne-liquide.historicalReturnNote',
     tob: 0.0012,
     color: '#5b8fa8',

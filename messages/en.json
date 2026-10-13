@@ -12,7 +12,6 @@
     "brokers": "Brokers",
     "questions": "FAQ",
     "ressources": "Resources",
-    "start": "Get Started",
     "menu_open": "Open menu",
     "menu_close": "Close menu",
     "analyseProducts": "Product Reviews"
@@ -39,7 +38,6 @@
     "source_sp500": "S&P 500 Index (EUR, total return)",
     "source_high_dividend": "FTSE All-World High Dividend Yield Index (EUR, gross div reinvested)",
     "source_nasdaq": "Nasdaq-100 Index (EUR, total return)",
-    "source_bonds": "Bloomberg Global Aggregate 1–3yr (EUR hedged, approx.)",
     "source_estr": "€STR Index (Euro Short-Term Rate)"
   },
   "p_savings_ing_tempo_cap_note": "Deposit limited to €500 per month.",
@@ -62,42 +60,24 @@
     "chart_savings": "Savings account",
     "chart_etf": "World ETF (IMIE)",
     "chart_subtitle": "Estimated value investing €300/month for 30 years",
-    "chart_value": "€408,000",
-    "chart_delta": "+€260,000 vs bank",
+    "chart_value": "€395,000",
+    "chart_delta": "+€247,000 vs bank",
     "chart_badge_rate": "~8% / yr",
     "chart_badge_label": "historical",
-    "chart_disclaimer": "* Indicative simulation before tax. €300/month for 30 years.",
+    "chart_disclaimer": "* Indicative simulation, after ETF fees, before tax. €300/month for 30 years.",
     "chart_year_label": "{count} yr"
-  },
-  "journey": {
-    "heading": "From zero to your",
-    "headingItalic": "first ETF",
-    "step1_title": "Understand",
-    "step1_desc": "Why your savings lose value and how ETFs can change that.",
-    "step2_title": "Compare",
-    "step2_desc": "Visualise the difference between your savings account and an ETF over 10, 20 or 30 years.",
-    "step3_title": "Choose",
-    "step3_desc": "Discover strategies tailored to your horizon — simple, balanced, or sustainable.",
-    "step4_title": "Get started",
-    "step4_desc": "Step-by-step guide to opening a broker account and buying your first ETF."
   },
   "tools": {
     "heading": "Everything you need to decide",
-    "grid_heading": "All tools, in one place",
     "subtitle": "Practical tools, objective comparisons — no unnecessary jargon.",
     "calc_title": "Returns calculator",
     "calc_desc": "Compare what classic bank products return against different ETF strategies — over the timeframe that suits you.",
-    "calc_desc_short": "Compare your bank savings with an ETF over 10, 20, or 30 years.",
     "strategies_title": "ETF strategies",
     "strategies_desc": "IMIE, IWDA, CSPX… Which strategy matches your profile and investment horizon?",
-    "strategies_desc_short": "Three simple portfolios tailored to different goals and horizons.",
     "brokers_title": "Broker comparison",
-    "brokers_desc": "MeDirect, Saxo, Bolero, DEGIRO… Which fits best? Fees and taxation compared.",
-    "brokers_desc_short": "Fees, taxes, interface — find the right broker for your profile.",
+    "brokers_desc": "MeDirect, Trade Republic, Saxo… Which fits best? Fees and taxation compared.",
     "understand_title": "Understanding ETFs",
     "understand_desc": "Why your savings lose value to inflation, and how ETFs can change that.",
-    "guides_title": "Practical Guides",
-    "guides_desc_short": "Belgian ETF taxation, opening an account, understanding fees.",
     "questions_title": "Frequently asked questions",
     "questions_desc": "Can you really lose everything? Should you wait for the right moment? Direct answers to common misconceptions about investing."
   },
@@ -207,7 +187,7 @@
     "custom_gross_baseline": "Reference gross return (%)",
     "custom_gross_baseline_hint": "Optional — displayed for reference only",
     "custom_tob_label": "TOB (%)",
-    "custom_tob_hint": "0.12% for most ETFs and funds; 1.32% for Belgian-domiciled funds",
+    "custom_tob_hint": "0.12% for most ETFs and funds; 1.32% for accumulating funds registered with the FSMA (e.g. VWCE)",
     "custom_sec_general": "General",
     "custom_provider": "Provider / Bank",
     "custom_provider_hint": "Displayed on the result card",
@@ -260,8 +240,8 @@
     "pension_pill_rate_25": "25% tax reduction",
     "pension_comparison_note": "Comparison based on {monthly}/month ({annual}/year). The {rate}% tax reduction on contributions is included in the pension savings calculation.",
     "branche21_note": "Branch 21: 2% non-refundable premium tax on each contribution. 30% précompte calculated on a notional return of 4.75%/year if redeemed before 8 years — exempt after 8 years of contract.",
-    "tax_note": "Fees and taxes included in the simulation: TOB (0.12% on purchase and sale), entry fees deducted from each payment, withholding tax (30% on interest above €1,020/year for savings accounts, 15% for regulated accounts), Reynders tax (30% on the bond component), ETF capital gains taxed at 10% above €10,000/year, branch 21 premium tax (2% per payment), anticipatory pension savings tax (8% on notional capital at 4.75%/year), pension savings tax benefit (estimated 30% tax reduction). The rates used are illustrative assumptions — past performance does not guarantee future performance.",
-    "bank_data_note": "Bank and active fund returns are calculated based on standardized gross returns by asset class (global equities: 8%, bonds: 3%), from which actual product fees (TER) are deducted. This method, compliant with FSMA recommendations for standardized projections, eliminates biases related to historical horizon differences between products. ETF strategy returns are based on historical averages of the underlying index over the 2005–2025 period.",
+    "tax_note": "Fees and taxes included in the simulation: TOB (0.12% on purchase and sale), entry fees deducted from each payment, withholding tax (regulated savings accounts: 15% on interest above €1,020/year; savings certificates and term deposits: 30% from the first euro), Reynders tax (30% on the bond component), ETF capital gains taxed at 10% above €10,000/year, branch 21 premium tax (2% per payment), anticipatory pension savings tax (8% on notional capital at 4.75%/year), pension savings tax benefit (estimated 30% tax reduction). The rates used are illustrative assumptions — past performance does not guarantee future performance.",
+    "bank_data_note": "Bank and active fund returns are calculated based on standardized gross returns by asset class (global equities: 8%, bonds: 3%), from which actual product fees (TER) are deducted. This method eliminates biases related to historical horizon differences between products. ETF strategy returns are the 2005–2025 historical averages of the underlying index minus the ETF's TER — an estimate of the net return actually achieved.",
     "bank_rate_note": "* Based on available data (≤10 years). The comparison horizon remains illustrative.",
     "active_fund_warning": "⚠️ The rate used ({rate}) is net of annual fees (TER) but gross of entry fees. Past performance of active funds is particularly unreliable for predicting future performance — the majority underperform their benchmark index over 10+ years.",
     "rate_formula": "Simulated return = {grossBaseline} gross − {ter} TER (actual product fees)",
@@ -326,7 +306,7 @@
   "strategyCard": {
     "composition": "Composition",
     "weighted_ter": "Weighted average TER",
-    "historical_return": "Average return ({period})",
+    "historical_return": "Average return after fees ({period})",
     "cta": "See in calculator",
     "ter_tooltip": "The TER (Total Expense Ratio) is the annual fund management cost. It is automatically deducted from the fund's performance and is not charged separately. A TER of 0.20% means that on €10,000 invested, €20 is taken annually by the fund manager.",
     "horizon_short": "Short term",
@@ -611,7 +591,7 @@
     "r1_q": "I've always heard you can lose everything on the stock market — is that true?",
     "r1_p1": "Losing everything is possible if you invest in a single company that goes bankrupt — Enron, Lehman Brothers, or a startup that disappears overnight.",
     "r1_p2": "That is precisely why a global ETF like IMIE or IWDA is structurally different. You hold fractions of thousands of companies spread across some twenty developed and emerging countries. To lose everything, the entire global economy would have to collapse simultaneously and permanently — a scenario in which your savings account, property, and pension savings would probably also be worthless.",
-    "r1_p3": "What you can lose, however, is part of your capital temporarily. In 2008, markets fell by ~50%. Depending on the index and currency, nominal recovery took between 3 and 5 years. In 2020, -35% in March, +70% over the year. Volatility is real — but it is not the same as permanent loss.",
+    "r1_p3": "What you can lose, however, is part of your capital temporarily. In 2008, markets fell by ~50%. Depending on the index and currency, nominal recovery took between 3 and 5 years. In 2020, -35% in March, then +70% from the March low to the end of the year. Volatility is real — but it is not the same as permanent loss.",
     "r1_p4": "The practical rule: only invest money you will not need in the next 5 years.",
     "r2_q": "What if I start investing just before a crash?",
     "r2_p1": "This is the most common fear — and the data shows it is largely overestimated.",
@@ -622,18 +602,18 @@
     "r3_q": "Why not just invest in the product with the best historical return?",
     "r3_p1": "Because past performance does not predict future performance — and the data proves it.",
     "r3_p2": "In the 2000s, technology funds had the best historical returns of the previous decade. Those who bet everything on them in 2000 lost 80% of their capital when the dot-com bubble burst.",
-    "r3_p3": "In the 2010s, emerging markets had outperformed. Investors who switched to them then suffered a decade of underperformance relative to developed markets.",
+    "r3_p3": "In the 2000s, emerging markets had strongly outperformed. Investors who switched to them around 2010 then suffered a decade of underperformance relative to developed markets.",
     "r3_p4": "The product with the best historical return is often the one that benefited from a specific trend — and those trends reverse.",
     "r3_p5": "The strategy that works over the long term is not chasing past performance, but buying the entire global economy at low cost and waiting. That is exactly what a global ETF does.",
     "r4_q": "Should you wait for the right moment to invest?",
     "r4_p1": "No — and the data is unambiguous on this point.",
     "r4_p2": "A well-known Schwab study compared five strategies over 20 years, including two extremes: always investing at the worst moment of the year (just before each crash) vs always investing at the best moment.",
-    "r4_p3": "Result: even perfect timing would have generated only ~8% additional return over 20 years compared to immediate investment. By contrast, the difference between investing immediately and staying in cash waiting for the 'right moment' was 30 to 40%.",
+    "r4_p3": "Result: perfect timing earns only a little more (in the order of 10%) than investing immediately. Even the investor who bought at the worst moment every year ends far ahead of the one who stayed in cash waiting for the 'right moment' — who finishes with a fraction of the others' capital.",
     "r4_p4": "The investor's enemy is not bad timing — it is inaction.",
     "r4_p5": "The only exception: if you need this money in less than 2 years, do not invest it in equities.",
     "d1_q": "How much do you need to get started?",
     "d1_p1": "Less than you think.",
-    "d1_p2": "Most recommended brokers (MeDirect, Saxo) impose no minimum deposit. Some recent global ETFs like WEBN cost around 5 € to 10 € per share. The classics like SWRD cost ~40 €, IMIE ~220 €. Most recommended brokers allow you to start from 50 € to 100 € by buying cheaper ETFs or via automatic savings plans.",
+    "d1_p2": "Most recommended brokers (MeDirect, Trade Republic, Saxo) impose no minimum deposit. Some recent global ETFs like WEBN cost around 5 € to 10 € per share. The classics like SWRD cost ~40 €, IMIE ~220 €. Most recommended brokers allow you to start from 50 € to 100 € by buying cheaper ETFs or via automatic savings plans.",
     "d1_p3": "In practice, it is advisable to invest at least 100 € to 200 € per month so that fixed transaction fees (often €0 at MeDirect) remain negligible relative to the amount invested.",
     "d1_p4": "What matters more than the starting amount is regularity. 200 €/month for 30 years at 8% annual return ≈ 272 000 €. 2 400 € invested just once ≈ 24 000 € over the same period. Regularity beats the initial amount.",
     "d2_q": "Is it complicated to manage on a daily basis?",
@@ -648,7 +628,7 @@
     "d3_p2": "The ETFs you buy are not the property of the broker. They are held separately from the broker's balance sheet, in a segregated estate. If the broker goes bankrupt, your assets do not form part of the insolvent estate — they are returned to you.",
     "d3_p3": "In practice, a liquidator simply transfers your positions to another broker.",
     "d3_p4": "Furthermore, brokers operating in Belgium or the EU are subject to strict regulatory capital requirements. MeDirect is supervised by the Maltese MFSA and the Belgian FSMA. Saxo Bank by the Danish DFSA.",
-    "d3_p5": "Cash deposit protection (not ETFs) is limited to 100 000 € by the guarantee fund — an additional reason not to leave idle cash at your broker.",
+    "d3_p5": "Cash deposit protection (not ETFs) is limited to 100 000 € by the guarantee fund — an additional reason not to leave idle cash at your broker. And if, exceptionally, a failed broker could not return your securities, an investor protection scheme covers up to 20 000 €.",
     "d4_q": "Should I invest everything at once or gradually?",
     "d4_p1": "Both approaches work — but not for the same profiles.",
     "d4_p2": "Investing all at once (lump sum) is statistically optimal: studies show that in the majority of cases (~60 to 70% depending on the study), investing the full amount immediately outperforms spreading over 12 months, because markets rise more often than they fall.",
@@ -682,7 +662,7 @@
     "s3_p5": "Both have the same Belgian tax treatment (TOB 0.12%, no Reynders tax, same CGT). The performance difference over 30 years will probably be less than 0.5% per year.",
     "f1_q": "Do I have to declare my ETFs to the tax authorities?",
     "f1_p1": "It depends on your broker.",
-    "f1_p2": "With a Belgian broker (MeDirect, Saxo Bank Belgium, Bolero, Keytrade): the TOB is withheld and declared automatically at each transaction. You have nothing to do for the TOB.",
+    "f1_p2": "With a broker established in Belgium (MeDirect, Saxo Bank Belgium, Trade Republic with a Belgian IBAN, Bolero, Keytrade): the TOB is withheld and declared automatically at each transaction. You have nothing to do for the TOB.",
     "f1_p3": "Since 1 June 2026, capital gains tax (10%) has been withheld at source by your Belgian broker on every sale: you need do nothing for it to be paid. However, that withholding applies from the first euro of gain, without taking into account the €10,000 annual exemption, your capital losses, or your actual purchase price — to recover those amounts, you must claim them in your annual tax return.",
     "f1_p4": "With certain foreign brokers (Interactive Brokers, Revolut): you are responsible for calculating and declaring the TOB yourself every two months — a real administrative burden with risk of fines in case of delay.",
     "f1_p5": "Other popular foreign brokers like DEGIRO now automatically handle the TOB for their Belgian clients, but the précompte mobilier and CGT 2026 still need to be declared manually. Always check your broker's current terms — these practices may evolve.",
@@ -724,7 +704,7 @@
     "s2_title": "2. Finding the ETF by ISIN",
     "s2_intro": "Never search for an ETF by name — the same ETF can be named differently depending on the broker and stock exchange. The ISIN is the universal identifier: it never changes, regardless of the exchange.",
     "s2_isin_label": "Reference ISINs",
-    "s2_imie_name": "iShares MSCI ACWI IMI — entire world",
+    "s2_imie_name": "SPDR MSCI ACWI IMI — entire world",
     "s2_iwda_name": "iShares Core MSCI World — developed markets",
     "s2_emim_name": "iShares Core MSCI EM IMI — emerging markets",
     "s2_cspx_name": "iShares Core S&P 500 — United States",
@@ -732,7 +712,7 @@
     "s2_xmaw_name": "Xtrackers MSCI AC World Screened — entire world, ESG filter (alternative)",
     "s2_xeon_name": "Xtrackers II EUR Overnight Rate Swap — money market",
     "s2_csh2_name": "Amundi EUR Overnight Return — money market",
-    "s2_tip": "Paste the ISIN directly into your broker's search bar. Several results may appear (different exchanges: Euronext Amsterdam, London, Xetra). For a Belgian resident, prefer the EUR listing on Euronext Amsterdam to avoid currency risk.",
+    "s2_tip": "Paste the ISIN directly into your broker's search bar. Several results may appear (different exchanges: Euronext Amsterdam, London, Xetra). For a Belgian resident, prefer the EUR listing: you avoid currency conversion fees. Note that this does not remove currency risk — a global ETF remains exposed to the dollar whatever its trading currency.",
     "s3_title": "3. Market order or limit order?",
     "s3_intro": "You will be offered two types of orders:",
     "s3_market_title": "Market order",
@@ -747,15 +727,15 @@
     "s4_item1_label": "Correct ISIN",
     "s4_item1_desc": "Compare character by character with your reference. One different character means a different product.",
     "s4_item2_label": "TOB applied",
-    "s4_item2_desc": "For an equity ETF, the TOB should be 0.12% of the transaction amount. If you see 1.32%, the ETF may be registered as a UCITS — check the ISIN.",
+    "s4_item2_desc": "For the equity ETFs recommended here, the TOB should be 0.12% of the transaction amount. If you see 1.32%, the ETF is an accumulating fund registered with the FSMA (such as VWCE) — check that it is the ISIN you intended.",
     "s4_item3_label": "Transaction fees displayed",
     "s4_item3_desc": "Your broker must clearly state the fees before confirmation. At MeDirect, ETFs have €0 transaction fees.",
-    "s4_warning": "If the displayed TOB is 1.32% instead of 0.12%, stop and do not confirm. This indicates that the selected ETF is registered as a UCITS in Belgium — most often a selection error (wrong market line). Go back and check the ISIN.",
+    "s4_warning": "If the displayed TOB is 1.32% instead of 0.12% when you were aiming for a 0.12% ETF, stop and do not confirm: you have selected a different fund. The TOB rate depends on the fund (its FSMA registration), not on the exchange — choosing another market line changes nothing. Go back and check the ISIN.",
     "s5_title": "5. After the purchase",
     "s5_p1": "Once the order is executed, your shares appear in your portfolio after settlement — generally within 2 business days (T+2). This is normal: it is the standard settlement cycle in Europe.",
     "s5_p2": "You will receive a transaction confirmation by email or in your broker platform. Keep these confirmations: they will serve to evidence your purchase price, to claim the €10,000 exemption on your capital gains in your annual tax return, and to declare yourself if you use a foreign broker.",
     "s5_p3": "Next step: decide on a regular investment frequency. Monthly is the simplest rhythm for most investors.",
-    "s5_tip": "Several brokers (MeDirect, Saxo) offer automatic transfers or periodic investment plans. Setting up a monthly automatic transfer to your broker account removes the monthly decision and eliminates the temptation to wait for the 'right moment'.",
+    "s5_tip": "Several brokers (Trade Republic, Saxo) offer automatic transfers or periodic investment plans. Setting up a monthly automatic transfer to your broker account removes the monthly decision and eliminates the temptation to wait for the 'right moment'.",
     "s6_title": "6. When to place your order?",
     "s6_p1": "The recommended ETFs are listed primarily on Euronext Amsterdam, open Monday to Friday from 9:00 to 17:30 CET. Outside these hours, your order is queued and executed at the next opening.",
     "s6_p2": "For a long-term investor, the exact time of the order has virtually no impact. That said, avoid the first and last 15 minutes of the session (9:00–9:15 and 17:15–17:30): bid/ask spreads are slightly wider at opening and close. The 10:00–16:00 window generally offers the best liquidity.",
@@ -773,7 +753,7 @@
     "info_label": "ℹ️ Remember",
     "intro_p1": "If you invest via a Belgian broker (MeDirect, Saxo, Bolero, Keytrade, Re=Bel), you have nothing to declare beyond your normal annual tax return. This guide does not apply to you.",
     "intro_p2": "If you use a foreign broker (DEGIRO, Interactive Brokers, Revolut, or other), Belgian law imposes two separate administrative obligations on you. They are simple but mandatory — ignoring them exposes you to fines. At Trade Republic, only German accounts (DE IBAN, opened before 15 September 2026) are concerned.",
-    "intro_info": "This guide applies to any broker whose registered office is outside Belgium, regardless of its popularity or reputation. The nationality of the broker, not that of the investor, determines the obligation.",
+    "intro_info": "This guide applies to any account held with an establishment located outside Belgium, regardless of the broker's popularity or reputation. A Belgian branch counts as a Belgian establishment: MeDirect, Saxo, Keytrade or Trade Republic with a Belgian IBAN are not concerned, even though their head office is abroad.",
     "s1_title": "1. Declaring to the Central Contact Point of the NBB",
     "s1_title_badge": "(once only)",
     "s1_p1": "The National Bank of Belgium (NBB) maintains a central register of all foreign accounts held by Belgian residents — the Central Contact Point (PCC).",
@@ -831,7 +811,7 @@
     "s3_cgt_title": "CGT 2026",
     "s3_cgt_subtitle": "(10% above €10,000/year)",
     "s3_cgt_desc": "Foreign brokers do not withhold the Belgian capital gains tax: you are effectively under the \"opt-out\" regime and must declare your gains in your annual tax return. Note that your broker's statement shows your actual purchase price, whereas for assets held before 1 January 2026 the tax reference value is the value on 31 December 2025 — so the calculation cannot be carried over as-is.",
-    "s3_tip": "The simplest solution to avoid all this administrative complexity: use a Belgian broker (MeDirect, Saxo) that handles all taxes automatically.",
+    "s3_tip": "The simplest solution to avoid all this administrative complexity: use a broker established in Belgium (MeDirect, Trade Republic with a Belgian IBAN, Saxo) that handles all taxes automatically.",
     "s4_title": "4. Why this obligation exists",
     "s4_p1": "Belgium, like all EU countries, participates in the automatic exchange of tax information between member states (DAC/CRS directive). Your foreign broker shares your data with the tax authorities of its country, which forwards it to the Belgian FPS Finance.",
     "s4_p2": "In practice: the Belgian tax authorities already know you have this account. The declaration is a compliance formality, not a revelation.",
@@ -912,14 +892,14 @@
     "term_cgt_def": "Since 1 January 2026, capital gains on financial assets are taxed at 10% in Belgium, above an annual exemption of €10,000. The unused exemption can be carried forward: up to €1,000 per year for a maximum of 5 years, giving a cumulative exemption of up to €15,000. Since 1 June 2026, Belgian intermediaries withhold this tax at source on every sale, from the first euro of gain and without applying the exemption: you claim it back through your annual tax return. Foreign brokers withhold nothing — the declaration falls entirely on you.",
     "term_cgt_link": "Learn more about taxation",
     "term_broker_name": "Broker",
-    "term_broker_def": "A broker is a platform that allows you to buy and sell ETFs and shares on the stock market. In Belgium, the recommended brokers for passive ETF investing are MeDirect (0% fees on ETFs) and Saxo Bank (AutoInvest at €2/month). Belgian brokers automatically handle the TOB declaration.",
+    "term_broker_def": "A broker is a platform that allows you to buy and sell ETFs and shares on the stock market. In Belgium, the recommended brokers for passive ETF investing are MeDirect (€0 fees on ETFs), Trade Republic (savings plans, Belgian taxes withheld on Belgian-IBAN accounts) and Saxo Bank (AutoInvest at €2/month). Brokers established in Belgium handle the TOB automatically.",
     "term_broker_link": "Compare brokers",
     "term_branche21_name": "Branch 21 (branche 21)",
     "term_branche21_def": "Branch 21 is a savings insurance product with a guaranteed interest rate, subject to a 2% premium tax on each contribution. Interest is exempt from précompte mobilier after 8 years of holding. Structurally disadvantageous compared to an ETF over the long term due to entry fees, the premium tax, and the limited guaranteed return.",
     "term_branche23_name": "Branch 23 (branche 23)",
-    "term_branche23_def": "Branch 23 is a life insurance product linked to investment funds, with no guaranteed return. Used notably for pension savings (épargne-pension) via bank funds. The anticipatory tax of 8% at age 60 is calculated on a notional capital assuming an annual return of 4.75%.",
+    "term_branche23_def": "Branch 23 is a life insurance product linked to investment funds, with no guaranteed return. It can serve as a wrapper for pension savings or long-term savings; in that case the exit tax is calculated on the capital actually built up (the 4.75% notional-capital rule applies only to pension savings funds).",
     "term_epargne_pension_name": "Pension savings (épargne-pension)",
-    "term_epargne_pension_def": "Belgian pension savings (3rd pillar) allow a 30% tax reduction on contributions up to ~€1,050/year. The capital is locked until age 60 and subject to an exit tax of 8%. Despite the initial tax advantage, an ETF structurally outperforms pension savings from year 11 onwards due to the return differential.",
+    "term_epargne_pension_def": "Belgian pension savings (3rd pillar) give a 30% tax reduction on contributions up to €1,050/year (or 25% up to €1,350/year). The capital is locked until age 60 and subject to an 8% exit tax. Despite the tax advantage, our simulator shows a world ETF overtaking the best pension savings fund from year 14, because of the fee gap.",
     "term_epargne_pension_link": "Learn more about bank products"
   },
   "strategyDetail": {
@@ -937,7 +917,7 @@
     "fact_tob": "TOB",
     "fact_ter": "Weighted average TER",
     "fact_securities": "Securities (~)",
-    "fact_return": "Historical return",
+    "fact_return": "Historical net return",
     "fact_reynders": "Reynders tax",
     "fact_dividends": "Dividends",
     "fact_reynders_yes": "Applicable (30%)",
@@ -990,7 +970,7 @@
         "alt_2_con_0": "TOB potentially 1.32% depending on the broker — some apply 0.12%, others 1.32%. Check before investing",
         "alt_2_con_1": "Higher TER of 0.19%",
         "alt_2_con_2": "No small caps",
-        "alt_2_verdict": "To be avoided for Belgian investors — the applicable TOB varies by broker — from 0.12% to 1.32%. In the worst case, you pay €132 in taxes on €10,000 compared to €12 with IMIE. Essential to check with your broker before any purchase."
+        "alt_2_verdict": "Best avoided by Belgian investors: VWCE is registered with the FSMA, so it carries a 1.32% TOB on every purchase and sale. On €10,000, that is €132 in tax compared to €12 with IMIE."
       },
       "monde-complet": {
         "name": "Complete World",
@@ -1023,7 +1003,7 @@
         "alt_2_con_0": "TOB potentially 1.32% depending on the broker — some apply 0.12%, others 1.32%. Check before investing",
         "alt_2_con_1": "Higher TER",
         "alt_2_con_2": "No small caps",
-        "alt_2_verdict": "To be avoided for Belgian investors — the applicable TOB varies by broker — from 0.12% to 1.32%. In the worst case, you pay €132 in taxes on €10,000 compared to €12 with IMIE. Essential to check with your broker before any purchase."
+        "alt_2_verdict": "Best avoided by Belgian investors: VWCE is registered with the FSMA, so it carries a 1.32% TOB on every purchase and sale. On €10,000, that is €132 in tax compared to €12 with IMIE."
       },
       "tout-en-un": {
         "name": "All-in-one",
@@ -1067,7 +1047,7 @@
         "alt_3_con_0": "TOB potentially 1.32% depending on the broker — some apply 0.12%, others 1.32%. Check before investing",
         "alt_3_con_1": "No small caps",
         "alt_3_con_2": "Higher TER of 0.19%",
-        "alt_3_verdict": "To be avoided for Belgian investors — the applicable TOB varies by broker — from 0.12% to 1.32%. In the worst case, you pay €132 in taxes on €10,000 compared to €12 with IMIE. Essential to check with your broker before any purchase."
+        "alt_3_verdict": "Best avoided by Belgian investors: VWCE is registered with the FSMA, so it carries a 1.32% TOB on every purchase and sale. On €10,000, that is €132 in tax compared to €12 with IMIE."
       },
       "esg-mondiale": {
         "name": "Global ESG",
@@ -1138,7 +1118,7 @@
       "anti-us": {
         "name": "Anti-US",
         "tagline": "Reducing exposure to the United States",
-        "description": "For investors who want to significantly reduce their dependence on the United States (which represents ~65% of a World ETF). Diversifies towards Europe and China.",
+        "description": "For investors who want to significantly reduce their dependence on the United States (which represents ~70% of a World ETF). Diversifies towards Europe and China.",
         "historicalReturnNote": "China weighed on returns over this period (~4%/year). This strategy is forward-looking and not optimised for past performance",
         "why_0": "Drastic reduction of US exposure: in a classic world ETF, the United States represents ~70%. Here, via IWDA (60%) + overweighting Europe (20%) + China (20%), the effective US share drops to about 42%.",
         "why_1": "0.12% TOB on the three ETFs: IWDA, SMEA, and ICHN are all subject to the reduced 0.12% TOB in Belgium.",
@@ -1161,9 +1141,9 @@
       "biais-chine": {
         "name": "China Bias",
         "tagline": "Overweighting China",
-        "description": "Adds significant exposure to China (30%) beyond what a standard World ETF includes (~3%). Suitable for investors convinced of the long-term catch-up potential of Chinese markets.",
+        "description": "Adds significant exposure to China (30%), which is absent from a developed-markets World ETF such as IWDA (0%) and marginal in a full global ETF such as IMIE (~3%). Suitable for investors convinced of the long-term catch-up potential of Chinese markets.",
         "historicalReturnNote": "China underperformed over the past 20 years. This strategy carries significant country risk",
-        "why_0": "Deliberate overweighting of China: a classic world ETF allocates only ~3% to China. This strategy allocates 30% — 10× more — for investors convinced of the Chinese market catch-up.",
+        "why_0": "Deliberate overweighting of China: IWDA (MSCI World, developed markets only) holds none, and a full global ETF such as IMIE allocates only ~3%. This strategy allocates 30% — about 10× China's weight in the world market — for investors convinced of the Chinese market catch-up.",
         "why_1": "0.12% TOB on both ETFs: IWDA and ICHN are both subject to the reduced 0.12% TOB in Belgium.",
         "why_2": "100% accumulating funds: dividends automatically reinvested without withholding tax.",
         "why_3": "Exposure to the Chinese equity market via ICHN: the iShares MSCI China ETF covers H-shares (listed in Hong Kong) and accessible A-shares, giving direct exposure to listed Chinese companies.",
@@ -1272,10 +1252,10 @@
       },
       "epargne-liquide": {
         "name": "Liquid Savings",
-        "tagline": "Beat the savings account, risk-free",
+        "tagline": "A liquid alternative to the savings account",
         "description": "A smart alternative to the Belgian savings account. CSH2 tracks the European interbank rate (€STR) and offers returns close to the ECB policy rate with near-zero volatility and full liquidity.",
         "historicalReturnNote": "Tracks the €STR rate (formerly EONIA). Yield varies according to the ECB policy rate",
-        "why_0": "Current yield ~3% gross, higher than the best Belgian savings accounts (base rate + loyalty bonus)",
+        "why_0": "Yield ≈ the €STR rate minus 0.10% in fees — about 2.3% net in October 2026 (ECB deposit rate: 2.50%). That is less than the best savings accounts with a loyalty bonus (up to ~2.85%), but with no deposit cap, no 12-month condition and no lost bonus when you withdraw.",
         "why_1": "Fully liquid — sellable any business day without loss of accrued interest, unlike bons de caisse",
         "why_2": "Synthetic structure: CSH2 holds a basket of equities and receives the €STR rate through a swap. The fund therefore holds no debt claims directly — the Reynders tax is in principle not due, and most Belgian brokers do not withhold it. This is precisely why we prefer CSH2 over XEON, on which many brokers do apply the Reynders tax.",
         "why_3": "Main tax: 0.12% TOB on purchase and sale — no annual withholding tax, no capital gains tax (below the €10,000 threshold). Reynders: in principle not applicable, but tax treatment to be monitored.",
@@ -1292,183 +1272,140 @@
         "alt_1_con_0": "Many Belgian brokers apply the 30% Reynders tax to the capital gain on sale",
         "alt_1_con_1": "Identical TER to CSH2 (0.10%) — no cost advantage to offset it",
         "alt_1_verdict": "Identical exposure to the €STR rate, but the Reynders treatment applied by many Belgian brokers takes 30% of the gain. For the same exposure, CSH2 is the safer choice tax-wise.",
-        "warning_0": "⚠️ Yield follows the ECB policy rate — it will fall if the ECB reduces rates.",
+        "warning_0": "⚠️ The yield follows the ECB policy rate, up or down. This is not a bank deposit: it is not covered by the €100,000 deposit guarantee.",
         "warning_1": "⚠️ The Reynders tax exemption is based on current tax practice, not on a codified law. This treatment could evolve.",
         "warning_2": "ℹ️ Not suitable as a long-term strategy — for growth, prefer an equity strategy."
       }
     },
     "products": {
       "savings-ing-tempo": {
-        "name": "ING Savings Account (Tempo Sparen)",
-        "description": "Base rate 0.75% + fidelity premium 1.50%. Deposits limited to €500/month. First €1,020 of interest/year exempt from 30% withholding tax."
+        "name": "ING Savings Account (Tempo Sparen)"
       },
       "savings-kbc": {
-        "name": "KBC Savings Account (Start2Save)",
-        "description": "Base rate 0.75% + fidelity premium 1.50%. First €1,020 of interest/year exempt from 30% withholding tax."
+        "name": "KBC Savings Account (Start2Save)"
       },
       "savings-vdk": {
-        "name": "vdk banque Savings Account (Ritme Spaarrekening)",
-        "description": "Base rate 1.35% + fidelity premium 1.50%. Among the best rates on the market. Deposits limited to €500/month. First €1,020 of interest/year exempt from 30% withholding tax."
+        "name": "vdk banque Savings Account (Ritme Spaarrekening)"
       },
       "savings-crelan": {
-        "name": "Crelan Savings Account (GoSave)",
-        "description": "Base rate 0.50% + fidelity premium 1.50%. First €1,020 of interest/year exempt from 30% withholding tax."
+        "name": "Crelan Savings Account (GoSave)"
       },
       "savings-keytrade": {
-        "name": "Keytrade Savings Account (High Fidelity)",
-        "description": "Base rate 0.30% + fidelity premium 1.30%. Online bank. First €1,020 of interest/year exempt from 30% withholding tax."
+        "name": "Keytrade Savings Account (High Fidelity)"
       },
       "savings-medirect": {
-        "name": "MeDirect Savings Account (Fidelity Savings)",
-        "description": "Base rate 0.20% + fidelity premium 1.40%. Online bank. First €1,020 of interest/year exempt from 30% withholding tax."
+        "name": "MeDirect Savings Account (Fidelity Savings)"
       },
       "bon-caisse-kbc-1yr": {
-        "name": "KBC Savings Bond (1 year)",
-        "description": "Gross rate 2.94% — 30% withholding tax automatically deducted at source. Min €1,000. Capital locked for 1 year."
+        "name": "KBC Savings Bond (1 year)"
       },
       "bon-caisse-kbc-3yr": {
-        "name": "KBC Savings Bond (3 years)",
-        "description": "Gross rate 3.64% — 30% withholding tax automatically deducted. Capital locked for 3 years. Early withdrawal: significant penalties."
+        "name": "KBC Savings Bond (3 years)"
       },
       "bon-caisse-kbc-5yr": {
-        "name": "KBC Savings Bond (5 years)",
-        "description": "Gross rate 3.74% — 30% withholding tax automatically deducted. Capital locked for 5 years."
+        "name": "KBC Savings Bond (5 years)"
       },
       "bon-caisse-argenta-1yr": {
-        "name": "Argenta Savings Bond (1 year)",
-        "description": "Gross rate 2.10% — 30% withholding tax automatically deducted. Min €250."
+        "name": "Argenta Savings Bond (1 year)"
       },
       "bon-caisse-argenta-5yr": {
-        "name": "Argenta Savings Bond (5 years)",
-        "description": "Gross rate 2.45% — 30% withholding tax automatically deducted."
+        "name": "Argenta Savings Bond (5 years)"
       },
       "bon-caisse-ing-1yr": {
-        "name": "ING Savings Bond (1 year)",
-        "description": "Gross rate 2.20% — 30% withholding tax automatically deducted. Durations of 2–3 years available on request in branch."
+        "name": "ING Savings Bond (1 year)"
       },
       "bon-caisse-beobank-1yr": {
-        "name": "Beobank Term Account (1 year)",
-        "description": "Gross rate 3.10% — 30% withholding tax automatically deducted. Capital locked for 1 year."
+        "name": "Beobank Term Account (1 year)"
       },
       "branche21": {
-        "name": "Branch 21 Life Insurance (AG Insurance)",
-        "description": "Guaranteed rate 1.75% + profit sharing. Total return 2025: ~3.10% (not guaranteed). 2% premium tax + ~3% entry fees. 30% withholding tax on fictitious return (4.75%/year) if redeemed before 8 years; exempt after 8 years."
+        "name": "Branch 21 Life Insurance (AG Insurance)"
       },
       "branche21-ethias-9yr": {
-        "name": "Ethias Branch 21 Life Insurance (9 years)",
-        "description": "Guaranteed rate 2.90% for the entire duration of the contract. 0% entry fees — no management fees. 2% premium tax. Exempt from withholding tax after 8 years."
+        "name": "Ethias Branch 21 Life Insurance (9 years)"
       },
       "branche21-ethias-3yr": {
-        "name": "Ethias Branch 21 Life Insurance (3 years)",
-        "description": "Guaranteed rate 2.30% for the 3-year duration. 0% entry fees. 2% premium tax. This 3-year contract can never reach the 8-year exemption — the 30% fictitious withholding tax always applies at maturity."
+        "name": "Ethias Branch 21 Life Insurance (3 years)"
       },
       "bnp-future-invest-bon": {
-        "name": "Future Invest Bond",
-        "description": "Double rate: 3.00% the 1st year, 2.60% the following 7 years (blended ~2.64%). Global return 2025: ~3.10% (including profit sharing). Distributed by BNP Paribas Fortis, underlying insured by AG Insurance. Fixed duration of 8 years and 1 month. 2% premium tax, ~2% entry fees."
+        "name": "Future Invest Bond"
       },
       "beobank-invest-21": {
-        "name": "Invest 21",
-        "description": "Guaranteed rate 2.50%. Entry fees up to 2.50% (sometimes reduced to 1.00% during promotional campaigns). Capital guaranteed at maturity excluding fees and taxes. 2% premium tax. Exempt from withholding tax after 8 years."
+        "name": "Invest 21"
       },
       "pension-kbc-pricos": {
-        "name": "KBC Pension Savings (Pricos)",
-        "description": "10-year annualised return: ~5.34% (net of 1.41% TER). Equity-heavy fund. 2% entry fees. 30% tax advantage on deposits up to €1,050/year."
+        "name": "KBC Pension Savings (Pricos)"
       },
       "pension-belfius-equities": {
-        "name": "Belfius Pension Savings (High Equities, Candriam)",
-        "description": "10-year annualised return: ~5.26% (net of 1.49% TER). Equity-heavy fund. 3% entry fees. 30% tax advantage on deposits up to €1,050/year."
+        "name": "Belfius Pension Savings (High Equities, Candriam)"
       },
       "pension-bnp-growth": {
-        "name": "BNP Paribas Pension Savings (B Pension Sust. Growth)",
-        "description": "10-year annualised return: ~5.50% (net of 1.25% TER). 3% entry fees. 30% tax advantage on deposits up to €1,050/year."
+        "name": "BNP Paribas Pension Savings (B Pension Sust. Growth)"
       },
       "pension-ing-star": {
-        "name": "ING Pension Savings (Star Fund)",
-        "description": "10-year annualised return: ~4.72% (net of 1.28% TER). Mixed fund (~40% bonds). 3% entry fees. 30% tax advantage on deposits up to €1,050/year."
+        "name": "ING Pension Savings (Star Fund)"
       },
       "pension-argenta": {
-        "name": "Argenta Pension Savings (Pension Fund)",
-        "description": "10-year annualised return: ~5.31% (net of 1.44% TER). Equity-heavy fund. No entry fees. 30% tax advantage on deposits up to €1,050/year."
+        "name": "Argenta Pension Savings (Pension Fund)"
       },
       "pension-vdk": {
-        "name": "vdk banque Pension Savings (Pension Fund)",
-        "description": "10-year annualised return: ~5.25% (net of 1.50% TER). Equity-heavy fund, ESG-oriented. 2% entry fees. 30% tax advantage on deposits up to €1,050/year."
+        "name": "vdk banque Pension Savings (Pension Fund)"
       },
       "pension-crelan": {
-        "name": "Crelan Pension Savings (Pension Fund Sust. Growth)",
-        "description": "10-year annualised return: ~5.25% (net of 1.50% TER). Equity-heavy fund with sustainable criteria. 3% entry fees. 30% tax advantage on deposits up to €1,050/year."
+        "name": "Crelan Pension Savings (Pension Fund Sust. Growth)"
       },
       "fonds-bnp-equity-world": {
-        "name": "BNP Comfort Sust. Equity World Fund",
-        "description": "10-year annualised return (2016–2025), net of 1.50% TER. The fund underperformed its benchmark for most years. 3% entry fees."
+        "name": "BNP Comfort Sust. Equity World Fund"
       },
       "fonds-belfius-equity-world": {
-        "name": "Belfius Managed Portfolio Equity World Fund",
-        "description": "Annualised return ~6.51% (net of 1.49% TER). 3% entry fees, 1.49% TER."
+        "name": "Belfius Managed Portfolio Equity World Fund"
       },
       "fonds-axa-belgium-equity": {
-        "name": "AXA B Fund Equity Belgium Fund",
-        "description": "Annualised return ~6.53% (net of 1.47% TER). Exposure only to Belgian equities — high geographical concentration risk. -26% drawdown in 2022. 3% entry fees."
+        "name": "AXA B Fund Equity Belgium Fund"
       },
       "fonds-nagelmackers-growth": {
-        "name": "Nagelmackers MultiFund Growth Fund",
-        "description": "Estimated annualised return ~4.65% (net of 2.10% annual TER). TER among the highest on the market. Mixed fund (~25% bonds, ~75% equities). 2.5% entry fees."
+        "name": "Nagelmackers MultiFund Growth Fund"
       },
       "fonds-ing-star-active": {
-        "name": "ING Fund (Star Fund)",
-        "description": "Annualised return ~4.72% (net of 1.28% TER). Mixed fund (~40% bonds, ~60% equities). 3% entry fees."
+        "name": "ING Fund (Star Fund)"
       },
       "fonds-beobank-equities": {
-        "name": "Beobank Full Equities Strategy Fund B Fund",
-        "description": "Annualised return ~5.80% (net of 2.20% TER). 100% global equity fund. High TER. 2.5% entry fees."
+        "name": "Beobank Full Equities Strategy Fund B Fund"
       },
       "savings-belfius-flow": {
-        "name": "Belfius Savings Account (Flow)",
-        "description": "Base rate 1.30% + fidelity premium 1.50%. Premium acquired after 12 consecutive months without withdrawal. First €1,020 of interest/year exempt from 30% withholding tax."
+        "name": "Belfius Savings Account (Flow)"
       },
       "savings-argenta": {
-        "name": "Argenta Savings Account (Groeirekening)",
-        "description": "Base rate 1.10% + fidelity premium 1.50%. First €1,020 of interest/year exempt from 30% withholding tax."
+        "name": "Argenta Savings Account (Groeirekening)"
       },
       "branche23-ag-fund-plus": {
-        "name": "AG Fund+ (Branch 23)",
-        "description": "Branch 23 insurance by AG Insurance. Annual fees ~1.70%, premium tax 2%, entry fee 2.50%. Estimated net return ~6.30%."
+        "name": "AG Fund+ (Branch 23)"
       },
       "branche23-baloise-invest": {
-        "name": "Baloise Invest 23",
-        "description": "Branch 23 insurance by Baloise. Annual fees ~2.20%, premium tax 2%, entry fee 3.50%. Estimated net return ~5.65%."
+        "name": "Baloise Invest 23"
       },
       "branche23-nn-strategy": {
-        "name": "NN Strategy (Branch 23)",
-        "description": "Branch 23 insurance by NN Insurance. Annual fees ~1.50%, premium tax 2%, entry fee 1%. Estimated net return ~6.35%."
+        "name": "NN Strategy (Branch 23)"
       },
       "branche23-axa-index4p": {
-        "name": "AXA Index4P Global Equity",
-        "description": "Branch 23 insurance by AXA. Passive management, annual fees 1.40%, premium tax 2%, entry fee 1%. Estimated net return ~6.60%."
+        "name": "AXA Index4P Global Equity"
       },
       "branche23-vivium-selection": {
-        "name": "Vivium Selection Dynamic+ Passive",
-        "description": "Branch 23 insurance by Vivium. Annual fees 2.54% (RIY), premium tax 2%, minimum €25,000. Net return ~7.60%."
+        "name": "Vivium Selection Dynamic+ Passive"
       },
       "fonds-bnp-comfort-equity": {
-        "name": "BNP Comfort Sust. Equity World Plus",
-        "description": "Luxembourg SICAV by BNP Paribas. TER 2.56%, entry fee 2.50%, exit TOB 1.32%. Net return ~5.44%."
+        "name": "BNP Comfort Sust. Equity World Plus"
       },
       "fonds-carmignac-investissement": {
-        "name": "Carmignac Investissement (A EUR Acc)",
-        "description": "French FCP by Carmignac. 37-year track record, TER 2.15%, entry fee up to 4%. Net return ~8.77% (10yr)."
+        "name": "Carmignac Investissement (A EUR Acc)"
       },
       "fonds-crelan-opportunities": {
-        "name": "Crelan Invest Opportunities",
-        "description": "Belgian SICAV by Crelan. Management fee 2.07%, entry fee 2.50%. Net return ~2.57% (intermediate scenario)."
+        "name": "Crelan Invest Opportunities"
       },
       "branche21-ag-safe-plus": {
-        "name": "AG Safe+ (Branch 21)",
-        "description": "Branch 21 insurance by AG Insurance. Guaranteed rate 2.75% yr1 then 2.25%. Premium tax 2%, entry fee ~1%. Net return ~2.80%."
+        "name": "AG Safe+ (Branch 21)"
       },
       "branche21-belfius-capital-safe": {
-        "name": "Belfius Invest Capital Safe",
-        "description": "Branch 21 insurance by Belfius Insurance. Guaranteed rate 2.80% gross. Premium tax 2%, entry fee 2.50%, annual fee 0.12%. Net return ~2.68%."
+        "name": "Belfius Invest Capital Safe"
       }
     },
     "fiscal": {
@@ -1507,7 +1444,7 @@
     "s2_infomaniak_country": "Switzerland",
     "s3_title": "Intellectual Property",
     "s3_p1": "All content on this site (text, graphics, code, structure) is the property of the publisher, unless otherwise stated.",
-    "s3_p2": "Any reproduction, even partial, is prohibited without prior authorisation.",
+    "s3_p2": "The content and source code are published under the CC BY-NC 4.0 licence: you may reproduce and adapt them for non-commercial purposes, with attribution to ClearInvest. Any commercial use requires prior authorisation.",
     "s4_title": "Liability",
     "s4_p1": "Information published on ClearInvest is provided for educational and informational purposes only. It does not constitute personalised investment advice within the meaning of MiFID II regulations and cannot engage the publisher's liability.",
     "s4_p2": "The publisher endeavours to keep information up to date but does not guarantee its completeness or accuracy at all times. As Belgian tax legislation is subject to change, it is the user's responsibility to verify information with official sources.",
@@ -1559,13 +1496,13 @@
     "hero_title": "Why invest in ETFs?",
     "hero_subtitle": "The honest answer to the question your bank doesn't want you to ask.",
     "s1_title": "What is an ETF?",
-    "s1_p1": "An ETF (Exchange Traded Fund) is an investment fund that automatically replicates a stock market index — for example, the 1,400 largest global companies.",
-    "s2_title": "The power of diversification",
-    "s2_p1": "Instead of betting on a single company, an ETF allows you to own a fraction of hundreds or thousands of companies simultaneously. If one company goes bankrupt, the impact on your portfolio is negligible.",
-    "s3_title": "The cost advantage",
-    "s3_p1": "Traditional banking funds often charge between 1.5% and 2.5% in annual fees. An ETF like those recommended here costs between 0.07% and 0.20% per year. Over 30 years, this difference in fees can represent more than 30% of your final capital.",
-    "s3_p2": "Management fees are the only variable you can control with certainty. Predicting the future of the market is impossible; reducing your costs is a guaranteed return.",
-    "s3_p3": "The practical conclusion: paying 1.5% in additional fees for active management is paying for a promise that statistics prove is rarely kept over the long term.",
+    "s1_p1": "An ETF (Exchange Traded Fund, or listed index fund) is an investment fund that automatically replicates a stock market index — for example, around 9,000 companies worldwide, because IMIE tracks the MSCI ACWI IMI index, which includes large, mid AND small caps across developed and emerging markets. An ETF like IWDA, which excludes small caps and emerging markets, covers only around 1,400 — with no human manager choosing what to buy or sell.",
+    "s2_title": "The fee problem — the number your bank plays down",
+    "s2_p1": "1.5% in annual fees sounds like very little. Yet it is the difference between the retirement you hope for and the one you will get.",
+    "s3_title": "Active management does not beat the market",
+    "s3_p1": "For decades, academic studies have converged on the same conclusion: between 85% and 92% of actively managed funds underperform their benchmark over 20 years, after fees.",
+    "s3_p2": "It is not that managers are incompetent. It is that the market is efficient: at every moment, thousands of professional analysts have already priced in all available information. Consistently beating that consensus is statistically almost impossible over the long term.",
+    "s3_p3": "The practical conclusion: paying 1.5% in extra fees for active management is paying for a promise that statistics show is rarely kept.",
     "s4_title": "Why banking products can't keep up",
     "s4_p1": "Classic savings products suffer from three structural handicaps compared to ETFs:",
     "h1_label": "Handicap 1",
@@ -1586,7 +1523,7 @@
     "s6_p1": "Belgium presents a particularly unfavourable combination for the passive saver:",
     "s6_bullet1": "The four major banks (BNP Paribas Fortis, KBC, Belfius, ING) control the majority of deposits and pass on rate increases slowly and partially to savings accounts",
     "s6_bullet2": "Pension savings funds show TERs of 1.25% to 1.50%, among the highest in Europe for this type of product",
-    "s6_bullet3": "Stock exchange tax (TOB) is 0.12% for accumulating ETFs domiciled outside Belgium (in the EEA) — which covers almost all ETFs recommended here. For funds registered in Belgium, it rises to 1.32%, which significantly changes the game.",
+    "s6_bullet3": "Stock exchange tax (TOB) is 0.12% for accumulating ETFs that are not registered with the FSMA — which covers almost all ETFs recommended here. For accumulating funds registered in Belgium (such as VWCE, even though it is domiciled in Ireland), it rises to 1.32%, which significantly changes the game.",
     "s6_bullet4": "Since 1 January 2026, capital gains on equity ETFs are subject to a 10% tax beyond an annual allowance of €10,000 per taxpayer. This is a moderate burden compared to many neighbouring countries, and the first €10,000 of annual gains remain exempt.",
     "s7_title": "But why does a world ETF structurally rise over time?",
     "s7_intro_p1": "When you buy a share of IMIE, you become the owner of a fraction of 9,000 companies. Factories, patents, brands, logistics networks. These assets produce goods and services every day. A portion of these profits comes back to you, automatically reinvested. This is not speculation. It is the capture of human economic activity.",
@@ -1605,7 +1542,7 @@
     "s7_faq_p2": "You are not buying \"the economy\", you are buying listed companies. The 9,000 companies in the index are more profitable than average. They capture a growing share of global activity. Their profits grow faster than GDP, historically around 5% per year. Add 2% inflation passed through in prices and 1 to 2% dividends, and you get 7 to 9% total return. This is not an anomaly. It is the difference between owning the corner bakery and owning Nestlé.",
     "s7_faq_p3": "Markets do not \"have to\" stagnate for the economy to catch up. Valuations fluctuate, sometimes too high, sometimes too low, but no mechanism forces stocks to stop. An ETF bought expensively will take longer to deliver its returns, but economic activity continues. No 20-year period has ever produced a negative return for a diversified global portfolio.",
     "s7_faq_p4": "If growth stops permanently, your savings account won't save you. A catastrophe that kills capitalism also kills the banking system. Conversely, the crises that capitalism survives are precisely those where guaranteed products underperform the most. Your emergency fund in a savings account is essential. Your 20-year capital is better served by the productive diversity of the entire planet.",
-    "s7_comparison_intro": "The real difference? €300 per month for 30 years in a savings account leaves you with about €148,000. In a world ETF, about €408,000. It's not a question of a few percentage points. It's €260,000 difference.",
+    "s7_comparison_intro": "The real difference? €300 per month for 30 years in a savings account leaves you with about €148,000. In a world ETF, about €395,000. It's not a question of a few percentage points. It's €247,000 difference.",
     "s7_condition": "The only requirement: stay invested. Corrections of 20, 30, or 50% are part of the landscape. They occur every 5 to 7 years on average. This is the price to pay for returns that banking products cannot offer. This volatility is the filter that separates patient investors from those who sell at the worst moment.",
     "cta_title": "Ready to take action?",
     "cta_subtitle": "Compare ETF strategies adapted to the Belgian context, or simulate your situation with our calculator.",
@@ -1613,19 +1550,19 @@
     "cta_btn_calc": "Calculate my situation →",
     "cta_link_fiscalite": "Understand Belgian taxation →",
     "back": "← Back to guides",
-    "s1_p2": "Concretely, buying a share of IMIE means buying a fraction of Apple, Microsoft, Nestlé, Samsung, Toyota and 8,999 other companies in a single transaction. Your capital is instantly diversified on a global scale.",
+    "s1_p2": "Concretely, buying a share of IMIE means buying a fraction of Apple, Microsoft, Nestlé, Samsung, Toyota and thousands of other companies in a single transaction. Your capital is instantly diversified on a global scale.",
     "s1_p3": "Two characteristics distinguish ETFs from traditional funds:",
     "s1_bullet1": "They are tradable on the stock exchange like an ordinary share",
-    "s1_bullet2": "Their annual fees are tiny: between 0.07% and 0.20% per year, compared to 1.20% to 2.50% for an actively managed fund",
+    "s1_bullet2": "Their annual fees are tiny: between 0.07% and 0.30% per year, compared to 1.20% to 2.50% for an actively managed fund",
     "sim_label": "Simulation — €300 / month for 30 years",
     "etf_name": "Index ETF",
     "etf_detail": "IMIE · ~8% gross · TER 0.17%",
-    "etf_value": "~€408,000",
+    "etf_value": "~€395,000",
     "fund_name": "Bank Active Fund",
     "fund_detail": "~8% gross · TER 1.73%",
-    "fund_value": "~€296,000",
+    "fund_value": "~€298,000",
     "diff_label": "Difference · fees only",
-    "diff_value": "+€112,000",
+    "diff_value": "+€97,000",
     "sim_note": "Indicative simulation before taxation. Identical gross rate — only fees differ.",
     "s2_p2": "It's not a question of the manager's talent. It's a mathematical question. Over 30 years, every euro taken in fees is a euro that no longer compounds. The effect is exponential: fees don't just reduce your return by 1.5% — they reduce your final capital by 25 to 35%."
   },
@@ -1661,9 +1598,9 @@
     "tax4_insight": "The first €10,000 of annual capital gains remain exempt. Unused allowance can be carried forward: up to €1,000 per year for a maximum of 5 years, making a cumulative allowance of up to €15,000. Note: since 1 June 2026, your Belgian intermediary withholds the 10% from the first euro of gain, without applying this allowance — you then claim it back in your annual tax return. A strategy of progressive sales over several years allows for optimising this allowance.",
     "tax5_name": "Anticipatory pension savings tax",
     "tax5_rate": "8%",
-    "tax5_applies": "Capital accumulated in a pension savings fund (branch 23)",
+    "tax5_applies": "Capital accumulated in a pension savings fund (or a pension savings insurance contract)",
     "tax5_when": "Automatically deducted at age 60",
-    "tax5_insight": "The tax is calculated on a fictitious capital, as if your fund had earned 4.75% per year since the first payment — regardless of actual performance. If your fund earned less than 4.75%, you proportionally pay more tax on your real return. This rule applies only to bank pension savings funds (investment funds, branch 23). For insurance products (branch 21), the 8% tax is calculated on the capital actually built up.",
+    "tax5_insight": "For a pension savings fund, the tax is calculated on a fictitious capital, as if your fund had earned 4.75% per year since the first payment — regardless of actual performance. If your fund earned less than 4.75%, you proportionally pay more tax on your real return. For pension savings held through insurance (branch 21 or branch 23), the 8% tax is calculated on the capital actually built up.",
     "tax6_name": "Branch 21 premium tax",
     "tax6_rate": "2%",
     "tax6_applies": "Each payment into a branch 21 savings-insurance contract",
@@ -1711,7 +1648,7 @@
     "back": "← Back to guides",
     "cgt_regime_title": "🏛️ How the tax is collected since 1 June 2026",
     "cgt_regime_p1": "Since 1 June 2026, Belgian intermediaries (banks and brokers) automatically withhold 10% on every realised gain: this is the default regime, known as 'opt-in'. You can waive it and declare everything yourself ('opt-out'): this choice is notified per securities account to your intermediary, who will tell you the applicable deadlines. Foreign brokers withhold nothing: you are effectively under the opt-out.",
-    "cgt_regime_p2": "⚠️ Transition period: gains realised between 1 January and 31 May 2026 were not withheld at source, even at a Belgian intermediary. A voluntary payment to your intermediary was possible until 31 August 2026; after that date, these gains are settled through your tax return.",
+    "cgt_regime_p2": "Transition period: gains realised between 1 January and 31 May 2026 were not withheld at source, even at a Belgian intermediary. A voluntary payment to your intermediary was possible until 31 August 2026; after that date, these gains are settled through your tax return.",
     "cgt_regime_p3": "The withholding is calculated on the gross gain: it takes no account of the €10,000 annual allowance, your capital losses, or your actual purchase price. For assets held before 1 January 2026, the reference value is the value on 31 December 2025 — a correction request towards your actual purchase price remains possible until end-2030 if it was higher. All of these are recovered only through your annual tax return."
   },
   "comprProduits": {
@@ -1723,7 +1660,7 @@
     "s1_p1": "The Belgian savings account works with two components: a base rate (paid from the first day) and a fidelity premium (acquired only if the capital remains on the account for 12 consecutive months).",
     "s1_p2": "The fidelity premium is a behavioural mechanism: it penalises unforeseen withdrawals and secures low-cost financing for the bank. If you withdraw before 12 months, you lose the premium on the amount withdrawn.",
     "s1_fiscal_label": "Tax advantage",
-    "s1_fiscal_text": "The first €1,020 of annual interest per person (amount for 2026 income, indexed annually) is exempt from withholding tax. Beyond that, each additional euro of interest is taxed at 15% — and not 30% like other mobile income: this is one of the rare tax advantages of the regulated savings account.",
+    "s1_fiscal_text": "The first €1,020 of annual interest per person (amount for 2026 income) is exempt from withholding tax. Beyond that, each additional euro of interest is taxed at 15% — and not 30% like other mobile income: this is one of the rare tax advantages of the regulated savings account.",
     "s1_verdict_label": "Verdict",
     "s1_verdict_p1": "The savings account has a precise and legitimate function: your emergency fund (3 to 6 months of expenses), available at any time without risk of capital loss.",
     "s1_verdict_p2": "For this function, it is irreplaceable. For everything else — medium or long-term savings — every year spent in a savings account is a year where your purchasing power stagnates or retreats against inflation.",
@@ -1791,13 +1728,13 @@
     "s4_pt1_title": "Fees — the silent enemy",
     "s4_pt1_body": "Belgian pension savings funds show TERs of 1.25% to 1.50%, to which are added entry fees of 0% to 3% depending on the institution. Over 30 years, these fees can erase a significant part of the initial tax advantage.",
     "s4_pt2_title": "The exit tax — on a fictitious capital",
-    "s4_pt2_body": "At age 60, the state levies an anticipatory tax of 8% — not on your real capital, but on a fictitious capital calculated as if your fund (branch 23) had earned 4.75% per year from the start. This fictitious calculation applies to branch 23 pension savings funds only; branch 21 follows a different mechanism. If your fund underperformed the 4.75% threshold, your effective tax rate on the real return increases considerably.",
+    "s4_pt2_body": "At age 60, the state levies an anticipatory tax of 8% — not on your real capital, but on a fictitious capital calculated as if your pension savings fund had earned 4.75% per year from the start. This fictitious calculation applies to pension savings funds only; pension savings held through insurance (branch 21 or 23) are taxed on the capital actually built up. If your fund underperformed the 4.75% threshold, your effective tax rate on the real return increases considerably.",
     "s4_pt3_title": "Lock-up until age 60",
     "s4_pt3_body": "Capital is locked until age 60. Early withdrawal triggers taxation at the personal income tax (PIT) rate of 33%, to which are added municipal surcharges — this is not a withholding tax, but a final tax that can exceed 35% depending on the municipality of residence.",
     "s4_verdict_label": "Verdict",
     "s4_verdict_p1": "The 30% tax advantage seems considerable — but it is a one-time bonus, paid once a year, that does not compound.",
     "s4_verdict_p2": "Meanwhile, the performance gap between the pension fund (~4%) and an ETF (~8%) compounds every year for decades.",
-    "s4_verdict_p3": "Our simulator demonstrates it concretely: over 30 years at €87.50/month (tax ceiling), an All-in-one ETF surpasses Argenta pension savings from the 11th year — and ends with €33,000 more at 30 years, despite the best fund on the market (0% entry fees) and the maximum tax advantage.",
+    "s4_verdict_p3": "Our simulator demonstrates it concretely: over 30 years at €87.50/month (tax ceiling), an All-in-one ETF overtakes Argenta pension savings from the 14th year — and ends with about €25,000 more at 30 years, despite the best fund on the market (0% entry fees) and the maximum tax advantage.",
     "s4_verdict_p4": "Added to this: capital locked until 60, an exit tax of 8%, and annual management fees of 1.25% to 1.50%.",
     "s4_verdict_p5": "Our conclusion: pension savings are not an investment strategy — they are a tax product that structurally underperforms over the long term. Keep your capital free and invest it in an ETF.",
     "s5_title": "Active funds — why they cost so much",
@@ -1855,7 +1792,7 @@
     "s3_item1_title": "Taxation on cadastral income, not real rents:",
     "s3_item1_p": "If you rent to an individual for private use, you are not taxed on the actual rents received, but on the indexed Cadastral Income (CI) increased by 40% — often much lower than the economic reality.",
     "s3_item2_title": "No capital gains tax:",
-    "s3_item2_p": "In Belgium, the capital gain on the resale of a property held for more than 5 years is not taxed (in normal management). This is a considerable advantage compared to many neighboring countries.",
+    "s3_item2_p": "In Belgium, the capital gain on the resale of a built property held for more than 5 years is not taxed (in normal management). The new 10% capital gains tax of 2026 targets financial assets only, so this advantage of real estate over ETFs has grown.",
     "s3_item3_title": "Protection against inflation:",
     "s3_item3_p": "Belgian leases allow for annual indexation of rents based on the health index. The value of bricks and mortar structurally follows inflation over the long term.",
     "s3_item4_title": "Psychological shield:",
@@ -1864,7 +1801,7 @@
     "s4_intro": "The frictions associated with real estate are massive and often underestimated.",
     "s4_item1_title": "Entry costs — the invisible bill:",
     "s4_item1_p1": "In Belgium, for an investment property (excluding own residence), registration duties amount to 12% in Flanders, 12.5% in Brussels and Wallonia. With notary fees and mortgage deed costs, you lose about 15% of the property value on the day of purchase. On €250,000, that's €37,500 gone before the property even generates a single euro.",
-    "s4_item1_p2": "With an ETF: 0.12% TOB. On €250,000, that's €300.",
+    "s4_item1_p2": "With an ETF: 0.12% TOB. On €250,000, that's €300. On resale, however, the ETF has been subject since 2026 to a 10% tax on gains above €10,000/year — whereas a property gain remains exempt after 5 years.",
     "s4_item2_title": "Absolute illiquidity:",
     "s4_item2_p": "If you need €10,000 urgently, you cannot sell the toilet in your apartment. With an ETF, you sell exactly what you need, and the money is available in 48 hours.",
     "s4_item3_title": "The true cost in time:",
@@ -1913,7 +1850,7 @@
     "intro": "Belgian banks and insurers market dozens of savings and investment products. We analyse them one by one — real costs, taxation, and comparison with the ETF alternative.",
     "status_available": "Analysis available",
     "status_in_progress": "Analysis in progress",
-    "cat_pension_title": "Pension Savings (Branch 23)",
+    "cat_pension_title": "Pension Savings (pension savings funds)",
     "cat_pension_subtitle": "The 30% tax benefit is real — but annual fees and the 8% exit tax radically change the math over 30 years.",
     "cat_insurance_guaranteed_title": "Guaranteed Life Insurance (Branch 21)",
     "cat_insurance_guaranteed_subtitle": "An attractive guaranteed rate on the surface — but the 2% premium tax, 8-year lock-in, and inflation often reduce the real return to almost nothing.",
@@ -1921,17 +1858,15 @@
     "cat_insurance_funds_subtitle": "The tax wrapper looks appealing — but layered fees (premium tax + contract fees + fund TER) frequently exceed 3.5% per year.",
     "cat_active_funds_title": "Active Investment Funds",
     "cat_active_funds_subtitle": "Pitched to savers with EUR 50,000+, these profiled funds stack entry fees, high TERs, and the Reynders tax — delivering returns that structurally underperform their benchmark.",
-    "cat_investment_plans_title": "Periodic Investment Plans",
-    "cat_investment_plans_subtitle": "The app looks slick and transaction fees seem zero — but the underlying funds charge 1.5-2% per year. Over 20 years, the gap versus an ETF AutoInvest is substantial.",
     "card_ethias_teaser": "2.90% guaranteed, but -2% from day one. Full fee breakdown.",
     "card_kbc_teaser": "The 30% tax benefit hides fees that drain your capital over 30 years.",
     "card_argenta_teaser": "Zero entry fee, but annual costs that are heavy compared to ETFs.",
-    "card_bnp_teaser": "TER 1.38 % + 3 % entry fee. ESG label, but high costs that weigh on net returns.",
-    "card_belfius_teaser": "TER 1.47 % + 3 % entry fee. High equity exposure, but total costs among the heaviest on the market.",
+    "card_bnp_teaser": "TER 1.25 % + 3 % entry fee. ESG label, but high costs that weigh on net returns.",
+    "card_belfius_teaser": "TER 1.49 % + 3 % entry fee. High equity exposure, but total costs among the heaviest on the market.",
     "card_ag_teaser": "Unit-linked life insurance: 2% premium tax + contract management fees + fund TER. Layered fees frequently exceed 3% per year.",
-    "card_ag_safe_teaser": "Branch 21: capital guaranteed, withholding tax exempt, but the 2% premium tax eats into every payment. Over 30 years: +€57,200 vs +€241,600 for an ETF.",
-    "card_belfius_capital_safe_teaser": "Branch 21: guaranteed capital, but 4.5% entry friction — the highest of all Branch 21 products reviewed. Over 30 years: +€50,520 vs +€271,111 for a World ETF.",
-    "card_nn_teaser": "TER 1.52 % + variable entry fees. Branch 23 with mixed equity-bond exposure.",
+    "card_ag_safe_teaser": "Branch 21: capital guaranteed, withholding tax exempt, but 3% entry friction (premium tax + fees). Over 30 years on €20,000: a ~€139,000 gap in favour of a World ETF.",
+    "card_belfius_capital_safe_teaser": "Branch 21: guaranteed capital, but 4.5% entry friction — the highest of all Branch 21 products reviewed. Over 30 years on €20,000: a ~€141,500 gap in favour of a World ETF.",
+    "card_nn_teaser": "~1.50%/year total fees + variable entry fees. Branch 23 with mixed equity-bond exposure.",
     "read_analysis": "Read analysis →",
     "note": "A product you’d like us to review? Write to us: <email>contact@clearinvest.be</email>",
     "back": "← Back to home",
@@ -1970,7 +1905,7 @@
     "s1_label_total_entry": "Total entry friction",
     "s1_val_total_entry": "4.50% (tax + fees combined)",
     "s1_label_annual_fees": "Annual fees",
-    "s1_val_annual_fees": "~1.20% to 1.95% (contract fee + fund TER)",
+    "s1_val_annual_fees": "~1.40% to 1.95% (contract fee + fund TER)",
     "s1_label_return": "Estimated return",
     "s1_val_return": "~6.05% to 6.30% net (8% gross − ~1.70% fees)",
     "s1_label_availability": "Availability",
@@ -2108,7 +2043,7 @@
     "s4_peer_title": "Comparison within the pension savings universe",
     "s4_peer_row_ter": "Annual TER",
     "s4_peer_row_entry": "Entry fee",
-    "s4_peer_note": "Belfius now has the highest entry fees (3%) and a TER of 1.49% — above Argenta (1.44%). Argenta (0% entry, 1.44% TER) remains the cheapest. The reightly higher TER.",
+    "s4_peer_note": "Belfius now has the highest TER of the three (1.49%) and a 3% entry fee — the same as KBC. Over 30 years, Argenta remains the cheapest on every count.",
     "s4_methodology_note": "* Methodology note: the 8% return is based on the MSCI ACWI IMI historical average over 2005–2025. Over the last 10 years, IMIE actually delivered ~10–11%/year. We use 8% to stay consistent with our long-term projections. This comparison is therefore favourable to Belfius.",
     "s4_cta_text": "Run the numbers with your own figures in our calculator — Belfius Pension Fund is included as a comparison product.",
     "s4_cta_btn": "Open the calculator →",
@@ -2178,7 +2113,7 @@
     "s_caf_product_warning": "⚠️ The analysis below uses Argenta ARPE figures (0% entry fee, ~1.40%/year) to establish the most favourable case for pension savings. Belfius Pension Fund (3% entry fee, 1.49%/year) produces an even less favourable result: the margin in favour of the ETF is even wider.",
     "s_caf_intro_p1": "If your employer offers a cafeteria plan, you can fund your pension savings with gross euros. This is the only scenario where pension savings becomes mathematically competitive — thanks to a triple simultaneous subsidy: exemption from NSSO contributions (13.07%), gross employer budget, and a 30% tax reduction from the State.",
     "s_caf_intro_p2": "Let’s see whether this subsidy is sufficient to reverse the conclusion.",
-    "s_caf_caveat": "This analysis applies only to employees whose employer offers a cafeteria plan — mainly large private-sector companies. It assumes a marginal tax rate of 50% (taxable income > ~€46,440/year in 2026). At lower rates, the figures are less favourable for pension savings.",
+    "s_caf_caveat": "This analysis applies only to employees whose employer offers a cafeteria plan — mainly large private-sector companies. It assumes a marginal tax rate of 50% (taxable income > ~€49,840/year for 2025 income). At lower rates, the figures are less favourable for pension savings.",
     "s_caf_meca_title": "The Mechanics: What Happens to €1,050 Gross?",
     "s_caf_meca_col_a": "Strategy A — Cash bonus",
     "s_caf_meca_col_b": "Strategy B — Cafeteria plan",
@@ -2217,7 +2152,7 @@
     "s_caf_concl_p2": "Over 30 years, with the same net sacrifice of €210/year, the World ETF still leads — by ~€9,276 versus Argenta ARPE (the best fund on the market), and by an even wider margin versus Belfius Pension Fund, where the 3% entry fee and 1.49% TER make the result worse.",
     "s_caf_concl_p3": "If your employer offers a cafeteria plan and you want to use it for pension savings, Argenta (0% entry fee) remains the only fund worth considering in this context. KBC, BNP, and Belfius make the outcome even worse with their higher entry fees and TERs.",
     "s_caf_concl_p4": "But the conclusion is the same with or without a cafeteria plan: over a long horizon, the World ETF produces more net wealth for the same financial effort.",
-    "s_caf_methodology": "Methodology note: calculations based on a 50% marginal tax rate (taxable income > ~€46,440/year in 2026) and an employee NSSO rate of 13.07%. BIK taxed at the marginal rate. ARPE return: 4.5% net (Argenta — best fund on the market). ETF return: 8%/year (historical average MSCI ACWI IMI 2005–2025). CGT calculated on a single sale — in practice, progressive selling reduces the ETF CGT to near zero, making the ETF even more advantageous.",
+    "s_caf_methodology": "Methodology note: calculations based on a 50% marginal tax rate (taxable income > ~€49,840/year for 2025 income) and an employee NSSO rate of 13.07%. BIK taxed at the marginal rate. ARPE return: 4.5% net (Argenta — best fund on the market). ETF return: 8%/year (historical average MSCI ACWI IMI 2005–2025). CGT calculated on a single sale — in practice, progressive selling reduces the ETF CGT to near zero, making the ETF even more advantageous.",
     "s_caf_disclaimer": "Indicative simulation. Past performance is not a guarantee of future returns."
   },
   "analyseNnStrategy": {
@@ -2247,7 +2182,7 @@
     "s1_val_availability": "Redemptions possible (exit fees if < 5 years)",
     "s1_label_cgt": "Capital gains tax",
     "s1_val_cgt": "10% on gains (> €10,000/year) — exempt under long-term savings scheme (conditions apply)",
-    "s1_source": "Fees shown are based on the Key Information Documents (KID/DICI) available on the FSMA website and NN Insurance Belgium product documentation. Verify the current KID before subscribing.",
+    "s1_source": "Source: NN Insurance Belgium contractual documentation, indicative 2025 rates.",
     "s2_title": "The Branch 23 Tax Advantage — A Myth for ETF Investors",
     "s2_p1": "The Branch 23 pitch relies on one claim: exemption from withholding tax (précompte mobilier) and (before 2026) from capital gains tax.",
     "s2_p2": "This claim is technically true — but irrelevant for anyone investing in accumulator ETFs like IMIE. Since they do not distribute dividends, there is no withholding tax to avoid. And regarding the 10% capital gains tax, it now applies equally to both solutions.",
@@ -2256,7 +2191,7 @@
     "s3_title": "The Double Layer of Fees",
     "s3_point1_title": "Premium tax: 2% — Before even investing",
     "s3_point1_desc": "Each euro paid loses 2% immediately by law. On €300/month, €6 disappears every month before even being invested. Over 30 years, this represents €2,160 lost only in premium tax.",
-    "s3_recovery_note": "At ~6.50% net/year, it takes ~5.5 months of returns just to recover your initial stake after the 3% entry friction (tax + fees).",
+    "s3_recovery_note": "Note: the 2% premium tax is deducted from each payment before it is invested. It is final and can never be recovered.",
     "s3_point2_title": "NN wrapper fees: ~0.60% to 0.96%/year",
     "s3_point2_desc": "NN charges fees for the administrative management of the contract and the designation of beneficiaries. These fees apply to your total capital each year, regardless of return.",
     "s3_point3_title": "Underlying fund fees: ~0.60% to 1.20%/year",
@@ -2444,7 +2379,7 @@
     "s_caf_product_warning": "⚠️ The analysis below uses Argenta ARPE figures (0% entry fee, ~1.40%/year) to establish the most favourable case for pension savings. KBC Pricos (2% entry fee, 1.53%/year) produces an even less favourable result: the ETF beats KBC Pricos by an even wider margin than the ~€9,276 shown here.",
     "s_caf_intro_p1": "If your employer offers a cafeteria plan, you can fund your pension savings with gross euros. This is the only scenario where pension savings becomes mathematically competitive — thanks to a triple simultaneous subsidy: exemption from NSSO contributions (13.07%), gross employer budget, and a 30% tax reduction from the State.",
     "s_caf_intro_p2": "Let’s see whether this subsidy is sufficient to reverse the conclusion.",
-    "s_caf_caveat": "This analysis applies only to employees whose employer offers a cafeteria plan — mainly large private-sector companies. It assumes a marginal tax rate of 50% (taxable income > ~€46,440/year in 2026). At lower rates, the figures are less favourable for pension savings.",
+    "s_caf_caveat": "This analysis applies only to employees whose employer offers a cafeteria plan — mainly large private-sector companies. It assumes a marginal tax rate of 50% (taxable income > ~€49,840/year for 2025 income). At lower rates, the figures are less favourable for pension savings.",
     "s_caf_meca_title": "The Mechanics: What Happens to €1,050 Gross?",
     "s_caf_meca_col_a": "Strategy A — Cash bonus",
     "s_caf_meca_col_b": "Strategy B — Cafeteria plan",
@@ -2483,7 +2418,7 @@
     "s_caf_concl_p2": "Over 30 years, with the same net sacrifice of €210/year, the World ETF still leads — by ~€9,276 versus Argenta ARPE (the best fund on the market), and by an even wider margin versus KBC Pricos, where the 2% entry fee and 1.53% TER make the result worse.",
     "s_caf_concl_p3": "If your employer offers a cafeteria plan and you want to use it for pension savings, Argenta (0% entry fee) remains the only fund worth considering in this context. KBC, BNP, and Belfius make the outcome even worse with their higher entry fees and TERs.",
     "s_caf_concl_p4": "But the conclusion is the same with or without a cafeteria plan: over a long horizon, the World ETF produces more net wealth for the same financial effort.",
-    "s_caf_methodology": "Methodology note: calculations based on a 50% marginal tax rate (taxable income > ~€46,440/year in 2026) and an employee NSSO rate of 13.07%. BIK taxed at the marginal rate. ARPE return: 4.5% net (Argenta — best fund on the market). ETF return: 8%/year (historical average MSCI ACWI IMI 2005–2025). CGT calculated on a single sale — in practice, progressive selling reduces the ETF CGT to near zero, making the ETF even more advantageous.",
+    "s_caf_methodology": "Methodology note: calculations based on a 50% marginal tax rate (taxable income > ~€49,840/year for 2025 income) and an employee NSSO rate of 13.07%. BIK taxed at the marginal rate. ARPE return: 4.5% net (Argenta — best fund on the market). ETF return: 8%/year (historical average MSCI ACWI IMI 2005–2025). CGT calculated on a single sale — in practice, progressive selling reduces the ETF CGT to near zero, making the ETF even more advantageous.",
     "s_caf_disclaimer": "Indicative simulation. Past performance is not a guarantee of future returns."
   },
   "analyseArgenta": {
@@ -2640,7 +2575,7 @@
     "s_caf_title": "The Cafeteria Plan — The Only Serious Exception",
     "s_caf_intro_p1": "If your employer offers a cafeteria plan, you can fund your pension savings with gross euros. This is the only scenario where pension savings becomes mathematically competitive — thanks to a triple simultaneous subsidy: exemption from NSSO contributions (13.07%), gross employer budget, and a 30% tax reduction from the State.",
     "s_caf_intro_p2": "Let’s see whether this subsidy is sufficient to reverse the conclusion.",
-    "s_caf_caveat": "This analysis applies only to employees whose employer offers a cafeteria plan — mainly large private-sector companies. It assumes a marginal tax rate of 50% (taxable income > ~€46,440/year in 2026). At lower rates, the figures are less favourable for pension savings.",
+    "s_caf_caveat": "This analysis applies only to employees whose employer offers a cafeteria plan — mainly large private-sector companies. It assumes a marginal tax rate of 50% (taxable income > ~€49,840/year for 2025 income). At lower rates, the figures are less favourable for pension savings.",
     "s_caf_meca_title": "The Mechanics: What Happens to €1,050 Gross?",
     "s_caf_meca_col_a": "Strategy A — Cash bonus",
     "s_caf_meca_col_b": "Strategy B — Cafeteria plan",
@@ -2679,7 +2614,7 @@
     "s_caf_concl_p2": "Over 30 years, with the same net sacrifice of €210/year, the World ETF still leads — by ~€9,276. These figures use Argenta ARPE (0% entry fee, the best fund on the market).",
     "s_caf_concl_p3": "If your employer offers a cafeteria plan and you want to use it for pension savings, Argenta (0% entry fee) remains the only fund worth considering in this context. KBC, BNP, and Belfius make the outcome even worse with their higher entry fees and TERs.",
     "s_caf_concl_p4": "But the conclusion is the same with or without a cafeteria plan: over a long horizon, the World ETF produces more net wealth for the same financial effort.",
-    "s_caf_methodology": "Methodology note: calculations based on a 50% marginal tax rate (taxable income > ~€46,440/year in 2026) and an employee NSSO rate of 13.07%. BIK taxed at the marginal rate. ARPE return: 4.5% net (Argenta — best fund on the market). ETF return: 8%/year (historical average MSCI ACWI IMI 2005–2025). CGT calculated on a single sale — in practice, progressive selling reduces the ETF CGT to near zero, making the ETF even more advantageous.",
+    "s_caf_methodology": "Methodology note: calculations based on a 50% marginal tax rate (taxable income > ~€49,840/year for 2025 income) and an employee NSSO rate of 13.07%. BIK taxed at the marginal rate. ARPE return: 4.5% net (Argenta — best fund on the market). ETF return: 8%/year (historical average MSCI ACWI IMI 2005–2025). CGT calculated on a single sale — in practice, progressive selling reduces the ETF CGT to near zero, making the ETF even more advantageous.",
     "s_caf_disclaimer": "Indicative simulation. Past performance is not a guarantee of future returns."
   },
   "analyseBnpPension": {
@@ -2785,7 +2720,7 @@
     "s_hybrid_row_y30_adv": "+3 930 €",
     "s_hybrid_row_y30_diff": "+3 646 € ETF",
     "s_hybrid_horizon_title": "When is hybrid acceptable?",
-    "s_hybrid_horizon_desc": "Only for investors aged 55 and over, with a very short horizon (5–10 years). But even then, Argenta (0% entry) or Belfius (TER 1.31%) are systematically better than BNP for the hybrid strategy.",
+    "s_hybrid_horizon_desc": "Only for investors aged 55 and over, with a very short horizon (5–10 years). But even then, Argenta (0% entry) is systematically better than BNP for the hybrid strategy — the net bonus is €315 vs €283.50.",
     "s_hybrid_conclusion": "The 315 €/year bonus is real. But 3% entry fees reduce it to 283.50 € net. And this shrinking advantage is overtaken at year 5 by the compounded return gap.",
     "s5_title": "Pension savings: a dead end — even more so with BNP",
     "s5_intro": "The numbers are clear: BNP B Pension is the most expensive pension savings fund among Belgium's major players, with the highest entry fees on the market.",
@@ -2796,7 +2731,7 @@
     "s5_link": "→ See the Argenta analysis (0% entry fees)",
     "s6_title": "⚖ Our verdict",
     "s6_verdict_p1": "BNP Paribas B Pension should be avoided. It is the most expensive pension savings fund on the Belgian market, combining the highest entry fees (3%) with a non-competitive TER.",
-    "s6_verdict_p2": "The only possible exception: those over 55 with a very short horizon (5–10 years) seeking an immediate tax bonus. But even in this scenario, Argenta (0% entry) or Belfius (TER 1.31%) are systematically superior.",
+    "s6_verdict_p2": "The only possible exception: those over 55 with a very short horizon (5–10 years) seeking an immediate tax bonus. But even in this scenario, Argenta (0% entry) remains systematically superior.",
     "s6_ideal_title": "Borderline acceptable for:",
     "s6_ideal_desc": "Investors aged 55+, very short horizon (5–10 years), already a BNP customer seeking an immediate tax bonus.",
     "s6_avoid_title": "Avoid for:",
@@ -2825,7 +2760,7 @@
     "s_caf_product_warning": "⚠️ The analysis below uses Argenta ARPE figures (0% entry fee, ~1.40%/year) to establish the most favourable case for pension savings. BNP B Pension (3% entry fee, 1.24%/year) produces an even less favourable result: the margin in favour of the ETF is even wider.",
     "s_caf_intro_p1": "If your employer offers a cafeteria plan, you can fund your pension savings with gross euros. This is the only scenario where pension savings becomes mathematically competitive — thanks to a triple simultaneous subsidy: exemption from NSSO contributions (13.07%), gross employer budget, and a 30% tax reduction from the State.",
     "s_caf_intro_p2": "Let’s see whether this subsidy is sufficient to reverse the conclusion.",
-    "s_caf_caveat": "This analysis applies only to employees whose employer offers a cafeteria plan — mainly large private-sector companies. It assumes a marginal tax rate of 50% (taxable income > ~€46,440/year in 2026). At lower rates, the figures are less favourable for pension savings.",
+    "s_caf_caveat": "This analysis applies only to employees whose employer offers a cafeteria plan — mainly large private-sector companies. It assumes a marginal tax rate of 50% (taxable income > ~€49,840/year for 2025 income). At lower rates, the figures are less favourable for pension savings.",
     "s_caf_meca_title": "The Mechanics: What Happens to €1,050 Gross?",
     "s_caf_meca_col_a": "Strategy A — Cash bonus",
     "s_caf_meca_col_b": "Strategy B — Cafeteria plan",
@@ -2864,7 +2799,7 @@
     "s_caf_concl_p2": "Over 30 years, with the same net sacrifice of €210/year, the World ETF still leads — by ~€9,276 versus Argenta ARPE (the best fund on the market), and by an even wider margin versus BNP B Pension, where the 3% entry fee makes the result worse.",
     "s_caf_concl_p3": "If your employer offers a cafeteria plan and you want to use it for pension savings, Argenta (0% entry fee) remains the only fund worth considering in this context. KBC, BNP, and Belfius make the outcome even worse with their higher entry fees and TERs.",
     "s_caf_concl_p4": "But the conclusion is the same with or without a cafeteria plan: over a long horizon, the World ETF produces more net wealth for the same financial effort.",
-    "s_caf_methodology": "Methodology note: calculations based on a 50% marginal tax rate (taxable income > ~€46,440/year in 2026) and an employee NSSO rate of 13.07%. BIK taxed at the marginal rate. ARPE return: 4.5% net (Argenta — best fund on the market). ETF return: 8%/year (historical average MSCI ACWI IMI 2005–2025). CGT calculated on a single sale — in practice, progressive selling reduces the ETF CGT to near zero, making the ETF even more advantageous.",
+    "s_caf_methodology": "Methodology note: calculations based on a 50% marginal tax rate (taxable income > ~€49,840/year for 2025 income) and an employee NSSO rate of 13.07%. BIK taxed at the marginal rate. ARPE return: 4.5% net (Argenta — best fund on the market). ETF return: 8%/year (historical average MSCI ACWI IMI 2005–2025). CGT calculated on a single sale — in practice, progressive selling reduces the ETF CGT to near zero, making the ETF even more advantageous.",
     "s_caf_disclaimer": "Indicative simulation. Past performance is not a guarantee of future returns."
   },
   "ethiasAnalysis": {
@@ -2872,7 +2807,7 @@
     "hero_title": "Ethias Savings 21+",
     "hero_subtitle": "2.90% guaranteed over 9 years. Before you sign, here is what the brochure doesn't say — and why there is a better option for every type of investor.",
     "tldr_label": "IN BRIEF",
-    "tldr_text": "Ethias Savings 21+ advertises 2.90% guaranteed — but the 2% premium tax deducted on day one reduces your real return to ~2.74% on the initial capital. Over 9 years, CSH2 (money market ETF) delivers the same return with no entry cost, no lock-in, and no €20,000 minimum. Over the long term, a World ETF does nearly 3 times better. Branch 21 has no use case that an ETF alternative doesn't cover more effectively.",
+    "tldr_text": "Ethias Savings 21+ advertises 2.90% guaranteed — but the 2% premium tax reduces your invested capital to €19,600 out of €20,000. Over 9 years, Ethias ends slightly ahead of the CSH2 money market ETF at October 2026 rates (~€24,900 vs ~€24,500), at the cost of a 9-year lock-in and a €20,000 minimum. Over 30 years, the World ETF generates ~4.8× more (+€183,659 vs +€38,200). Its only advantage is a locked-in guaranteed rate — paid for in liquidity.",
     "s1_title": "The Structural Problem: The 2% Premium Tax",
     "s1_p1": "Every Branch 21 product in Belgium — Ethias, AG Insurance, Belfius, AXA — shares the same structural flaw: a 2% premium tax on every payment. This is a legislative tax. No insurer can waive or negotiate it.",
     "s1_p2": "It is deducted before your money is invested. On a €20,000 payment, €400 disappears immediately and permanently — before a single euro is put to work.",
@@ -2897,8 +2832,8 @@
     "s1_label_final": "Net value after 9 years on €20,000",
     "s1_val_final": "~€24,900",
     "s1_warning": "The 2% premium tax is not a management fee recoverable over time. It is money lost on day one, on every payment, permanently. No Branch 21 product in Belgium avoids it.",
-    "s2_title": "For a Short Horizon: CSH2 Wins on Every Dimension",
-    "s2_intro": "Branch 21 targets savers who want to 'secure' their money over the short to medium term. CSH2 — a money market ETF tracking the ECB's €STR rate — covers exactly that need, without any of Branch 21's structural drawbacks.",
+    "s2_title": "For a Short Horizon: A Guaranteed Rate, Paid For in Liquidity",
+    "s2_intro": "Branch 21 targets savers who want to 'secure' their money over the short or medium term. CSH2 — a money market ETF exposed to the ECB's €STR rate — covers the same need with no lock-in and no entry fee, but without a guaranteed rate.",
     "s2_table_col1": "Ethias 21+",
     "s2_table_col2": "World ETF (IMIE)",
     "s2_table_row1": "Entry cost",
@@ -2922,11 +2857,11 @@
     "s2_table_row7": "Capital gains tax (CGT)",
     "s2_table_row7_val1": "€0 (Branch 21 exempt)",
     "s2_table_row7_val2": "~−€490 (10% on gain > €15,000)",
-    "s2_callout": "Over 9 years on €20,000, the World ETF generates ~€39,410 net — €14,500 more than Ethias 21+. Even CSH2, with no market risk, does better (+€25,900 vs +€24,900).",
+    "s2_callout": "Over 9 years on €20,000, the World ETF generates ~€39,410 net — €14,500 more than Ethias 21+. At today's €STR rate, CSH2 ends slightly behind Ethias (~€24,500 vs ~€24,900), but remains available at any time.",
     "s2_objection_title": "What about the guarantee?",
-    "s2_objection_p": "CSH2 tracks the European overnight interbank rate (€STR). It is not contractually guaranteed. But CSH2 has never recorded a loss over any 12-month period since inception. The contractual guarantee Ethias offers costs 2% upfront, a 9-year lock-in, and a €20,000 minimum. That is a very expensive insurance premium against a risk that has never materialised historically.",
-    "s2_caveat": "One genuine advantage exists: if ECB rates drop significantly, CSH2's return decreases with them. Ethias's 2.90% is locked for 9 years. That is the only concrete advantage of Ethias Savings 21+ — and it comes at a considerable structural cost.",
-    "s2_warning": "If stability is your goal, CSH2 delivers the same return as Ethias 21+ with no entry costs, no lock-in, and no €20,000 minimum. The only thing Ethias is selling you is a contractual guarantee against a rate drop — at the cost of 2% of your capital, today.",
+    "s2_objection_p": "CSH2 tracks the euro overnight interbank rate (€STR). It is not contractually guaranteed, and it has lost money before: between 2019 and 2022, when €STR was negative, money market ETFs lost a little value (around −0.5%/year). The contractual guarantee protects against that low-rate scenario — but it costs 2% at entry, a 9-year lock-in and a €20,000 minimum.",
+    "s2_caveat": "Ethias's real advantage: its 2.90% is locked in for 9 years, whereas CSH2's yield follows the ECB up and down. At current rates, that lock-in gives Ethias a slight lead over 9 years — at the cost of all flexibility.",
+    "s2_warning": "If stability is your goal, compare what you are buying: Ethias 21+ offers a guaranteed rate slightly above CSH2's current yield, but locks your capital up for 9 years and takes 2% on day one. CSH2 lets you exit at any time, with no entry fee and no minimum.",
     "s3_title": "30-Year Horizon — The Total Opportunity Cost",
     "s3_intro": "Over 30 years, choosing Ethias Savings 21+ — or any Branch 21 product — instead of a World ETF represents an enormous opportunity cost.",
     "s3_table_col1": "Ethias 21+ (renewed)",
@@ -2947,13 +2882,13 @@
     "s3_table_row5_val1": "~€38,200",
     "s3_table_row5_val2": "~€183,659",
     "s3_callout": "Even after fully crediting the CGT exemption, the World ETF generates ~4.8× more than Ethias 21+ over 30 years — a gap of ~€145,000.",
-    "s3_methodology": "Methodology note: simulation based on a lump-sum investment of €20,000. The 8% return for IMIE is based on the historical average of the MSCI World index over 30 years. Past performance does not guarantee future results.",
+    "s3_methodology": "Methodology note: simulation based on a lump-sum investment of €20,000. The 8% return for IMIE is based on the 20-year historical average of the MSCI ACWI IMI (2005–2025). Branch 21's CGT exemption is fully credited in the simulation. For the 30-year horizon, a renewal of the Ethias contract at ~2.50% net is assumed — future rate not guaranteed. Past performance does not guarantee future results.",
     "s4_title": "ClearInvest Verdict",
     "s4_verdict_1": "Branch 21 is structurally disadvantaged by the 2% premium tax — a legislative cost that applies to every provider without exception. This is not an Ethias-specific problem: it is a categorical flaw.",
-    "s4_verdict_2": "For a short horizon, CSH2 is strictly better on every dimension except the contractual rate lock. That lock costs 2% upfront, a 9-year lock-in, and a €20,000 minimum. For the vast majority of savers, that is not a favourable trade.",
+    "s4_verdict_2": "For a short horizon, the choice comes down to a trade: Ethias locks in a rate slightly above CSH2's current yield, in exchange for 2% at entry, a 9-year lock-in and a €20,000 minimum. CSH2 earns a little less today but stays fully liquid.",
     "s4_verdict_3": "Over 30 years, a World ETF generates ~4.8× more net value than Ethias Savings 21+ — a gap of ~€145,000 after taxes.",
     "s4_verdict_4": "Within its category, Ethias is not the worst Branch 21 product — 0% management fees and direct distribution (no intermediary commission) are genuine advantages over AG Insurance or Belfius. But being the best in a structurally bad category is still a bad choice.",
-    "s4_verdict_5": "There is no profile of Belgian investor for whom Ethias Savings 21+ is the optimal choice. Short horizon: CSH2. Long horizon: World ETF.",
+    "s4_verdict_5": "Ethias Savings 21+ only makes sense for a saver who is certain not to touch the capital for 9 years and values a guaranteed rate. Short horizon with a need for liquidity: CSH2. Long horizon: World ETF.",
     "cta_primary": "Simulate with the calculator",
     "cta_secondary": "Discover the CSH2 Liquid Savings strategy",
     "cta_tertiary": "← Back to product analyses",
@@ -2961,8 +2896,8 @@
     "s2_table_col3": "CSH2 (money market ETF)",
     "s2_table_row1_val3": "−0.12% securities tax (−€24)",
     "s2_table_row2_val3": "€19,976",
-    "s2_table_row3_val3": "~2.9% (€STR, variable)",
-    "s2_table_row4_val3": "~€25,900",
+    "s2_table_row3_val3": "~2.4% gross (€STR, variable — Oct 2026)",
+    "s2_table_row4_val3": "~€24,500",
     "s2_table_row5_val3": "Full — sell in 1 day",
     "s2_table_row6_val3": "A few euros",
     "s2_table_row7_val3": "€0 (gain < €15,000 → threshold not reached)",
@@ -2975,7 +2910,7 @@
     "hero_title": "AG Safe+ — Absolute Safety Costs €213,000",
     "hero_subtitle": "Guaranteed capital, guaranteed rate, zero market risk. AG Insurance sells peace of mind. Here is what that peace of mind actually costs you over 30 years.",
     "tldr_label": "TL;DR",
-    "tldr_text": "AG Safe+ combines 2% premium tax + ~1% entry fee = 3% total friction before investment. Guaranteed rate 2.75% (year 1) / 2.25% (subsequent years) + unguaranteed profit participation → estimated net return ~2.80%/year. Branch 21 is exempt from capital gains tax — a genuine tax advantage, already fully credited in our simulation. It represents ~€5,720 over 30 years. The gap with a World ETF remains ~€213,000. There is no investor profile for whom AG Safe+ is the optimal choice over a long horizon.",
+    "tldr_text": "AG Safe+ combines a 2% premium tax + ~1% entry fee = 3% total friction. On a €20,000 lump sum, only €19,400 starts working. Over 9 years — the contract's maturity — AG Safe+ ends barely ahead of the CSH2 money market ETF at October 2026 rates (~€24,800 vs ~€24,500), without the liquidity. Over 30 years, the World ETF generates ~4.1× more (+€183,659 vs +€44,300) — a gap of ~€139,000.",
     "s1_title": "Product Sheet",
     "s1_label_product": "Product",
     "s1_val_product": "AG Insurance — AG Safe+",
@@ -3041,7 +2976,7 @@
     "s4_table_row6": "CGT / Capital gains tax",
     "s4_table_row6_val1": "€0 (Branch 21 exempt)",
     "s4_table_row6_val2": "~−€490 (10% on gain > €15,000)",
-    "s4_callout": "Over 9 years, CSH2 beats AG Safe+ (+€25,900 vs +€24,800) with full liquidity and 0% management fees. The World ETF goes further still (+€39,410 net).",
+    "s4_callout": "Over 9 years, AG Safe+ and CSH2 finish almost level at today's €STR rate (~€24,800 vs ~€24,500) — but CSH2 stays liquid with no entry fee. The World ETF does clearly better (+€39,410 net).",
     "s4_methodology_note": "Methodology note: the 8% return used for IMIE is based on the historical average of the MSCI ACWI IMI over 20 years (2005–2025). The 2.80% return for AG Safe+ is optimistic: it includes unguaranteed profit participation. Branch 21’s CGT exemption is fully credited to AG Safe+ in this simulation.",
     "s4_cta_text": "Simulate your own situation with your amount and time horizon.",
     "s4_cta_btn": "Open the calculator →",
@@ -3072,16 +3007,16 @@
     "s5_table_row7_val1": "Yes (contract)",
     "s5_table_row7_val2": "No (never negative over 12m, hist.)",
     "s5_objection_title": "“But CSH2 isn’t guaranteed”",
-    "s5_objection_p": "CSH2 replicates the €STR rate, the ECB’s overnight interbank rate. It has never lost value over any 12-month period since inception. AG Safe+’s contractual guarantee costs you 3% entry + an 8-year lock-in — a very expensive insurance premium against a risk that has never materialised.",
-    "s5_caveat": "The one genuine difference in AG Safe+’s favour: if the ECB cuts rates significantly, CSH2 follows down. AG Safe+’s guaranteed rate of 2.75% (year 1) / 2.25% (subsequent years) is locked in for the contract duration. This is the only genuine advantage AG Safe+ has over CSH2 — and it comes with a 3% structural cost and an 8-year lock-in.",
-    "s5_warning": "If stability is your objective over a short horizon, CSH2 offers a similar return to AG Safe+ with no entry fees, no lock-in, and no minimum. The only thing AG Safe+ is selling you on this front is a rate guarantee against a rate cut — at the cost of 3% of your capital, starting today.",
+    "s5_objection_p": "CSH2 tracks the euro overnight interbank rate (€STR). It is not contractually guaranteed, and it has lost money before: between 2019 and 2022, when €STR was negative, money market ETFs lost a little value (around −0.5%/year). AG Safe+'s contractual guarantee protects against that low-rate scenario — but it costs 3% at entry and an 8-year lock-in.",
+    "s5_caveat": "AG Safe+'s real advantage: its guaranteed rate of 2.75% (year 1) / 2.25% (following years) is locked in for the term of the contract, whereas CSH2 follows the ECB up and down. That guarantee comes with a 3% structural cost and an 8-year lock-in.",
+    "s5_warning": "If stability over a short horizon is your goal, CSH2 currently offers a return close to AG Safe+ with no entry fee, no lock-in and no minimum. What AG Safe+ sells you here is a rate guarantee — at the cost of 3% of your capital, from day one.",
     "s5_xref": "For a detailed Branch 21 vs CSH2 comparison on a short horizon, see also our Ethias Savings 21+ review.",
     "s5_xref_link": "View the Ethias Savings 21+ review",
     "s6_title": "Our Verdict",
     "s6_verdict_1": "AG Safe+ is a legally sound product — guaranteed capital, regulated insurer, clear contract. We do not question the solidity of AG Insurance.",
     "s6_verdict_2": "But Branch 21 carries an unavoidable structural cost: the 2% premium tax on every payment, combined with a return capped at ~2.80%/year. Over 30 years, this cost far exceeds the CGT advantage Branch 21 offers over ETFs.",
     "s6_verdict_3": "Over 30 years, the World ETF IMIE generates ~4.1× more than AG Safe+ — a gap of ~€139,000 after taxes. The 3% entry friction is structurally disadvantageous for long-term savers.",
-    "s6_verdict_4": "Over a short horizon (< 8 years): CSH2 offers a comparable return, with no entry fees, no lock-in, and no minimum.",
+    "s6_verdict_4": "Over a short horizon (< 8 years): CSH2 currently offers a similar return, with no entry fee, no lock-in and no minimum — but no guaranteed rate.",
     "s6_verdict_5": "There is no investor profile for whom AG Safe+ is the optimal choice over a long horizon. For any horizon: an ETF alternative does better.",
     "s6_case_legit_title": "Legitimate use case",
     "s6_case_legit_desc": "None that withstands comparison. For a long horizon: World ETF. For a short horizon: CSH2. For estate planning: AG Fund+ (Branch 23) offers beneficiary designation with greater return flexibility.",
@@ -3095,13 +3030,13 @@
     "s4_table_col3": "CSH2 (money market ETF)",
     "s4_table_row1_val3": "−0.12% TOB (−€24)",
     "s4_table_row2_val3": "€19,976",
-    "s4_table_row3_val3": "~2.90% (€STR, variable)",
-    "s4_table_row4_val3": "~€25,900",
+    "s4_table_row3_val3": "~2.4% gross (€STR, variable — Oct 2026)",
+    "s4_table_row4_val3": "~€24,500",
     "s4_table_row5_val3": "Full — sell in 1 day",
     "s4_table_row6_val3": "€0 (gain < €15,000 → threshold not reached)",
     "s4_bridge": "Over 9 years — the duration the product itself proposes — the World ETF already wins. Over 30 years, the gap becomes a life decision.",
     "s5_callout": "The World ETF generates ~4.1× more than AG Safe+ over 30 years — a gap of ~€139,000, even after crediting Branch 21’s CGT exemption.",
-    "s5_methodology": "Methodology note: simulation based on a lump-sum investment of €20,000. For the 30-year horizon, successive renewals of the Branch 21 product are assumed (entry fees re-applied at each maturity). The 8% return for IMIE is based on the historical average of the MSCI World index over 30 years. Past performance does not guarantee future results."
+    "s5_methodology": "Methodology note: simulation based on a lump-sum investment of €20,000. For the 30-year horizon, a renewal at ~2.50% net is assumed — future rate not guaranteed. The 8% return for IMIE is based on the 20-year historical average of the MSCI ACWI IMI (2005–2025). Branch 21's CGT exemption is fully credited in the simulation. Past performance does not guarantee future results."
   },
   "analyseBelfiusCapitalSafe": {
     "meta_title": "Belfius Invest Capital Safe Review — 4.5% Entry Costs for a 2.8% Return",
@@ -3110,7 +3045,7 @@
     "hero_title": "Belfius Invest Capital Safe — 20 Months to Break Even",
     "hero_subtitle": "4.5% entry friction on a 2.80% guaranteed rate. Before you earn a single euro of profit, you spend 20 months just recovering the fees that Belfius and the State took on day one.",
     "tldr_label": "TL;DR",
-    "tldr_text": "Belfius Invest Capital Safe combines 2% premium tax + 2.5% entry fee = 4.5% total friction before any return. On a lump sum of €20,000, the World ETF (IMIE) already beats Belfius over 9 years (€39,410 vs €23,900). Over 30 years the gap reaches ~€141,500. Even the money market ETF CSH2, with no rate risk, outperforms over the contract’s own duration.",
+    "tldr_text": "Belfius Invest Capital Safe combines 2% premium tax + 2.5% entry fee = 4.5% total friction before any return. On a lump sum of €20,000, the World ETF (IMIE) already beats Belfius over 9 years (€39,410 vs €23,900). Over 30 years the gap reaches ~€141,500. Even the money market ETF CSH2 outperforms over the contract’s own duration (~€24,500 vs ~€23,900 at October 2026 rates), while staying liquid.",
     "s1_title": "Product Sheet",
     "s1_label_product": "Product",
     "s1_val_product": "Belfius Insurance — Belfius Invest Capital Safe",
@@ -3179,7 +3114,7 @@
     "s4_table_row6": "CGT / Capital gains tax",
     "s4_table_row6_val1": "€0 (Branch 21 exempt)",
     "s4_table_row6_val2": "~−€490 (10% on gain > €15,000)",
-    "s4_callout": "Over 9 years, CSH2 beats Belfius Capital Safe (+€25,900 vs +€23,900) with full liquidity and 0% management fees. The World ETF goes further still (+€39,410 net).",
+    "s4_callout": "Over 9 years, CSH2 beats Belfius Capital Safe at today's €STR rate (~€24,500 vs ~€23,900), with full liquidity and 0% entry fee. The World ETF goes further still (+€39,410 net).",
     "s4_methodology_note": "Methodology note: the 8% return used for IMIE is based on the historical average of the MSCI ACWI IMI over 20 years (2005–2025). The 2.68% return for Belfius Invest Capital Safe is based on the guaranteed gross rate of 2.80% (April 2026) net of annual fees of 0.12%. Branch 21’s CGT exemption is fully credited to Belfius in this simulation.",
     "s4_cta_text": "Simulate your own situation with your amount and time horizon.",
     "s4_cta_btn": "Open the calculator →",
@@ -3211,8 +3146,8 @@
     "s5_table_row7_val2": "A few euros",
     "s5_warning_exit": "⚠️ On a short horizon, Belfius Invest Capital Safe combines high entry fees AND exit fees for 5 years. This is the worst of both worlds: you are penalised on the way in AND on the way out if you need your money before 5 years.",
     "s5_objection_title": "“But CSH2 isn’t guaranteed”",
-    "s5_objection_p": "CSH2 replicates the €STR rate, the ECB’s overnight interbank rate. It has never lost value over any 12-month period since inception. Belfius’s contractual guarantee costs you 4.5% entry + 5 years of exit fees + a 6-year lock-in — a very expensive insurance premium against a risk that has never materialised.",
-    "s5_caveat": "The one genuine difference in Belfius Invest Capital Safe’s favour: if the ECB cuts rates significantly, CSH2 follows down. Belfius’s 2.80% guaranteed rate is locked in for the contract duration. This is the only genuine advantage Belfius has over CSH2 — and it comes with 4.5% friction and 5 years of exit fees.",
+    "s5_objection_p": "CSH2 tracks the euro overnight interbank rate (€STR). It is not contractually guaranteed, and it has lost money before: between 2019 and 2022, when €STR was negative, money market ETFs lost a little value (around −0.5%/year). Belfius's contractual guarantee protects against that low-rate scenario — but it costs 4.5% at entry, 5 years of exit fees and a 6-year lock-in.",
+    "s5_caveat": "Belfius Invest Capital Safe's real advantage: its 2.80% guaranteed rate is locked in for the term of the contract, whereas CSH2 follows the ECB up and down. That guarantee comes with 4.5% friction and 5 years of exit fees.",
     "s5_warning": "If stability is your objective over a short horizon, CSH2 offers a similar return to Belfius Invest Capital Safe with no entry fees, no exit fees, no lock-in, and no minimum. The only thing Belfius is selling you here is a rate guarantee against a rate cut — at the cost of 4.5% of your capital plus 5 years of exit penalties.",
     "s5_xref": "For a detailed Branch 21 vs CSH2 comparison on a short horizon, see also our Ethias Savings 21+ review.",
     "s5_xref_link": "View the Ethias Savings 21+ review",
@@ -3233,8 +3168,8 @@
     "s4_table_col3": "CSH2 (money market ETF)",
     "s4_table_row1_val3": "−0.12% TOB (−€24)",
     "s4_table_row2_val3": "€19,976",
-    "s4_table_row3_val3": "~2.90% (€STR, variable)",
-    "s4_table_row4_val3": "~€25,900",
+    "s4_table_row3_val3": "~2.4% gross (€STR, variable — Oct 2026)",
+    "s4_table_row4_val3": "~€24,500",
     "s4_table_row5_val3": "Full — sell in 1 day",
     "s4_table_row6_val3": "€0 (gain < €15,000 → threshold not reached)",
     "s4_bridge": "Over 9 years — the duration the product itself proposes — the World ETF already wins. Over 30 years, the gap becomes a life decision.",
@@ -3615,7 +3550,7 @@
     "hero_title": "Crelan Invest Opportunities — 2.80%/year in fees for a 2.57% net return",
     "hero_subtitle": "A fund-of-funds distributed by Crelan and managed by Amundi. The intermediate scenario in the official document projects 2.57%/year net — barely above a savings account, for significantly more risk.",
     "tldr_label": "IN BRIEF",
-    "tldr_text": "Crelan Invest Opportunities is an actively managed fund-of-funds distributed by Crelan. Its 2.80%/year total costs absorb most of the gross return: the official document shows 5.37%/year gross for 2.57%/year net — less than CSH2 (money-market ETF at ~2.9%/year) while carrying real market risk. The fund-of-funds structure adds a hidden double cost layer. The 1.32% securities transaction tax at exit (Belgian ISIN) makes the picture worse.",
+    "tldr_text": "Crelan Invest Opportunities is an actively managed fund-of-funds distributed by Crelan. Its 2.80%/year total costs absorb most of the gross return: the official document shows 5.37%/year gross for 2.57%/year net — barely more than CSH2 (money-market ETF, ~2.3%/year net in October 2026) while carrying real market risk. The fund-of-funds structure adds a hidden double cost layer. The 1.32% securities transaction tax at exit (Belgian ISIN) makes the picture worse.",
     "s1_title": "Product summary",
     "s1_label_product": "Product",
     "s1_val_product": "Crelan Invest Opportunities EUR Capitalisation",

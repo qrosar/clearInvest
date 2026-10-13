@@ -15,7 +15,7 @@ export interface TaxConfig {
   capitalGainsTax?: number;            // CGT rate (10% for Belgian equity ETFs)
   capitalGainsExemption?: number;      // CGT annual exemption in EUR
   interestTax?: number;                // tax on savings interest above exemption; applied to gross rate
-  interestExemption?: number;          // annual interest exemption in EUR (1020 for regulated savings; 0 for term deposits)
+  interestExemption?: number;          // annual interest exemption in EUR (1020 for regulated savings, taxed at 15% above it; 0 for term deposits, taxed at 30%)
   pensionTax?: number;                 // lump tax at end (pilier 3: 8%)
   premiumTax?: number;                 // Belgian government tax on every insurance deposit (2%)
   branche21WithholdingTax?: number;    // 30% withholding on fictive return if sold before branche21MinYears
@@ -38,7 +38,7 @@ export interface Product {
   bondAllocation?: number;          // fraction of portfolio in bonds (0–1); drives Reynders vs CGT split
   rateEditable: boolean;
   color: string;
-  description: string;                 // i18n key (data.products.[id].description)
+  description?: string;                // free text, custom products only (not displayed)
   taxConfig?: TaxConfig;
   /** Hard legal cap on monthly contribution (show warning if exceeded) */
   monthlyContributionCap?: number;
@@ -75,7 +75,6 @@ const ETF_PRODUCTS: Product[] = STRATEGIES.map(s => {
     defaultRate: s.historicalReturn,
     rateEditable: true,
     color: s.color,
-    description: s.tagline,
     taxConfig,
   };
 });
@@ -93,8 +92,7 @@ const BANK_PRODUCTS: Product[] = [
     loyaltyRate: 0.0150,
     rateEditable: true,
     color: '#7a5ab8',
-    description: 'data.products.savings-belfius-flow.description',
-    taxConfig: { interestTax: 0.30, interestExemption: 1020 },
+    taxConfig: { interestTax: 0.15, interestExemption: 1020 },
   },
   {
     id: 'savings-argenta',
@@ -107,8 +105,7 @@ const BANK_PRODUCTS: Product[] = [
     loyaltyRate: 0.0150,
     rateEditable: true,
     color: '#5a8c4a',
-    description: 'data.products.savings-argenta.description',
-    taxConfig: { interestTax: 0.30, interestExemption: 1020 },
+    taxConfig: { interestTax: 0.15, interestExemption: 1020 },
   },
   {
     id: 'savings-ing-tempo',
@@ -121,8 +118,7 @@ const BANK_PRODUCTS: Product[] = [
     loyaltyRate: 0.0150,
     rateEditable: true,
     color: '#c87c3a',
-    description: 'data.products.savings-ing-tempo.description',
-    taxConfig: { interestTax: 0.30, interestExemption: 1020 },
+    taxConfig: { interestTax: 0.15, interestExemption: 1020 },
     monthlyContributionCap: 500,
     contributionCapNote: "p_savings_ing_tempo_cap_note",
   },
@@ -137,8 +133,7 @@ const BANK_PRODUCTS: Product[] = [
     loyaltyRate: 0.0150,
     rateEditable: true,
     color: '#1a5fa8',
-    description: 'data.products.savings-kbc.description',
-    taxConfig: { interestTax: 0.30, interestExemption: 1020 },
+    taxConfig: { interestTax: 0.15, interestExemption: 1020 },
   },
   {
     id: 'savings-vdk',
@@ -151,8 +146,7 @@ const BANK_PRODUCTS: Product[] = [
     loyaltyRate: 0.0150,
     rateEditable: true,
     color: '#2a8a7a',
-    description: 'data.products.savings-vdk.description',
-    taxConfig: { interestTax: 0.30, interestExemption: 1020 },
+    taxConfig: { interestTax: 0.15, interestExemption: 1020 },
     monthlyContributionCap: 500,
     contributionCapNote: "p_savings_vdk_cap_note",
   },
@@ -167,8 +161,7 @@ const BANK_PRODUCTS: Product[] = [
     loyaltyRate: 0.0150,
     rateEditable: true,
     color: '#c04a28',
-    description: 'data.products.savings-crelan.description',
-    taxConfig: { interestTax: 0.30, interestExemption: 1020 },
+    taxConfig: { interestTax: 0.15, interestExemption: 1020 },
   },
   {
     id: 'savings-keytrade',
@@ -181,8 +174,7 @@ const BANK_PRODUCTS: Product[] = [
     loyaltyRate: 0.0130,
     rateEditable: true,
     color: '#2a6a9a',
-    description: 'data.products.savings-keytrade.description',
-    taxConfig: { interestTax: 0.30, interestExemption: 1020 },
+    taxConfig: { interestTax: 0.15, interestExemption: 1020 },
   },
   {
     id: 'savings-medirect',
@@ -195,8 +187,7 @@ const BANK_PRODUCTS: Product[] = [
     loyaltyRate: 0.0140,
     rateEditable: true,
     color: '#4a7a5a',
-    description: 'data.products.savings-medirect.description',
-    taxConfig: { interestTax: 0.30, interestExemption: 1020 },
+    taxConfig: { interestTax: 0.15, interestExemption: 1020 },
   },
 
   // ── Bons de caisse / Comptes à terme ──────────────────────────────────────
@@ -209,7 +200,6 @@ const BANK_PRODUCTS: Product[] = [
     defaultRate: 0.0294,
     rateEditable: true,
     color: '#2d7dd2',
-    description: 'data.products.bon-caisse-kbc-1yr.description',
     taxConfig: { interestTax: 0.30, interestExemption: 0, tob: 0, entryFee: 0 },
   },
   {
@@ -221,7 +211,6 @@ const BANK_PRODUCTS: Product[] = [
     defaultRate: 0.0364,
     rateEditable: true,
     color: '#1d5ca2',
-    description: 'data.products.bon-caisse-kbc-3yr.description',
     taxConfig: { interestTax: 0.30, interestExemption: 0, tob: 0, entryFee: 0 },
   },
   {
@@ -233,7 +222,6 @@ const BANK_PRODUCTS: Product[] = [
     defaultRate: 0.0374,
     rateEditable: true,
     color: '#0d4c82',
-    description: 'data.products.bon-caisse-kbc-5yr.description',
     taxConfig: { interestTax: 0.30, interestExemption: 0, tob: 0, entryFee: 0 },
   },
   {
@@ -245,7 +233,6 @@ const BANK_PRODUCTS: Product[] = [
     defaultRate: 0.0210,
     rateEditable: true,
     color: '#5fa832',
-    description: 'data.products.bon-caisse-argenta-1yr.description',
     taxConfig: { interestTax: 0.30, interestExemption: 0, tob: 0, entryFee: 0 },
   },
   {
@@ -257,7 +244,6 @@ const BANK_PRODUCTS: Product[] = [
     defaultRate: 0.0245,
     rateEditable: true,
     color: '#3d8810',
-    description: 'data.products.bon-caisse-argenta-5yr.description',
     taxConfig: { interestTax: 0.30, interestExemption: 0, tob: 0, entryFee: 0 },
   },
   {
@@ -269,7 +255,6 @@ const BANK_PRODUCTS: Product[] = [
     defaultRate: 0.0220,
     rateEditable: true,
     color: '#d4700a',
-    description: 'data.products.bon-caisse-ing-1yr.description',
     taxConfig: { interestTax: 0.30, interestExemption: 0, tob: 0, entryFee: 0 },
   },
   {
@@ -281,7 +266,6 @@ const BANK_PRODUCTS: Product[] = [
     defaultRate: 0.0310,
     rateEditable: true,
     color: '#7a4a8a',
-    description: 'data.products.bon-caisse-beobank-1yr.description',
     taxConfig: { interestTax: 0.30, interestExemption: 0, tob: 0, entryFee: 0 },
   },
 
@@ -295,7 +279,6 @@ const BANK_PRODUCTS: Product[] = [
     defaultRate: 0.031,
     rateEditable: true,
     color: '#e8a94a',
-    description: 'data.products.branche21.description',
     taxConfig: {
       premiumTax: 0.02,
       entryFee: 0.03,
@@ -316,7 +299,6 @@ const BANK_PRODUCTS: Product[] = [
     defaultRate: 0.029,
     rateEditable: true,
     color: '#c86820',
-    description: 'data.products.branche21-ethias-9yr.description',
     taxConfig: {
       premiumTax: 0.02,
       entryFee: 0,
@@ -336,7 +318,6 @@ const BANK_PRODUCTS: Product[] = [
     defaultRate: 0.023,
     rateEditable: true,
     color: '#b05818',
-    description: 'data.products.branche21-ethias-3yr.description',
     taxConfig: {
       premiumTax: 0.02,
       entryFee: 0,
@@ -356,7 +337,6 @@ const BANK_PRODUCTS: Product[] = [
     defaultRate: 0.0310,
     rateEditable: true,
     color: '#1a4a8a',
-    description: 'data.products.bnp-future-invest-bon.description',
     taxConfig: {
       premiumTax: 0.02,
       entryFee: 0.02,
@@ -376,7 +356,6 @@ const BANK_PRODUCTS: Product[] = [
     defaultRate: 0.0250,
     rateEditable: true,
     color: '#4a3a7a',
-    description: 'data.products.beobank-invest-21.description',
     taxConfig: {
       premiumTax: 0.02,
       entryFee: 0.025,
@@ -400,7 +379,6 @@ const BANK_PRODUCTS: Product[] = [
     ter: 0.0153,
     rateEditable: true,
     color: '#4a6eb8',
-    description: 'data.products.pension-kbc-pricos.description',
     taxConfig: { pensionTax: 0.08, upfrontTaxRelief: 0.30, upfrontTaxReliefCap: 1050, entryFee: 0.02, annualFee: 0.0153 },
     monthlyContributionCap: 112.5,
     contributionCapNote: "p_pension_cap_note",
@@ -416,7 +394,6 @@ const BANK_PRODUCTS: Product[] = [
     ter: 0.0149,
     rateEditable: true,
     color: '#6a4a7e',
-    description: 'data.products.pension-belfius-equities.description',
     taxConfig: { pensionTax: 0.08, upfrontTaxRelief: 0.30, upfrontTaxReliefCap: 1050, entryFee: 0.03, annualFee: 0.0149 },
     monthlyContributionCap: 112.5,
     contributionCapNote: "p_pension_cap_note",
@@ -432,7 +409,6 @@ const BANK_PRODUCTS: Product[] = [
     ter: 0.0125,
     rateEditable: true,
     color: '#3a5a9e',
-    description: 'data.products.pension-bnp-growth.description',
     taxConfig: { pensionTax: 0.08, upfrontTaxRelief: 0.30, upfrontTaxReliefCap: 1050, entryFee: 0.03, annualFee: 0.0125 },
     monthlyContributionCap: 112.5,
     contributionCapNote: "p_pension_cap_note",
@@ -449,7 +425,6 @@ const BANK_PRODUCTS: Product[] = [
     bondAllocation: 0.4,
     rateEditable: true,
     color: '#9e3a2a',
-    description: 'data.products.pension-ing-star.description',
     taxConfig: { pensionTax: 0.08, upfrontTaxRelief: 0.30, upfrontTaxReliefCap: 1050, entryFee: 0.03, annualFee: 0.0128 },
     monthlyContributionCap: 112.5,
     contributionCapNote: "p_pension_cap_note",
@@ -465,7 +440,6 @@ const BANK_PRODUCTS: Product[] = [
     ter: 0.0144,
     rateEditable: true,
     color: '#3a7a4a',
-    description: 'data.products.pension-argenta.description',
     taxConfig: { pensionTax: 0.08, upfrontTaxRelief: 0.30, upfrontTaxReliefCap: 1050, entryFee: 0.00, annualFee: 0.0144 },
     monthlyContributionCap: 112.5,
     contributionCapNote: "p_pension_cap_note",
@@ -481,7 +455,6 @@ const BANK_PRODUCTS: Product[] = [
     ter: 0.0150,
     rateEditable: true,
     color: '#2a6a7a',
-    description: 'data.products.pension-vdk.description',
     taxConfig: { pensionTax: 0.08, upfrontTaxRelief: 0.30, upfrontTaxReliefCap: 1050, entryFee: 0.02, annualFee: 0.0150 },
     monthlyContributionCap: 112.5,
     contributionCapNote: "p_pension_cap_note",
@@ -497,7 +470,6 @@ const BANK_PRODUCTS: Product[] = [
     ter: 0.0150,
     rateEditable: true,
     color: '#9a4a28',
-    description: 'data.products.pension-crelan.description',
     taxConfig: { pensionTax: 0.08, upfrontTaxRelief: 0.30, upfrontTaxReliefCap: 1050, entryFee: 0.03, annualFee: 0.0150 },
     monthlyContributionCap: 112.5,
     contributionCapNote: "p_pension_cap_note",
@@ -516,7 +488,6 @@ const BANK_PRODUCTS: Product[] = [
     bondAllocation: 0,
     rateEditable: true,
     color: '#2a4a7a',
-    description: 'data.products.fonds-bnp-equity-world.description',
     warningNote: "p_fonds_bnp_warning",
     taxConfig: {
       capitalGainsTax: 0.10,
@@ -540,7 +511,6 @@ const BANK_PRODUCTS: Product[] = [
     bondAllocation: 0,
     rateEditable: true,
     color: '#6a2a5a',
-    description: 'data.products.fonds-belfius-equity-world.description',
     taxConfig: {
       capitalGainsTax: 0.10,
       capitalGainsExemption: 10000,
@@ -563,7 +533,6 @@ const BANK_PRODUCTS: Product[] = [
     bondAllocation: 0,
     rateEditable: true,
     color: '#5a3a8a',
-    description: 'data.products.fonds-axa-belgium-equity.description',
     taxConfig: {
       capitalGainsTax: 0.10,
       capitalGainsExemption: 10000,
@@ -586,7 +555,6 @@ const BANK_PRODUCTS: Product[] = [
     bondAllocation: 0.25,
     rateEditable: true,
     color: '#7a6a5a',
-    description: 'data.products.fonds-nagelmackers-growth.description',
     taxConfig: {
       capitalGainsTax: 0.10,
       capitalGainsExemption: 10000,
@@ -610,7 +578,6 @@ const BANK_PRODUCTS: Product[] = [
     bondAllocation: 0.40,
     rateEditable: true,
     color: '#9e4a2a',
-    description: 'data.products.fonds-ing-star-active.description',
     taxConfig: {
       capitalGainsTax: 0.10,
       capitalGainsExemption: 10000,
@@ -634,7 +601,6 @@ const BANK_PRODUCTS: Product[] = [
     bondAllocation: 0,
     rateEditable: true,
     color: '#6a3a7a',
-    description: 'data.products.fonds-beobank-equities.description',
     taxConfig: {
       capitalGainsTax: 0.10,
       capitalGainsExemption: 10000,
@@ -660,7 +626,6 @@ const BANK_PRODUCTS: Product[] = [
     ter: 0.0170,
     rateEditable: true,
     color: '#1a5a4a',
-    description: 'data.products.branche23-ag-fund-plus.description',
     taxConfig: {
       premiumTax: 0.02,
       entryFee: 0.025,
@@ -684,7 +649,6 @@ const BANK_PRODUCTS: Product[] = [
     ter: 0.0220,
     rateEditable: true,
     color: '#4a8a5a',
-    description: 'data.products.branche23-baloise-invest.description',
     taxConfig: {
       premiumTax: 0.02,
       entryFee: 0.035,
@@ -707,7 +671,6 @@ const BANK_PRODUCTS: Product[] = [
     ter: 0.0150,
     rateEditable: true,
     color: '#2a4a6a',
-    description: 'data.products.branche23-nn-strategy.description',
     taxConfig: {
       premiumTax: 0.02,
       entryFee: 0.01,
@@ -730,7 +693,6 @@ const BANK_PRODUCTS: Product[] = [
     ter: 0.0140,
     rateEditable: true,
     color: '#5a4a7a',
-    description: 'data.products.branche23-axa-index4p.description',
     taxConfig: {
       premiumTax: 0.02,
       entryFee: 0.01,
@@ -753,7 +715,6 @@ const BANK_PRODUCTS: Product[] = [
     ter: 0.0254,
     rateEditable: true,
     color: '#8a5a4a',
-    description: 'data.products.branche23-vivium-selection.description',
     taxConfig: {
       premiumTax: 0.02,
       entryFee: 0.0254,
@@ -779,7 +740,6 @@ const BANK_PRODUCTS: Product[] = [
     bondAllocation: 0,
     rateEditable: true,
     color: '#3a5a8a',
-    description: 'data.products.fonds-bnp-comfort-equity.description',
     warningNote: "p_fonds_bnp_warning",
     taxConfig: {
       capitalGainsTax: 0.10,
@@ -803,7 +763,6 @@ const BANK_PRODUCTS: Product[] = [
     bondAllocation: 0,
     rateEditable: true,
     color: '#5a3a4a',
-    description: 'data.products.fonds-carmignac-investissement.description',
     taxConfig: {
       capitalGainsTax: 0.10,
       capitalGainsExemption: 10000,
@@ -826,7 +785,6 @@ const BANK_PRODUCTS: Product[] = [
     bondAllocation: 0,
     rateEditable: true,
     color: '#8a4a4a',
-    description: 'data.products.fonds-crelan-opportunities.description',
     taxConfig: {
       capitalGainsTax: 0.10,
       capitalGainsExemption: 10000,
@@ -848,7 +806,6 @@ const BANK_PRODUCTS: Product[] = [
     defaultRate: 0.0280,
     rateEditable: true,
     color: '#8a6a2a',
-    description: 'data.products.branche21-ag-safe-plus.description',
     taxConfig: {
       premiumTax: 0.02,
       entryFee: 0.01,
@@ -868,7 +825,6 @@ const BANK_PRODUCTS: Product[] = [
     defaultRate: 0.0268,
     rateEditable: true,
     color: '#5a4a6a',
-    description: 'data.products.branche21-belfius-capital-safe.description',
     taxConfig: {
       premiumTax: 0.02,
       entryFee: 0.025,

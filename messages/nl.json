@@ -12,7 +12,6 @@
     "brokers": "Brokers",
     "questions": "Veelgestelde vragen",
     "ressources": "Middelen",
-    "start": "Beginnen",
     "menu_open": "Menu openen",
     "menu_close": "Menu sluiten",
     "analyseProducts": "Productanalyse"
@@ -39,7 +38,6 @@
     "source_sp500": "S&P 500 Index (EUR, total return)",
     "source_high_dividend": "FTSE All-World High Dividend Yield Index (EUR, bruto div herbelegd)",
     "source_nasdaq": "Nasdaq-100 Index (EUR, total return)",
-    "source_bonds": "Bloomberg Global Aggregate 1–3jr (EUR hedged, approx.)",
     "source_estr": "€STR Index (Euro Short-Term Rate)"
   },
   "p_savings_ing_tempo_cap_note": "Storting beperkt tot €500 per maand.",
@@ -62,42 +60,24 @@
     "chart_savings": "Spaarrekening",
     "chart_etf": "Wereld ETF (IMIE)",
     "chart_subtitle": "Geschatte waarde bij €300/maand beleggen gedurende 30 jaar",
-    "chart_value": "€408.000",
-    "chart_delta": "+€260.000 vs bank",
+    "chart_value": "€395.000",
+    "chart_delta": "+€247.000 vs bank",
     "chart_badge_rate": "~8% / jaar",
     "chart_badge_label": "historisch",
-    "chart_disclaimer": "* Indicatieve simulatie vóór belasting. €300/maand gedurende 30 jaar.",
+    "chart_disclaimer": "* Indicatieve simulatie, na kosten van de ETF, vóór belasting. €300/maand gedurende 30 jaar.",
     "chart_year_label": "{count} jaar"
-  },
-  "journey": {
-    "heading": "Van nul tot uw",
-    "headingItalic": "eerste ETF",
-    "step1_title": "Begrijpen",
-    "step1_desc": "Waarom uw spaargeld waarde verliest en hoe ETF's dat kunnen veranderen.",
-    "step2_title": "Vergelijken",
-    "step2_desc": "Visualiseer het verschil tussen uw spaarrekening en een ETF over 10, 20 of 30 jaar.",
-    "step3_title": "Kiezen",
-    "step3_desc": "Ontdek strategieën afgestemd op uw horizon — eenvoudig, evenwichtig of duurzaam.",
-    "step4_title": "Beginnen",
-    "step4_desc": "Stap-voor-stap gids om een rekening te openen bij een broker en uw eerste ETF te kopen."
   },
   "tools": {
     "heading": "Alles wat u nodig hebt om te beslissen",
-    "grid_heading": "Alle tools op één plek",
     "subtitle": "Concrete tools, objectieve vergelijkingen — geen onnodig jargon.",
     "calc_title": "Rendementscalculator",
     "calc_desc": "Vergelijk wat klassieke bankproducten opbrengen ten opzichte van verschillende ETF-strategieën — over de periode die u past.",
-    "calc_desc_short": "Vergelijk je banksparen met een ETF over 10, 20 of 30 jaar.",
     "strategies_title": "ETF-strategieën",
     "strategies_desc": "IMIE, IWDA, CSPX... Welke strategie past bij uw profiel en beleggingshorizon?",
-    "strategies_desc_short": "Three simpele portefeuilles aangepast aan verschillende doelen en horizonten.",
     "brokers_title": "Brokervergelijker",
-    "brokers_desc": "MeDirect, Saxo, Bolero, DEGIRO... Welke past het best? Tarieven en fiscaliteit vergeleken.",
-    "brokers_desc_short": "Kosten, fiscaliteit, interface — vind de broker die bij je profiel past.",
+    "brokers_desc": "MeDirect, Trade Republic, Saxo... Welke past het best? Tarieven en fiscaliteit vergeleken.",
     "understand_title": "ETF's begrijpen",
     "understand_desc": "Waarom uw spaargeld waarde verliest door inflatie, en hoe ETF's dat kunnen veranderen.",
-    "guides_title": "Praktische gidsen",
-    "guides_desc_short": "Belgische fiscaliteit van ETF's, een rekening openen, kosten begrijpen.",
     "questions_title": "Veelgestelde vragen",
     "questions_desc": "Kunt u echt alles verliezen? Moet u wachten op het juiste moment? Directe antwoorden op veelgehoorde misvattingen over beleggen."
   },
@@ -207,7 +187,7 @@
     "custom_gross_baseline": "Referentie brutorendement (%)",
     "custom_gross_baseline_hint": "Optioneel — ter informatie weergegeven",
     "custom_tob_label": "Beurstaks (%)",
-    "custom_tob_hint": "0,12% voor de meeste ETF's en fondsen; 1,32% voor in België gedomicilieerde fondsen",
+    "custom_tob_hint": "0,12% voor de meeste ETF's en fondsen; 1,32% voor kapitalisatiefondsen geregistreerd bij de FSMA (bv. VWCE)",
     "custom_sec_general": "Algemeen",
     "custom_provider": "Aanbieder / Bank",
     "custom_provider_hint": "Weergegeven op de resultatenkaart",
@@ -260,8 +240,8 @@
     "pension_pill_rate_25": "Belastingvermindering van 25%",
     "pension_comparison_note": "Vergelijking gebaseerd op {monthly}/maand ({annual}/jaar). De belastingvermindering van {rate}% op stortingen is inbegrepen in de pensioenspaarberekeningt.",
     "branche21_note": "Tak 21: niet-terugbetaalbare premietaks van 2% bij elke storting. Roerende voorheffing van 30% berekend op een fictief rendement van 4,75%/jaar bij afkoop vóór 8 jaar — vrijgesteld na 8 jaar contract.",
-    "tax_note": "Kosten en belastingen inbegrepen in de simulatie: beurstaks (0,12% bij aankoop en verkoop), instapkosten afgetrokken van elke storting, roerende voorheffing (30% op rente boven €1.020/jaar voor spaarrekeningen, 15% voor gereglementeerde rekeningen), Reynders-taks (30% op de obligatiecomponent), ETF-meerwaarden belast tegen 10% boven €10.000/jaar, taks op premie tak 21 (2% per storting), anticipatieve heffing pensioensparen (8% op fictief kapitaal aan 4,75%/jaar), fiscaal voordeel pensioensparen (geschatte belastingvermindering van 30%). De gebruikte tarieven zijn illustratieve aannames — resultaten uit het verleden bieden geen garantie voor de toekomst.",
-    "bank_data_note": "Rendementen voor bankproducten en actieve fondsen worden berekend op basis van gestandaardiseerde bruto rendementen per activaklasse (wereldwijde aandelen: 8%, obligaties: 3%), waarvan de werkelijke productkosten (TER) worden afgetrokken. Deze methode, in overeenstemming met de FSMA-aanbevelingen voor gestandaardiseerde projecties, elimineert de vertekeningen als gevolg van verschillen in historische horizon tussen producten. De rendementen van ETF-strategieën zijn gebaseerd op historische gemiddelden van de onderliggende index over de periode 2005–2025.",
+    "tax_note": "Kosten en belastingen inbegrepen in de simulatie: beurstaks (0,12% bij aankoop en verkoop), instapkosten afgetrokken van elke storting, roerende voorheffing (gereglementeerde spaarrekeningen: 15% op rente boven €1.020/jaar; kasbons en termijnrekeningen: 30% vanaf de eerste euro), Reynders-taks (30% op de obligatiecomponent), ETF-meerwaarden belast tegen 10% boven €10.000/jaar, taks op premie tak 21 (2% per storting), anticipatieve heffing pensioensparen (8% op fictief kapitaal aan 4,75%/jaar), fiscaal voordeel pensioensparen (geschatte belastingvermindering van 30%). De gebruikte tarieven zijn illustratieve aannames — resultaten uit het verleden bieden geen garantie voor de toekomst.",
+    "bank_data_note": "Rendementen voor bankproducten en actieve fondsen worden berekend op basis van gestandaardiseerde bruto rendementen per activaklasse (wereldwijde aandelen: 8%, obligaties: 3%), waarvan de werkelijke productkosten (TER) worden afgetrokken. Deze methode elimineert de vertekeningen als gevolg van verschillen in historische horizon tussen producten. De rendementen van ETF-strategieën zijn de historische gemiddelden 2005–2025 van de onderliggende index, verminderd met de TER van de ETF — een schatting van het werkelijk behaalde nettorendement.",
     "bank_rate_note": "* Gebaseerd op beschikbare gegevens (≤10 jaar). De vergelijkingshorizon blijft illustratief.",
     "active_fund_warning": "⚠️ Het gebruikte tarief ({rate}) is netto van jaarlijkse kosten (TER) maar bruto van instapkosten. De historische prestaties van actieve fondsen zijn bijzonder weinig voorspellend voor toekomstige prestaties — de meerderheid presteert slechter dan hun referentie-index over 10+ jaar.",
     "rate_formula": "Gesimuleerd rendement = {grossBaseline} bruto − {ter} TER (werkelijke productkosten)",
@@ -326,7 +306,7 @@
   "strategyCard": {
     "composition": "Samenstelling",
     "weighted_ter": "Gewogen gemiddelde TER",
-    "historical_return": "Gemiddeld rendement ({period})",
+    "historical_return": "Gemiddeld rendement na kosten ({period})",
     "cta": "Bekijk in de calculator",
     "ter_tooltip": "De TER (Total Expense Ratio) is de jaarlijkse beheerkosten van het fonds. Ze worden automatisch ingehouden op de prestaties van het fonds en worden niet apart aangerekend. Een TER van 0,20% betekent dat op €10.000 belegd vermogen jaarlijks €20 wordt ingehouden door de fondsbeheerder.",
     "horizon_short": "Korte termijn",
@@ -611,7 +591,7 @@
     "r1_q": "Ik heb altijd gehoord dat je alles kunt verliezen op de beurs — klopt dat?",
     "r1_p1": "Alles verliezen is mogelijk als u belegt in één enkel bedrijf dat failliet gaat — Enron, Lehman Brothers, of een startup die van de ene dag op de andere verdwijnt.",
     "r1_p2": "Precies daarom is een wereld-ETF zoals IMIE of IWDA structureel anders. U bezit fracties van duizenden bedrijven verspreid over een twintigtal ontwikkelde en opkomende landen. Om alles te verliezen zou de volledige wereldeconomie tegelijkertijd en definitief moeten instorten — een scenario waarbij uw spaarrekening, vastgoed en pensioensparen ook waarschijnlijk niets meer waard zijn.",
-    "r1_p3": "Wat u wel tijdelijk kunt verliezen, is een deel van uw kapitaal. In 2008 daalden de markten met ~50%. Afhankelijk van de index en valuta duurde de nominale herstelperiode 3 tot 5 jaar. In 2020: -35% in maart, +70% over het jaar. Volatiliteit is reëel — maar het is niet hetzelfde als permanent verlies.",
+    "r1_p3": "Wat u wel tijdelijk kunt verliezen, is een deel van uw kapitaal. In 2008 daalden de markten met ~50%. Afhankelijk van de index en valuta duurde de nominale herstelperiode 3 tot 5 jaar. In 2020: -35% in maart, daarna +70% tussen het dieptepunt van maart en het jaareinde. Volatiliteit is reëel — maar het is niet hetzelfde als permanent verlies.",
     "r1_p4": "De praktische regel: beleg alleen geld dat u de komende 5 jaar niet nodig heeft.",
     "r2_q": "En als ik begin te beleggen net voor een crash?",
     "r2_p1": "Dit is the meest voorkomende angst — en de gegevens tonen aan dat ze sterk overschat wordt.",
@@ -622,18 +602,18 @@
     "r3_q": "Waarom niet gewoon beleggen in het product met het beste historische rendement?",
     "r3_p1": "Omdat historische prestaties geen toekomstige prestaties voorspellen — en de gegevens bewijzen het.",
     "r3_p2": "In de jaren 2000 hadden technologiefondsen de beste historische rendementen van het vorige decennium. Degenen die er in 2000 alles op inzetten, verloren 80% van hun kapitaal toen de dotcom-zeepbel barstte.",
-    "r3_p3": "In de jaren 2010 hadden opkomende markten beter gepresteerd. Beleggers die daarnaar overstapten, leden vervolgens een decennium van underperformance ten opzichte van ontwikkelde markten.",
+    "r3_p3": "In de jaren 2000 hadden opkomende markten sterk beter gepresteerd. Beleggers die er rond 2010 naar overstapten, kenden vervolgens een decennium van underperformance ten opzichte van ontwikkelde markten.",
     "r3_p4": "Het product met het beste historische rendement is vaak het product dat profiteerde van een specifieke trend — en die trends keren zich om.",
     "r3_p5": "De strategie die op lange termijn werkt, is niet het najagen van historische prestaties, maar het kopen van de volledige wereldeconomie tegen lage kosten en wachten. Dat is precies wat een wereld-ETF doet.",
     "r4_q": "Moet u wachten op het juiste moment om te beleggen?",
     "r4_p1": "Nee — en de gegevens zijn ondubbelzinnig op dit punt.",
     "r4_p2": "Een bekende Schwab-studie vergeleek vijf strategieën over 20 jaar, waaronder twee extremen: altijd beleggen op het slechtste moment van het jaar (vlak voor elke crash) versus altijd beleggen op het beste moment.",
-    "r4_p3": "Resultaat: zelfs perfect timing zou slechts ~8% extra rendement hebben gegenereerd over 20 jaar in vergelijking met onmiddellijk beleggen. Maar het verschil tussen onmiddellijk beleggen en in cash blijven wachten op het 'juiste moment' was 30 tot 40%.",
+    "r4_p3": "Resultaat: perfecte timing levert maar een klein beetje meer op (in de orde van 10%) dan onmiddellijk beleggen. Zelfs de belegger die elk jaar op het slechtste moment kocht, eindigt ver vóór wie in cash bleef wachten op het 'juiste moment' — die laatste eindigt met een fractie van het kapitaal van de anderen.",
     "r4_p4": "De vijand van de belegger is niet het slechte moment — het is de onbeweeglijkheid.",
     "r4_p5": "De enige uitzondering: als u dit geld in minder dan 2 jaar nodig heeft, beleg het dan niet in aandelen.",
     "d1_q": "Hoeveel heeft u nodig om te beginnen?",
     "d1_p1": "Minder dan u denkt.",
-    "d1_p2": "De meeste aanbevolen brokers (MeDirect, Saxo) vereisen geen minimumstorting. Sommige recente wereld-ETF's zoals WEBN kosten ongeveer 5 € tot 10 € per aandeel. De klassiekers zoals SWRD kosten ~40 €, IMIE ~220 €. De meeste aanbevolen brokers laten u beginnen vanaf 50 € tot 100 € door goedkopere ETF's te kopen of via automatische spaarplannen.",
+    "d1_p2": "De meeste aanbevolen brokers (MeDirect, Trade Republic, Saxo) vereisen geen minimumstorting. Sommige recente wereld-ETF's zoals WEBN kosten ongeveer 5 € tot 10 € per aandeel. De klassiekers zoals SWRD kosten ~40 €, IMIE ~220 €. De meeste aanbevolen brokers laten u beginnen vanaf 50 € tot 100 € door goedkopere ETF's te kopen of via automatische spaarplannen.",
     "d1_p3": "In de praktijk is het raadzaam om minimaal 100 € tot 200 € per maand te beleggen zodat vaste transactiekosten (vaak €0 bij MeDirect) verwaarloosbaar blijven ten opzichte van het belegde bedrag.",
     "d1_p4": "Wat meer telt dan het startbedrag is de regelmaat. 200 €/maand gedurende 30 jaar bij 8% jaarlijks rendement ≈ 272 000 €. 2 400 € slechts één keer belegd ≈ 24 000 € over dezelfde periode. Regelmaat verslaat het startbedrag.",
     "d2_q": "Is het ingewikkeld om dagelijks te beheren?",
@@ -648,7 +628,7 @@
     "d3_p2": "The ETF's die u koopt zijn geen eigendom van de broker. Ze worden apart van de balans van de broker bewaard, in een afgescheiden vermogen. Als de broker failliet gaat, maken uw activa geen deel uit van de failliete boedel — ze worden aan u teruggegeven.",
     "d3_p3": "In de praktijk draagt een curator gewoon uw posities over naar een andere broker.",
     "d3_p4": "Bovendien zijn brokers die in België of de EU actief zijn onderworpen aan strikte reglementaire kapitaalvereisten. MeDirect staat onder toezicht van de Maltese MFSA en de Belgische FSMA. Saxo Bank van de Deense DFSA.",
-    "d3_p5": "De bescherming voor contante deposito's (niet de ETF's) is beperkt tot 100 000 € door het garantiefonds — een extra reden om geen slapend geld bij uw broker te laten staan.",
+    "d3_p5": "De bescherming voor contante deposito's (niet de ETF's) is beperkt tot 100 000 € door het garantiefonds — een extra reden om geen slapend geld bij uw broker te laten staan. En als een failliete broker uitzonderlijk uw effecten niet zou kunnen teruggeven, komt een beleggersbeschermingsregeling tussen tot 20 000 €.",
     "d4_q": "Moet ik alles in één keer beleggen of geleidelijk?",
     "d4_p1": "Beide benaderingen werken — maar niet voor dezelfde profielen.",
     "d4_p2": "In één keer beleggen (lump sum) is statistisch optimaal: studies tonen aan dat in de meeste gevallen (~60 tot 70% afhankelijk van de studie), onmiddellijk de volledige som beleggen beter presteert dan spreiden over 12 maanden, omdat markten vaker stijgen dan dalen.",
@@ -682,7 +662,7 @@
     "s3_p5": "Beide hebben dezelfde Belgische fiscale behandeling (beurstaks 0,12%, geen Reynders-taks, dezelfde meerwaardebelasting). Het prestatieverschil over 30 jaar zal waarschijnlijk minder dan 0,5% per jaar zijn.",
     "f1_q": "Moet ik mijn ETF's aangeven bij de belastingen?",
     "f1_p1": "Het hangt af van uw broker.",
-    "f1_p2": "Met een Belgische broker (MeDirect, Saxo Bank België, Bolero, Keytrade): de beurstaks (TOB) wordt automatisch ingehouden en aangegeven bij elke transactie. U hoeft niets te doen voor de beurstaks.",
+    "f1_p2": "Met een in België gevestigde broker (MeDirect, Saxo Bank België, Trade Republic met Belgisch IBAN, Bolero, Keytrade): de beurstaks (TOB) wordt automatisch ingehouden en aangegeven bij elke transactie. U hoeft niets te doen voor de beurstaks.",
     "f1_p3": "De meerwaarde (meerwaardebelasting 10%) wordt sinds 1 juni 2026 door uw Belgische broker bij elke verkoop aan de bron ingehouden: u moet niets doen opdat ze betaald wordt. Die inhouding geldt echter vanaf de eerste euro winst, zonder rekening te houden met de jaarlijkse vrijstelling van €10.000, met uw minderwaarden of met uw werkelijke aankoopprijs — om die bedragen te recupereren moet u ze opvragen in uw jaarlijkse aangifte.",
     "f1_p4": "Met bepaalde buitenlandse brokers (Interactive Brokers, Revolut): u bent verantwoordelijk voor het berekenen en aangeven van de beurstaks zelf om de twee maanden — een echte administratieve last met risico op boetes bij vertraging.",
     "f1_p5": "Andere populaire buitenlandse brokers zoals DEGIRO beheren nu automatisch de beurstaks voor hun Belgische klanten, maar de roerende voorheffing en de CGT 2026 moeten nog steeds handmatig worden aangegeven. Controleer altijd de actuele voorwaarden van uw broker — deze praktijken kunnen evolueren.",
@@ -724,7 +704,7 @@
     "s2_title": "2. De ETF zoeken op ISIN",
     "s2_intro": "Zoek nooit een ETF op naam — dezelfde ETF kan bij verschillende brokers en beurzen anders worden benoemd. Het ISIN is de universele identificatiecode: die verandert nooit, ongeacht de beurs.",
     "s2_isin_label": "Referentie ISIN's",
-    "s2_imie_name": "iShares MSCI ACWI IMI — hele wereld",
+    "s2_imie_name": "SPDR MSCI ACWI IMI — hele wereld",
     "s2_iwda_name": "iShares Core MSCI World — ontwikkelde markten",
     "s2_emim_name": "iShares Core MSCI EM IMI — opkomende markten",
     "s2_cspx_name": "iShares Core S&P 500 — Verenigde Staten",
@@ -732,7 +712,7 @@
     "s2_xmaw_name": "Xtrackers MSCI AC World Screened — hele wereld, ESG-filter (alternatief)",
     "s2_xeon_name": "Xtrackers II EUR Overnight Rate Swap — geldmarkt",
     "s2_csh2_name": "Amundi EUR Overnight Return — geldmarkt",
-    "s2_tip": "Plak het ISIN direct in de zoekbalk van uw broker. Er kunnen meerdere resultaten verschijnen (verschillende beurzen: Euronext Amsterdam, Londen, Xetra). Voor een Belgische inwoner heeft de notering in EUR op Euronext Amsterdam de voorkeur om valutarisico te vermijden.",
+    "s2_tip": "Plak het ISIN direct in de zoekbalk van uw broker. Er kunnen meerdere resultaten verschijnen (verschillende beurzen: Euronext Amsterdam, Londen, Xetra). Voor een Belgische inwoner heeft de notering in EUR de voorkeur: zo vermijdt u wisselkosten. Let op: dat neemt het valutarisico niet weg — een wereld-ETF blijft blootgesteld aan de dollar, ongeacht de noteringsmunt.",
     "s3_title": "3. Marktorder of limietorder?",
     "s3_intro": "Er worden u twee soorten orders aangeboden:",
     "s3_market_title": "Marktorder",
@@ -747,15 +727,15 @@
     "s4_item1_label": "Juist ISIN",
     "s4_item1_desc": "Vergelijk teken voor teken met uw referentie. Eén ander teken betekent een ander product.",
     "s4_item2_label": "Beurstaks toegepast",
-    "s4_item2_desc": "Voor een aandelen-ETF moet de beurstaks (TOB) 0,12% van het transactiebedrag zijn. Als u 1,32% ziet, is de ETF mogelijk geregistreerd als ICBE — controleer het ISIN.",
+    "s4_item2_desc": "Voor de hier aanbevolen aandelen-ETF's moet de beurstaks (TOB) 0,12% van het transactiebedrag zijn. Als u 1,32% ziet, is de ETF een kapitalisatiefonds dat bij de FSMA geregistreerd is (zoals VWCE) — controleer of het wel het ISIN is dat u wilde.",
     "s4_item3_label": "Transactiekosten weergegeven",
     "s4_item3_desc": "Uw broker moet de kosten duidelijk vermelden voor bevestiging. Bij MeDirect zijn ETF's gratis (€0 transactiekosten).",
-    "s4_warning": "Als de weergegeven beurstaks 1,32% is in plaats van 0,12%, stop dan en bevestig niet. Dit geeft aan dat de geselecteerde ETF in België als ICBE is geregistreerd — meestal een selectiefout (verkeerde marktlijn). Ga terug en controleer het ISIN.",
+    "s4_warning": "Als de weergegeven beurstaks 1,32% is in plaats van 0,12% terwijl u een ETF aan 0,12% wilde, stop dan en bevestig niet: u hebt een ander fonds geselecteerd. Het TOB-tarief hangt af van het fonds (zijn registratie bij de FSMA), niet van de gekozen beurs — een andere marktlijn kiezen verandert daar niets aan. Ga terug en controleer het ISIN.",
     "s5_title": "5. Na de aankoop",
     "s5_p1": "Zodra de order is uitgevoerd, verschijnen uw deelbewijzen in uw portefeuille na de afwikkeling — doorgaans binnen 2 werkdagen (T+2). Dit is normaal: dit is de standaard afwikkelingscyclus in Europa.",
     "s5_p2": "U ontvangt een transactiebevestiging per e-mail of in uw brokerplatform. Bewaar deze bevestigingen: ze dienen om uw aankoopprijs te staven, om de vrijstelling van €10.000 op uw meerwaarden op te vragen in uw jaarlijkse aangifte, en om zelf aan te geven als u via een buitenlandse broker belegt.",
     "s5_p3": "Volgende stap: beslis over een regelmatige beleggingsfrequentie. Maandelijks is het eenvoudigste ritme voor de meeste beleggers.",
-    "s5_tip": "Verschillende brokers (MeDirect, Saxo) bieden automatische overschrijvingen of periodieke beleggingsplannen aan. Een maandelijkse automatische overschrijving naar uw brokerrekening instellen elimineert de maandelijkse beslissing en de verleiding om het 'juiste moment' af te wachten.",
+    "s5_tip": "Verschillende brokers (Trade Republic, Saxo) bieden automatische overschrijvingen of periodieke beleggingsplannen aan. Een maandelijkse automatische overschrijving naar uw brokerrekening instellen elimineert de maandelijkse beslissing en de verleiding om het 'juiste moment' af te wachten.",
     "s6_title": "6. Wanneer plaatst u uw order?",
     "s6_p1": "De aanbevolen ETF's zijn voornamelijk genoteerd op Euronext Amsterdam, open van maandag tot vrijdag van 9u00 tot 17u30 CET. Buiten deze uren wordt uw order in de wachtrij geplaatst en uitgevoerd bij de volgende opening.",
     "s6_p2": "Voor een langetermijnbelegger heeft het exacte tijdstip van de order vrijwel geen impact. Vermijd echter de eerste en laatste 15 minuten van de sessie (9u00–9u15 en 17u15–17u30): de bid/ask-spreads zijn iets breder bij opening en sluiting. Het venster van 10u–16u biedt doorgaans de beste liquiditeit.",
@@ -773,7 +753,7 @@
     "info_label": "ℹ️ Onthoud",
     "intro_p1": "Als u belegt via een Belgische broker (MeDirect, Saxo, Bolero, Keytrade, Re=Bel), heeft u niets aan te geven buiten uw normale jaarlijkse belastingaangifte. Deze gids is niet op u van toepassing.",
     "intro_p2": "Als u een buitenlandse broker gebruikt (DEGIRO, Interactive Brokers, Revolut of andere), legt de Belgische wet u twee afzonderlijke administratieve verplichtingen op. Ze zijn eenvoudig maar verplicht — ze negeren stelt u bloot aan boetes. Bij Trade Republic gaat het enkel om de Duitse rekeningen (IBAN DE, geopend vóór 15 september 2026).",
-    "intro_info": "Deze gids is van toepassing op elke broker waarvan de maatschappelijke zetel buiten België is gevestigd, ongeacht de populariteit of reputatie. De nationaliteit van de broker, niet die van de belegger, bepaalt de verplichting.",
+    "intro_info": "Deze gids is van toepassing op elke rekening bij een instelling die buiten België gevestigd is, ongeacht de populariteit of reputatie van de broker. Een Belgisch bijkantoor geldt als Belgische instelling: MeDirect, Saxo, Keytrade of Trade Republic met Belgisch IBAN vallen er niet onder, ook al ligt hun maatschappelijke zetel in het buitenland.",
     "s1_title": "1. Aangifte bij het Centraal Aanspreekpunt van de NBB",
     "s1_title_badge": "(éénmalig)",
     "s1_p1": "De Nationale Bank van België (NBB) houdt een centraal register bij van alle buitenlandse rekeningen van Belgische inwoners — het Centraal Aanspreekpunt (CAP).",
@@ -831,7 +811,7 @@
     "s3_cgt_title": "CGT 2026",
     "s3_cgt_subtitle": "(10% boven €10.000/jaar)",
     "s3_cgt_desc": "Buitenlandse brokers houden de Belgische meerwaardebelasting niet in: u valt de facto onder het « opt-out »-regime en moet uw meerwaarden aangeven in uw jaarlijkse belastingaangifte. Let op: het overzicht van uw broker vermeldt uw werkelijke aankoopprijs, terwijl voor activa aangehouden vóór 1 januari 2026 de fiscale referentiewaarde die van 31 december 2025 is — de berekening kan dus niet zomaar worden overgenomen.",
-    "s3_tip": "De eenvoudigste oplossing om al deze administratieve complexiteit te vermijden: een Belgische broker (MeDirect, Saxo) gebruiken die alle belastingen automatisch beheert.",
+    "s3_tip": "De eenvoudigste oplossing om al deze administratieve complexiteit te vermijden: een in België gevestigde broker (MeDirect, Trade Republic met Belgisch IBAN, Saxo) gebruiken die alle belastingen automatisch beheert.",
     "s4_title": "4. Waarom deze verplichting bestaat",
     "s4_p1": "België neemt, net als alle EU-landen, deel aan de automatische uitwisseling van fiscale informatie tussen lidstaten (DAC/CRS-richtlijn). Uw buitenlandse broker deelt uw gegevens met de belastingautoriteiten van zijn land, die ze doorsturen naar de Belgische FOD Financiën.",
     "s4_p2": "In de praktijk: de Belgische fiscus weet al dat u deze rekening heeft. De aangifte is een nalevingsformaliteit, geen onthulling.",
@@ -912,14 +892,14 @@
     "term_cgt_def": "Sinds 1 januari 2026 worden meerwaarden op financiële activa in België belast tegen 10%, boven een jaarlijkse vrijstelling van €10.000. De ongebruikte vrijstelling is overdraagbaar tot €15.000 over 5 jaar. Sinds 1 juni 2026 houden Belgische tussenpersonen deze belasting bij elke verkoop aan de bron in, vanaf de eerste euro winst en zonder de vrijstelling toe te passen: die vordert u terug via uw jaarlijkse aangifte. Buitenlandse brokers houden niets in — de aangifte valt dan volledig op u.",
     "term_cgt_link": "Meer over belastingen",
     "term_broker_name": "Broker / Effectenmakelaar",
-    "term_broker_def": "Een broker is een platform waarmee u ETF's en aandelen op de beurs kunt kopen en verkopen. In België zijn de aanbevolen brokers voor passief ETF-beleggen MeDirect (0% kosten op ETF's) en Saxo Bank (AutoInvest voor €2/maand). Belgische brokers verwerken de beurstaksaangifte automatisch.",
+    "term_broker_def": "Een broker is een platform waarmee u ETF's en aandelen op de beurs kunt kopen en verkopen. In België zijn de aanbevolen brokers voor passief ETF-beleggen MeDirect (€0 kosten op ETF's), Trade Republic (spaarplannen, Belgische belastingen ingehouden op rekeningen met Belgisch IBAN) en Saxo Bank (AutoInvest voor €2/maand). In België gevestigde brokers verwerken de beurstaks automatisch.",
     "term_broker_link": "Brokers vergelijken",
     "term_branche21_name": "Tak 21",
     "term_branche21_def": "Tak 21 is een spaarverzekering met gegarandeerde rente, onderworpen aan een premietaks van 2% bij elke storting. De rente is vrijgesteld van roerende voorheffing na 8 jaar aanhouden. Structureel nadelig ten opzichte van een ETF op lange termijn vanwege instapkosten, de premietaks en beperkt gegarandeerd rendement.",
     "term_branche23_name": "Tak 23",
-    "term_branche23_def": "Tak 23 is een levensverzekering gekoppeld aan beleggingsfondsen, zonder gegarandeerd rendement. Wordt met name gebruikt voor pensioensparen via bankfondsen. De anticipatieve taks van 8% op 60-jarige leeftijd wordt berekend op een fictief kapitaal dat een jaarrendement van 4,75% veronderstelt.",
+    "term_branche23_def": "Tak 23 is een levensverzekering gekoppeld aan beleggingsfondsen, zonder gegarandeerd rendement. Ze kan dienen als enveloppe voor pensioensparen of langetermijnsparen; in dat geval wordt de uittredingstaks berekend op het reëel opgebouwde kapitaal (de regel van het fictieve kapitaal aan 4,75% geldt alleen voor pensioenspaarfondsen).",
     "term_epargne_pension_name": "Pensioensparen",
-    "term_epargne_pension_def": "Belgisch pensioensparen (3de pijler) geeft recht op een belastingvermindering van 30% op stortingen tot ~€1.050/jaar. Het kapitaal is geblokkeerd tot 60 jaar en onderworpen aan een uittredingstaks van 8%. Ondanks het initiële belastingvoordeel presteert een ETF structureel beter dan pensioensparen vanaf jaar 11 vanwege het rendementsverschil.",
+    "term_epargne_pension_def": "Belgisch pensioensparen (3de pijler) geeft recht op een belastingvermindering van 30% op stortingen tot €1.050/jaar (of 25% tot €1.350/jaar). Het kapitaal is geblokkeerd tot 60 jaar en onderworpen aan een uittredingstaks van 8%. Ondanks het belastingvoordeel toont onze simulator dat een wereld-ETF het beste pensioenspaarfonds inhaalt vanaf jaar 14, door het kostenverschil.",
     "term_epargne_pension_link": "Meer over bankproducten"
   },
   "strategyDetail": {
@@ -937,7 +917,7 @@
     "fact_tob": "TOB",
     "fact_ter": "Gewogen gemiddelde TER",
     "fact_securities": "Effecten (~)",
-    "fact_return": "Historisch rendement",
+    "fact_return": "Historisch nettorendement",
     "fact_reynders": "Reynders-taks",
     "fact_dividends": "Dividenden",
     "fact_reynders_yes": "Van toepassing (30%)",
@@ -990,7 +970,7 @@
         "alt_2_con_0": "TOB mogelijk 1,32% afhankelijk van de broker — sommigen passen 0,12% toe, anderen 1,32%. Te controleren voor het beleggen",
         "alt_2_con_1": "Hogere TER van 0,19%",
         "alt_2_con_2": "Geen small caps",
-        "alt_2_verdict": "Te vermijden voor Belgische beleggers — de toepasbare TOB varieert per broker — van 0,12% tot 1,32%. In het slechtste geval betaalt u €132 aan taksen op €10.000 tegenover €12 met IMIE. Absoluut te controleren bij uw broker voor elke aankoop."
+        "alt_2_verdict": "Te vermijden voor Belgische beleggers: VWCE is geregistreerd bij de FSMA, waardoor er 1,32% TOB geldt bij aankoop en verkoop. Op €10.000 is dat €132 taks tegenover €12 met IMIE."
       },
       "monde-complet": {
         "name": "Volledige Wereld",
@@ -1023,7 +1003,7 @@
         "alt_2_con_0": "TOB mogelijk 1,32% afhankelijk van de broker — sommigen passen 0,12% toe, anderen 1,32%. Te controleren voor het beleggen",
         "alt_2_con_1": "Hogere TER",
         "alt_2_con_2": "Geen small caps",
-        "alt_2_verdict": "Te vermijden voor Belgische beleggers — de toepasbare TOB varieert per broker — van 0,12% tot 1,32%. In het slechtste geval betaalt u €132 aan taksen op €10.000 tegenover €12 met IMIE. Absoluut te controleren bij uw broker voor elke aankoop."
+        "alt_2_verdict": "Te vermijden voor Belgische beleggers: VWCE is geregistreerd bij de FSMA, waardoor er 1,32% TOB geldt bij aankoop en verkoop. Op €10.000 is dat €132 taks tegenover €12 met IMIE."
       },
       "tout-en-un": {
         "name": "Alles-in-één",
@@ -1067,7 +1047,7 @@
         "alt_3_con_0": "TOB mogelijk 1,32% afhankelijk van de broker — sommigen passen 0,12% toe, anderen 1,32%. Te controleren voor het beleggen",
         "alt_3_con_1": "Geen small caps",
         "alt_3_con_2": "Hogere TER van 0,19%",
-        "alt_3_verdict": "Te vermijden voor Belgische beleggers — de toepasbare TOB varieert per broker — van 0,12% tot 1,32%. In het slechtste geval betaalt u €132 aan taksen op €10.000 tegenover €12 met IMIE. Absoluut te controleren bij uw broker voor elke aankoop."
+        "alt_3_verdict": "Te vermijden voor Belgische beleggers: VWCE is geregistreerd bij de FSMA, waardoor er 1,32% TOB geldt bij aankoop en verkoop. Op €10.000 is dat €132 taks tegenover €12 met IMIE."
       },
       "esg-mondiale": {
         "name": "Mondiale ESG",
@@ -1138,7 +1118,7 @@
       "anti-us": {
         "name": "Anti-VS",
         "tagline": "Blootstelling aan de Verenigde Staten verminderen",
-        "description": "Voor beleggers die hun afhankelijkheid van de Verenigde Staten (die ~65% van een Wereld-ETF vertegenwoordigen) aanzienlijk willen verminderen. Diversifieert naar Europa en China.",
+        "description": "Voor beleggers die hun afhankelijkheid van de Verenigde Staten (die ~70% van een Wereld-ETF vertegenwoordigen) aanzienlijk willen verminderen. Diversifieert naar Europa en China.",
         "historicalReturnNote": "China woog op de rendementen in deze periode (~4% per jaar). Deze strategie is toekomstgericht en niet geoptimaliseerd voor prestaties uit het verleden",
         "why_0": "Drastische vermindering van de VS-blootstelling: in een klassieke wereld-ETF vertegenwoordigen de Verenigde Staten ~70%. Hier daalt het effectieve aandeel van de VS tot ongeveer 42% via IWDA (60%) + overweging Europa (20%) + China (20%).",
         "why_1": "TOB van 0,12% op de drie ETF's: IWDA, SMEA and ICHN zijn alle drie onderworpen aan de verlaagde TOB van 0,12% in België.",
@@ -1161,9 +1141,9 @@
       "biais-chine": {
         "name": "Chinese Focus",
         "tagline": "China overwegen",
-        "description": "Voegt een aanzienlijke blootstelling aan China toe (30%) bovenop wat een standaard Wereld-ETF bevat (~3%). Geschikt voor beleggers die overtuigd zijn van het inhaalpotentieel van de Chinese markten op lange termijn.",
+        "description": "Voegt een aanzienlijke blootstelling aan China toe (30%), die ontbreekt in een wereld-ETF op ontwikkelde markten zoals IWDA (0%) en beperkt is in een volledige wereld-ETF zoals IMIE (~3%). Geschikt voor beleggers die overtuigd zijn van het inhaalpotentieel van de Chinese markten op lange termijn.",
         "historicalReturnNote": "China presteerde ondermaats over de afgelopen 20 jaar. Deze strategie houdt een aanzienlijk landenrisico in",
-        "why_0": "Bewuste overweging van China: een klassieke wereld-ETF wijst slechts ~3% toe aan China. Deze strategie wijst 30% toe — 10× meer — voor beleggers die overtuigd zijn van de inhaalslag van Chinese markten.",
+        "why_0": "Bewuste overweging van China: IWDA (MSCI World, enkel ontwikkelde markten) bevat er geen, en een volledige wereld-ETF zoals IMIE wijst er slechts ~3% aan toe. Deze strategie wijst 30% toe — ongeveer 10× het gewicht van China in de wereldmarkt — voor beleggers die overtuigd zijn van de inhaalslag van Chinese markten.",
         "why_1": "TOB van 0,12% op beide ETF's: IWDA en ICHN zijn beide onderworpen aan de verlaagde TOB van 0,12% in België.",
         "why_2": "100% accumulerende fondsen: dividenden automatisch herbelegd zonder roerende voorheffing.",
         "why_3": "Blootstelling aan de Chinese aandelenmarkt via ICHN: de iShares MSCI China ETF dekt H-aandelen (genoteerd in Hongkong) and toegankelijke A-aandelen, wat directe blootstelling geeft aan genoteerde Chinese bedrijven.",
@@ -1272,10 +1252,10 @@
       },
       "epargne-liquide": {
         "name": "Liquide Sparen",
-        "tagline": "De spaarrekening verslaan, zonder risico",
+        "tagline": "Een liquide alternatief voor de spaarrekening",
         "description": "Een slim alternatief voor de Belgische spaarrekening. CSH2 volgt de Europese interbank rate (€STR) and biedt rendementen die dicht bij de beleidsrente van de ECB liggen, met vrijwel nul volatiliteit en volledige liquiditeit.",
         "historicalReturnNote": "Volgt de €STR-rente (voorheen EONIA). Rendement varieert volgens de ECB-beleidsrente",
-        "why_0": "Huidig rendement ~3% bruto, hoger dan de beste Belgische spaarrekeningen (basisrente + getrouwheidspremie)",
+        "why_0": "Rendement ≈ €STR-rente min 0,10% kosten — ongeveer 2,3% netto in oktober 2026 (ECB-depositorente: 2,50%). Dat is minder dan de beste spaarrekeningen met getrouwheidspremie (tot ~2,85%), maar zonder stortingsplafond, zonder 12-maandenvoorwaarde en zonder verlies van premie bij opname.",
         "why_1": "Volledig liquide — verkoopbaar op elke beursdag zonder verlies van opgelopen rente, in tegenstelling tot kassebons",
         "why_2": "Synthetische structuur: CSH2 houdt een mandje aandelen aan en ontvangt de €STR-rente via een swap. Het fonds houdt dus geen schuldvorderingen rechtstreeks aan — de Reynders-taks is in principe niet verschuldigd en de meeste Belgische brokers houden ze niet in. Precies daarom verkiezen wij CSH2 boven XEON, waarop veel brokers de Reynders-taks wél toepassen.",
         "why_3": "Belangrijkste belasting: TOB 0,12% bij aankoop en verkoop — geen jaarlijkse roerende voorheffing, geen meerwaardebelasting (onder de drempel van €10.000). Reynders: in principe niet van toepassing, maar fiscale behandeling op te volgen.",
@@ -1292,183 +1272,140 @@
         "alt_1_con_0": "Veel Belgische brokers passen de Reynders-taks van 30% toe op de meerwaarde bij verkoop",
         "alt_1_con_1": "Identieke TER als CSH2 (0,10%) — geen kostenvoordeel ter compensatie",
         "alt_1_verdict": "Identieke blootstelling aan de €STR-rente, maar de Reynders-behandeling bij veel Belgische brokers knipt 30% van de meerwaarde weg. Bij gelijke blootstelling is CSH2 fiscaal de veiligste keuze.",
-        "warning_0": "⚠️ Het rendement volgt de ECB-beleidsrente — het zal dalen als de ECB de rente verlaagt.",
+        "warning_0": "⚠️ Het rendement volgt de ECB-beleidsrente, zowel naar boven als naar beneden. Het is geen bankdeposito: het valt niet onder de depositogarantie van €100.000.",
         "warning_1": "⚠️ De vrijstelling van de Reynders-taks is gebaseerd op de huidige fiscale praktijk, niet op een gecodificeerde wet. Deze behandeling zou kunnen evolueren.",
         "warning_2": "ℹ️ Niet geschikt als langetermijnstrategie — geef voor groei de voorkeur aan een aandelenstrategie."
       }
     },
     "products": {
       "savings-ing-tempo": {
-        "name": "ING Spaarrekening (Tempo Sparen)",
-        "description": "Basisrente 0,75% + getrouwheidspremie 1,50%. Stortingen beperkt tot €500/maand. Eerste €1.020 aan interesten/jaar vrijgesteld van 30% roerende voorheffing."
+        "name": "ING Spaarrekening (Tempo Sparen)"
       },
       "savings-kbc": {
-        "name": "KBC Spaarrekening (Start2Save)",
-        "description": "Basisrente 0,75% + getrouwheidspremie 1,50%. Eerste €1.020 aan interesten/jaar vrijgesteld van 30% roerende voorheffing."
+        "name": "KBC Spaarrekening (Start2Save)"
       },
       "savings-vdk": {
-        "name": "vdk banque Spaarrekening (Ritme Spaarrekening)",
-        "description": "Basisrente 1,35% + getrouwheidspremie 1,50%. Behoort tot de beste rentes op de markt. Stortingen beperkt tot €500/maand. Eerste €1.020 aan interesten/jaar vrijgesteld van 30% roerende voorheffing."
+        "name": "vdk banque Spaarrekening (Ritme Spaarrekening)"
       },
       "savings-crelan": {
-        "name": "Crelan Spaarrekening (GoSave)",
-        "description": "Basisrente 0,50% + getrouwheidspremie 1,50%. Eerste €1.020 aan interesten/jaar vrijgesteld van 30% roerende voorheffing."
+        "name": "Crelan Spaarrekening (GoSave)"
       },
       "savings-keytrade": {
-        "name": "Keytrade Spaarrekening (High Fidelity)",
-        "description": "Basisrente 0,30% + getrouwheidspremie 1,30%. Online bank. Eerste €1.020 aan interesten/jaar vrijgesteld van 30% roerende voorheffing."
+        "name": "Keytrade Spaarrekening (High Fidelity)"
       },
       "savings-medirect": {
-        "name": "MeDirect Spaarrekening (Fidelity Sparen)",
-        "description": "Basisrente 0,20% + getrouwheidspremie 1,40%. Online bank. Eerste €1.020 aan interesten/jaar vrijgesteld van 30% roerende voorheffing."
+        "name": "MeDirect Spaarrekening (Fidelity Sparen)"
       },
       "bon-caisse-kbc-1yr": {
-        "name": "KBC Kasbon (1 jaar)",
-        "description": "Bruto rente 2,94% — 30% roerende voorheffing automatisch aan de bron ingehouden. Min €1.000. Kapitaal geblokkeerd voor 1 jaar."
+        "name": "KBC Kasbon (1 jaar)"
       },
       "bon-caisse-kbc-3yr": {
-        "name": "KBC Kasbon (3 jaar)",
-        "description": "Bruto rente 3,64% — 30% roerende voorheffing automatisch ingehouden. Kapitaal geblokkeerd voor 3 jaar. Vervroegde opname: aanzienlijke boetes."
+        "name": "KBC Kasbon (3 jaar)"
       },
       "bon-caisse-kbc-5yr": {
-        "name": "KBC Kasbon (5 jaar)",
-        "description": "Bruto rente 3,74% — 30% roerende voorheffing automatisch ingehouden. Kapitaal geblokkeerd voor 5 jaar."
+        "name": "KBC Kasbon (5 jaar)"
       },
       "bon-caisse-argenta-1yr": {
-        "name": "Argenta Kasbon (1 jaar)",
-        "description": "Bruto rente 2,10% — 30% roerende voorheffing automatisch ingehouden. Min €250."
+        "name": "Argenta Kasbon (1 jaar)"
       },
       "bon-caisse-argenta-5yr": {
-        "name": "Argenta Kasbon (5 jaar)",
-        "description": "Bruto rente 2,45% — 30% roerende voorheffing automatisch ingehouden."
+        "name": "Argenta Kasbon (5 jaar)"
       },
       "bon-caisse-ing-1yr": {
-        "name": "ING Kasbon (1 jaar)",
-        "description": "Bruto rente 2,20% — 30% roerende voorheffing automatisch ingehouden. Looptijden van 2–3 jaar beschikbaar op aanvraag in het kantoor."
+        "name": "ING Kasbon (1 jaar)"
       },
       "bon-caisse-beobank-1yr": {
-        "name": "Beobank Termijnrekening (1 jaar)",
-        "description": "Bruto rente 3,10% — 30% roerende voorheffing automatisch ingehouden. Kapitaal geblokkeerd voor 1 jaar."
+        "name": "Beobank Termijnrekening (1 jaar)"
       },
       "branche21": {
-        "name": "Tak 21-levensverzekering (AG Insurance)",
-        "description": "Gegarandeerde rente 1,75% + winstdeelname. Totaal rendement 2025: ~3,10% (niet gegarandeerd). 2% taks op de premie + instapkosten ~3%. 30% roerende voorheffing op fictief rendement (4,75%/jaar) bij afkoop voor 8 jaar; vrijgesteld na 8 jaar."
+        "name": "Tak 21-levensverzekering (AG Insurance)"
       },
       "branche21-ethias-9yr": {
-        "name": "Ethias Tak 21-levensverzekering (9 jaar)",
-        "description": "Gegarandeerde rente 2,90% voor de volledige duur van het contract. 0% instapkosten — geen beheerskosten. 2% taks op de premie. Vrijgesteld van roerende voorheffing na 8 jaar."
+        "name": "Ethias Tak 21-levensverzekering (9 jaar)"
       },
       "branche21-ethias-3yr": {
-        "name": "Ethias Tak 21-levensverzekering (3 jaar)",
-        "description": "Gegarandeerde rente 2,30% voor de duur van 3 jaar. 0% instapkosten. 2% taks op de premie. Dit 3-jarig contract kan nooit de vrijstelling van 8 jaar bereiken — de fictieve roerende voorheffing van 30% is altijd van toepassing op de vervaldag."
+        "name": "Ethias Tak 21-levensverzekering (3 jaar)"
       },
       "bnp-future-invest-bon": {
-        "name": "Future Invest Bon",
-        "description": "Dubbele rente: 3,00% het 1ste jaar, 2,60% de volgende 7 jaar (gemiddeld ~2,64%). Globaal rendement 2025: ~3,10% (inclusief winstdeelname). Verdeeld door BNP Paribas Fortis, onderliggend verzekerd door AG Insurance. Vaste duur van 8 jaar en 1 maand. 2% taks op de premie, instapkosten ~2%."
+        "name": "Future Invest Bon"
       },
       "beobank-invest-21": {
-        "name": "Invest 21",
-        "description": "Gegarandeerde rente 2,50%. Instapkosten tot 2,50% (soms verlaagd naar 1,00% tijdens promotiecampagnes). Kapitaal gegarandeerd op de vervaldag exclusief kosten en taksen. 2% taks op de premie. Vrijgesteld van roerende voorheffing na 8 jaar."
+        "name": "Invest 21"
       },
       "pension-kbc-pricos": {
-        "name": "KBC Pensioensparen (Pricos)",
-        "description": "Geannualiseerd rendement over 10 jaar: ~5,34% (netto van 1,41% TER). Fonds met hoofdzakelijk aandelen. 2% instapkosten. Fiscaal voordeel van 30% op stortingen tot €1.050/jaar."
+        "name": "KBC Pensioensparen (Pricos)"
       },
       "pension-belfius-equities": {
-        "name": "Belfius Pensioensparen (High Equities, Candriam)",
-        "description": "Geannualiseerd rendement over 10 jaar: ~5,26% (netto van 1,49% TER). Fonds met hoofdzakelijk aandelen. 3% instapkosten. Fiscaal voordeel van 30% op stortingen tot €1.050/jaar."
+        "name": "Belfius Pensioensparen (High Equities, Candriam)"
       },
       "pension-bnp-growth": {
-        "name": "BNP Paribas Pensioensparen (B Pension Sust. Growth)",
-        "description": "Geannualiseerd rendement over 10 jaar: ~5,50% (netto van 1,25% TER). 3% instapkosten. Fiscaal voordeel van 30% op stortingen tot €1.050/jaar."
+        "name": "BNP Paribas Pensioensparen (B Pension Sust. Growth)"
       },
       "pension-ing-star": {
-        "name": "ING Pensioensparen (Star Fund)",
-        "description": "Geannualiseerd rendement over 10 jaar: ~4,72% (netto van 1,28% TER). Gemengd fonds (~40% obligaties). 3% instapkosten. Fiscaal voordeel van 30% op stortingen tot €1.050/jaar."
+        "name": "ING Pensioensparen (Star Fund)"
       },
       "pension-argenta": {
-        "name": "Argenta Pensioensparen (Pension Fund)",
-        "description": "Geannualiseerd rendement over 10 jaar: ~5,31% (netto van 1,44% TER). Fonds met hoofdzakelijk aandelen. Geen instapkosten. Fiscaal voordeel van 30% op stortingen tot €1.050/jaar."
+        "name": "Argenta Pensioensparen (Pension Fund)"
       },
       "pension-vdk": {
-        "name": "vdk banque Pensioensparen (Pension Fund)",
-        "description": "Geannualiseerd rendement over 10 jaar: ~5,25% (netto van 1,50% TER). Fonds met hoofdzakelijk aandelen, ESG-georiënteerd. 2% instapkosten. Fiscaal voordeel van 30% op stortingen tot €1.050/jaar."
+        "name": "vdk banque Pensioensparen (Pension Fund)"
       },
       "pension-crelan": {
-        "name": "Crelan Pensioensparen (Pension Fund Sust. Growth)",
-        "description": "Geannualiseerd rendement over 10 jaar: ~5,25% (netto van 1,50% TER). Fonds met hoofdzakelijk aandelen met duurzame criteria. 3% instapkosten. Fiscaal voordeel van 30% op stortingen tot €1.050/jaar."
+        "name": "Crelan Pensioensparen (Pension Fund Sust. Growth)"
       },
       "fonds-bnp-equity-world": {
-        "name": "BNP Comfort Sust. Equity World Fonds",
-        "description": "Geannualiseerd rendement over 10 jaar (2016–2025), netto van 1,50% TER. Het fonds presteerde de meeste jaren slechter dan zijn referentie-index. 3% instapkosten."
+        "name": "BNP Comfort Sust. Equity World Fonds"
       },
       "fonds-belfius-equity-world": {
-        "name": "Belfius Managed Portfolio Equity World Fonds",
-        "description": "Geannualiseerd rendement ~6,51% (netto van 1,49% TER). 3% instapkosten, 1,49% TER."
+        "name": "Belfius Managed Portfolio Equity World Fonds"
       },
       "fonds-axa-belgium-equity": {
-        "name": "AXA B Fund Equity Belgium Fonds",
-        "description": "Geannualiseerd rendement ~6,53% (netto van 1,47% TER). Alleen blootstelling aan Belgische aandelen — hoog geografisch concentratierisico. Drawdown van -26% in 2022. 3% instapkosten."
+        "name": "AXA B Fund Equity Belgium Fonds"
       },
       "fonds-nagelmackers-growth": {
-        "name": "Nagelmackers MultiFund Growth Fonds",
-        "description": "Geschat geannualiseerd rendement ~4,65% (netto van 2,10%/jaar TER). TER behoort tot de hoogste op de markt. Gemengd fonds (~25% obligaties, ~75% aandelen). 2,5% instapkosten."
+        "name": "Nagelmackers MultiFund Growth Fonds"
       },
       "fonds-ing-star-active": {
-        "name": "ING Fonds (Star Fund)",
-        "description": "Geannualiseerd rendement ~4,72% (netto van 1,28% TER). Gemengd fonds (~40% obligaties, ~60% aandelen). 3% instapkosten."
+        "name": "ING Fonds (Star Fund)"
       },
       "fonds-beobank-equities": {
-        "name": "Beobank Full Equities Strategy Fund B Fonds",
-        "description": "Geannualiseerd rendement ~5,80% (netto van 2,20% TER). 100% wereldwijd aandelenfonds. Hoge TER. 2,5% instapkosten."
+        "name": "Beobank Full Equities Strategy Fund B Fonds"
       },
       "savings-belfius-flow": {
-        "name": "Belfius Spaarrekening (Flow)",
-        "description": "Basisrente 1,30% + getrouwheidspremie 1,50%. Premie verworven na 12 opeenvolgende maanden zonder opname. Eerste €1.020 aan interesten/jaar vrijgesteld van 30% roerende voorheffing."
+        "name": "Belfius Spaarrekening (Flow)"
       },
       "savings-argenta": {
-        "name": "Argenta Spaarrekening (Groeirekening)",
-        "description": "Basisrente 1,10% + getrouwheidspremie 1,50%. Eerste €1.020 aan interesten/jaar vrijgesteld van 30% roerende voorheffing."
+        "name": "Argenta Spaarrekening (Groeirekening)"
       },
       "branche23-ag-fund-plus": {
-        "name": "AG Fund+ (Tak 23)",
-        "description": "Tak 23-verzekering AG Insurance. Jaarlijkse kosten ~1,70%, premietaks 2%, instapkosten 2,50%. Geschat netto rendement ~6,30%."
+        "name": "AG Fund+ (Tak 23)"
       },
       "branche23-baloise-invest": {
-        "name": "Baloise Invest 23",
-        "description": "Tak 23-verzekering Baloise. Jaarlijkse kosten ~2,20%, premietaks 2%, instapkosten 3,50%. Geschat netto rendement ~5,65%."
+        "name": "Baloise Invest 23"
       },
       "branche23-nn-strategy": {
-        "name": "NN Strategy (Tak 23)",
-        "description": "Tak 23-verzekering NN Insurance. Jaarlijkse kosten ~1,50%, premietaks 2%, instapkosten 1%. Geschat netto rendement ~6,35%."
+        "name": "NN Strategy (Tak 23)"
       },
       "branche23-axa-index4p": {
-        "name": "AXA Index4P Global Equity",
-        "description": "Tak 23-verzekering AXA. Passief beheer, jaarlijkse kosten 1,40%, premietaks 2%, instapkosten 1%. Geschat netto rendement ~6,60%."
+        "name": "AXA Index4P Global Equity"
       },
       "branche23-vivium-selection": {
-        "name": "Vivium Selection Dynamic+ Passive",
-        "description": "Tak 23-verzekering Vivium. Jaarlijkse kosten 2,54% (RIY), premietaks 2%, minimum 25 000 €. Netto rendement ~7,60%."
+        "name": "Vivium Selection Dynamic+ Passive"
       },
       "fonds-bnp-comfort-equity": {
-        "name": "BNP Comfort Sust. Equity World Plus",
-        "description": "Luxemburgse SICAV BNP Paribas. TER 2,56%, instapkosten 2,50%, TOB uitstap 1,32%. Netto rendement ~5,44%."
+        "name": "BNP Comfort Sust. Equity World Plus"
       },
       "fonds-carmignac-investissement": {
-        "name": "Carmignac Investissement (A EUR Acc)",
-        "description": "Frans FCP Carmignac. 37 jaar track record, TER 2,15%, instapkosten tot 4%. Netto rendement ~8,77% (10 jaar)."
+        "name": "Carmignac Investissement (A EUR Acc)"
       },
       "fonds-crelan-opportunities": {
-        "name": "Crelan Invest Opportunities",
-        "description": "Belgische SICAV Crelan. Beheerskosten 2,07%, instapkosten 2,50%. Netto rendement ~2,57% (gemiddeld scenario)."
+        "name": "Crelan Invest Opportunities"
       },
       "branche21-ag-safe-plus": {
-        "name": "AG Safe+ (Tak 21)",
-        "description": "Tak 21-verzekering AG Insurance. Gegarandeerde rente 2,75% jr 1 daarna 2,25%. Premietaks 2%, instapkosten ~1%. Netto rendement ~2,80%."
+        "name": "AG Safe+ (Tak 21)"
       },
       "branche21-belfius-capital-safe": {
-        "name": "Belfius Invest Capital Safe",
-        "description": "Tak 21-verzekering Belfius Insurance. Gegarandeerde rente 2,80% bruto. Premietaks 2%, instapkosten 2,50%, jaarlijkse kosten 0,12%. Netto rendement ~2,68%."
+        "name": "Belfius Invest Capital Safe"
       }
     },
     "fiscal": {
@@ -1507,7 +1444,7 @@
     "s2_infomaniak_country": "Zwitserland",
     "s3_title": "Intellectuele eigendom",
     "s3_p1": "De volledige inhoud van deze site (teksten, grafieken, code, structuur) is eigendom van de uitgever, tenzij anders vermeld.",
-    "s3_p2": "Elke reproductie, zelfs gedeeltelijk, is verboden zonder voorafgaande toestemming.",
+    "s3_p2": "De inhoud en de broncode worden gepubliceerd onder de licentie CC BY-NC 4.0: u mag ze reproduceren en aanpassen voor niet-commerciële doeleinden, met vermelding van ClearInvest. Elk commercieel gebruik vereist voorafgaande toestemming.",
     "s4_title": "Aansprakelijkheid",
     "s4_p1": "De op ClearInvest gepubliceerde informatie wordt uitsluitend verstrekt voor educatieve en informatieve doeleinden. Ze vormt geen gepersonaliseerd beleggingsadvies in de zin van de MiFID II-regelgeving en kan de aansprakelijkheid van de uitgever niet in het gedrang brengen.",
     "s4_p2": "De uitgever streeft ernaar de informatie up-to-date te houden, maar garandeert niet de volledigheid of juistheid ervan op elk moment. Aangezien de Belgische fiscale wetgeving aan verandering onderhevig is, is het de verantwoordelijkheid van de gebruiker om de informatie bij officiële bronnen te verifiëren.",
@@ -1559,13 +1496,13 @@
     "hero_title": "Waarom beleggen in ETF's?",
     "hero_subtitle": "Het eerlijke antwoord op de vraag die uw bank liever niet heeft dat u stelt.",
     "s1_title": "Wat is een ETF?",
-    "s1_p1": "Een ETF (Exchange Traded Fund, of tracker) is een beleggingsfonds dat automatisch een beursindex volgt — bijvoorbeeld de 1.400 grootste wereldwijde bedrijven.",
-    "s2_title": "De kracht van diversificatie",
-    "s2_p1": "In plaats van in te zetten op één enkel bedrijf, kunt u met een ETF tegelijkertijd een fractie van honderden of duizenden bedrijven bezitten. Als één bedrijf failliet gaat, is de impact op uw portefeuille verwaarloosbaar.",
-    "s3_title": "Het kostenvoordeel",
-    "s3_p1": "Traditionele bankfondsen rekenen vaak tussen 1,5% en 2,5% aan jaarlijkse kosten. Een ETF zoals hier aanbevolen kost tussen 0,07% en 0,20% per jaar. Over 30 jaar kan dit verschil in kosten meer dan 30% van uw eindkapitaal vertegenwoordigen.",
-    "s3_p2": "Beheerskosten zijn de enige variabele die u met zekerheid kunt controleren. De toekomst van de markt voorspellen is onmogelijk; uw kosten verlagen is een gegarandeerd rendement.",
-    "s3_p3": "De praktische conclusie: 1,5% extra kosten betalen voor actief beheer is betalen voor een belofte waarvan de statistiek aantoont dat ze op lange termijn zelden wordt waargemaakt.",
+    "s1_p1": "Een ETF (Exchange Traded Fund, of beursgenoteerd indexfonds) is een beleggingsfonds dat automatisch een beursindex volgt — bijvoorbeeld ongeveer 9.000 bedrijven wereldwijd, want IMIE volgt de MSCI ACWI IMI-index, die grote, middelgrote ÉN kleine bedrijven uit ontwikkelde en opkomende markten omvat. Een ETF zoals IWDA, die kleine bedrijven en opkomende markten uitsluit, dekt er slechts ongeveer 1.400 — zonder dat een menselijke beheerder kiest wat er gekocht of verkocht wordt.",
+    "s2_title": "Het kostenprobleem — het cijfer dat uw bank minimaliseert",
+    "s2_p1": "1,5% jaarlijkse kosten lijkt weinig. Toch is het het verschil tussen het pensioen waarop u hoopt en het pensioen dat u zult hebben.",
+    "s3_title": "Actief beheer verslaat de markt niet",
+    "s3_p1": "Al decennialang komen academische studies tot dezelfde conclusie: tussen 85% en 92% van de actief beheerde fondsen doet het over 20 jaar slechter dan hun referentie-index, na kosten.",
+    "s3_p2": "Het is niet dat beheerders incompetent zijn. Het is dat de markt efficiënt is: op elk moment hebben duizenden professionele analisten alle beschikbare informatie al in de koersen verwerkt. Die consensus systematisch verslaan is op lange termijn statistisch bijna onmogelijk.",
+    "s3_p3": "De praktische conclusie: 1,5% extra kosten betalen voor actief beheer is betalen voor een belofte die volgens de statistieken zelden wordt waargemaakt.",
     "s4_title": "Waarom bankproducten niet kunnen volgen",
     "s4_p1": "Klassieke spaarproducten lijden onder drie structurele handicaps vergeleken met ETF's:",
     "h1_label": "Handicap 1",
@@ -1586,7 +1523,7 @@
     "s6_p1": "België vertoont een bijzonder ongunstige combinatie voor de passieve spaarder:",
     "s6_bullet1": "De vier grootbanken (BNP Paribas Fortis, KBC, Belfius, ING) controleren het merendeel van de deposito's en rekenen rentestijgingen slechts langzaam en gedeeltelijk door op de spaarrekeningen",
     "s6_bullet2": "Pensioenspaarfondsen vertonen TER's van 1,25% tot 1,50%, behorend tot de hoogste in Europa voor dit type product",
-    "s6_bullet3": "De taks op beursverrichtingen (TOB) bedraagt 0,12% voor accumulerende ETF's gedomicilieerd buiten België (in de EER) — wat vrijwel alle hier aanbevolen ETF's dekt. Voor in België geregistreerde fondsen stijgt dit naar 1,32%, wat de zaken aanzienlijk verandert.",
+    "s6_bullet3": "De taks op beursverrichtingen (TOB) bedraagt 0,12% voor accumulerende ETF's die niet bij de FSMA geregistreerd zijn — wat vrijwel alle hier aanbevolen ETF's dekt. Voor in België geregistreerde kapitalisatiefondsen (zoals VWCE, hoewel gedomicilieerd in Ierland) stijgt dit naar 1,32%, wat de zaken aanzienlijk verandert.",
     "s6_bullet4": "Sinds 1 januari 2026 zijn meerwaarden op aandelen-ETF's onderworpen aan een belasting van 10% boven een jaarlijkse vrijstelling van 10.000 € per belastingbetaler. Dit is een gematigde last vergeleken met veel buurlanden, en de eerste 10.000 € aan jaarlijkse winst blijft vrijgesteld.",
     "s7_title": "Maar waarom stijgt een wereld-ETF structureel?",
     "s7_intro_p1": "Wanneer u een aandeel van IMIE koopt, wordt u eigenaar van een fractie van 9.000 bedrijven. Fabrieken, patenten, merken, logistieke netwerken. Deze activa produceren elke dag goederen en diensten. Een deel van deze winsten komt naar u terug, automatisch herbelegd. Dit is geen speculatie. Dit is het vangen van menselijke economische activiteit.",
@@ -1605,7 +1542,7 @@
     "s7_faq_p2": "U koopt niet \"de economie\", u koopt beursgenoteerde bedrijven. De 9.000 bedrijven in de index zijn winstgevender dan gemiddeld. Ze vangen een groeiend deel van de wereldwijde activiteit. Hun winsten groeien sneller dan het BBP, historisch rond 5% per jaar. Tel daar 2% inflatie bij die in de prijzen wordt doorberekend en 1 tot 2% dividenden, en u krijgt 7 tot 9% totaalrendement. Dit is geen anomalie. Het is het verschil tussen het bezitten van de bakkerij op de hoek en het bezitten van Nestlé.",
     "s7_faq_p3": "Markten \"moeten\" niet stagneren zodat de economie kan inhalen. Waarderingen fluctueren, soms te hoog, soms te laag, maar geen enkel mechanisme dwingt aandelen om te stoppen. Een duur gekochte ETF zal langer nodig hebben om zijn rendement te leveren, maar de economische activiteit gaat door. Geen enkele periode van 20 jaar heeft ooit een negatief rendement opgeleverd voor een gediversifieerde wereldwijde portefeuille.",
     "s7_faq_p4": "Als de groei definitief stopt, zal uw spaarrekening u niet redden. Een catastrofe die het kapitalisme doodt, doodt ook het banksysteem. Omgekeerd zijn de crises die het kapitalisme overleeft precies die waarin gegarandeerde producten het meest onderpresteren. Uw noodfonds op een spaarrekening is essentieel. Uw kapitaal op 20 jaar is beter gediend met de productieve diversiteit van de hele planeet.",
-    "s7_comparison_intro": "Het echte verschil? €300 per maand gedurende 30 jaar op een spaarrekening laat u met ongeveer €148.000 achter. In een wereld-ETF, ongeveer €408.000. Het is geen kwestie van een paar procentpunten. Het is €260.000 verschil.",
+    "s7_comparison_intro": "Het echte verschil? €300 per maand gedurende 30 jaar op een spaarrekening laat u met ongeveer €148.000 achter. In een wereld-ETF, ongeveer €395.000. Het is geen kwestie van een paar procentpunten. Het is €247.000 verschil.",
     "s7_condition": "De enige voorwaarde: blijf belegd. Correcties van 20, 30 of 50% maken deel uit van het landschap. Ze komen gemiddeld elke 5 tot 7 jaar voor. Dit is de prijs die u betaalt voor rendementen die bankproducten niet kunnen bieden. Deze volatiliteit is het filter dat geduldige beleggers scheidt van degenen die op het slechtste moment verkopen.",
     "cta_title": "Klaar om in actie te komen?",
     "cta_subtitle": "Vergelijk ETF-strategieën aangepast aan de Belgische context, of simuleer uw situatie met onze calculator.",
@@ -1613,19 +1550,19 @@
     "cta_btn_calc": "Bereken mijn situatie →",
     "cta_link_fiscalite": "Begrijp de Belgische fiscaliteit →",
     "back": "← Terug naar de gidsen",
-    "s1_p2": "Concreet betekent het kopen van een deel van IMIE dat u in één enkele transactie een fractie koopt van Apple, Microsoft, Nestlé, Samsung, Toyota en 8.999 andere bedrijven. Uw kapitaal wordt onmiddellijk op wereldwijde schaal gediversifieerd.",
+    "s1_p2": "Concreet betekent een aandeel IMIE kopen dat u in één transactie een fractie koopt van Apple, Microsoft, Nestlé, Samsung, Toyota en duizenden andere bedrijven. Uw kapitaal is meteen wereldwijd gespreid.",
     "s1_p3": "Twee kenmerken onderscheiden ETF's van klassieke fondsen:",
     "s1_bullet1": "Ze zijn op de beurs verhandelbaar als een gewoon aandeel",
-    "s1_bullet2": "Hun jaarlijkse kosten zijn miniem: tussen 0,07% en 0,20% per jaar, tegenover 1,20% tot 2,50% voor een actief beheerd fonds",
+    "s1_bullet2": "Hun jaarlijkse kosten zijn miniem: tussen 0,07% en 0,30% per jaar, tegenover 1,20% tot 2,50% voor een actief beheerd fonds",
     "sim_label": "Simulatie — €300 / maand gedurende 30 jaar",
     "etf_name": "Index-ETF",
     "etf_detail": "IMIE · ~8% bruto · TER 0,17%",
-    "etf_value": "~€408.000",
+    "etf_value": "~€395.000",
     "fund_name": "Bancair actief fonds",
     "fund_detail": "~8% bruto · TER 1,73%",
-    "fund_value": "~€296.000",
+    "fund_value": "~€298.000",
     "diff_label": "Verschil · alleen kosten",
-    "diff_value": "+€112.000",
+    "diff_value": "+€97.000",
     "sim_note": "Indicatieve simulatie voor belastingen. Hetzelfde bruto tarief — alleen de kosten verschillen.",
     "s2_p2": "Het is geen kwestie van het talent van de beheerder. Het is een wiskundige kwestie. Over 30 jaar is elke euro die aan kosten wordt ingehouden een euro die niet meer kapitaliseert. Het effect is exponentieel: kosten verminderen uw rendement niet met 1,5% — ze verminderen uw eindkapitaal met 25 tot 35%."
   },
@@ -1661,9 +1598,9 @@
     "tax4_insight": "De eerste 10.000 € aan jaarlijkse meerwaarden blijven vrijgesteld. Niet-gebruikte vrijstelling kan worden overgedragen: tot 1.000 € per jaar gedurende maximaal 5 jaar, wat een cumulatieve vrijstelling tot 15.000 € oplevert. Let op: sinds 1 juni 2026 houdt uw Belgische tussenpersoon de 10% in vanaf de eerste euro winst, zonder deze vrijstelling toe te passen — u vordert ze nadien terug via uw jaarlijkse aangifte. Een strategie van progressieve verkopen over meerdere jaren maakt het mogelijk deze vrijstelling te optimaliseren.",
     "tax5_name": "Anticipatieve taks pensioensparen",
     "tax5_rate": "8%",
-    "tax5_applies": "Kapitalisatiefonds van tak 23",
+    "tax5_applies": "Kapitaal opgebouwd in een pensioenspaarfonds (of een pensioenspaarverzekering)",
     "tax5_when": "Automatisch ingehouden op uw 60ste",
-    "tax5_insight": "De belasting wordt berekend op een fictief kapitaal, alsof uw fonds sinds de eerste storting 4,75% per jaar heeft opgebracht — ongeacht de reële prestatie. Als uw fonds minder heeft gepresteerd dan de drempel van 4,75%, betaalt u proportioneel meer belasting op uw reëel rendement. Deze regel geldt alleen voor bancaire pensioenspaarfondsen (beleggingsfondsen, tak 23). Voor verzekeringsproducten (tak 21) wordt de taks van 8% berekend op het reëel opgebouwde kapitaal.",
+    "tax5_insight": "Voor een pensioenspaarfonds wordt de belasting berekend op een fictief kapitaal, alsof uw fonds sinds de eerste storting 4,75% per jaar heeft opgebracht — ongeacht de reële prestatie. Als uw fonds minder heeft opgebracht dan 4,75%, betaalt u proportioneel meer belasting op uw reëel rendement. Voor pensioensparen via een verzekering (tak 21 of tak 23) wordt de taks van 8% berekend op het reëel opgebouwde kapitaal.",
     "tax6_name": "Taks op premie tak 21",
     "tax6_rate": "2%",
     "tax6_applies": "Elke storting in een tak 21 spaarverzekeringscontract",
@@ -1711,7 +1648,7 @@
     "back": "← Terug naar de gidsen",
     "cgt_regime_title": "🏛️ Hoe de belasting sinds 1 juni 2026 wordt geïnd",
     "cgt_regime_p1": "Sinds 1 juni 2026 houden Belgische tussenpersonen (banken en brokers) automatisch 10% in op elke gerealiseerde meerwaarde: dat is het standaardregime, de zogenaamde « opt-in ». U kunt daarvan afzien en alles zelf aangeven (« opt-out »): die keuze wordt per effectenrekening gemeld aan uw tussenpersoon, die u de termijnen meedeelt. Buitenlandse brokers houden niets in: u valt dan feitelijk onder de opt-out.",
-    "cgt_regime_p2": "⚠️ Overgangsperiode: op meerwaarden gerealiseerd tussen 1 januari en 31 mei 2026 werd niets aan de bron ingehouden, ook niet bij een Belgische tussenpersoon. Een vrijwillige storting bij uw tussenpersoon was mogelijk tot 31 augustus 2026; na die datum worden deze meerwaarden geregulariseerd via uw belastingaangifte.",
+    "cgt_regime_p2": "Overgangsperiode: op meerwaarden gerealiseerd tussen 1 januari en 31 mei 2026 werd niets aan de bron ingehouden, ook niet bij een Belgische tussenpersoon. Een vrijwillige storting bij uw tussenpersoon was mogelijk tot 31 augustus 2026; na die datum worden deze meerwaarden geregulariseerd via uw belastingaangifte.",
     "cgt_regime_p3": "De inhouding wordt berekend op de brutowinst: ze houdt geen rekening met de jaarlijkse vrijstelling van 10.000 €, met uw minderwaarden of met uw werkelijke aankoopprijs. Voor activa aangehouden vóór 1 januari 2026 geldt de waarde op 31 december 2025 als referentie — een correctieaanvraag naar uw werkelijke aankoopprijs blijft mogelijk tot eind 2030 als die hoger lag. Al deze elementen recupereert u uitsluitend via uw jaarlijkse aangifte."
   },
   "comprProduits": {
@@ -1723,7 +1660,7 @@
     "s1_p1": "De Belgische spaarrekening werkt met twee componenten: een basisrente (verstrekt vanaf de eerste dag) en een getrouwheidspremie (pas verworven als het kapitaal 12 opeenvolgende maanden op de rekening blijft).",
     "s1_p2": "De getrouwheidspremie is een gedragsmechanisme: het bestraft onvoorziene opnames en stelt de goedkope financiering van de bank veilig. Als u opneemt voor 12 maanden, verliest u de premie op het opgenomen bedrag.",
     "s1_fiscal_label": "Fiscaal voordeel",
-    "s1_fiscal_text": "De eerste 1.020 € aan jaarlijkse interesten per persoon (bedrag voor inkomsten 2026, jaarlijks geïndexeerd) zijn vrijgesteld van roerende voorheffing. Daarboven wordt elke extra euro interest belast aan 15% — en niet 30% zoals voor andere roerende inkomsten: dit is een van de weinige fiscale voordelen van de gereglementeerde spaarrekening.",
+    "s1_fiscal_text": "De eerste 1.020 € aan jaarlijkse interesten per persoon (bedrag voor inkomsten 2026) zijn vrijgesteld van roerende voorheffing. Daarboven wordt elke extra euro interest belast aan 15% — en niet 30% zoals voor andere roerende inkomsten: dit is een van de weinige fiscale voordelen van de gereglementeerde spaarrekening.",
     "s1_verdict_label": "Verdict",
     "s1_verdict_p1": "De spaarrekening heeft een specifieke en legitieme functie: uw noodfonds (3 tot 6 maanden uitgaven), op elk moment beschikbaar zonder risico op kapitaalverlies.",
     "s1_verdict_p2": "Voor deze functie is ze onvervangbaar. Voor al het andere — sparen op middellange of lange termijn — is elk jaar dat op een spaarrekening wordt doorgebracht een jaar waarin uw koopkracht stagneert of achteruitgaat ten opzichte van de inflatie.",
@@ -1791,13 +1728,13 @@
     "s4_pt1_title": "De kosten — de stille vijand",
     "s4_pt1_body": "De Belgische pensioenspaarfondsen vertonen TER's van 1,25% tot 1,50%, waaraan nog instapkosten van 0% tot 3% worden toegevoegd naargelang de instelling. Over 30 jaar kunnen deze kosten een aanzienlijk deel van het initiële fiscale voordeel wegvagen.",
     "s4_pt2_title": "De uittredetaks — op een fictief kapitaal",
-    "s4_pt2_body": "Op uw 60ste houdt de staat een anticipatieve taks van 8% in — niet op uw reëel kapitaal, maar op een fictief kapitaal berekend alsof uw fonds (tak 23) vanaf het begin 4,75% per jaar had opgebracht. Deze fictieve berekening geldt alleen voor pensioenspaarfondsen van tak 23; tak 21 volgt een ander mechanisme. Als uw fonds minder heeft gepresteerd dan de drempel van 4,75%, stijgt uw effectieve belastingvoet op het reëel rendement aanzienlijk.",
+    "s4_pt2_body": "Op uw 60ste houdt de staat een anticipatieve taks van 8% in — niet op uw reëel kapitaal, maar op een fictief kapitaal berekend alsof uw pensioenspaarfonds vanaf het begin 4,75% per jaar had opgebracht. Deze fictieve berekening geldt alleen voor pensioenspaarfondsen; pensioensparen via een verzekering (tak 21 of 23) wordt belast op het reëel opgebouwde kapitaal. Als uw fonds minder heeft gepresteerd dan de drempel van 4,75%, stijgt uw effectieve belastingvoet op het reëel rendement aanzienlijk.",
     "s4_pt3_title": "De blokkering tot 60 jaar",
     "s4_pt3_body": "Het kapitaal zit vast tot 60 jaar. Een vervroegde opname triggert een belasting aan de personenbelasting (PB) tegen het tarief van 33%, vermeerderd met de gemeentelijke opcentiemen — dit is geen voorheffing, maar een definitieve belasting die meer dan 35% kan bedragen naargelang de woongemeente.",
     "s4_verdict_label": "Verdict",
     "s4_verdict_p1": "Het fiscaal voordeel van 30% lijkt aanzienlijk — maar het is een eenmalige bonus, één keer per jaar uitgekeerd, die niet kapitaliseert.",
     "s4_verdict_p2": "Ondertussen kapitaliseert het rendementsverschil tussen het pensioenfonds (~4%) en een ETF (~8%) elk jaar gedurende decennia.",
-    "s4_verdict_p3": "Onze simulator toont het concreet aan: over 30 jaar aan 87,50 €/maand (fiscaal plafond) haalt een Alles-in-één ETF het Argenta-pensioensparen al vanaf het 11e jaar in — en eindigt met 33.000 € meer op 30 jaar, ondanks het beste fonds op de markt (0% instapkosten) en het maximale fiscaal voordeel.",
+    "s4_verdict_p3": "Onze simulator toont het concreet aan: over 30 jaar aan 87,50 €/maand (fiscaal plafond) haalt een Alles-in-één ETF het Argenta-pensioensparen in vanaf het 14e jaar — en eindigt met ongeveer 25.000 € meer op 30 jaar, ondanks het beste fonds op de markt (0% instapkosten) en het maximale fiscaal voordeel.",
     "s4_verdict_p4": "Daarbij komen nog: een kapitaal dat vastzit tot 60 jaar, een uittredetaks van 8% en jaarlijkse beheerskosten van 1,25% tot 1,50%.",
     "s4_verdict_p5": "Onze conclusie: pensioensparen is geen beleggingsstrategie — het is een fiscaal product dat op lange termijn structureel ondermaats presteert. Houd uw kapitaal vrij en beleg het in een ETF.",
     "s5_title": "Actieve fondsen — waarom ze zo duur zijn",
@@ -1855,7 +1792,7 @@
     "s3_item1_title": "Belasting op het kadastraal inkomen, niet de werkelijke huur:",
     "s3_item1_p": "Als u verhuurt aan een particulier voor privégebruik, wordt u niet belast op de werkelijk ontvangen huur, maar op het geïndexeerde Kadastraal Inkomen (KI) verhoogd met 40% — vaak veel lager dan de economische realiteit.",
     "s3_item2_title": "Geen meerwaardebelasting:",
-    "s3_item2_p": "In België wordt de meerwaarde bij de verkoop van een onroerend goed dat meer dan 5 jaar in bezit is, niet belast (bij beheer als een goede huisvader). Dit is een aanzienlijk voordeel vergeleken met veel buurlanden.",
+    "s3_item2_p": "In België wordt de meerwaarde bij de verkoop van een gebouwd onroerend goed dat meer dan 5 jaar in bezit is, niet belast (bij beheer als een goede huisvader). De nieuwe meerwaardebelasting van 10% van 2026 viseert enkel financiële activa: dit voordeel van vastgoed ten opzichte van ETF's is dus groter geworden.",
     "s3_item3_title": "Bescherming tegen inflatie:",
     "s3_item3_p": "Belgische huurcontracten maken een jaarlijkse indexering van de huurprijzen op basis van de gezondheidsindex mogelijk. De waarde van vastgoed volgt structureel de inflatie op de lange termijn.",
     "s3_item4_title": "Psychologisch schild:",
@@ -1864,7 +1801,7 @@
     "s4_intro": "De fricties die gepaard gaan met vastgoed zijn enorm en worden vaak onderschat.",
     "s4_item1_title": "De instapkosten — de onzichtbare rekening:",
     "s4_item1_p1": "In België bedragen de registratierechten voor een opbrengsteigendom (niet de eigen woning) 12% in Vlaanderen, 12,5% in Brussel en Wallonië. Samen met de notariskosten en de kosten van de kredietakte verliest u ongeveer 15% van de waarde van het pand op de dag van aankoop. Op 250.000 € is dat 37.500 € die weg is voordat het pand zelfs maar één euro opbrengt.",
-    "s4_item1_p2": "Met een ETF: 0,12% TOB. Op 250.000 € is dat 300 €.",
+    "s4_item1_p2": "Met een ETF: 0,12% TOB. Op 250.000 € is dat 300 €. Bij verkoop betaalt de ETF daarentegen sinds 2026 een belasting van 10% op meerwaarden boven 10.000 €/jaar — terwijl de vastgoedmeerwaarde na 5 jaar vrijgesteld blijft.",
     "s4_item2_title": "Absolute illiquiditeit:",
     "s4_item2_p": "Als u dringend 10.000 € nodig heeft, kunt u het toilet van uw appartement niet verkopen. Met een ETF verkoopt u precies wat u nodig heeft, en het geld is binnen 48 uur beschikbaar.",
     "s4_item3_title": "De echte kost in tijd:",
@@ -1913,7 +1850,7 @@
     "intro": "Belgische banken en verzekeraars commercialiseren tientallen spaar- en beleggingsproducten. Wij analyseren ze één voor één — echte kosten, fiscaliteit en vergelijking met het ETF-alternatief.",
     "status_available": "Analyse beschikbaar",
     "status_in_progress": "Analyse in uitvoering",
-    "cat_pension_title": "Pensioensparen (Tak 23)",
+    "cat_pension_title": "Pensioensparen (pensioenspaarfondsen)",
     "cat_pension_subtitle": "Het belastingvoordeel van 30% is reëel — maar de jaarlijkse kosten en de eindbelasting van 8% veranderen de berekening over 30 jaar radicaal.",
     "cat_insurance_guaranteed_title": "Gegarandeerde levensverzekeringen (Tak 21)",
     "cat_insurance_guaranteed_subtitle": "Een aantrekkelijke gegarandeerde rente in theorie — maar de premietaks van 2%, de blokkering van 8 jaar en de inflatie herleiden het reële rendement vaak tot bijna niets.",
@@ -1921,19 +1858,17 @@
     "cat_insurance_funds_subtitle": "De fiscale verpakking lijkt voordelig — maar de opeenstapeling van kosten (premietaks + contractkosten + TER fondsen) overschrijdt vaak 3,5% per jaar.",
     "cat_active_funds_title": "Actieve beleggingsfondsen",
     "cat_active_funds_subtitle": "Aangeboden vanaf € 50.000 spaargeld, deze 'geprofileerde' fondsen stapelen instapkosten, hoge TER en Reynders-taks op — voor prestaties die structureel achterblijven bij hun referentie-index.",
-    "cat_investment_plans_title": "Periodieke beleggingsplannen",
-    "cat_investment_plans_subtitle": "De app is mooi en de transactiekosten lijken nul — maar de onderliggende fondsen rekenen 1,5% tot 2% per jaar aan. Over 20 jaar is het verschil met een ETF AutoInvest aanzienlijk.",
     "card_ethias_teaser": "2,90% gegarandeerd, maar -2% vanaf dag 1. Volledige kostenanalyse.",
-    "card_nn_teaser": "TER 1,52 % + variabele instapkosten. Tak 23 met gemengde aandelen–obligatieblootstelling.",
+    "card_nn_teaser": "~1,50 %/jaar totale kosten + variabele instapkosten. Tak 23 met gemengde aandelen–obligatieblootstelling.",
     "card_ag_teaser": "Levensverzekering gekoppeld aan fondsen : premietaks 2 % + beheerskosten contract + TER van het fonds. De opeenstapeling van kosten overschrijdt vaak 3 % per jaar.",
-    "card_ag_safe_teaser": "Tak 21 : kapitaalgarantie, vrijgesteld van roerende voorheffing, maar de premietaks van 2 % knabbelt aan elke storting. Op 30 jaar: +€ 57.200 vs +€ 241.600 voor een ETF.",
-    "card_belfius_capital_safe_teaser": "Tak 21 : gegarandeerd kapitaal, maar 4,5 % instapwrijving — de hoogste van de geanalyseerde Tak 21-producten. Over 30 jaar : +50 520 € tegenover +271 111 € voor een wereld-ETF.",
+    "card_ag_safe_teaser": "Tak 21: kapitaalgarantie, vrijgesteld van roerende voorheffing, maar 3 % instapwrijving (premietaks + kosten). Over 30 jaar en 20 000 €: ~139 000 € verschil in het voordeel van een wereld-ETF.",
+    "card_belfius_capital_safe_teaser": "Tak 21: gegarandeerd kapitaal, maar 4,5 % instapwrijving — de hoogste van de geanalyseerde Tak 21-producten. Over 30 jaar en 20 000 €: ~141 500 € verschil in het voordeel van een wereld-ETF.",
     "card_kbc_teaser": "Het belastingvoordeel van 30% verbergt kosten die uw kapitaal over 30 jaar vampiriseren.",
     "card_argenta_teaser": "Geen instapkosten, maar jaarlijkse kosten die zwaar wegen tegenover ETF's.",
-    "card_bnp_teaser": "TER 1,38 % + 3 % instapkosten. ESG-label, maar hoge kosten die het netto rendement aantasten.",
+    "card_bnp_teaser": "TER 1,25 % + 3 % instapkosten. ESG-label, maar hoge kosten die het netto rendement aantasten.",
     "read_analysis": "Lees de analyse",
     "note": "Een product dat u geanalyseerd wilt zien? Schrijf ons: <email>contact@clearinvest.be</email>",
-    "card_belfius_teaser": "TER 1,47 % + 3 % instapkosten. Hoge aandelenblootstelling, maar totale kosten behoren tot de zwaarste op de markt.",
+    "card_belfius_teaser": "TER 1,49 % + 3 % instapkosten. Hoge aandelenblootstelling, maar totale kosten behoren tot de zwaarste op de markt.",
     "back": "← Terug naar home",
     "card_baloise_teaser": "Tot 5,50% totale instapfrictie en ~2,20%/jaar aan kosten — allemaal KID-bevestigd. Het duurste Tak 23-product in onze analyse.",
     "card_axa_teaser": "Het enige Tak 23-product met passief beheer. Competitief met een ETF alleen in het kader van langetermijnsparen — onder strikte voorwaarden.",
@@ -2077,7 +2012,7 @@
     "s_caf_product_warning": "⚠️ De onderstaande analyse gebruikt de cijfers van Argenta ARPE (0 % instapkosten, ~1,40 %/jaar) om het meest gunstige geval voor pensioensparen vast te stellen. KBC Pricos (2 % instapkosten, 1,53 %/jaar) geeft een nog ongunstiger resultaat : de ETF verslaat KBC Pricos met een nog grotere marge dan de ~9 276 € die hier worden vermeld.",
     "s_caf_intro_p1": "Als uw werkgever een cafetariaplan aanbiedt, kunt u uw pensioensparen financieren met brutobedragen. Dit is het enige scenario waarbij pensioensparen wiskundig competitief wordt — dankzij een drievoudige gelijktijdige subsidie : vrijstelling van RSZ-bijdragen (13,07 %), brutoloonbudget van de werkgever, en belastingvermindering van 30 % van de overheid.",
     "s_caf_intro_p2": "Laten we nagaan of deze subsidie volstaat om de conclusie om te keren.",
-    "s_caf_caveat": "Deze analyse is uitsluitend van toepassing op werknemers wier werkgever een cafetariaplan aanbiedt — voornamelijk grote bedrijven in de privésector. Ze gaat uit van een marginaal belastingtarief van 50 % (belastbaar inkomen > ~46 440 €/jaar in 2026). Bij lagere tarieven zijn de cijfers minder gunstig voor pensioensparen.",
+    "s_caf_caveat": "Deze analyse is uitsluitend van toepassing op werknemers wier werkgever een cafetariaplan aanbiedt — voornamelijk grote bedrijven in de privésector. Ze gaat uit van een marginaal belastingtarief van 50 % (belastbaar inkomen > ~49 840 €/jaar voor inkomsten 2025). Bij lagere tarieven zijn de cijfers minder gunstig voor pensioensparen.",
     "s_caf_meca_title": "De Mechaniek : Wat Wordt er van 1 050 € Bruto?",
     "s_caf_meca_col_a": "Strategie A — Bonus in cash",
     "s_caf_meca_col_b": "Strategie B — Cafetariaplan",
@@ -2116,7 +2051,7 @@
     "s_caf_concl_p2": "Na 30 jaar, met hetzelfde netto-offer van 210 €/jaar, blijft de wereld-ETF aan kop — met ~9 276 € vergeleken met Argenta ARPE (het beste fonds op de markt), en met een nog grotere marge vergeleken met KBC Pricos, waarvan de 2 % instapkosten en TER van 1,53 % het resultaat verder verslechteren.",
     "s_caf_concl_p3": "Als uw werkgever een cafetariaplan aanbiedt en u hiervan gebruik wilt maken voor pensioensparen, blijft Argenta (0 % instapkosten) het enige fonds dat in deze context het overwegen waard is. KBC, BNP en Belfius verslechteren het resultaat nog verder met hun hogere instapkosten en TER.",
     "s_caf_concl_p4": "Maar de conclusie blijft dezelfde, met of zonder cafetariaplan : op lange termijn produceert de wereld-ETF meer nettovermogen met dezelfde financiële inspanning.",
-    "s_caf_methodology": "Methodologische noot : berekeningen gebaseerd op een marginaal belastingtarief van 50 % (belastbaar inkomen > ~46 440 €/jaar in 2026) en een RSZ-werknemerstarief van 13,07 %. VAA belast aan het marginale tarief. ARPE-rendement : 4,5 % netto (Argenta — beste fonds op de markt). ETF-rendement : 8 %/jaar (historisch gemiddelde MSCI ACWI IMI 2005–2025). TMW berekend op enkelvoudige verkoop — in de praktijk reduceert progressieve verkoop de ETF-TMW tot quasi nul, waardoor de ETF nog voordeliger is.",
+    "s_caf_methodology": "Methodologische noot : berekeningen gebaseerd op een marginaal belastingtarief van 50 % (belastbaar inkomen > ~49 840 €/jaar voor inkomsten 2025) en een RSZ-werknemerstarief van 13,07 %. VAA belast aan het marginale tarief. ARPE-rendement : 4,5 % netto (Argenta — beste fonds op de markt). ETF-rendement : 8 %/jaar (historisch gemiddelde MSCI ACWI IMI 2005–2025). TMW berekend op enkelvoudige verkoop — in de praktijk reduceert progressieve verkoop de ETF-TMW tot quasi nul, waardoor de ETF nog voordeliger is.",
     "s_caf_disclaimer": "Simulatie ter indicatie. Rendementen uit het verleden bieden geen garantie voor de toekomst."
   },
   "analyseArgenta": {
@@ -2273,7 +2208,7 @@
     "s_caf_title": "Het Cafetariaplan — De Enige Serieuze Uitzondering",
     "s_caf_intro_p1": "Als uw werkgever een cafetariaplan aanbiedt, kunt u uw pensioensparen financieren met brutobedragen. Dit is het enige scenario waarbij pensioensparen wiskundig competitief wordt — dankzij een drievoudige gelijktijdige subsidie : vrijstelling van RSZ-bijdragen (13,07 %), brutoloonbudget van de werkgever, en belastingvermindering van 30 % van de overheid.",
     "s_caf_intro_p2": "Laten we nagaan of deze subsidie volstaat om de conclusie om te keren.",
-    "s_caf_caveat": "Deze analyse is uitsluitend van toepassing op werknemers wier werkgever een cafetariaplan aanbiedt — voornamelijk grote bedrijven in de privésector. Ze gaat uit van een marginaal belastingtarief van 50 % (belastbaar inkomen > ~46 440 €/jaar in 2026). Bij lagere tarieven zijn de cijfers minder gunstig voor pensioensparen.",
+    "s_caf_caveat": "Deze analyse is uitsluitend van toepassing op werknemers wier werkgever een cafetariaplan aanbiedt — voornamelijk grote bedrijven in de privésector. Ze gaat uit van een marginaal belastingtarief van 50 % (belastbaar inkomen > ~49 840 €/jaar voor inkomsten 2025). Bij lagere tarieven zijn de cijfers minder gunstig voor pensioensparen.",
     "s_caf_meca_title": "De Mechaniek : Wat Wordt er van 1 050 € Bruto?",
     "s_caf_meca_col_a": "Strategie A — Bonus in cash",
     "s_caf_meca_col_b": "Strategie B — Cafetariaplan",
@@ -2312,7 +2247,7 @@
     "s_caf_concl_p2": "Na 30 jaar, met hetzelfde netto-offer van 210 €/jaar, blijft de wereld-ETF aan kop — met ~9 276 €. Deze cijfers zijn gebaseerd op Argenta ARPE (0 % instapkosten, het beste fonds op de markt).",
     "s_caf_concl_p3": "Als uw werkgever een cafetariaplan aanbiedt en u hiervan gebruik wilt maken voor pensioensparen, blijft Argenta (0 % instapkosten) het enige fonds dat in deze context het overwegen waard is. KBC, BNP en Belfius verslechteren het resultaat nog verder met hun hogere instapkosten en TER.",
     "s_caf_concl_p4": "Maar de conclusie blijft dezelfde, met of zonder cafetariaplan : op lange termijn produceert de wereld-ETF meer nettovermogen met dezelfde financiële inspanning.",
-    "s_caf_methodology": "Methodologische noot : berekeningen gebaseerd op een marginaal belastingtarief van 50 % (belastbaar inkomen > ~46 440 €/jaar in 2026) en een RSZ-werknemerstarief van 13,07 %. VAA belast aan het marginale tarief. ARPE-rendement : 4,5 % netto (Argenta — beste fonds op de markt). ETF-rendement : 8 %/jaar (historisch gemiddelde MSCI ACWI IMI 2005–2025). TMW berekend op enkelvoudige verkoop — in de praktijk reduceert progressieve verkoop de ETF-TMW tot quasi nul, waardoor de ETF nog voordeliger is.",
+    "s_caf_methodology": "Methodologische noot : berekeningen gebaseerd op een marginaal belastingtarief van 50 % (belastbaar inkomen > ~49 840 €/jaar voor inkomsten 2025) en een RSZ-werknemerstarief van 13,07 %. VAA belast aan het marginale tarief. ARPE-rendement : 4,5 % netto (Argenta — beste fonds op de markt). ETF-rendement : 8 %/jaar (historisch gemiddelde MSCI ACWI IMI 2005–2025). TMW berekend op enkelvoudige verkoop — in de praktijk reduceert progressieve verkoop de ETF-TMW tot quasi nul, waardoor de ETF nog voordeliger is.",
     "s_caf_disclaimer": "Simulatie ter indicatie. Rendementen uit het verleden bieden geen garantie voor de toekomst."
   },
   "analyseAgFundPlus": {
@@ -2346,7 +2281,7 @@
     "s1_val_availability": "Afkopen mogelijk (1% afkoopkosten indien < 3 jaar)",
     "s1_label_cgt": "Meerwaardebelasting",
     "s1_val_cgt": "10% op meerwaarden (> 10 000 €/jaar) — vrijgesteld in het kader van langetermijnsparen (voorwaarden)",
-    "s1_source": "De vermelde kosten zijn gebaseerd op de essentiële informatiedocumenten (KID/DICI) beschikbaar op de FSMA-website en de productdocumentatie van NN Insurance Belgium. Controleer het bijgewerkte KID voor elke inschrijving.",
+    "s1_source": "De vermelde kosten zijn gebaseerd op de essentiële informatiedocumenten (KID/DICI) van AG Insurance, beschikbaar op de FSMA-website. De instapkosten van 2,50 % en ~1,70 %/jaar zijn de standaardwaarden — sommige makelaars kunnen andere tarieven toepassen.",
     "s2_title": "Het fiscaal voordeel van Tak 23 — een mythe voor ETF-beleggers",
     "s2_p1": "De argumentatie van AG Fund + rust op de vrijstelling van roerende voorheffing. Dit is een technisch correct maar irrelevant argument voor een moderne belegger: kapitalisatie-ETF's zoals IMIE keren geen dividenden uit en ondergaan dus ook geen roerende voorheffing.",
     "s2_p2": "De behandeling van meerwaarden is identiek tussen Tak 23 en kapitalisatie-ETF's. Tak 23 is nooit 'fiscaal voordeliger' geweest dan een kapitalisatie-ETF — het is simpelweg veel duurder door de 4,5% instapfrictie en hoge beheerskosten.",
@@ -2477,7 +2412,7 @@
     "s4_peer_title": "Vergelijking binnen het pensioensparenuniversum",
     "s4_peer_row_ter": "Jaarlijkse TER",
     "s4_peer_row_entry": "Instapkosten",
-    "s4_peer_note": "Belfius heeft nu de hoogste instapkosten (3 %) en een TER van 1,49 % — hoger dan Argenta (1,44 %). De resterende (zoals KBC, tegenover 0 % bij Argenta) neutraliseren dit voordeel. Over 30 jaar blijft Argenta het goedkoopst ondanks een iets hogere TER.",
+    "s4_peer_note": "Belfius heeft nu de hoogste TER van de drie (1,49 %) en instapkosten van 3 % — gelijk aan KBC. Over 30 jaar blijft Argenta op alle vlakken het goedkoopst.",
     "s4_methodology_note": "* Methodologische noot : het rendement van 8 % is gebaseerd op het historisch gemiddelde van de MSCI ACWI IMI over 2005–2025. Over de laatste 10 jaar heeft IMIE in werkelijkheid ~10–11 %/jaar opgebracht. We houden 8 % aan om consistent te blijven met onze langetermijnprojecties. De vergelijking is dus gunstig voor Belfius.",
     "s4_cta_text": "Simuleer met uw eigen cijfers in onze calculator — Belfius Pension Fund is erin opgenomen als vergelijkingsproduct.",
     "s4_cta_btn": "Open de calculator →",
@@ -2547,7 +2482,7 @@
     "s_caf_product_warning": "⚠️ De onderstaande analyse gebruikt de cijfers van Argenta ARPE (0 % instapkosten, ~1,40 %/jaar) om het meest gunstige geval voor pensioensparen vast te stellen. Belfius Pension Fund (3 % instapkosten, 1,49 %/jaar) geeft een nog ongunstiger resultaat : het voordeel van de ETF is nog groter.",
     "s_caf_intro_p1": "Als uw werkgever een cafetariaplan aanbiedt, kunt u uw pensioensparen financieren met brutobedragen. Dit is het enige scenario waarbij pensioensparen wiskundig competitief wordt — dankzij een drievoudige gelijktijdige subsidie : vrijstelling van RSZ-bijdragen (13,07 %), brutoloonbudget van de werkgever, en belastingvermindering van 30 % van de overheid.",
     "s_caf_intro_p2": "Laten we nagaan of deze subsidie volstaat om de conclusie om te keren.",
-    "s_caf_caveat": "Deze analyse is uitsluitend van toepassing op werknemers wier werkgever een cafetariaplan aanbiedt — voornamelijk grote bedrijven in de privésector. Ze gaat uit van een marginaal belastingtarief van 50 % (belastbaar inkomen > ~46 440 €/jaar in 2026). Bij lagere tarieven zijn de cijfers minder gunstig voor pensioensparen.",
+    "s_caf_caveat": "Deze analyse is uitsluitend van toepassing op werknemers wier werkgever een cafetariaplan aanbiedt — voornamelijk grote bedrijven in de privésector. Ze gaat uit van een marginaal belastingtarief van 50 % (belastbaar inkomen > ~49 840 €/jaar voor inkomsten 2025). Bij lagere tarieven zijn de cijfers minder gunstig voor pensioensparen.",
     "s_caf_meca_title": "De Mechaniek : Wat Wordt er van 1 050 € Bruto?",
     "s_caf_meca_col_a": "Strategie A — Bonus in cash",
     "s_caf_meca_col_b": "Strategie B — Cafetariaplan",
@@ -2586,7 +2521,7 @@
     "s_caf_concl_p2": "Na 30 jaar, met hetzelfde netto-offer van 210 €/jaar, blijft de wereld-ETF aan kop — met ~9 276 € vergeleken met Argenta ARPE (het beste fonds op de markt), en met een nog grotere marge vergeleken met Belfius Pension Fund, waarvan de 3 % instapkosten en TER van 1,49 % het resultaat verder verslechteren.",
     "s_caf_concl_p3": "Als uw werkgever een cafetariaplan aanbiedt en u hiervan gebruik wilt maken voor pensioensparen, blijft Argenta (0 % instapkosten) het enige fonds dat in deze context het overwegen waard is. KBC, BNP en Belfius verslechteren het resultaat nog verder met hun hogere instapkosten en TER.",
     "s_caf_concl_p4": "Maar de conclusie blijft dezelfde, met of zonder cafetariaplan : op lange termijn produceert de wereld-ETF meer nettovermogen met dezelfde financiële inspanning.",
-    "s_caf_methodology": "Methodologische noot : berekeningen gebaseerd op een marginaal belastingtarief van 50 % (belastbaar inkomen > ~46 440 €/jaar in 2026) en een RSZ-werknemerstarief van 13,07 %. VAA belast aan het marginale tarief. ARPE-rendement : 4,5 % netto (Argenta — beste fonds op de markt). ETF-rendement : 8 %/jaar (historisch gemiddelde MSCI ACWI IMI 2005–2025). TMW berekend op enkelvoudige verkoop — in de praktijk reduceert progressieve verkoop de ETF-TMW tot quasi nul, waardoor de ETF nog voordeliger is.",
+    "s_caf_methodology": "Methodologische noot : berekeningen gebaseerd op een marginaal belastingtarief van 50 % (belastbaar inkomen > ~49 840 €/jaar voor inkomsten 2025) en een RSZ-werknemerstarief van 13,07 %. VAA belast aan het marginale tarief. ARPE-rendement : 4,5 % netto (Argenta — beste fonds op de markt). ETF-rendement : 8 %/jaar (historisch gemiddelde MSCI ACWI IMI 2005–2025). TMW berekend op enkelvoudige verkoop — in de praktijk reduceert progressieve verkoop de ETF-TMW tot quasi nul, waardoor de ETF nog voordeliger is.",
     "s_caf_disclaimer": "Simulatie ter indicatie. Rendementen uit het verleden bieden geen garantie voor de toekomst."
   },
   "analyseNnStrategy": {
@@ -2624,7 +2559,7 @@
     "s3_title": "De dubbele kostenlaag",
     "s3_point1_title": "De premietaks: 2% — Nog voordat u belegt",
     "s3_point1_desc": "Elke gestorte euro verliest onmiddellijk 2% door de wet. Op 300 €/maand verdwijnt er elke maand 6 € nog voordat het wordt belegd. Over 30 jaar vertegenwoordigt dit 2 160 € die verloren gaat aan enkel de premietaks.",
-    "s3_recovery_note": "Bij ~6,50% netto/jaar duurt het ~5,5 maanden rendement om uw initiële inleg terug te verdienen na de 3% instapkosten (taks + kosten).",
+    "s3_recovery_note": "Opmerking: de premietaks van 2 % wordt vóór de belegging van elke storting afgetrokken. Ze is definitief en kan nooit worden gerecupereerd.",
     "s3_point2_title": "De NN contractkosten: ~0,60% tot 0,96%/jaar",
     "s3_point2_desc": "NN rekent kosten aan voor het administratief beheer van het contract en de aanduiding van begunstigden. Deze kosten worden elk jaar berekend op uw totale kapitaal, ongeacht het rendement.",
     "s3_point3_title": "De kosten van de onderliggende fondsen: ~0,60% tot 1,20%/jaar",
@@ -2785,7 +2720,7 @@
     "s_hybrid_row_y30_adv": "+3.930 €",
     "s_hybrid_row_y30_diff": "+3.646 € ETF",
     "s_hybrid_horizon_title": "Wanneer is hybride aanvaardbaar?",
-    "s_hybrid_horizon_desc": "Alleen voor beleggers van 55 jaar en ouder, met een zeer korte horizon (5–10 jaar). Maar zelfs dan is Argenta (0% instap) of Belfius (TER 1,31%) systematisch beter dan BNP voor de hybride strategie.",
+    "s_hybrid_horizon_desc": "Alleen voor beleggers van 55 jaar en ouder, met een zeer korte horizon (5–10 jaar). Maar zelfs dan is Argenta (0% instap) systematisch beter dan BNP voor de hybride strategie — de netto bonus bedraagt 315 € tegenover 283,50 €.",
     "s_hybrid_conclusion": "Het voordeel van € 315/jaar is reëel. Maar de 3% instapkosten reduceren het tot € 283,50 netto. En dit dalende voordeel wordt al in jaar 5 ingehaald door het samengestelde groeiverschil.",
     "s5_title": "Pensioensparen: een impasse — nog meer bij BNP",
     "s5_intro": "De cijfers spreken voor zich: BNP B Pension is het duurste pensioenspaarf­onds onder de grote Belgische spelers, met de hoogste instapkosten op de markt.",
@@ -2796,7 +2731,7 @@
     "s5_link": "→ Zie de analyse van Argenta (0% instapkosten)",
     "s6_title": "⚖ Ons verdict",
     "s6_verdict_p1": "BNP Paribas B Pension moet worden vermeden. Het is het duurste pensioenspaarf­onds op de Belgische markt, met de hoogste instapkosten (3%) gecombineerd met een niet-competitieve TER.",
-    "s6_verdict_p2": "De enige mogelijke uitzondering: 55-plussers met een zeer korte horizon (5–10 jaar) die een onmiddellijk fiscaal voordeel zoeken. Maar zelfs in dat scenario zijn Argenta (0% instap) of Belfius (TER 1,31%) systematisch beter.",
+    "s6_verdict_p2": "De enige mogelijke uitzondering: 55-plussers met een zeer korte horizon (5–10 jaar) die een onmiddellijk fiscaal voordeel zoeken. Maar zelfs in dat scenario blijft Argenta (0% instap) systematisch beter.",
     "s6_ideal_title": "Grenseval acceptabel voor:",
     "s6_ideal_desc": "Beleggers van 55+ jaar, zeer korte horizon (5–10 jaar), al klant bij BNP en op zoek naar een onmiddellijk fiscaal voordeel.",
     "s6_avoid_title": "Vermijden voor:",
@@ -2825,7 +2760,7 @@
     "s_caf_product_warning": "⚠️ De onderstaande analyse gebruikt de cijfers van Argenta ARPE (0 % instapkosten, ~1,40 %/jaar) om het meest gunstige geval voor pensioensparen vast te stellen. BNP B Pension (3 % instapkosten, 1,24 %/jaar) geeft een nog ongunstiger resultaat : het voordeel van de ETF is nog groter.",
     "s_caf_intro_p1": "Als uw werkgever een cafetariaplan aanbiedt, kunt u uw pensioensparen financieren met brutobedragen. Dit is het enige scenario waarbij pensioensparen wiskundig competitief wordt — dankzij een drievoudige gelijktijdige subsidie : vrijstelling van RSZ-bijdragen (13,07 %), brutoloonbudget van de werkgever, en belastingvermindering van 30 % van de overheid.",
     "s_caf_intro_p2": "Laten we nagaan of deze subsidie volstaat om de conclusie om te keren.",
-    "s_caf_caveat": "Deze analyse is uitsluitend van toepassing op werknemers wier werkgever een cafetariaplan aanbiedt — voornamelijk grote bedrijven in de privésector. Ze gaat uit van een marginaal belastingtarief van 50 % (belastbaar inkomen > ~46 440 €/jaar in 2026). Bij lagere tarieven zijn de cijfers minder gunstig voor pensioensparen.",
+    "s_caf_caveat": "Deze analyse is uitsluitend van toepassing op werknemers wier werkgever een cafetariaplan aanbiedt — voornamelijk grote bedrijven in de privésector. Ze gaat uit van een marginaal belastingtarief van 50 % (belastbaar inkomen > ~49 840 €/jaar voor inkomsten 2025). Bij lagere tarieven zijn de cijfers minder gunstig voor pensioensparen.",
     "s_caf_meca_title": "De Mechaniek : Wat Wordt er van 1 050 € Bruto?",
     "s_caf_meca_col_a": "Strategie A — Bonus in cash",
     "s_caf_meca_col_b": "Strategie B — Cafetariaplan",
@@ -2864,7 +2799,7 @@
     "s_caf_concl_p2": "Na 30 jaar, met hetzelfde netto-offer van 210 €/jaar, blijft de wereld-ETF aan kop — met ~9 276 € vergeleken met Argenta ARPE (het beste fonds op de markt), en met een nog grotere marge vergeleken met BNP B Pension, waarvan de 3 % instapkosten het resultaat verder verslechteren.",
     "s_caf_concl_p3": "Als uw werkgever een cafetariaplan aanbiedt en u hiervan gebruik wilt maken voor pensioensparen, blijft Argenta (0 % instapkosten) het enige fonds dat in deze context het overwegen waard is. KBC, BNP en Belfius verslechteren het resultaat nog verder met hun hogere instapkosten en TER.",
     "s_caf_concl_p4": "Maar de conclusie blijft dezelfde, met of zonder cafetariaplan : op lange termijn produceert de wereld-ETF meer nettovermogen met dezelfde financiële inspanning.",
-    "s_caf_methodology": "Methodologische noot : berekeningen gebaseerd op een marginaal belastingtarief van 50 % (belastbaar inkomen > ~46 440 €/jaar in 2026) en een RSZ-werknemerstarief van 13,07 %. VAA belast aan het marginale tarief. ARPE-rendement : 4,5 % netto (Argenta — beste fonds op de markt). ETF-rendement : 8 %/jaar (historisch gemiddelde MSCI ACWI IMI 2005–2025). TMW berekend op enkelvoudige verkoop — in de praktijk reduceert progressieve verkoop de ETF-TMW tot quasi nul, waardoor de ETF nog voordeliger is.",
+    "s_caf_methodology": "Methodologische noot : berekeningen gebaseerd op een marginaal belastingtarief van 50 % (belastbaar inkomen > ~49 840 €/jaar voor inkomsten 2025) en een RSZ-werknemerstarief van 13,07 %. VAA belast aan het marginale tarief. ARPE-rendement : 4,5 % netto (Argenta — beste fonds op de markt). ETF-rendement : 8 %/jaar (historisch gemiddelde MSCI ACWI IMI 2005–2025). TMW berekend op enkelvoudige verkoop — in de praktijk reduceert progressieve verkoop de ETF-TMW tot quasi nul, waardoor de ETF nog voordeliger is.",
     "s_caf_disclaimer": "Simulatie ter indicatie. Rendementen uit het verleden bieden geen garantie voor de toekomst."
   },
   "ethiasAnalysis": {
@@ -2872,7 +2807,7 @@
     "hero_title": "Ethias Savings 21+",
     "hero_subtitle": "2,90 % gegarandeerd over 9 jaar. Lees voor u tekent wat de brochure niet vermeldt — en waarom er voor elk beleggersprofiel een beter alternatief bestaat.",
     "tldr_label": "IN HET KORT",
-    "tldr_text": "Ethias Savings 21+ biedt 2,90 % gegarandeerd — maar de premietaks van 2 % die onmiddellijk op elke storting wordt afgehouden, brengt uw werkelijk rendement terug naar ~2,74 % op het beginkapitaal. Over 9 jaar biedt CSH2 (monetair ETF) hetzelfde rendement, zonder instapkosten, zonder blokkering, zonder minimum van 20 000 €. Op lange termijn presteert een wereld-ETF bijna 3 keer beter. Tak 21 heeft geen enkel toepassingsgeval dat een ETF-alternatief niet beter dekt.",
+    "tldr_text": "Ethias Savings 21+ biedt 2,90 % gegarandeerd — maar de premietaks van 2 % brengt uw belegd kapitaal terug tot 19 600 € op 20 000 €. Over 9 jaar eindigt Ethias licht vóór de geldmarkt-ETF CSH2 aan de rente van oktober 2026 (~24 900 € vs ~24 500 €), ten koste van 9 jaar blokkering en een minimum van 20 000 €. Over 30 jaar genereert de wereld-ETF ~4,8 keer meer (+183 659 € vs +38 200 €). Het enige troef is een vastgeklikte gegarandeerde rente — die u betaalt met liquiditeit.",
     "s1_title": "Het Structurele Probleem: De Premietaks van 2 %",
     "s1_p1": "Alle Tak 21-producten in België — Ethias, AG Insurance, Belfius, AXA — delen hetzelfde structurele gebrek: een premietaks van 2 % op elke storting. Dit is een wettelijke belasting. Geen enkele verzekeraar kan die schrappen of onderhandelen.",
     "s1_p2": "Ze wordt afgehouden vóór uw geld belegd wordt. Op een storting van 20 000 € verdwijnt 400 € onmiddellijk en definitief — nog vóór de eerste euro is geïnvesteerd.",
@@ -2897,8 +2832,8 @@
     "s1_label_final": "Nettowaarde na 9 jaar op 20 000 €",
     "s1_val_final": "~24 900 €",
     "s1_warning": "De premietaks van 2 % is geen beheerkosten die op lange termijn worden gerecupereerd. Het is geld dat verloren gaat op de eerste dag, bij elke storting, voor altijd. Geen enkel Tak 21-product in België ontkomt hieraan.",
-    "s2_title": "Voor een Korte Horizon: CSH2 Wint op Alle Vlakken",
-    "s2_intro": "Tak 21 richt zich op spaarders die hun geld op korte of middellange termijn willen 'beveiligen'. CSH2 — een monetair ETF gekoppeld aan de €STR-rente van de ECB — dekt exact dezelfde behoefte, zonder de structurele nadelen van Tak 21.",
+    "s2_title": "Voor een korte horizon: een gegarandeerde rente, betaald met liquiditeit",
+    "s2_intro": "Tak 21 richt zich op spaarders die hun geld op korte of middellange termijn willen 'veiligstellen'. CSH2 — een geldmarkt-ETF blootgesteld aan de €STR-rente van de ECB — dekt dezelfde behoefte zonder blokkering of instapkosten, maar zonder gegarandeerde rente.",
     "s2_table_col1": "Ethias 21+",
     "s2_table_col2": "Wereld-ETF (IMIE)",
     "s2_table_row1": "Instapkosten",
@@ -2922,11 +2857,11 @@
     "s2_table_row7": "Meerwaardebelasting (CGT)",
     "s2_table_row7_val1": "0 € (Tak 21 vrijgesteld)",
     "s2_table_row7_val2": "~−490 € (10 % op winst > 15 000 €)",
-    "s2_callout": "Over 9 jaar en 20 000 € genereert de wereld-ETF ~39 410 € netto — dat is 14 500 € meer dan Ethias 21+. Zelfs CSH2, zonder marktrisico, doet het beter (+25 900 € vs +24 900 €).",
+    "s2_callout": "Over 9 jaar en 20 000 € genereert de wereld-ETF ~39 410 € netto — dat is 14 500 € meer dan Ethias 21+. Aan de huidige €STR-rente eindigt CSH2 licht achter Ethias (~24 500 € vs ~24 900 €), maar blijft het op elk moment beschikbaar.",
     "s2_objection_title": "En de garantie?",
-    "s2_objection_p": "CSH2 volgt de Europese overnight interbancaire rente (€STR). Dat is niet contractueel gegarandeerd. Maar CSH2 heeft nooit verlies geleden over enige periode van 12 maanden sinds zijn oprichting. De contractuele garantie die Ethias u biedt kost 2 % bij instap, 9 jaar blokkering en een minimum van 20 000 €. Dat is een zeer dure verzekeringspremie tegen een risico dat zich historisch nooit heeft voorgedaan.",
-    "s2_caveat": "Er bestaat één echt voordeel: als de ECB-rente sterk daalt, zakt het rendement van CSH2 mee. De 2,90 % van Ethias is voor 9 jaar vastgelegd. Dat is het enige concrete voordeel van Ethias Savings 21+ — en het heeft een aanzienlijke structurele kost.",
-    "s2_warning": "Als stabiliteit uw doel is, biedt CSH2 hetzelfde rendement als Ethias 21+ zonder instapkosten, zonder blokkering en zonder minimum van 20 000 €. Het enige wat Ethias u verkoopt, is een contractuele garantie tegen een rentedaling — tegen een prijs van 2 % van uw kapitaal, vandaag meteen.",
+    "s2_objection_p": "CSH2 volgt de Europese interbancaire dagrente (€STR). Dat is niet contractueel gegarandeerd, en niet zonder verliesverleden: tussen 2019 en 2022, toen de €STR negatief was, verloren geldmarkt-ETF's wat waarde (in de orde van −0,5 %/jaar). De contractuele garantie van Ethias beschermt tegen dat scenario van lage rente — maar ze kost 2 % instap, 9 jaar blokkering en 20 000 € minimum.",
+    "s2_caveat": "Het reële voordeel van Ethias: de 2,90 % ligt vast voor 9 jaar, terwijl het rendement van CSH2 de ECB volgt, naar boven en naar beneden. Aan de huidige rente geeft die vastlegging Ethias een kleine voorsprong over 9 jaar — ten koste van alle flexibiliteit.",
+    "s2_warning": "Als stabiliteit uw doel is, vergelijk dan wat u koopt: Ethias 21+ biedt een gegarandeerde rente die iets hoger ligt dan het huidige rendement van CSH2, maar blokkeert uw kapitaal 9 jaar en houdt vanaf dag één 2 % in. Met CSH2 kunt u op elk moment uitstappen, zonder instapkosten of minimum.",
     "s3_title": "Horizon 30 jaar — De Totale Opportuniteitskost",
     "s3_intro": "Over 30 jaar, kiezen voor Ethias Savings 21+ — of gelijk welk Tak 21-product — in plaats van een wereld-ETF vertegenwoordigt een enorme opportuniteitskost.",
     "s3_table_col1": "Ethias 21+ (vernieuwd)",
@@ -2947,13 +2882,13 @@
     "s3_table_row5_val1": "~38 200 €",
     "s3_table_row5_val2": "~183 659 €",
     "s3_callout": "Zelfs na volledige creditering van de CGT-vrijstelling genereert de wereld-ETF ~4,8 keer meer dan Ethias 21+ over 30 jaar — een verschil van ~145 000 €.",
-    "s3_methodology": "Methodologische noot: simulatie gebaseerd op een eenmalige inleg van 20 000 €. Het rendement van 8 % voor IMIE is gebaseerd op het historisch gemiddelde van de MSCI World-index over 30 jaar. Verleden prestaties bieden geen garantie voor de toekomst.",
+    "s3_methodology": "Methodologische noot: simulatie gebaseerd op een eenmalige inleg van 20 000 €. Het rendement van 8 % voor IMIE is gebaseerd op het historisch gemiddelde van de MSCI ACWI IMI over 20 jaar (2005–2025). De CGT-vrijstelling van Tak 21 is volledig verrekend in de simulatie. Voor de horizon van 30 jaar wordt een hernieuwing van het Ethias-contract aan ~2,50 % netto verondersteld — toekomstige rente niet gegarandeerd. Rendementen uit het verleden bieden geen garantie voor de toekomst.",
     "s4_title": "Oordeel ClearInvest",
     "s4_verdict_1": "Tak 21 is structureel benadeeld door de premietaks van 2 % — een wettelijke kost die van toepassing is op elke aanbieder zonder uitzondering. Dit is geen Ethias-specifiek probleem: het is een categoriegebrek.",
-    "s4_verdict_2": "Voor een korte horizon is CSH2 strikt beter op alle dimensies behalve de contractuele rentevergrendeling. Die vergrendeling kost 2 % bij instap, 9 jaar blokkering en een minimum van 20 000 €. Voor de grote meerderheid van spaarders is dat geen voordelige ruil.",
+    "s4_verdict_2": "Voor een korte horizon komt de keuze neer op een ruil: Ethias legt een rente vast die iets hoger ligt dan het huidige rendement van CSH2, in ruil voor 2 % instap, 9 jaar blokkering en 20 000 € minimum. CSH2 brengt vandaag iets minder op, maar blijft volledig liquide.",
     "s4_verdict_3": "Over 30 jaar genereert een wereld-ETF ~4,8 keer meer nettowaarde dan Ethias Savings 21+ — een verschil van ~145 000 € na belastingen.",
     "s4_verdict_4": "In zijn categorie is Ethias niet het slechtste Tak 21-product — 0 % beheerkosten en rechtstreekse distributie (zonder tussenkomst van een tussenpersoon) zijn echte voordelen ten opzichte van AG Insurance of Belfius. Maar het beste zijn in een structureel slechte categorie is nog altijd een slechte keuze.",
-    "s4_verdict_5": "Er bestaat geen enkel Belgisch beleggersprofiel waarvoor Ethias Savings 21+ de optimale keuze is. Korte horizon: CSH2. Lange horizon: wereld-ETF.",
+    "s4_verdict_5": "Ethias Savings 21+ is alleen te verantwoorden voor een spaarder die zeker is zijn kapitaal 9 jaar niet aan te raken en die aan een gegarandeerde rente hecht. Korte horizon met nood aan liquiditeit: CSH2. Lange horizon: wereld-ETF.",
     "cta_primary": "Simuleren met de calculator",
     "cta_secondary": "De CSH2 liquiditeitsstrategie ontdekken",
     "cta_tertiary": "← Terug naar productanalyses",
@@ -2961,8 +2896,8 @@
     "s2_table_col3": "CSH2 (geldmarkt-ETF)",
     "s2_table_row1_val3": "−0,12 % TOB (−24 €)",
     "s2_table_row2_val3": "19 976 €",
-    "s2_table_row3_val3": "~2,90 % (€STR, variabel)",
-    "s2_table_row4_val3": "~25 900 €",
+    "s2_table_row3_val3": "~2,4 % bruto (€STR, variabel — okt. 2026)",
+    "s2_table_row4_val3": "~24 500 €",
     "s2_table_row5_val3": "Volledig — verkoop in 1 dag",
     "s2_table_row6_val3": "Enkele euro’s",
     "s2_table_row7_val3": "0 € (winst < 15 000 € → drempel niet bereikt)",
@@ -2975,7 +2910,7 @@
     "hero_title": "AG Safe+ — Absolute Veiligheid Kost 213 000 €",
     "hero_subtitle": "Gegarandeerd kapitaal, gegarandeerde rente, nul marktrisico. AG Insurance verkoopt gemoedsrust. Dit is wat die gemoedsrust u werkelijk kost over 30 jaar.",
     "tldr_label": "SAMENGEVAT",
-    "tldr_text": "AG Safe+ combineert 2 % premietaks + ~1 % instapkosten = 3 % totale wrijving vóór belegging. Gegarandeerde rente 2,75% (jaar 1) / 2,25% (volgende jaren) + niet-gegarandeerde winstdeelname → geschat nettorend. ~2,80 %/jaar. Tak 21 is vrijgesteld van meerwaardebelasting — een reël fiscaal voordeel, volledig verwerkt in onze simulatie. Het vertegenwoordigt ~5 720 € over 30 jaar. Het verschil met een wereld-ETF blijft ~213 000 €. Er bestaat geen beleggersprofiel waarvoor AG Safe+ de optimale keuze is op lange termijn.",
+    "tldr_text": "AG Safe+ combineert 2 % premietaks + ~1 % instapkosten = 3 % totale wrijving. Bij een eenmalige inleg van 20 000 € beginnen slechts 19 400 € te werken. Over 9 jaar — de looptijd van het contract — eindigt AG Safe+ nauwelijks vóór de geldmarkt-ETF CSH2 aan de rente van oktober 2026 (~24 800 € vs ~24 500 €), zonder de liquiditeit. Over 30 jaar genereert de wereld-ETF ~4,1 keer meer (+183 659 € vs +44 300 €) — een verschil van ~139 000 €.",
     "s1_title": "Productfiche",
     "s1_label_product": "Product",
     "s1_val_product": "AG Insurance — AG Safe+",
@@ -3041,7 +2976,7 @@
     "s4_table_row6": "CGT / Meerwaardebelasting",
     "s4_table_row6_val1": "0 € (Tak 21 vrijgesteld)",
     "s4_table_row6_val2": "~−490 € (10 % op winst > 15 000 €)",
-    "s4_callout": "Over 9 jaar doet CSH2 het beter dan AG Safe+ (+25 900 € vs +24 800 €) met volledige liquiditeit en 0 % beheerkosten. De wereld-ETF gaat nog verder (+39 410 € netto).",
+    "s4_callout": "Over 9 jaar eindigen AG Safe+ en CSH2 aan de huidige €STR-rente nagenoeg gelijk (~24 800 € vs ~24 500 €) — maar CSH2 blijft liquide en zonder instapkosten. De wereld-ETF doet het duidelijk beter (+39 410 € netto).",
     "s4_methodology_note": "Methodologische noot: het rendement van 8 % voor IMIE is gebaseerd op het historisch gemiddelde van de MSCI ACWI IMI over 20 jaar (2005–2025). Het rendement van 2,80 % voor AG Safe+ is optimistisch: het omvat niet-gegarandeerde winstdeelname. De CGT-vrijstelling van Tak 21 is volledig gecrediteerd aan AG Safe+ in deze simulatie.",
     "s4_cta_text": "Simuleer uw eigen situatie met uw bedrag en uw horizon.",
     "s4_cta_btn": "Calculator openen →",
@@ -3072,16 +3007,16 @@
     "s5_table_row7_val1": "Ja (contract)",
     "s5_table_row7_val2": "Nee (nooit negatief op 12 mnd, hist.)",
     "s5_objection_title": "„Maar CSH2 is niet gegarandeerd“",
-    "s5_objection_p": "CSH2 repliceert de €STR-rente, de dagelijkse interbancaire rente van de ECB. Hij heeft nooit waarde verloren over enige periode van 12 maanden sinds zijn oprichting. De contractuele garantie van AG Safe+ kost u 3 % instap + 8 jaar blokkering — een erg dure verzekeringspremie tegen een risico dat zich nooit heeft voorgedaan.",
-    "s5_caveat": "Het enige echte verschil in het voordeel van AG Safe+: als de ECB zijn tarieven fors verlaagt, volgt CSH2 naar beneden. De gegarandeerde rente van AG Safe+ van 2,75% (jaar 1) / 2,25% (volgende jaren) is voor de contractduur vastgeklikt. Dit is het enige echte voordeel van AG Safe+ tegenover CSH2 — en het gaat gepaard met 3 % structurele kosten en 8 jaar blokkering.",
-    "s5_warning": "Als stabiliteit uw doel is op een korte horizon, biedt CSH2 een vergelijkbaar rendement als AG Safe+ zonder instapkosten, zonder blokkering en zonder minimum. Het enige wat AG Safe+ u op dit vlak verkoopt, is een rentegarantie tegen een tariefsdaling — voor 3 % van uw kapitaal, vandaag al.",
+    "s5_objection_p": "CSH2 volgt de Europese interbancaire dagrente (€STR). Dat is niet contractueel gegarandeerd, en niet zonder verliesverleden: tussen 2019 en 2022, toen de €STR negatief was, verloren geldmarkt-ETF's wat waarde (in de orde van −0,5 %/jaar). De contractuele garantie van AG Safe+ beschermt tegen dat scenario van lage rente — maar ze kost 3 % instap en 8 jaar blokkering.",
+    "s5_caveat": "Het reële voordeel van AG Safe+: de gegarandeerde rente van 2,75 % (jaar 1) / 2,25 % (volgende jaren) ligt vast voor de looptijd van het contract, terwijl CSH2 de ECB volgt, naar boven en naar beneden. Die garantie gaat gepaard met een structurele kost van 3 % en een blokkering van 8 jaar.",
+    "s5_warning": "Als stabiliteit op korte termijn uw doel is, biedt CSH2 vandaag een rendement dat dicht bij AG Safe+ ligt, zonder instapkosten, zonder blokkering en zonder minimum. Wat AG Safe+ u op dit vlak verkoopt, is een rentegarantie — ten koste van 3 % van uw kapitaal, vanaf vandaag.",
     "s5_xref": "Voor een gedetailleerde vergelijking Tak 21 vs CSH2 op korte horizon, zie ook onze analyse van Ethias Savings 21+.",
     "s5_xref_link": "Bekijk de Ethias Savings 21+-analyse",
     "s6_title": "Ons Verdict",
     "s6_verdict_1": "AG Safe+ is een juridisch solide product — gegarandeerd kapitaal, gereguleerde verzekeraar, duidelijk contract. We betwisten de soliditeit van AG Insurance niet.",
     "s6_verdict_2": "Maar Tak 21 heeft een onvermijdelijk structureel nadeel: de premietaks van 2 % op elke storting, gecombineerd met een rendement beperkt tot ~2,80 %/jaar. Over 30 jaar overschrijdt dit nadeel ruimschoots het CGT-voordeel van Tak 21 tegenover ETF’s.",
     "s6_verdict_3": "Over 30 jaar genereert de wereld-ETF IMIE ~4,1 keer meer dan AG Safe+ — een verschil van ~139 000 € na belastingen. De 3 % instapwrijving is structureel benadelend voor de langetermijnspaarder.",
-    "s6_verdict_4": "Op korte termijn (< 8 jaar): CSH2 biedt een vergelijkbaar rendement, zonder instapkosten, zonder blokkering, zonder minimum.",
+    "s6_verdict_4": "Op korte termijn (< 8 jaar): CSH2 biedt vandaag een vergelijkbaar rendement, zonder instapkosten, zonder blokkering, zonder minimum — maar zonder gegarandeerde rente.",
     "s6_verdict_5": "Er bestaat geen beleggersprofiel waarvoor AG Safe+ de optimale keuze is op lange termijn. Voor elke horizon: een ETF-alternatief doet het beter.",
     "s6_case_legit_title": "Legitiem gebruiksscenario",
     "s6_case_legit_desc": "Geen enkel dat de vergelijking doorstaat. Voor lange termijn: wereld-ETF. Voor korte termijn: CSH2. Voor successie: AG Fund+ (Tak 23) biedt begunstigingsaanwijzing met meer rendementflexibiliteit.",
@@ -3095,13 +3030,13 @@
     "s4_table_col3": "CSH2 (geldmarkt-ETF)",
     "s4_table_row1_val3": "−0,12 % TOB (−24 €)",
     "s4_table_row2_val3": "19 976 €",
-    "s4_table_row3_val3": "~2,90 % (€STR, variabel)",
-    "s4_table_row4_val3": "~25 900 €",
+    "s4_table_row3_val3": "~2,4 % bruto (€STR, variabel — okt. 2026)",
+    "s4_table_row4_val3": "~24 500 €",
     "s4_table_row5_val3": "Volledig — verkoop in 1 dag",
     "s4_table_row6_val3": "0 € (winst < 15 000 € → drempel niet bereikt)",
     "s4_bridge": "Over 9 jaar — de looptijd die het product zelf voorstelt — doet de wereld-ETF het al beter. Over 30 jaar wordt het verschil een levenskeuze.",
     "s5_callout": "De wereld-ETF genereert ~4,1 keer meer dan AG Safe+ over 30 jaar — een verschil van ~139 000 €, zelfs na creditering van de CGT-vrijstelling van Tak 21.",
-    "s5_methodology": "Methodologische noot: simulatie gebaseerd op een eenmalige inleg van 20 000 €. Voor horizon 30 jaar veronderstelt men een opeenvolgende verlenging van het Tak 21-product (bij elke vervaldag worden instapkosten opnieuw aangerekend). Het rendement van 8 % voor IMIE is gebaseerd op het historisch gemiddelde van de MSCI World-index over 30 jaar. Verleden prestaties bieden geen garantie voor de toekomst."
+    "s5_methodology": "Methodologische noot: simulatie gebaseerd op een eenmalige inleg van 20 000 €. Voor de horizon van 30 jaar wordt een hernieuwing aan ~2,50 % netto verondersteld — toekomstige rente niet gegarandeerd. Het rendement van 8 % voor IMIE is gebaseerd op het historisch gemiddelde van de MSCI ACWI IMI over 20 jaar (2005–2025). De CGT-vrijstelling van Tak 21 is volledig verrekend in de simulatie. Rendementen uit het verleden bieden geen garantie voor de toekomst."
   },
   "analyseBelfiusCapitalSafe": {
     "meta_title": "Belfius Invest Capital Safe analyse — 4,5 % kosten voor 2,8 % rendement",
@@ -3110,7 +3045,7 @@
     "hero_title": "Belfius Invest Capital Safe — 20 Maanden om de Kosten Terug te Verdienen",
     "hero_subtitle": "4,5 % instapwrijving voor een gegarandeerde rente van 2,80 %. Voor u ook maar één euro winst genereert, werkt u 20 maanden om de kosten terug te verdienen die Belfius en de Staat op dag één al hebben ingenomen.",
     "tldr_label": "SAMENGEVAT",
-    "tldr_text": "Belfius Invest Capital Safe combineert 2 % premietaks + 2,5 % instapkosten = 4,5 % totale wrijving vóór enig rendement. Op een eenmalige inleg van 20 000 € doet de wereld-ETF (IMIE) het al beter over 9 jaar (39 410 € vs 23 900 €). Over 30 jaar bedraagt het verschil ~141 500 €. Zelfs de geldmarkt-ETF CSH2, zonder renterisico, doet het beter op de looptijd van het contract.",
+    "tldr_text": "Belfius Invest Capital Safe combineert 2 % premietaks + 2,5 % instapkosten = 4,5 % totale wrijving vóór enig rendement. Op een eenmalige inleg van 20 000 € doet de wereld-ETF (IMIE) het al beter over 9 jaar (39 410 € vs 23 900 €). Over 30 jaar bedraagt het verschil ~141 500 €. Zelfs de geldmarkt-ETF CSH2 doet het beter op de looptijd van het contract (~24 500 € vs ~23 900 € aan de rente van oktober 2026), en blijft daarbij liquide.",
     "s1_title": "Productfiche",
     "s1_label_product": "Product",
     "s1_val_product": "Belfius Insurance — Belfius Invest Capital Safe",
@@ -3179,7 +3114,7 @@
     "s4_table_row6": "CGT / Meerwaardebelasting",
     "s4_table_row6_val1": "0 € (Tak 21 vrijgesteld)",
     "s4_table_row6_val2": "~−490 € (10 % op winst > 15 000 €)",
-    "s4_callout": "Over 9 jaar doet CSH2 het beter dan Belfius Capital Safe (+25 900 € vs +23 900 €) met volledige liquiditeit en 0 % beheerkosten. De wereld-ETF gaat nog verder (+39 410 € netto).",
+    "s4_callout": "Over 9 jaar doet CSH2 het aan de huidige €STR-rente beter dan Belfius Capital Safe (~24 500 € vs ~23 900 €), met volledige liquiditeit en 0 % instapkosten. De wereld-ETF gaat nog verder (+39 410 € netto).",
     "s4_methodology_note": "Methodologische noot : het rendement van 8 % voor IMIE is gebaseerd op het historisch gemiddelde van de MSCI ACWI IMI over 20 jaar (2005–2025). Het rendement van 2,68 % voor Belfius Invest Capital Safe is gebaseerd op het gegarandeerde brutotarief van 2,80 % (april 2026) na aftrek van de jaarlijkse kosten van 0,12 %. De CGT-vrijstelling van Tak 21 is volledig gecrediteerd aan Belfius in deze simulatie.",
     "s4_cta_text": "Simuleer uw eigen situatie met uw bedrag en uw horizon.",
     "s4_cta_btn": "Calculator openen →",
@@ -3211,8 +3146,8 @@
     "s5_table_row7_val2": "Enkele euro’s",
     "s5_warning_exit": "⚠️ Op een korte horizon combineert Belfius Invest Capital Safe hoge instapkosten én uitstapkosten gedurende 5 jaar. Dit is het slechtste van beide werelden : u wordt bestraft bij instap én bij uitstap als u uw geld nodig heeft vóór 5 jaar.",
     "s5_objection_title": "„Maar CSH2 is niet gegarandeerd“",
-    "s5_objection_p": "CSH2 repliceert de €STR-rente, de dagelijkse interbancaire rente van de ECB. Hij heeft nooit waarde verloren over enige periode van 12 maanden sinds zijn oprichting. De contractuele garantie van Belfius kost u 4,5 % instap + 5 jaar uitstapkosten + 6 jaar blokkering — een erg dure verzekeringspremie tegen een risico dat zich nooit heeft voorgedaan.",
-    "s5_caveat": "Het enige echte verschil in het voordeel van Belfius Invest Capital Safe : als de ECB zijn tarieven fors verlaagt, volgt CSH2 naar beneden. De gegarandeerde rente van 2,80 % van Belfius is voor de contractduur vastgeklikt. Dit is het enige echte voordeel van Belfius tegenover CSH2 — en het gaat gepaard met 4,5 % wrijving en 5 jaar uitstapkosten.",
+    "s5_objection_p": "CSH2 volgt de Europese interbancaire dagrente (€STR). Dat is niet contractueel gegarandeerd, en niet zonder verliesverleden: tussen 2019 en 2022, toen de €STR negatief was, verloren geldmarkt-ETF's wat waarde (in de orde van −0,5 %/jaar). De contractuele garantie van Belfius beschermt tegen dat scenario van lage rente — maar ze kost 4,5 % instap, 5 jaar uitstapkosten en 6 jaar blokkering.",
+    "s5_caveat": "Het reële voordeel van Belfius Invest Capital Safe: de gegarandeerde rente van 2,80 % ligt vast voor de looptijd van het contract, terwijl CSH2 de ECB volgt, naar boven en naar beneden. Die garantie gaat gepaard met 4,5 % wrijving en 5 jaar uitstapkosten.",
     "s5_warning": "Als stabiliteit uw doel is op een korte horizon, biedt CSH2 een vergelijkbaar rendement als Belfius Invest Capital Safe zonder instapkosten, zonder uitstapkosten, zonder blokkering en zonder minimum. Het enige wat Belfius u op dit vlak verkoopt, is een rentegarantie tegen een tariefsdaling — voor 4,5 % van uw kapitaal plus 5 jaar uitstapboetes.",
     "s5_xref": "Voor een gedetailleerde vergelijking Tak 21 vs CSH2 op korte horizon, zie ook onze analyse van Ethias Savings 21+.",
     "s5_xref_link": "Bekijk de Ethias Savings 21+-analyse",
@@ -3233,8 +3168,8 @@
     "s4_table_col3": "CSH2 (geldmarkt-ETF)",
     "s4_table_row1_val3": "−0,12 % TOB (−24 €)",
     "s4_table_row2_val3": "19 976 €",
-    "s4_table_row3_val3": "~2,90 % (€STR, variabel)",
-    "s4_table_row4_val3": "~25 900 €",
+    "s4_table_row3_val3": "~2,4 % bruto (€STR, variabel — okt. 2026)",
+    "s4_table_row4_val3": "~24 500 €",
     "s4_table_row5_val3": "Volledig — verkoop in 1 dag",
     "s4_table_row6_val3": "0 € (winst < 15 000 € → drempel niet bereikt)",
     "s4_bridge": "Over 9 jaar — de looptijd die het product zelf voorstelt — doet de wereld-ETF het al beter. Over 30 jaar wordt het verschil een levenskeuze.",
@@ -3615,7 +3550,7 @@
     "hero_title": "Crelan Invest Opportunities — 2,80%/jaar kosten voor 2,57% nettorendement",
     "hero_subtitle": "Een fonds van fondsen gedistribueerd door Crelan, beheerd door Amundi. Het tussenliggende scenario van het officiële document geeft 2,57%/jaar netto — nauwelijks meer dan een spaarrekening, voor aanzienlijk meer risico.",
     "tldr_label": "SAMENVATTING",
-    "tldr_text": "Crelan Invest Opportunities is een actief beheerd fonds van fondsen gedistribueerd door Crelan. De totale kosten van 2,80%/jaar absorberen het leeuwendeel van het brutorendement: het officiële document geeft 5,37%/jaar bruto voor 2,57%/jaar netto — minder dan CSH2 (geldmarkt-ETF op ~2,9%/jaar) voor reëel marktrisico. De fonds-van-fondsen-structuur voegt een dubbele laag onzichtbare kosten toe. De taks op beursverrichtingen van 1,32% bij verkoop (Belgisch ISIN) verslechtert de balans verder.",
+    "tldr_text": "Crelan Invest Opportunities is een actief beheerd fonds van fondsen gedistribueerd door Crelan. De totale kosten van 2,80%/jaar absorberen het leeuwendeel van het brutorendement: het officiële document geeft 5,37%/jaar bruto voor 2,57%/jaar netto — nauwelijks meer dan CSH2 (geldmarkt-ETF, ~2,3%/jaar netto in oktober 2026), maar met reëel marktrisico. De fonds-van-fondsen-structuur voegt een dubbele laag onzichtbare kosten toe. De taks op beursverrichtingen van 1,32% bij verkoop (Belgisch ISIN) verslechtert de balans verder.",
     "s1_title": "Productfiche",
     "s1_label_product": "Product",
     "s1_val_product": "Crelan Invest Opportunities EUR Kapitalisatie",

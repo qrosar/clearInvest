@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import type { Strategy } from '@/lib/strategies/strategies';
 import type { StrategyContent, Alternative } from '@/lib/strategies/strategyContent';
@@ -128,6 +128,7 @@ function AlternativeCard({ alt, t, tsDyn, tdDyn }: {
 
 // ── Main component ────────────────────────────────────────────────────────────
 export default function StrategyDetail({ strategy, content }: Props) {
+  const locale = useLocale();
   const t = useTranslations('strategyDetail');
   const tDyn = asDynamic(t);
   const ts = useTranslations('strategies');
@@ -227,7 +228,7 @@ export default function StrategyDetail({ strategy, content }: Props) {
           {content && (
             <FactBox
               label={t('fact_securities')}
-              value={`~${content.numberOfSecurities.toLocaleString('fr-BE')}`}
+              value={`~${content.numberOfSecurities.toLocaleString(locale)}`}
               sub={t('fact_securities_sub')}
             />
           )}
