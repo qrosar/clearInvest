@@ -40,8 +40,8 @@
     "source_nasdaq": "Nasdaq-100 Index (EUR, total return)",
     "source_estr": "Indice €STR (taux au jour le jour de la zone euro)"
   },
-  "p_savings_ing_tempo_cap_note": "Dépôt limité à 500 € par mois.",
-  "p_savings_vdk_cap_note": "Dépôt limité à 500 € par mois.",
+  "p_savings_cap_500_note": "Dépôt limité à 500 € par mois.",
+  "p_savings_cap_600_note": "Dépôt limité à 600 € par mois.",
   "p_branche21_cap_note": "Versement unique ou périodique selon contrat.",
   "p_pension_cap_note": "Versement limité au plafond fiscal annuel (1 050 € ou 1 350 €).",
   "p_fonds_bnp_warning": "Note : Ce fonds a historiquement sous-performé son indice de référence après frais.",
@@ -208,7 +208,7 @@
     "badge_bank": "Bancaire",
     "cat_etf": "Stratégies ETF",
     "cat_savings": "Comptes épargne",
-    "cat_bonds": "Bons de caisse",
+    "cat_bonds": "Comptes à terme",
     "cat_branche21": "Branche 21",
     "cat_pension": "Épargne-pension",
     "cat_active": "Fonds actifs",
@@ -816,7 +816,7 @@
     "s4_p1": "La Belgique, comme tous les pays de l'UE, participe à l'échange automatique d'informations fiscales entre États membres (directive DAC/CRS). Votre broker étranger communique vos données aux autorités fiscales de son pays, qui les transmettent au SPF Finances belge.",
     "s4_p2": "En pratique : le fisc belge sait déjà que vous avez ce compte. La déclaration est une formalité de conformité, pas une révélation.",
     "s4_warning_title": "Ne pas déclarer expose à :",
-    "s4_bullet1": "Une amende de €100 à €1.000 par compte non déclaré",
+    "s4_bullet1": "Une amende administrative de €50 à €1.250 par compte non déclaré",
     "s4_bullet2": "Un risque d'imposition majorée sur les revenus non déclarés",
     "disclaimer": "Ces informations sont fournies à titre éducatif et reflètent les obligations en vigueur en 2026. Les procédures administratives peuvent évoluer — vérifiez toujours les instructions actuelles sur cappcc.nbb.be et minfin.fgov.be.",
     "cta_brokers": "Comparer les brokers →",
@@ -1160,7 +1160,7 @@
     "s2_pt2_body": "Un retrait anticipé est généralement impossible ou pénalisé. Votre capital est verrouillé jusqu'à l'échéance contractuelle.",
     "s2_verdict_label": "Verdict",
     "s2_verdict_p1": "Dans presque tous les cas, un bon de caisse ou compte à terme est inférieur à une alternative plus simple.",
-    "s2_verdict_p2": "Après le précompte mobilier de 30%, un taux brut de 3,10% devient 2,17% net — tout en bloquant votre capital. Un ETF monétaire comme CSH2 offre un rendement proche du taux directeur de la BCE — généralement supérieur aux meilleurs comptes à terme après impôt, tout en restant totalement liquide et sans déclencher de précompte annuel.",
+    "s2_verdict_p2": "Après le précompte mobilier de 30%, un taux brut de 3,10% devient 2,17% net — tout en bloquant votre capital. Un ETF monétaire comme CSH2 offre un rendement proche du taux directeur de la BCE — comparable à un compte à terme après impôt (en octobre 2026, ~2,3% net contre 2,24% net pour un dépôt à 1 an à 3,20% brut), tout en restant totalement liquide et sans déclencher de précompte annuel.",
     "s2_verdict_p3": "Le seul argument pour un bon de caisse serait de ne pas vouloir ouvrir un compte chez un broker. Dans ce cas, un compte épargne à taux élevé (vdk Rythme, Belfius Flow) reste plus flexible pour le même profil de risque.",
     "s3_title": "La branche 21 — sécurité à quel prix ?",
     "s3_title_sub": "(assurance-épargne, pas un produit bancaire au sens strict)",
@@ -1568,10 +1568,10 @@
         "tagline": "Percevoir un revenu régulier",
         "description": "Sélection d'entreprises mondiales à dividendes élevés. Distribue les dividendes régulièrement, ce qui procure un flux de revenus. Fiscalement moins efficace qu'un ETF accumulant en Belgique.",
         "historicalReturnNote": "Rendement total avant la taxe de 30% sur les dividendes. Après fiscalité belge, le rendement effectif est significativement inférieur",
-        "why_0": "Revenu passif régulier : VHYL verse des dividendes trimestriellement (~4%/an de rendement en dividendes) — utile pour les investisseurs ayant besoin de liquidités régulières sans vendre leurs parts.",
+        "why_0": "Revenu passif régulier : VHYL verse des dividendes trimestriellement (~2,6%/an de rendement en dividendes en 2026) — utile pour les investisseurs ayant besoin de liquidités régulières sans vendre leurs parts.",
         "why_1": "Diversification mondiale orientée revenus : l'ETF sélectionne des entreprises mondiales à dividendes élevés — utilities, financières, énergie — dans ~50 pays développés et émergents.",
         "why_2": "TOB de 0,12% : VHYL bénéficie du TOB réduit de 0,12%, contrairement à certains ETFs équivalents.",
-        "why_3": "⚠️ Avertissement fiscal important : en Belgique, chaque dividende d'ETF perçu est soumis au précompte mobilier de 30% dès le premier centime. L'exonération sur les premiers 833 € de dividendes annuels ne s'applique qu'aux actions individuelles — pas aux ETF ni aux fonds d'investissement. Cette exclusion est explicite dans le code fiscal belge. Sur un rendement dividende de ~4%, cette taxe représente ~1,2% de frais annuels supplémentaires par rapport à un ETF accumulant équivalent — un impact significatif sur 20 ans.",
+        "why_3": "⚠️ Avertissement fiscal important : en Belgique, chaque dividende d'ETF perçu est soumis au précompte mobilier de 30% dès le premier centime. L'exonération sur les premiers 833 € de dividendes annuels ne s'applique qu'aux actions individuelles — pas aux ETF ni aux fonds d'investissement. Cette exclusion est explicite dans le code fiscal belge. Sur un rendement dividende de ~2,6%, cette taxe représente ~0,8% de frais annuels supplémentaires par rapport à un ETF accumulant équivalent — un impact significatif sur 20 ans.",
         "alt_0_ticker": "IWDA",
         "alt_0_pro_0": "Zéro précompte sur les dividendes (accumulant)",
         "alt_0_pro_1": "Rendement total historiquement supérieur (croissance + dividendes réinvestis)",
@@ -1593,7 +1593,7 @@
         "tagline": "Une alternative liquide au compte épargne",
         "description": "Une alternative intelligente au compte épargne belge. CSH2 suit le taux interbancaire européen (€STR), offrant des rendements proches du taux directeur de la BCE avec une volatilité quasi nulle et une liquidité totale.",
         "historicalReturnNote": "Suit le taux €STR (anciennement EONIA). Rendement variable selon le taux directeur BCE",
-        "why_0": "Rendement ≈ taux €STR moins 0,10% de frais — environ 2,3% net en octobre 2026 (taux de dépôt BCE : 2,50%). C'est moins que les meilleurs comptes épargne avec prime de fidélité (jusqu'à ~2,85%), mais sans plafond de versement, sans condition de 12 mois et sans perte de prime en cas de retrait.",
+        "why_0": "Rendement ≈ taux €STR moins 0,10% de frais — environ 2,3% net en octobre 2026 (taux de dépôt BCE : 2,50%). C'est moins que les meilleurs comptes épargne avec prime de fidélité (jusqu'à ~3,3% en octobre 2026), mais sans plafond de versement, sans condition de 12 mois et sans perte de prime en cas de retrait.",
         "why_1": "Totalement liquide — vendable n'importe quel jour de bourse sans perte d'intérêts courus, contrairement aux bons de caisse",
         "why_2": "Structure synthétique : CSH2 détient un panier d'actions et reçoit le taux €STR via un swap. Le fonds ne détient donc pas de créances en direct — la taxe Reynders n'est en principe pas due, et la plupart des courtiers belges ne la retiennent pas. C'est précisément pour cette raison que nous préférons CSH2 à XEON, sur lequel de nombreux courtiers appliquent la taxe Reynders.",
         "why_3": "Taxe principale : TOB 0,12% à l'achat et à la vente — pas de précompte mobilier annuel, pas de taxe sur plus-values (sous le seuil de 10 000 €). Reynders : en principe non applicable, mais traitement fiscal à surveiller.",
@@ -1640,25 +1640,13 @@
       "savings-medirect": {
         "name": "Compte Épargne MeDirect (Fidelity Épargne)"
       },
-      "bon-caisse-kbc-1yr": {
-        "name": "Bon de Caisse KBC (1 an)"
+      "depot-terme-argenta-1yr": {
+        "name": "Dépôt à terme Argenta (1 an)"
       },
-      "bon-caisse-kbc-3yr": {
-        "name": "Bon de Caisse KBC (3 ans)"
+      "depot-terme-argenta-5yr": {
+        "name": "Dépôt à terme Argenta (5 ans)"
       },
-      "bon-caisse-kbc-5yr": {
-        "name": "Bon de Caisse KBC (5 ans)"
-      },
-      "bon-caisse-argenta-1yr": {
-        "name": "Bon de Caisse Argenta (1 an)"
-      },
-      "bon-caisse-argenta-5yr": {
-        "name": "Bon de Caisse Argenta (5 ans)"
-      },
-      "bon-caisse-ing-1yr": {
-        "name": "Bon de Caisse ING (1 an)"
-      },
-      "bon-caisse-beobank-1yr": {
+      "depot-terme-beobank-1yr": {
         "name": "Compte à Terme Beobank (1 an)"
       },
       "branche21": {

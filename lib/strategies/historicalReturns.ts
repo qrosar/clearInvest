@@ -115,7 +115,7 @@ export const STRATEGY_RETURNS: Record<string, PeriodReturns> = {
   // ── S&P 500 (CSPX) ───────────────────────────────────────────────────────────
   // Source: S&P 500 EUR factsheet, December 31 2025 (USD weakness reduces EUR return)
   'biais-us': {
-    y1: 0.079,
+    y1: 0.040,   // 2025 in EUR: ~+18% in USD, minus ~13% EUR/USD appreciation
     y3: 0.157,
     y5: 0.140,
     y10: 0.139,

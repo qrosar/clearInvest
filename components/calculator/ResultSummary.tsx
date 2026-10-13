@@ -135,7 +135,7 @@ function ResultCard({
     rateLabel = t('param_rate_etf');
   } else if (product.subcategory === 'active-fund' || isPensionOnCard) {
     rateLabel = t('param_rate_simulated');
-  } else if (product.id.startsWith('savings-') || product.id.startsWith('bon-caisse-')) {
+  } else if (product.id.startsWith('savings-') || product.id.startsWith('depot-terme-')) {
     rateLabel = t('param_rate_savings');
   } else if (isBranche21) {
     rateLabel = t('param_rate_guaranteed');

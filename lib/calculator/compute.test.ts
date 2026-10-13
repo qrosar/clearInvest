@@ -135,10 +135,10 @@ describe('golden case: €200/month, 20 years, no lump sum', () => {
 
   it('distributing equity ETF withholds précompte on dividends', () => {
     const r = computeGrowth(product('dividendes'), 200, 20, 0);
-    expect(r.taxBreakdown.precompte).toBe(9051);
+    expect(r.taxBreakdown.precompte).toBe(6088);
     expect(r.dividends).toBeDefined();
-    expect(r.dividends!.grossYield).toBeCloseTo(0.04, 5);
-    expect(r.dividends!.netYield).toBeCloseTo(0.04 * 0.7, 5);
+    expect(r.dividends!.grossYield).toBeCloseTo(0.026, 5);
+    expect(r.dividends!.netYield).toBeCloseTo(0.026 * 0.7, 5);
     expect(r.dividends!.netTotal).toBe(
       r.dividends!.grossTotal - r.dividends!.precompte,
     );
@@ -149,15 +149,15 @@ describe('golden case: €200/month, 20 years, no lump sum', () => {
 
   it('regulated savings account taxes interest above the exemption only', () => {
     const r = computeGrowth(product('savings-belfius-flow'), 200, 20, 0);
-    expect(r.taxBreakdown.precompte).toBe(391);
+    expect(r.taxBreakdown.precompte).toBe(783);
     expect(r.taxBreakdown.capitalGainsTax).toBe(0);
     expect(r.sellTaxes).toBe(0);
   });
 
   it('term deposit taxes interest from the first euro', () => {
-    const r = computeGrowth(product('bon-caisse-kbc-5yr'), 200, 20, 0);
-    expect(r.taxBreakdown.precompte).toBe(6392);
-    expect(r.taxBreakdown.total).toBe(6392);
+    const r = computeGrowth(product('depot-terme-argenta-5yr'), 200, 20, 0);
+    expect(r.taxBreakdown.precompte).toBe(6113);
+    expect(r.taxBreakdown.total).toBe(6113);
   });
 
   it('branche 21 charges the 2% premium tax on every deposit', () => {

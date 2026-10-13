@@ -40,8 +40,8 @@
     "source_nasdaq": "Nasdaq-100 Index (EUR, total return)",
     "source_estr": "€STR Index (Euro Short-Term Rate)"
   },
-  "p_savings_ing_tempo_cap_note": "Deposit limited to €500 per month.",
-  "p_savings_vdk_cap_note": "Deposit limited to €500 per month.",
+  "p_savings_cap_500_note": "Deposit limited to €500 per month.",
+  "p_savings_cap_600_note": "Deposit limited to €600 per month.",
   "p_branche21_cap_note": "Single or periodic payment according to contract.",
   "p_pension_cap_note": "Payment limited to the annual tax ceiling (€1,050 or €1,350).",
   "p_fonds_bnp_warning": "Note: This fund has historically underperformed its benchmark after fees.",
@@ -259,7 +259,7 @@
     "badge_bank": "Bank",
     "cat_etf": "ETF strategies",
     "cat_savings": "Savings accounts",
-    "cat_bonds": "Term savings (bons de caisse)",
+    "cat_bonds": "Term deposits",
     "cat_branche21": "Branch 21",
     "cat_pension": "Pension savings",
     "cat_active": "Active funds",
@@ -816,7 +816,7 @@
     "s4_p1": "Belgium, like all EU countries, participates in the automatic exchange of tax information between member states (DAC/CRS directive). Your foreign broker shares your data with the tax authorities of its country, which forwards it to the Belgian FPS Finance.",
     "s4_p2": "In practice: the Belgian tax authorities already know you have this account. The declaration is a compliance formality, not a revelation.",
     "s4_warning_title": "Failing to declare exposes you to:",
-    "s4_bullet1": "A fine of €100 to €1,000 per undeclared account",
+    "s4_bullet1": "An administrative fine of €50 to €1,250 per undeclared account",
     "s4_bullet2": "A risk of increased taxation on undeclared income",
     "disclaimer": "This information is provided for educational purposes and reflects the obligations in force in 2026. Administrative procedures may change — always check the current instructions at cappcc.nbb.be and minfin.fgov.be.",
     "cta_brokers": "Compare the brokers →",
@@ -1230,10 +1230,10 @@
         "tagline": "Receive a regular income",
         "description": "Selection of global companies with high dividends. Distributes dividends regularly, providing an income stream. Tax-inefficient compared to an accumulating ETF in Belgium.",
         "historicalReturnNote": "Total return before 30% tax on dividends. After Belgian taxation, the effective return is significantly lower",
-        "why_0": "Regular passive income: VHYL pays dividends quarterly (~4%/year dividend yield) — useful for investors needing regular liquidity without selling their shares.",
+        "why_0": "Regular passive income: VHYL pays dividends quarterly (~2.6%/year dividend yield in 2026) — useful for investors needing regular liquidity without selling their shares.",
         "why_1": "Income-oriented global diversification: the ETF selects global companies with high dividends — utilities, financials, energy — in ~50 developed and emerging countries.",
         "why_2": "0.12% TOB: VHYL benefits from the reduced 0.12% TOB, unlike some equivalent ETFs.",
-        "why_3": "⚠️ Important tax warning: in Belgium, each ETF dividend received is subject to 30% withholding tax from the very first cent. The exemption on the first €833 of annual dividends applies only to individual shares — not to ETFs or investment funds. This exclusion is explicit in Belgian tax law. On a ~4% dividend yield, this tax represents ~1.2% in extra annual costs compared to an equivalent accumulating ETF — a significant impact over 20 years.",
+        "why_3": "⚠️ Important tax warning: in Belgium, each ETF dividend received is subject to 30% withholding tax from the very first cent. The exemption on the first €833 of annual dividends applies only to individual shares — not to ETFs or investment funds. This exclusion is explicit in Belgian tax law. On a ~2.6% dividend yield, this tax represents ~0.8% in extra annual costs compared to an equivalent accumulating ETF — a significant impact over 20 years.",
         "alt_0_ticker": "IWDA",
         "alt_0_pro_0": "Zero withholding tax on dividends (accumulating)",
         "alt_0_pro_1": "Historically higher total return (growth + reinvested dividends)",
@@ -1255,7 +1255,7 @@
         "tagline": "A liquid alternative to the savings account",
         "description": "A smart alternative to the Belgian savings account. CSH2 tracks the European interbank rate (€STR) and offers returns close to the ECB policy rate with near-zero volatility and full liquidity.",
         "historicalReturnNote": "Tracks the €STR rate (formerly EONIA). Yield varies according to the ECB policy rate",
-        "why_0": "Yield ≈ the €STR rate minus 0.10% in fees — about 2.3% net in October 2026 (ECB deposit rate: 2.50%). That is less than the best savings accounts with a loyalty bonus (up to ~2.85%), but with no deposit cap, no 12-month condition and no lost bonus when you withdraw.",
+        "why_0": "Yield ≈ the €STR rate minus 0.10% in fees — about 2.3% net in October 2026 (ECB deposit rate: 2.50%). That is less than the best savings accounts with a loyalty bonus (up to ~3.3% in October 2026), but with no deposit cap, no 12-month condition and no lost bonus when you withdraw.",
         "why_1": "Fully liquid — sellable any business day without loss of accrued interest, unlike bons de caisse",
         "why_2": "Synthetic structure: CSH2 holds a basket of equities and receives the €STR rate through a swap. The fund therefore holds no debt claims directly — the Reynders tax is in principle not due, and most Belgian brokers do not withhold it. This is precisely why we prefer CSH2 over XEON, on which many brokers do apply the Reynders tax.",
         "why_3": "Main tax: 0.12% TOB on purchase and sale — no annual withholding tax, no capital gains tax (below the €10,000 threshold). Reynders: in principle not applicable, but tax treatment to be monitored.",
@@ -1296,25 +1296,13 @@
       "savings-medirect": {
         "name": "MeDirect Savings Account (Fidelity Savings)"
       },
-      "bon-caisse-kbc-1yr": {
-        "name": "KBC Savings Bond (1 year)"
+      "depot-terme-argenta-1yr": {
+        "name": "Argenta Term Deposit (1 year)"
       },
-      "bon-caisse-kbc-3yr": {
-        "name": "KBC Savings Bond (3 years)"
+      "depot-terme-argenta-5yr": {
+        "name": "Argenta Term Deposit (5 years)"
       },
-      "bon-caisse-kbc-5yr": {
-        "name": "KBC Savings Bond (5 years)"
-      },
-      "bon-caisse-argenta-1yr": {
-        "name": "Argenta Savings Bond (1 year)"
-      },
-      "bon-caisse-argenta-5yr": {
-        "name": "Argenta Savings Bond (5 years)"
-      },
-      "bon-caisse-ing-1yr": {
-        "name": "ING Savings Bond (1 year)"
-      },
-      "bon-caisse-beobank-1yr": {
+      "depot-terme-beobank-1yr": {
         "name": "Beobank Term Account (1 year)"
       },
       "branche21": {
@@ -1672,7 +1660,7 @@
     "s2_pt2_body": "Early withdrawal is generally impossible or penalised. Your capital is locked until the contractual maturity.",
     "s2_verdict_label": "Verdict",
     "s2_verdict_p1": "In almost all cases, a savings bond or term account is inferior to a simpler alternative.",
-    "s2_verdict_p2": "After the 30% withholding tax, a 3.10% gross rate becomes 2.17% net — all while locking your capital. A money market ETF like CSH2 offers a return close to the ECB policy rate — generally higher than the best term accounts after tax, while remaining totally liquid and without triggering annual withholding tax.",
+    "s2_verdict_p2": "After the 30% withholding tax, a 3.10% gross rate becomes 2.17% net — all while locking your capital. A money market ETF like CSH2 offers a return close to the ECB policy rate — comparable to a term deposit after tax (in October 2026, ~2.3% net versus 2.24% net for a 1-year deposit at 3.20% gross), while remaining totally liquid and without triggering annual withholding tax.",
     "s2_verdict_p3": "The only argument for a savings bond would be not wanting to open an account with a broker. In this case, a high-rate savings account (vdk Rythme, Belfius Flow) remains more flexible for the same risk profile.",
     "s3_title": "Branch 21 — security at what price?",
     "s3_title_sub": "(savings-insurance, not a banking product in the strict sense)",

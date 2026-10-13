@@ -40,8 +40,8 @@
     "source_nasdaq": "Nasdaq-100 Index (EUR, total return)",
     "source_estr": "€STR Index (Euro Short-Term Rate)"
   },
-  "p_savings_ing_tempo_cap_note": "Storting beperkt tot €500 per maand.",
-  "p_savings_vdk_cap_note": "Storting beperkt tot €500 per maand.",
+  "p_savings_cap_500_note": "Storting beperkt tot €500 per maand.",
+  "p_savings_cap_600_note": "Storting beperkt tot €600 per maand.",
   "p_branche21_cap_note": "Eenmalige of periodieke storting volgens contract.",
   "p_pension_cap_note": "Storting beperkt tot het jaarlijkse fiscale plafond (€1.050 of €1.350).",
   "p_fonds_bnp_warning": "Opmerking: Dit fonds heeft historisch gezien slechter gepresteerd dan zijn referentie-index na kosten.",
@@ -259,7 +259,7 @@
     "badge_bank": "Bank",
     "cat_etf": "ETF-strategieën",
     "cat_savings": "Spaarrekeningen",
-    "cat_bonds": "Kassebon",
+    "cat_bonds": "Termijnrekeningen",
     "cat_branche21": "Tak 21",
     "cat_pension": "Pensioensparen",
     "cat_active": "Actieve fondsen",
@@ -816,7 +816,7 @@
     "s4_p1": "België neemt, net als alle EU-landen, deel aan de automatische uitwisseling van fiscale informatie tussen lidstaten (DAC/CRS-richtlijn). Uw buitenlandse broker deelt uw gegevens met de belastingautoriteiten van zijn land, die ze doorsturen naar de Belgische FOD Financiën.",
     "s4_p2": "In de praktijk: de Belgische fiscus weet al dat u deze rekening heeft. De aangifte is een nalevingsformaliteit, geen onthulling.",
     "s4_warning_title": "Niet aangeven stelt u bloot aan:",
-    "s4_bullet1": "Een boete van €100 tot €1.000 per niet-aangegeven rekening",
+    "s4_bullet1": "Een administratieve boete van €50 tot €1.250 per niet-aangegeven rekening",
     "s4_bullet2": "Een risico op verhoogde belasting op niet-aangegeven inkomsten",
     "disclaimer": "Deze informatie wordt verstrekt voor educatieve doeleinden en weerspiegelt de verplichtingen van kracht in 2026. Administratieve procedures kunnen wijzigen — controleer altijd de actuele instructies op cappcc.nbb.be en minfin.fgov.be.",
     "cta_brokers": "Brokers vergelijken →",
@@ -1230,10 +1230,10 @@
         "tagline": "Een regelmatig inkomen ontvangen",
         "description": "Selectie van wereldwijde bedrijven met hoge dividenden. Keert regelmatig dividenden uit, wat zorgt voor een inkomstenstroom. Fiscaal minder efficiënt dan een accumulerende ETF in België.",
         "historicalReturnNote": "Totaal rendement vóór de belasting van 30% op dividenden. Na Belgische fiscaliteit is het effectieve rendement aanzienlijk lager",
-        "why_0": "Regelmatig passief inkomen: VHYL keert driemaandelijks dividenden uit (~4% dividendrendement per jaar) — nuttig voor beleggers die regelmatige liquiditeit nodig hebben zonder hun aandelen te verkopen.",
+        "why_0": "Regelmatig passief inkomen: VHYL keert driemaandelijks dividenden uit (~2,6% dividendrendement per jaar in 2026) — nuttig voor beleggers die regelmatige liquiditeit nodig hebben zonder hun aandelen te verkopen.",
         "why_1": "Wereldwijde inkomstengerichte diversificatie: de ETF selecteert wereldwijde bedrijven met hoge dividenden — nutsbedrijven, financiële instellingen, energie — in ~50 ontwikkelde en opkomende landen.",
         "why_2": "TOB van 0,12%: VHYL profiteert van de verlaagde TOB van 0,12%, in tegenstelling tot sommige gelijkwaardige ETF's.",
-        "why_3": "⚠️ Belangrijke fiscale waarschuwing: in België is elk ontvangen ETF-dividend onderworpen aan 30% roerende voorheffing vanaf de eerste cent. De vrijstelling voor de eerste 833 € aan jaarlijkse dividenden geldt alleen voor individuele aandelen — niet voor ETF's of beleggingsfondsen. Deze uitsluiting is expliciet in de Belgische fiscale wetgeving. Bij een dividendrendement van ~4% betekent deze belasting ~1,2% extra jaarlijkse kosten ten opzichte van een gelijkwaardige accumulerende ETF — een aanzienlijke impact over 20 jaar.",
+        "why_3": "⚠️ Belangrijke fiscale waarschuwing: in België is elk ontvangen ETF-dividend onderworpen aan 30% roerende voorheffing vanaf de eerste cent. De vrijstelling voor de eerste 833 € aan jaarlijkse dividenden geldt alleen voor individuele aandelen — niet voor ETF's of beleggingsfondsen. Deze uitsluiting is expliciet in de Belgische fiscale wetgeving. Bij een dividendrendement van ~2,6% betekent deze belasting ~0,8% extra jaarlijkse kosten ten opzichte van een gelijkwaardige accumulerende ETF — een aanzienlijke impact over 20 jaar.",
         "alt_0_ticker": "IWDA",
         "alt_0_pro_0": "Geen roerende voorheffing op dividenden (accumulerend)",
         "alt_0_pro_1": "Historisch hoger totaal rendement (groei + herbelegde dividenden)",
@@ -1255,7 +1255,7 @@
         "tagline": "Een liquide alternatief voor de spaarrekening",
         "description": "Een slim alternatief voor de Belgische spaarrekening. CSH2 volgt de Europese interbank rate (€STR) and biedt rendementen die dicht bij de beleidsrente van de ECB liggen, met vrijwel nul volatiliteit en volledige liquiditeit.",
         "historicalReturnNote": "Volgt de €STR-rente (voorheen EONIA). Rendement varieert volgens de ECB-beleidsrente",
-        "why_0": "Rendement ≈ €STR-rente min 0,10% kosten — ongeveer 2,3% netto in oktober 2026 (ECB-depositorente: 2,50%). Dat is minder dan de beste spaarrekeningen met getrouwheidspremie (tot ~2,85%), maar zonder stortingsplafond, zonder 12-maandenvoorwaarde en zonder verlies van premie bij opname.",
+        "why_0": "Rendement ≈ €STR-rente min 0,10% kosten — ongeveer 2,3% netto in oktober 2026 (ECB-depositorente: 2,50%). Dat is minder dan de beste spaarrekeningen met getrouwheidspremie (tot ~3,3% in oktober 2026), maar zonder stortingsplafond, zonder 12-maandenvoorwaarde en zonder verlies van premie bij opname.",
         "why_1": "Volledig liquide — verkoopbaar op elke beursdag zonder verlies van opgelopen rente, in tegenstelling tot kassebons",
         "why_2": "Synthetische structuur: CSH2 houdt een mandje aandelen aan en ontvangt de €STR-rente via een swap. Het fonds houdt dus geen schuldvorderingen rechtstreeks aan — de Reynders-taks is in principe niet verschuldigd en de meeste Belgische brokers houden ze niet in. Precies daarom verkiezen wij CSH2 boven XEON, waarop veel brokers de Reynders-taks wél toepassen.",
         "why_3": "Belangrijkste belasting: TOB 0,12% bij aankoop en verkoop — geen jaarlijkse roerende voorheffing, geen meerwaardebelasting (onder de drempel van €10.000). Reynders: in principe niet van toepassing, maar fiscale behandeling op te volgen.",
@@ -1296,25 +1296,13 @@
       "savings-medirect": {
         "name": "MeDirect Spaarrekening (Fidelity Sparen)"
       },
-      "bon-caisse-kbc-1yr": {
-        "name": "KBC Kasbon (1 jaar)"
+      "depot-terme-argenta-1yr": {
+        "name": "Argenta Termijndeposito (1 jaar)"
       },
-      "bon-caisse-kbc-3yr": {
-        "name": "KBC Kasbon (3 jaar)"
+      "depot-terme-argenta-5yr": {
+        "name": "Argenta Termijndeposito (5 jaar)"
       },
-      "bon-caisse-kbc-5yr": {
-        "name": "KBC Kasbon (5 jaar)"
-      },
-      "bon-caisse-argenta-1yr": {
-        "name": "Argenta Kasbon (1 jaar)"
-      },
-      "bon-caisse-argenta-5yr": {
-        "name": "Argenta Kasbon (5 jaar)"
-      },
-      "bon-caisse-ing-1yr": {
-        "name": "ING Kasbon (1 jaar)"
-      },
-      "bon-caisse-beobank-1yr": {
+      "depot-terme-beobank-1yr": {
         "name": "Beobank Termijnrekening (1 jaar)"
       },
       "branche21": {
@@ -1672,7 +1660,7 @@
     "s2_pt2_body": "Vervroegde opname is over het algemeen onmogelijk of wordt bestraft. Uw kapitaal zit op slot tot de contractuele vervaldag.",
     "s2_verdict_label": "Verdict",
     "s2_verdict_p1": "In bijna alle gevallen is een kasbon of termijnrekening inferieur aan een eenvoudiger alternatief.",
-    "s2_verdict_p2": "Na de roerende voorheffing van 30% wordt een bruto rente van 3,10% een netto rente van 2,17% — terwijl uw kapitaal geblokkeerd is. Een geldmarkt-ETF zoals CSH2 biedt een rendement dat de beleidsrente van de ECB benadert — over het algemeen hoger dan de beste termijnrekeningen na belasting, terwijl het volledig liquide blijft en geen jaarlijkse roerende voorheffing triggert.",
+    "s2_verdict_p2": "Na de roerende voorheffing van 30% wordt een bruto rente van 3,10% een netto rente van 2,17% — terwijl uw kapitaal geblokkeerd is. Een geldmarkt-ETF zoals CSH2 biedt een rendement dat de beleidsrente van de ECB benadert — vergelijkbaar met een termijnrekening na belasting (in oktober 2026 ~2,3% netto tegenover 2,24% netto voor een deposito op 1 jaar aan 3,20% bruto), terwijl het volledig liquide blijft en geen jaarlijkse roerende voorheffing triggert.",
     "s2_verdict_p3": "Het enige argument voor een kasbon zou zijn dat u geen rekening wilt openen bij een broker. In dat geval blijft een spaarrekening met hoge rente (vdk Ritme, Belfius Flow) flexibeler voor hetzelfde risicoprofiel.",
     "s3_title": "Tak 21 — veiligheid aan welke prijs ?",
     "s3_title_sub": "(spaarverzekering, geen bankproduct in strikte zin)",
